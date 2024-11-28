@@ -13,7 +13,7 @@ model:
   num_query_token: 32
 
   # llama2
-  llm_model: "/workspace/SkinGPT-4/Llama2-13b-chat-hf"
+  llm_model: "meta-llama/Llama-2-13b-chat-hf"
 
   # generation configs
   prompt: ""
