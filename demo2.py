@@ -1,7 +1,7 @@
 import argparse
 import os
 import random
-
+import csv
 import numpy as np
 import torch
 import torch.backends.cudnn as cudnn
@@ -43,7 +43,36 @@ def setup_seeds(config):
     cudnn.benchmark = False
     cudnn.deterministic = True
 
+# Process images and save results
+def process_images(image_folder, chat, output_csv):
+    """Process all images in a folder and save results to a CSV."""
+    # Prepare the conversation template
+    conv = CONV_VISION.copy()
+    results = []
 
+    for image_file in os.listdir(image_folder):
+        if image_file.lower().endswith(('png', 'jpg', 'jpeg', 'bmp')):
+            image_path = os.path.join(image_folder, image_file)
+            print(f"Processing: {image_path}")
+
+            # Upload the image and ask the question
+            chat.upload_img(image_path, conv, img_list=[])
+            chat.ask("Describe this condition", conv)
+
+            # Get the model's answer
+            response, _ = chat.answer(conv, img_list=[], max_new_tokens=300)
+
+            # Store the result
+            results.append({"Image": image_file, "Description": response})
+
+    # Write the results to a CSV file
+    with open(output_csv, mode="w", newline="", encoding="utf-8") as csvfile:
+        fieldnames = ["Image", "Description"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(results)
+
+    print(f"Results saved to {output_csv}")
 # ========================================
 #             Model Initialization
 # ========================================
@@ -61,8 +90,11 @@ vis_processor_cfg = cfg.datasets_cfg.cc_sbu_align.vis_processor.train
 vis_processor = registry.get_processor_class(vis_processor_cfg.name).from_config(vis_processor_cfg)
 chat = Chat(model, vis_processor, device='cuda:{}'.format(args.gpu_id))
 print('Initialization Finished')
-
-
+print('Processing Images')
+IMAGE_FOLDER = "images"  # Update this with your folder path
+OUTPUT_CSV = "output_results.csv"
+process_images(IMAGE_FOLDER, chat, OUTPUT_CSV)
+print('Processed Images')
 
 
 
