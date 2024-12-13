@@ -55,11 +55,11 @@ def process_images(image_folder, chat, output_csv):
 
 if __name__ == "__main__":
     # Configuration file path and GPU ID
-    CFG_PATH = "path/to/your/config/file.yaml"  # Update this with your config file path
+    CFG_PATH = "environment.yaml"  # Update this with your config file path
     GPU_ID = 0  # Update this if using a different GPU
 
     # Input image folder and output CSV file
-    IMAGE_FOLDER = "path/to/your/image/folder"  # Update this with your folder path
+    IMAGE_FOLDER = "images"  # Update this with your folder path
     OUTPUT_CSV = "output_results.csv"  # Update this with your desired output CSV file path
 
     # Initialize the Chat instance
