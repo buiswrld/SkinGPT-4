@@ -55,7 +55,7 @@ def process_images(image_folder, chat, output_csv):
 
 if __name__ == "__main__":
     # Configuration file path and GPU ID
-    CFG_PATH = "environment.yaml"  # Update this with your config file path
+    CFG_PATH = "eval_configs/skingpt4_eval_vicuna.yaml"  # Update this with your config file path
     GPU_ID = 0  # Update this if using a different GPU
 
     # Input image folder and output CSV file
