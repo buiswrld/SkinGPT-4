@@ -17,7 +17,7 @@ def process_images(image_folder):
 
                 # Ensure the image is a valid PIL image
                 if isinstance(raw_image, np.ndarray):
-                    print(f"Image {image_file} is a valid PIL Image.")
+                    print(f"Image {image_file} is already in ndarray format.")
                 else:
                     print(f"Image {image_file} is not a valid PIL Image.")
                     continue  # Skip this image if it's not valid
