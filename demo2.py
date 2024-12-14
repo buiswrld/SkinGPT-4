@@ -52,7 +52,7 @@ def process_images(image_folder, chat, output_csv):
 
     for image_file in os.listdir(image_folder):
         if image_file.lower().endswith(('png', 'jpg', 'jpeg', 'bmp')):
-            image_path = os.path.join(image_folder, image_file)
+            image_path = "images/testing_img.jpg"
             print(f"Processing: {image_path}")
 
             # Upload the image and ask the question
