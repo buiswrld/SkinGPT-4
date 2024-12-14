@@ -55,13 +55,6 @@ def process_images(image_folder, chat, output_csv):
             image_path = os.path.join(image_folder, image_file)
             print(f"Processing: {image_path}")
 
-            try:
-                # Open the image using PIL
-                raw_image = Image.open(image_path).convert('RGB')
-            except Exception as e:
-                print(f"Error loading image {image_path}: {e}")
-                continue
-            
             # Upload the image and ask the question
             chat.upload_img(image_path, conv, img_list=[])
             chat.ask("Describe this condition", conv)
