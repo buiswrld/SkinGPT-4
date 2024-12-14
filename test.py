@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+import numpy as np
 
 # Process images and save results
 def process_images(image_folder):
@@ -15,7 +16,7 @@ def process_images(image_folder):
                 raw_image = Image.open(image_path)
 
                 # Ensure the image is a valid PIL image
-                if isinstance(raw_image, Image.Image):
+                if isinstance(raw_image, np.ndarray):
                     print(f"Image {image_file} is a valid PIL Image.")
                 else:
                     print(f"Image {image_file} is not a valid PIL Image.")
