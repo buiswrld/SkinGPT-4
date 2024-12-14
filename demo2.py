@@ -53,6 +53,8 @@ def process_images(image_folder, chat, output_csv):
     """Process all images in a folder and save results to a CSV."""
     # Prepare the conversation template
     conv = CONV_VISION.copy()
+    print("conversation is ")
+
     results = []
 
     for image_file in os.listdir(image_folder):

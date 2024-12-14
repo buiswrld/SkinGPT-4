@@ -179,6 +179,7 @@ class Chat:
     def upload_img(self, image, conv, img_list):
         if isinstance(image, str):  # is a image path
             raw_image = Image.open(image).convert('RGB')
+            print(f'raw image: {raw_image}')
             image = self.vis_processor(raw_image).unsqueeze(0).to(self.device)
         elif isinstance(image, Image.Image):
             raw_image = image
