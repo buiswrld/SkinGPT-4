@@ -66,7 +66,6 @@ def process_images(image_folder, chat, output_csv):
             chat.ask("Describe this condition", conv)
 
             # Get the model's answer
-
             response, _ = chat.answer(
                 conv=conv, img_list=img_list, max_new_tokens=300)
 
