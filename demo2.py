@@ -59,6 +59,7 @@ def process_images(image_folder, chat, output_csv):
 
     for image_file in os.listdir(image_folder):
         if image_file.lower().endswith(('png', 'jpg', 'jpeg', 'bmp')):
+            conv = CONV_VISION.copy()
             image_path = os.path.join(image_folder, image_file)
             print(f"Processing: {image_path}")
 
