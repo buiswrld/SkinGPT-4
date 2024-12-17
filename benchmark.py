@@ -11,9 +11,16 @@ from skingpt4.common.dist_utils import get_rank
 from skingpt4.common.registry import registry
 from skingpt4.conversation.conversation import Chat, CONV_VISION
 from pathlib import Path
-import logging
 from typing import Union, Tuple, Optional
 from tqdm import tqdm
+
+# imports modules for registration
+from skingpt4.datasets.builders import *
+from skingpt4.models import *
+from skingpt4.processors import *
+from skingpt4.runners import *
+from skingpt4.tasks import *
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -24,6 +31,59 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
+
+
+def parse_args():
+    """
+    Parse command line arguments for the SkinGPT-4 demo.
+
+    Args:
+        None
+
+    Returns:
+        argparse.Namespace: Parsed arguments containing:
+            - cfg-path: Path to configuration file
+            - gpu-id: GPU device ID to use
+            - options: Additional configuration overrides
+    """
+    parser = argparse.ArgumentParser(description="Demo")
+    parser.add_argument("--cfg-path", required=True,
+                        help="path to configuration file.")
+    parser.add_argument("--gpu-id", type=int, default=0,
+                        help="specify the gpu to load the model.")
+    parser.add_argument(
+        "--options",
+        nargs="+",
+        help="override some settings in the used config, the key-value pair "
+             "in xxx=yyy format will be merged into config file (deprecate), "
+             "change to --cfg-options instead.",
+    )
+    args = parser.parse_args()
+    return args
+
+
+def setup_seeds(config):
+    """
+    Setup random seeds for reproducibility across all libraries.
+
+    Args:
+        config: Configuration object containing run_cfg.seed setting
+
+    Returns:
+        None
+
+    Note:
+        Sets seeds for random, numpy, and PyTorch libraries
+        Disables CUDNN benchmarking for deterministic behavior
+    """
+    seed = config.run_cfg.seed + get_rank()
+
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+
+    cudnn.benchmark = False
+    cudnn.deterministic = True
 
 
 def process_single_image(
@@ -39,6 +99,12 @@ def process_single_image(
 
     Returns:
         PIL.Image or None if processing fails
+
+    Note:
+        Performs the following operations:
+        1. Opens and converts image to RGB
+        2. Resizes while maintaining aspect ratio
+        3. Pads to target size with black borders
     """
 
     try:
@@ -83,10 +149,13 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
 
     Returns:
         None
+
+    Note:
+        Processes each supported image file (.png, .jpg, .jpeg, .bmp)
+        Saves results in CSV format with columns: Image, Description
+        Logs progress and errors during processing
     """
     logger.info("Starting batch processing of images from %s", image_folder)
-
-    # Prepare the conversation template
     conv = CONV_VISION.copy()
     img_list = []
     results = []
@@ -117,12 +186,11 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
                 # Store the result
                 results.append({"Image": image_file, "Description": response})
 
-            # pylint: disable=broad-except
             except Exception as e:
                 logger.error("Error processing %s: %s", image_file, str(e))
                 continue
 
-    # Write the results to a CSV file
+    # Write results to CSV
     try:
         with open(output_csv, mode="w", newline="", encoding="utf-8") as csvfile:
             fieldnames = ["Image", "Description"]
@@ -130,57 +198,8 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
             writer.writeheader()
             writer.writerows(results)
         logger.info("Results successfully saved to %s", output_csv)
-    # pylint: disable=broad-except
     except Exception as e:
         logger.error("Error saving results to CSV: %s", str(e))
-
-
-def parse_args():
-    """
-    Parse command line arguments.
-
-    Args:
-        None
-
-    Returns:
-        argparse.Namespace: Parsed command line arguments
-    """
-    parser = argparse.ArgumentParser(description="Demo")
-    parser.add_argument("--cfg-path", required=True,
-                        help="path to configuration file.")
-    parser.add_argument("--gpu-id", type=int, default=0,
-                        help="specify the gpu to load the model.")
-    parser.add_argument(
-        "--options",
-        nargs="+",
-        help="override some settings in the used config, the key-value pair "
-             "in xxx=yyy format will be merged into config file (deprecate), "
-             "change to --cfg-options instead.",
-    )
-    args = parser.parse_args()
-    logger.info("Parsed arguments: %s", args)
-    return args
-
-
-def setup_seeds(config):
-    """
-    Setup random seeds for reproducibility.
-
-    Args:
-        config: Configuration object containing run settings
-
-    Returns:
-        None
-    """
-    seed = config.run_cfg.seed + get_rank()
-    logger.info("Setting up random seed: %s", seed)
-
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-
-    cudnn.benchmark = False
-    cudnn.deterministic = True
 
 
 def check_accuracy(predictions_csv: str, ground_truth_csv: str) -> float:
@@ -192,10 +211,14 @@ def check_accuracy(predictions_csv: str, ground_truth_csv: str) -> float:
         ground_truth_csv: Path to CSV file containing correct labels
 
     Returns:
-        float: Accuracy score (0-1)
+        float: Accuracy score between 0 and 1
+
+    Note:
+        Expects CSV files with 'Image' and 'Description' columns
+        Calculates exact match accuracy between predictions and ground truth
+        Returns 0.0 if processing fails
     """
     try:
-        # Read CSVs into dictionaries
         predictions = {}
         ground_truth = {}
 
@@ -209,7 +232,6 @@ def check_accuracy(predictions_csv: str, ground_truth_csv: str) -> float:
             for row in reader:
                 ground_truth[row['Image']] = row['Description']
 
-        # Compare predictions with ground truth
         correct = 0
         total = 0
 
@@ -224,7 +246,6 @@ def check_accuracy(predictions_csv: str, ground_truth_csv: str) -> float:
                     correct, total, accuracy * 100)
 
         return accuracy
-    # pylint: disable=broad-except
     except Exception as e:
         logger.error("Error checking accuracy: %s", str(e))
         return 0.0
@@ -239,10 +260,17 @@ def main():
 
     Returns:
         None
+
+    Flow:
+        1. Parse command line arguments
+        2. Initialize configuration and seeds
+        3. Setup model and chat interface
+        4. Process images from specified folder
+        5. Calculate and report accuracy
+        6. Handles errors with appropriate logging
     """
     logger.info("Starting SkinGPT-4 demo application")
 
-    # Parse arguments and setup
     args = parse_args()
     cfg = Config(args)
     setup_seeds(cfg)
