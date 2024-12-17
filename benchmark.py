@@ -23,11 +23,8 @@ from tqdm import tqdm
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('skingpt4_processing.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("skingpt4_processing.log"), logging.StreamHandler()],
 )
 logger = logging.getLogger(__name__)
 
@@ -42,20 +39,21 @@ def parse_args():
         argparse.Namespace: Parsed command line arguments
     """
     parser = argparse.ArgumentParser(description="Demo")
-    parser.add_argument("--cfg-path", required=True,
-                        help="path to configuration file.")
-    parser.add_argument("--gpu-id", type=int, default=0,
-                        help="specify the gpu to load the model.")
+    parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
+    parser.add_argument(
+        "--gpu-id", type=int, default=0, help="specify the gpu to load the model."
+    )
     parser.add_argument(
         "--options",
         nargs="+",
         help="override some settings in the used config, the key-value pair "
-             "in xxx=yyy format will be merged into config file (deprecate), "
-             "change to --cfg-options instead.",
+        "in xxx=yyy format will be merged into config file (deprecate), "
+        "change to --cfg-options instead.",
     )
     args = parser.parse_args()
     logger.info("Parsed arguments: %s", args)
     return args
+
 
 def process_single_image(
     image_path: Union[str, Path],
@@ -71,10 +69,6 @@ def process_single_image(
     Returns:
         PIL.Image or None if processing fails
     """
-    if not isinstance(image_path, (str, Path)):
-        logger.error("Invalid image_path type: %s", type(image_path))
-        return None
-
     try:
         image_path = Path(image_path)
         if not image_path.exists():
@@ -84,14 +78,13 @@ def process_single_image(
         logger.info("Processing image: %s", image_path)
 
         with Image.open(image_path) as img:
-            if img.mode != 'RGB':
-                img = img.convert('RGB')
+            if img.mode != "RGB":
+                img = img.convert("RGB")
                 logger.debug("Converted image mode to RGB")
 
             # Calculate resize dimensions maintaining aspect ratio
             orig_width, orig_height = img.size
-            ratio = min(target_size[0] / orig_width,
-                        target_size[1] / orig_height)
+            ratio = min(target_size[0] / orig_width, target_size[1] / orig_height)
             new_size = (int(orig_width * ratio), int(orig_height * ratio))
 
             logger.debug("Resizing from %s to %s", img.size, new_size)
@@ -130,12 +123,14 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
     results = []
 
     try:
-        image_files = [f for f in os.listdir(image_folder)
-                       if f.lower().endswith(('png', 'jpg', 'jpeg', 'bmp'))]
+        image_files = [
+            f
+            for f in os.listdir(image_folder)
+            if f.lower().endswith(("png", "jpg", "jpeg", "bmp"))
+        ]
 
         if not image_files:
-            logger.warning(
-                "No supported image files found in %s", image_folder)
+            logger.warning("No supported image files found in %s", image_folder)
             return
 
         for image_file in tqdm(image_files, desc="Processing images"):
@@ -150,8 +145,7 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
                 chat.upload_img(processed_image, conv, img_list)
                 chat.ask("Describe this condition", conv)
 
-                response, _ = chat.answer(
-                    conv, img_list=img_list, max_new_tokens=300)
+                response, _ = chat.answer(conv, img_list=img_list, max_new_tokens=300)
                 results.append({"Image": image_file, "Description": response})
                 logger.debug("Successfully processed %s", image_file)
 
@@ -162,9 +156,12 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
         # Save results
         if results:
             try:
-                with open(output_csv, mode="w", newline="", encoding="utf-8") as csvfile:
-                    writer = csv.DictWriter(csvfile, fieldnames=[
-                                            "Image", "Description"])
+                with open(
+                    output_csv, mode="w", newline="", encoding="utf-8"
+                ) as csvfile:
+                    writer = csv.DictWriter(
+                        csvfile, fieldnames=["Image", "Description"]
+                    )
                     writer.writeheader()
                     writer.writerows(results)
                 logger.info("Results saved to %s", output_csv)
@@ -201,25 +198,27 @@ def check_accuracy(predictions_csv: str, ground_truth_csv: str) -> float:
         predictions = {}
         ground_truth = {}
 
-        with open(predictions_csv, mode='r', encoding='utf-8') as f:
+        with open(predictions_csv, mode="r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
-            predictions = {row['Image']: row['Description'] for row in reader}
+            predictions = {row["Image"]: row["Description"] for row in reader}
 
-        with open(ground_truth_csv, mode='r', encoding='utf-8') as f:
+        with open(ground_truth_csv, mode="r", encoding="utf-8") as f:
             reader = csv.DictReader(f)
-            ground_truth = {row['Image']: row['Description'] for row in reader}
+            ground_truth = {row["Image"]: row["Description"] for row in reader}
 
         if not predictions or not ground_truth:
             logger.warning("Empty predictions or ground truth data")
             return 0.0
 
-        correct = sum(1 for k in ground_truth if k in predictions
-                      and predictions[k] == ground_truth[k])
+        correct = sum(
+            1
+            for k in ground_truth
+            if k in predictions and predictions[k] == ground_truth[k]
+        )
         total = len(ground_truth)
 
         accuracy = correct / total if total > 0 else 0
-        logger.info("Accuracy: %d/%d (%0.2f%%)",
-                    correct, total, accuracy * 100)
+        logger.info("Accuracy: %d/%d (%0.2f%%)", correct, total, accuracy * 100)
 
         return accuracy
 
@@ -232,7 +231,7 @@ def main():
     """
     Main function to run the SkinGPT-4 demo application.
     """
-    logger.info("Starting SkinGPT-4 demo application")
+    logger.info("Starting SkinGPT-4 benchmark application")
     chat = None
     device = None
 
@@ -246,28 +245,29 @@ def main():
 
         # Setup device
         if torch.cuda.is_available():
-            device = f'cuda:{args.gpu_id}'
+            device = f"cuda:{args.gpu_id}"
             torch.cuda.set_device(args.gpu_id)
         else:
-            device = 'cpu'
+            device = "cpu"
             logger.warning("CUDA not available, using CPU")
 
-        logger.info('Initializing Chat on device: %s', device)
+        logger.info("Initializing Chat on device: %s", device)
 
         # Initialize model
         model_config = cfg.model_cfg
         model_config.device_8bit = args.gpu_id
         model_cls = registry.get_model_class(model_config.arch)
-        model = model_cls.from_config(model_config).to(device)
+        model = model_cls.from_config(model_config).to("cuda:{}".format(args.gpu_id))
 
         # Initialize processor
         vis_processor_cfg = cfg.datasets_cfg.cc_sbu_align.vis_processor.train
         vis_processor = registry.get_processor_class(
-            vis_processor_cfg.name).from_config(vis_processor_cfg)
+            vis_processor_cfg.name
+        ).from_config(vis_processor_cfg)
 
         # Initialize chat
-        chat = Chat(model, vis_processor, device=device)
-        logger.info('Chat initialization finished')
+        chat = Chat(model, vis_processor, device="cuda:{}".format(args.gpu_id))
+        logger.info("Chat initialization finished")
 
         # Process images
         image_folder = "images"
@@ -283,15 +283,14 @@ def main():
             accuracy = check_accuracy(output_csv, ground_truth_csv)
             logger.info("Final accuracy: %0.2f%%", accuracy * 100)
         else:
-            logger.warning(
-                "Ground truth file not found, skipping accuracy check")
+            logger.warning("Ground truth file not found, skipping accuracy check")
 
     except Exception as e:
         logger.error("Fatal error: %s", str(e), exc_info=True)
         raise
 
     finally:
-        if chat is not None and hasattr(chat, 'model'):
+        if chat is not None and hasattr(chat, "model"):
             try:
                 chat.model.cpu()
                 if torch.cuda.is_available():
