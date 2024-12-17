@@ -66,19 +66,13 @@ def setup_seeds(config):
         config: Configuration object containing seed settings
     """
     seed = config.run_cfg.seed + get_rank()
-    logger.info("Setting random seed to: %d", seed)
 
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
 
-    if torch.cuda.is_available():
-        torch.cuda.manual_seed(seed)
-        torch.cuda.manual_seed_all(seed)
-
     cudnn.benchmark = False
     cudnn.deterministic = True
-
 
 def process_single_image(
     image_path: Union[str, Path],
