@@ -57,23 +57,6 @@ def parse_args():
     logger.info("Parsed arguments: %s", args)
     return args
 
-
-def setup_seeds(config):
-    """
-    Setup random seeds for reproducibility.
-
-    Args:
-        config: Configuration object containing seed settings
-    """
-    seed = config.run_cfg.seed + get_rank()
-
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-
-    cudnn.benchmark = False
-    cudnn.deterministic = True
-
 def process_single_image(
     image_path: Union[str, Path],
     target_size: Tuple[int, int] = (512, 512),
