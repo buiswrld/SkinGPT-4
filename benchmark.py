@@ -243,7 +243,6 @@ def main():
             raise FileNotFoundError(f"Config file not found: {args.cfg_path}")
 
         cfg = Config(args)
-        setup_seeds(cfg)
 
         # Setup device
         if torch.cuda.is_available():
