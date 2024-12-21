@@ -11,6 +11,8 @@ from skingpt4.common.dist_utils import get_rank
 from skingpt4.common.registry import registry
 from skingpt4.conversation.conversation import Chat, CONV_VISION
 
+from PIL import Image, ImageDraw, ImageFont
+
 # imports modules for registration
 from skingpt4.datasets.builders import *
 from skingpt4.models import *
@@ -75,7 +77,6 @@ def process_images(image_folder, chat, output_csv):
             # Store the result
             results.append({"Image": image_file, "Description": response})
 
-    # Write the results to a CSV file
     with open(output_csv, mode="w", newline="", encoding="utf-8") as csvfile:
         fieldnames = ["Image", "Description"]
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -83,6 +84,21 @@ def process_images(image_folder, chat, output_csv):
         writer.writerows(results)
 
     print(f"Results saved to {output_csv}")
+
+    for result in results:
+        image_file = result["Image"]
+        response = result["Description"]
+        image_path = os.path.join(image_folder, image_file)
+        
+        raw_image = Image.open(image_path).convert('RGB')
+        draw = ImageDraw.Draw(raw_image)
+        font = ImageFont.load_default()
+        text_position = (10, 10) 
+        draw.text(text_position, response, font=font, fill="white")
+
+        # Save the captioned image
+        captioned_image_path = os.path.join("captioned_images", image_file)
+        raw_image.save(captioned_image_path)
 # ========================================
 #             Model Initialization
 # ========================================
