@@ -83,34 +83,9 @@ class skingpt4(Blip2Base):
             logging.info("freeze Qformer")
         print('Loading Q-Former Done')
 
-        print('Loading LLM tokenizer')
-        self.llm_tokenizer = LlamaTokenizer.from_pretrained(llm_model, use_fast=False)
-        self.llm_tokenizer.pad_token = self.llm_tokenizer.eos_token
-
-        print('Loading LLM model')
-        if self.low_resource:
-            self.llm_model = LlamaForCausalLM.from_pretrained(
-                llm_model,
-                torch_dtype=torch.float16,
-                load_in_8bit=True,
-                device_map={'': device_8bit}
-            )
-        else:
-            self.llm_model = LlamaForCausalLM.from_pretrained(
-                llm_model,
-                torch_dtype=torch.float16,
-            )
-
-        for name, param in self.llm_model.named_parameters():
-            param.requires_grad = False
-        print('Loading LLM Done')
-
-        self.llama_proj = nn.Linear(
-            self.Qformer.config.hidden_size, self.llm_model.config.hidden_size
-        )
-        self.max_txt_len = max_txt_len
-        self.end_sym = end_sym
-
+        self.llama_proj = nn.Linear(self.Qformer.config.hidden_size, 512)
+        self.classification_head = nn.Linear(512, 6)
+    
         if prompt_path:
             with open(prompt_path, 'r') as f:
                 raw_prompts = f.read().splitlines()
@@ -167,6 +142,11 @@ class skingpt4(Blip2Base):
 
     def forward(self, samples):
         image = samples["image"]
+        img_embeds, _ = self.encode_img(image)
+        logits = self.classification_head(img_embeds)
+        return logits
+        '''
+        image = samples["image"]
         img_embeds, atts_img = self.encode_img(image)
         if hasattr(samples, 'question_split'):  # VQA dataset
             print('VQA Batch')
@@ -220,6 +200,7 @@ class skingpt4(Blip2Base):
         loss = outputs.loss
 
         return {"loss": loss}
+        '''
 
     @classmethod
     def from_config(cls, cfg):
