@@ -92,7 +92,7 @@ def process_images(image_folder, chat, output_csv, output_folder):
             # Upload the image and ask the question
             img_list = []
             chat.upload_img(image=image_path, conv=conv, img_list=img_list)
-            chat.ask("Describe this condition", conv)
+            chat.ask("Could you describe the skin disease in this image for me?", conv)
 
             # Get the model's answer
             response, _ = chat.answer(
