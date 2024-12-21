@@ -5,7 +5,7 @@ import csv
 import numpy as np
 import torch
 import torch.backends.cudnn as cudnn
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 from skingpt4.common.config import Config
 from skingpt4.common.dist_utils import get_rank
 from skingpt4.common.registry import registry
@@ -17,7 +17,6 @@ from skingpt4.models import *
 from skingpt4.processors import *
 from skingpt4.runners import *
 from skingpt4.tasks import *
-
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Demo")
@@ -35,7 +34,6 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-
 def setup_seeds(config):
     seed = config.run_cfg.seed + get_rank()
 
@@ -46,11 +44,39 @@ def setup_seeds(config):
     cudnn.benchmark = False
     cudnn.deterministic = True
 
+# Add captions to images
+def add_caption_to_image(image_path, caption, output_folder):
+    """Add a caption to the bottom of an image and save the modified image."""
+    try:
+        img = Image.open(image_path).convert("RGB")
+        draw = ImageDraw.Draw(img)
+        
+        # Set font and calculate text size
+        font = ImageFont.truetype("arial.ttf", 20)  # Adjust font size as needed
+        text_width, text_height = draw.textsize(caption, font=font)
+
+        # Create a new image with extra space for the caption
+        new_height = img.height + text_height + 20  # Adding padding
+        new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
+        new_img.paste(img, (0, 0))
+
+        # Draw the caption at the bottom center
+        text_x = (img.width - text_width) // 2
+        text_y = img.height + 10  # Adding padding
+        draw = ImageDraw.Draw(new_img)
+        draw.text((text_x, text_y), caption, font=font, fill="black")
+
+        # Save the new image
+        os.makedirs(output_folder, exist_ok=True)
+        output_path = os.path.join(output_folder, os.path.basename(image_path))
+        new_img.save(output_path)
+        print(f"Caption added and saved to {output_path}")
+    except Exception as e:
+        print(f"Error adding caption to {image_path}: {e}")
+
 # Process images and save results
-
-
-def process_images(image_folder, chat, output_csv):
-    """Process all images in a folder and save results to a CSV."""
+def process_images(image_folder, chat, output_csv, output_folder):
+    """Process all images in a folder and save results to a CSV and images with captions."""
     # Prepare the conversation template
     conv = CONV_VISION.copy()
     print("conversation is ")
@@ -75,6 +101,9 @@ def process_images(image_folder, chat, output_csv):
             # Store the result
             results.append({"Image": image_file, "Description": response})
 
+            # Add caption to image
+            add_caption_to_image(image_path, response, output_folder)
+
     # Write the results to a CSV file
     with open(output_csv, mode="w", newline="", encoding="utf-8") as csvfile:
         fieldnames = ["Image", "Description"]
@@ -83,11 +112,10 @@ def process_images(image_folder, chat, output_csv):
         writer.writerows(results)
 
     print(f"Results saved to {output_csv}")
+
 # ========================================
 #             Model Initialization
 # ========================================
-
-
 print('Initializing Chat')
 args = parse_args()
 cfg = Config(args)
@@ -103,7 +131,12 @@ vis_processor = registry.get_processor_class(
 chat = Chat(model, vis_processor, device='cuda:{}'.format(args.gpu_id))
 print('Initialization Finished')
 print('Processing Images')
+
+# Input and output paths
 IMAGE_FOLDER = "images"  # Update this with your folder path
 OUTPUT_CSV = "output_results.csv"
-process_images(IMAGE_FOLDER, chat, OUTPUT_CSV)
+OUTPUT_FOLDER = "output_images"  # Folder for images with captions
+
+# Process images
+process_images(IMAGE_FOLDER, chat, OUTPUT_CSV, OUTPUT_FOLDER)
 print('Processed Images')
