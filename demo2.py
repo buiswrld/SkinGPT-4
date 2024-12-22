@@ -125,7 +125,7 @@ def process_images_from_csv(csv_file, chat, output_csv, output_folder):
         for row in reader:
             # Grabbing only the filename from the CSV (the first column)
             image_filename = row[0].split("/")[-1]  # This extracts just the file name from the path
-            image_path = os.path.join("scin_images", image_filename)  # Build the path to the file in the 'scin_images' folder
+            image_path = os.path.join("images", image_filename)  # Build the path to the file in the 'scin_images' folder
             
             if os.path.exists(image_path):
                 conv = CONV_VISION.copy()
@@ -177,7 +177,7 @@ print("Initialization Finished")
 print("Processing Images")
 
 # Input and output paths
-CSV_FILE = "sampled_image_ids.csv"  # Path to your CSV file
+CSV_FILE = "sampled_image.csv"  # Path to your CSV file
 OUTPUT_CSV = "output_results.csv"
 OUTPUT_FOLDER = "output_images"  # Folder for images with captions
 
