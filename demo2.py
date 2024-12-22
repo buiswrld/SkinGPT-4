@@ -58,11 +58,17 @@ def add_caption_to_image(image_path, caption, output_folder):
         new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
         new_img.paste(img, (0, 0))
 
-        # Draw the caption at the bottom center
+        # Ensure the caption is centered horizontally
         text_x = (img.width - text_width) // 2
-        text_y = img.height + 10  # Adding padding
+        text_y = img.height + 10  # Adding padding to the bottom
+
+        # Draw the caption at the bottom center
         draw = ImageDraw.Draw(new_img)
         draw.text((text_x, text_y), caption, font=font, fill="black")
+
+        # Ensure that the caption is not cut off on the right by adjusting the image width if needed
+        if text_x + text_width > img.width:
+            new_img = new_img.resize((text_x + text_width, new_height), Image.ANTIALIAS)
 
         # Save the new image
         os.makedirs(output_folder, exist_ok=True)
