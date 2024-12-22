@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Union, Tuple, Optional
 from tqdm import tqdm
 import torch.backends.cudnn as cudnn
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 import logging
 
 # imports modules for registration
@@ -73,6 +73,74 @@ def setup_seeds(config):
     cudnn.deterministic = True
 
 
+def add_caption_to_image(image_path, caption, output_folder):
+    """Add a caption to the bottom of an image and save the modified image with multi-line support."""
+    try:
+        img = Image.open(image_path).convert("RGB")
+        draw = ImageDraw.Draw(img)
+
+        # Use PIL default font
+        font = ImageFont.load_default()
+
+        # Calculate text size and wrap the caption into multiple lines if needed
+        max_width = img.width - 20  # Margin for padding
+        lines = []
+        current_line = ""
+
+        for word in caption.split():
+            # Add word to current line
+            test_line = f"{current_line} {word}".strip()
+            # Check if the line is too wide
+            bbox = draw.textbbox((0, 0), test_line, font=font)
+            text_width = bbox[2] - bbox[0]
+
+            if text_width <= max_width:
+                current_line = test_line  # Continue adding to the current line
+            else:
+                # If the line is too wide, start a new line
+                if current_line:
+                    lines.append(current_line)
+                current_line = word
+
+        # Add the last line
+        if current_line:
+            lines.append(current_line)
+
+        # Calculate total text height
+        text_height = sum(
+            [
+                draw.textbbox((0, 0), line, font=font)[3]
+                - draw.textbbox((0, 0), line, font=font)[1]
+                for line in lines
+            ]
+        )
+
+        # Create a new image with extra space for the caption
+        new_height = (
+            img.height + text_height + len(lines) * 10 + 20
+        )  # Add padding between lines
+        new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
+        new_img.paste(img, (0, 0))
+        draw = ImageDraw.Draw(new_img)
+        # Draw the multi-line caption at the bottom center
+        text_y = img.height + 10  # Padding to the bottom
+        for line in lines:
+            # Calculate the position for each line (centered)
+            bbox = draw.textbbox((0, 0), line, font=font)
+            text_width = bbox[2] - bbox[0]
+            text_x = (img.width - text_width) // 2  # Center the text horizontally
+            draw.text((text_x, text_y), line, font=font, fill="black")
+            text_y += bbox[3] - bbox[1] + 10  # Move down for the next line
+
+        # Save the new image
+        os.makedirs(output_folder, exist_ok=True)
+        output_path = os.path.join(output_folder, os.path.basename(image_path))
+        new_img.save(output_path)
+        print(f"Caption added and saved to {output_path}")
+    except Exception as e:
+        print(f"Error adding caption to {image_path}: {e}")
+
+
 def process_single_image(
     image_path: Union[str, Path],
     target_size: Tuple[int, int] = (512, 512),
@@ -126,7 +194,9 @@ def process_single_image(
         return None
 
 
-def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
+def process_images(
+    csv_file: str, chat: Chat, output_csv: str, output_folder: str
+) -> None:
     """
     Process all images in a folder and save results to a CSV.
 
@@ -135,45 +205,50 @@ def process_images(image_folder: str, chat: Chat, output_csv: str) -> None:
         chat: Chat instance for LLM processing
         output_csv: Path to output CSV file
     """
-    logger.info("Starting batch processing of images from %s", image_folder)
-
-    if not os.path.exists(image_folder):
-        logger.error("Image folder does not exist: %s", image_folder)
-        return
+    logger.info("Starting batch processing of images from %s", csv_file)
 
     results = []
 
     try:
-        image_files = [
-            f
-            for f in os.listdir(image_folder)
-            if f.lower().endswith(("png", "jpg", "jpeg", "bmp"))
-        ]
+        with open(csv_file, newline="", encoding="utf-8") as f:
+            reader = csv.reader(f)
+            for row in reader:
+                image_filename = row[0].split("/")[
+                    -1
+                ]  # This extracts just the file name from the path
+                image_path = os.path.join(
+                    "images", image_filename
+                )  # Build the path to the file in the 'scin_images' folder
 
-        if not image_files:
-            logger.warning("No supported image files found in %s", image_folder)
-            return
+                if os.path.exists(image_path):
+                    conv = CONV_VISION.copy()
+                    print(f"Processing: {image_path}")
 
-        for image_file in tqdm(image_files, desc="Processing images"):
-            conv = CONV_VISION.copy()
-            img_list = []  # Reset for each image
-            image_path = os.path.join(image_folder, image_file)
+                    try:
+                        processed_image = process_single_image(image_path)
+                        if processed_image is None:
+                            continue
 
-            try:
-                processed_image = process_single_image(image_path)
-                if processed_image is None:
-                    continue
+                        img_list = []
 
-                chat.upload_img(processed_image, conv, img_list)
-                chat.ask("Describe this condition", conv)
+                        chat.upload_img(processed_image, conv, img_list)
+                        chat.ask(
+                            "Could you describe the skin disease in this image for me?",
+                            conv,
+                        )
 
-                response, _ = chat.answer(conv, img_list=img_list, max_new_tokens=300)
-                results.append({"Image": image_file, "Description": response})
-                logger.debug("Successfully processed %s", image_file)
+                        response, _ = chat.answer(
+                            conv, img_list=img_list, max_new_tokens=300
+                        )
+                        results.append({"Image": image_path, "Description": response})
 
-            except Exception as e:
-                logger.error("Error processing %s: %s", image_file, str(e))
-                continue
+                        add_caption_to_image(image_path, response, output_folder)
+
+                        logger.debug("Successfully processed %s", image_path)
+
+                    except Exception as e:
+                        logger.error("Error processing %s: %s", image_path, str(e))
+                        continue
 
         # Save results
         if results:
@@ -293,14 +368,12 @@ def main():
         logger.info("Chat initialization finished")
 
         # Process images
-        image_folder = "images"
+        csv_file = "sampled_image.csv"
         output_csv = "output_results.csv"
         ground_truth_csv = "ground_truth.csv"
+        output_folder = "output_images"
 
-        if not os.path.exists(image_folder):
-            raise FileNotFoundError(f"Image folder not found: {image_folder}")
-
-        process_images(image_folder, chat, output_csv)
+        process_images(csv_file, chat, output_csv, output_folder)
 
         if os.path.exists(ground_truth_csv):
             accuracy = check_accuracy(output_csv, ground_truth_csv)
