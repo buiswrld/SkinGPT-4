@@ -110,7 +110,10 @@ def process_images_from_csv(csv_file, chat, output_csv, output_folder):
     with open(csv_file, newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         for row in reader:
-            image_path = row[0]  # First column has the image paths
+            # Grabbing only the filename from the CSV (the first column)
+            image_filename = row[0].split("/")[-1]  # This extracts just the file name from the path
+            image_path = os.path.join("scin_images", image_filename)  # Build the path to the file in the 'scin_images' folder
+            
             if os.path.exists(image_path):
                 conv = CONV_VISION.copy()
                 print(f"Processing: {image_path}")
