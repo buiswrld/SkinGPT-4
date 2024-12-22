@@ -99,32 +99,35 @@ def add_caption_to_image(image_path, caption, output_folder):
     except Exception as e:
         print(f"Error adding caption to {image_path}: {e}")
 
-def process_images(image_folder, chat, output_csv, output_folder):
-    """Process all images in a folder and save results to a CSV and images with captions."""
+def process_images_from_csv(csv_file, chat, output_csv, output_folder):
+    """Process all images in a CSV file and save results to a CSV and images with captions."""
     conv = CONV_VISION.copy()
     print("Conversation is")
 
     results = []
 
-    for image_file in os.listdir(image_folder):
-        if image_file.lower().endswith(('png', 'jpg', 'jpeg', 'bmp')):
-            conv = CONV_VISION.copy()
-            image_path = os.path.join(image_folder, image_file)
-            print(f"Processing: {image_path}")
+    # Read the CSV file and get the image paths
+    with open(csv_file, newline="", encoding="utf-8") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            image_path = row[0]  # First column has the image paths
+            if os.path.exists(image_path):
+                conv = CONV_VISION.copy()
+                print(f"Processing: {image_path}")
 
-            # Upload the image and ask the question
-            img_list = []
-            chat.upload_img(image=image_path, conv=conv, img_list=img_list)
-            chat.ask("Could you describe the skin disease in this image for me?", conv)
+                # Upload the image and ask the question
+                img_list = []
+                chat.upload_img(image=image_path, conv=conv, img_list=img_list)
+                chat.ask("Could you describe the skin disease in this image for me?", conv)
 
-            # Get the model's answer
-            response, _ = chat.answer(conv=conv, img_list=img_list, max_new_tokens=300)
+                # Get the model's answer
+                response, _ = chat.answer(conv=conv, img_list=img_list, max_new_tokens=300)
 
-            # Store the result
-            results.append({"Image": image_file, "Description": response})
+                # Store the result
+                results.append({"Image": image_path, "Description": response})
 
-            # Add caption to image
-            add_caption_to_image(image_path, response, output_folder)
+                # Add caption to image
+                add_caption_to_image(image_path, response, output_folder)
 
     # Write the results to a CSV file
     with open(output_csv, mode="w", newline="", encoding="utf-8") as csvfile:
@@ -151,10 +154,10 @@ print('Initialization Finished')
 print('Processing Images')
 
 # Input and output paths
-IMAGE_FOLDER = "images"  # Update this with your folder path
+CSV_FILE = "sampled_image_ids.csv"  # Path to your CSV file
 OUTPUT_CSV = "output_results.csv"
 OUTPUT_FOLDER = "output_images"  # Folder for images with captions
 
-# Process images
-process_images(IMAGE_FOLDER, chat, OUTPUT_CSV, OUTPUT_FOLDER)
+# Process images from CSV
+process_images_from_csv(CSV_FILE, chat, OUTPUT_CSV, OUTPUT_FOLDER)
 print('Processed Images')
