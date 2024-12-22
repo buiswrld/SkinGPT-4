@@ -80,7 +80,7 @@ def add_caption_to_image(image_path, caption, output_folder):
         new_height = img.height + text_height + len(lines) * 10 + 20  # Add padding between lines
         new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
         new_img.paste(img, (0, 0))
-
+        draw = ImageDraw.Draw(new_img)
         # Draw the multi-line caption at the bottom center
         text_y = img.height + 10  # Padding to the bottom
         for line in lines:
