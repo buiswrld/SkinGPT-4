@@ -1,0 +1,429 @@
+image_id,condition,fitz_scale
+dataset/images/-2103228611346932007.png,Eczema,1
+dataset/images/-2101790873047080311.png,Eczema,1
+dataset/images/-2737740771473967321.png,Eczema,1
+dataset/images/-3936103083949335804.png,Eczema,1
+dataset/images/-4395003336872160138.png,Eczema,1
+dataset/images/3863877723322772755.png,Eczema,1
+dataset/images/-8215450172239109573.png,Eczema,1
+dataset/images/-2407143439291948794.png,Eczema,1
+dataset/images/-3990642793987097323.png,Eczema,1
+dataset/images/-1495727048511165464.png,Eczema,1
+dataset/images/-5232620834055369816.png,Eczema,1
+dataset/images/-2156690415130358399.png,Eczema,1
+dataset/images/-4708708668469568522.png,Eczema,1
+dataset/images/-3308141390035798043.png,Eczema,1
+dataset/images/-5957816033565973486.png,Eczema,1
+dataset/images/-1389285495169670132.png,Eczema,2
+dataset/images/-4823549522439308132.png,Eczema,2
+dataset/images/7253853475589663178.png,Eczema,2
+dataset/images/-2813826022792799007.png,Eczema,2
+dataset/images/-3674158308118136671.png,Eczema,2
+dataset/images/-1167977922987061432.png,Eczema,2
+dataset/images/-6934871971348294503.png,Eczema,2
+dataset/images/-5235101161732341625.png,Eczema,2
+dataset/images/-761233598161154780.png,Eczema,2
+dataset/images/3056937058072567919.png,Eczema,2
+dataset/images/-5509163907473104731.png,Eczema,2
+dataset/images/-6009971089093999930.png,Eczema,2
+dataset/images/-1915333973804553575.png,Eczema,2
+dataset/images/-480222851753917557.png,Eczema,2
+dataset/images/-6241322428464148939.png,Eczema,2
+dataset/images/-1067701776636141108.png,Eczema,3
+dataset/images/-4916269943418679358.png,Eczema,3
+dataset/images/-1382893933474824228.png,Eczema,3
+dataset/images/-3780759050734278605.png,Eczema,3
+dataset/images/-1688383691497820923.png,Eczema,3
+dataset/images/-7179944250348052903.png,Eczema,3
+dataset/images/-2611863072887966068.png,Eczema,3
+dataset/images/-6436194245454878565.png,Eczema,3
+dataset/images/-2795054550037433637.png,Eczema,3
+dataset/images/-2274431536078528436.png,Eczema,3
+dataset/images/-4178576103488697378.png,Eczema,3
+dataset/images/-7596189015309860038.png,Eczema,3
+dataset/images/4708050091267005435.png,Eczema,3
+dataset/images/2508530986946553819.png,Eczema,3
+dataset/images/-4898707077089802411.png,Eczema,3
+dataset/images/-4063942529777927310.png,Eczema,4
+dataset/images/-3223582796914814140.png,Eczema,4
+dataset/images/-8739886638448089494.png,Eczema,4
+dataset/images/2100977657284494000.png,Eczema,4
+dataset/images/-555548212421717526.png,Eczema,4
+dataset/images/-862558295135857219.png,Eczema,4
+dataset/images/-8500170905733656840.png,Eczema,4
+dataset/images/-3355326200471441329.png,Eczema,4
+dataset/images/-1943598390620715649.png,Eczema,4
+dataset/images/-1651927693770727765.png,Eczema,4
+dataset/images/-7197702636067718462.png,Eczema,4
+dataset/images/-1010754336982699838.png,Eczema,4
+dataset/images/-2282445446815047427.png,Eczema,4
+dataset/images/-3780703286966538961.png,Eczema,4
+dataset/images/-2367385470888041402.png,Eczema,4
+dataset/images/-3559887002495639296.png,Eczema,5
+dataset/images/-8057719347560254084.png,Eczema,5
+dataset/images/5729517509700695055.png,Eczema,5
+dataset/images/3036449672348158586.png,Eczema,5
+dataset/images/5247638019728047423.png,Eczema,6
+dataset/images/-2036739924048402981.png,Eczema,6
+dataset/images/-8351498747234518768.png,Eczema,5
+dataset/images/-1407390912570679008.png,Eczema,5
+dataset/images/1706742238338905499.png,Eczema,5
+dataset/images/-3449290884377188767.png,Eczema,5
+dataset/images/4637981093780563997.png,Eczema,5
+dataset/images/1881484952385338081.png,Eczema,6
+dataset/images/6189131988820023238.png,Eczema,5
+dataset/images/-7688327732584723798.png,Eczema,5
+dataset/images/-91842043999645174.png,Eczema,5
+dataset/images/-7046016048692897595.png,Impetigo,1
+dataset/images/-3194582777873313186.png,Impetigo,1
+dataset/images/780555288058696762.png,Impetigo,1
+dataset/images/717658965117278868.png,Impetigo,1
+dataset/images/-723695575081863565.png,Impetigo,1
+dataset/images/-4612250445427350281.png,Impetigo,1
+dataset/images/-6892698445976994636.png,Impetigo,1
+dataset/images/4192242689805525002.png,Impetigo,1
+dataset/images/-43391879386510500.png,Impetigo,1
+dataset/images/5904657460937594916.png,Impetigo,1
+dataset/images/6798451319984685204.png,Impetigo,1
+dataset/images/-2869951807103783157.png,Impetigo,1
+dataset/images/1071282187346618464.png,Impetigo,1
+dataset/images/-3220187335048171835.png,Impetigo,1
+dataset/images/-6304881517389329479.png,Impetigo,2
+dataset/images/8258473201694136107.png,Impetigo,2
+dataset/images/-5877528973360474863.png,Impetigo,2
+dataset/images/-4465867358413006305.png,Impetigo,2
+dataset/images/-2238709944412086899.png,Impetigo,2
+dataset/images/-1754707658302916156.png,Impetigo,2
+dataset/images/-4838949718224148622.png,Impetigo,2
+dataset/images/-6339622761930083276.png,Impetigo,2
+dataset/images/187783128814154274.png,Impetigo,2
+dataset/images/-3826231296982744580.png,Impetigo,2
+dataset/images/8100994483792481876.png,Impetigo,2
+dataset/images/-4063869466374569609.png,Impetigo,2
+dataset/images/5495915177571105531.png,Impetigo,2
+dataset/images/-671812747914036997.png,Impetigo,2
+dataset/images/-2849916399005907973.png,Impetigo,2
+dataset/images/-126472922177297480.png,Impetigo,3
+dataset/images/-2217561387814573226.png,Impetigo,3
+dataset/images/-4259316532864426030.png,Impetigo,3
+dataset/images/73135932957400253.png,Impetigo,3
+dataset/images/-1045727952327734119.png,Impetigo,3
+dataset/images/-7286384800338207015.png,Impetigo,3
+dataset/images/-276562011015744271.png,Impetigo,3
+dataset/images/-1765572912415510613.png,Impetigo,3
+dataset/images/-6872266676581885327.png,Impetigo,3
+dataset/images/-53819341886614140.png,Impetigo,3
+dataset/images/-3745166521151490419.png,Impetigo,3
+dataset/images/3120309630356813157.png,Impetigo,3
+dataset/images/6270162947228325664.png,Impetigo,3
+dataset/images/8723654748532370572.png,Impetigo,3
+dataset/images/-7513547210278062408.png,Impetigo,3
+dataset/images/-4027806997035329030.png,Impetigo,4
+dataset/images/-2557297330022991624.png,Impetigo,4
+dataset/images/-316598377851749651.png,Impetigo,4
+dataset/images/-6707200243712330995.png,Impetigo,4
+dataset/images/-4445614099443308910.png,Impetigo,4
+dataset/images/-8499520546324140238.png,Impetigo,4
+dataset/images/-6526384655012698912.png,Impetigo,4
+dataset/images/-3252318765709126452.png,Impetigo,4
+dataset/images/-4572694283367066772.png,Impetigo,4
+dataset/images/4609663550609523913.png,Impetigo,4
+dataset/images/-2252061377678191443.png,Impetigo,4
+dataset/images/2359770488566813202.png,Impetigo,4
+dataset/images/2555764332215557264.png,Impetigo,4
+dataset/images/-8472237834175694042.png,Impetigo,4
+dataset/images/5308217235395595242.png,Impetigo,5
+dataset/images/-4723634841049886674.png,Impetigo,5
+dataset/images/-6754223996189969134.png,Impetigo,5
+dataset/images/-2288434622033194477.png,Impetigo,5
+dataset/images/5595150567654673913.png,Impetigo,6
+dataset/images/-7816266780279138240.png,Impetigo,5
+dataset/images/-1194451675892190559.png,Impetigo,5
+dataset/images/-6217581331556066531.png,Impetigo,5
+dataset/images/5377631068374459197.png,Impetigo,5
+dataset/images/-1390843047538845179.png,Urticaria,1
+dataset/images/-263081762870451098.png,Urticaria,1
+dataset/images/6604483381677595041.png,Urticaria,1
+dataset/images/-8532169583360415872.png,Urticaria,1
+dataset/images/-3717681648257080297.png,Urticaria,1
+dataset/images/-3749637390051796787.png,Urticaria,1
+dataset/images/5834547384137295983.png,Urticaria,1
+dataset/images/-1216401576778757957.png,Urticaria,1
+dataset/images/-8752408013757949735.png,Urticaria,1
+dataset/images/8124593379991567932.png,Urticaria,1
+dataset/images/6190824739745586273.png,Urticaria,1
+dataset/images/-7929111754093486633.png,Urticaria,1
+dataset/images/-5745242661905185049.png,Urticaria,1
+dataset/images/-311918315070393568.png,Urticaria,1
+dataset/images/-7342232757940311338.png,Urticaria,1
+dataset/images/-2997460016579568441.png,Urticaria,2
+dataset/images/-1532307918011967845.png,Urticaria,2
+dataset/images/5760149544012561210.png,Urticaria,2
+dataset/images/9111397928834127422.png,Urticaria,2
+dataset/images/-3555487255426017347.png,Urticaria,2
+dataset/images/-4633922104605272438.png,Urticaria,2
+dataset/images/-7772969854782631285.png,Urticaria,2
+dataset/images/8444165190181229002.png,Urticaria,2
+dataset/images/-2161698169553821425.png,Urticaria,2
+dataset/images/-4887126079381584338.png,Urticaria,2
+dataset/images/-2490625174049341192.png,Urticaria,2
+dataset/images/-7085119796392335486.png,Urticaria,2
+dataset/images/1851736223985307611.png,Urticaria,2
+dataset/images/-3601983352928347463.png,Urticaria,2
+dataset/images/-5014875360395902914.png,Urticaria,2
+dataset/images/8977765022181205065.png,Urticaria,3
+dataset/images/-6199778995948821319.png,Urticaria,3
+dataset/images/-4694454126883541433.png,Urticaria,3
+dataset/images/-235854603152207056.png,Urticaria,3
+dataset/images/-4153911047992204094.png,Urticaria,3
+dataset/images/-7228030522436577946.png,Urticaria,3
+dataset/images/-223472876305241678.png,Urticaria,3
+dataset/images/-1389929707845299281.png,Urticaria,3
+dataset/images/-6436369839513530626.png,Urticaria,3
+dataset/images/-562221495953267393.png,Urticaria,3
+dataset/images/-2114444395953325364.png,Urticaria,3
+dataset/images/-1677898261371801194.png,Urticaria,3
+dataset/images/-3237362112532506216.png,Urticaria,3
+dataset/images/-2443949714670739112.png,Urticaria,3
+dataset/images/-5513259000492963734.png,Urticaria,3
+dataset/images/-1766001610638052673.png,Urticaria,4
+dataset/images/3649560684285356145.png,Urticaria,4
+dataset/images/8858413300549090425.png,Urticaria,4
+dataset/images/-3982407291216078553.png,Urticaria,4
+dataset/images/-8448044375649730227.png,Urticaria,4
+dataset/images/-7411720837192491249.png,Urticaria,4
+dataset/images/-4203166728954341030.png,Urticaria,4
+dataset/images/-8077199062814861533.png,Urticaria,4
+dataset/images/-6561457627112466394.png,Urticaria,4
+dataset/images/-6831188936842345579.png,Urticaria,4
+dataset/images/-1714274861495761199.png,Urticaria,4
+dataset/images/-8614320058673555741.png,Urticaria,4
+dataset/images/-6942912841265248602.png,Urticaria,4
+dataset/images/-2874221601641289316.png,Urticaria,4
+dataset/images/-1171014939149184381.png,Urticaria,4
+dataset/images/2484245091908956763.png,Urticaria,5
+dataset/images/3128231472463456057.png,Urticaria,6
+dataset/images/-8280524009538201250.png,Urticaria,5
+dataset/images/4618618408056657100.png,Urticaria,5
+dataset/images/-4062980895108912619.png,Urticaria,5
+dataset/images/-692354311834216036.png,Urticaria,5
+dataset/images/-3303515851089611527.png,Urticaria,5
+dataset/images/-8297415963972830482.png,Urticaria,5
+dataset/images/-2663645243653633022.png,Urticaria,6
+dataset/images/-1622773719949394822.png,Urticaria,5
+dataset/images/-6752427542329011768.png,Urticaria,5
+dataset/images/1323541714731364649.png,Urticaria,5
+dataset/images/-220596390347988661.png,Urticaria,5
+dataset/images/-8926425952664189068.png,Urticaria,5
+dataset/images/-3857242111700669083.png,Urticaria,6
+dataset/images/-154827356472198509.png,Psoriasis,1
+dataset/images/-4131764627078782571.png,Psoriasis,1
+dataset/images/-2187738459131395361.png,Psoriasis,1
+dataset/images/-2023528583731486939.png,Psoriasis,1
+dataset/images/-2826177521891050091.png,Psoriasis,1
+dataset/images/-1283963341331471600.png,Psoriasis,1
+dataset/images/-4747365827434888456.png,Psoriasis,1
+dataset/images/-8676992280138825968.png,Psoriasis,1
+dataset/images/6409254117435284099.png,Psoriasis,1
+dataset/images/-756893997757737190.png,Psoriasis,1
+dataset/images/-9002584586913443899.png,Psoriasis,1
+dataset/images/-4973481208020125368.png,Psoriasis,1
+dataset/images/-4444671819244130593.png,Psoriasis,1
+dataset/images/-7195700219000080752.png,Psoriasis,1
+dataset/images/-6583827357689255330.png,Psoriasis,1
+dataset/images/-5027449927739449608.png,Psoriasis,2
+dataset/images/1912338877788743690.png,Psoriasis,2
+dataset/images/5532681236173164107.png,Psoriasis,2
+dataset/images/-1241231354355375740.png,Psoriasis,2
+dataset/images/-1290947029292536646.png,Psoriasis,2
+dataset/images/-8400585781561254792.png,Psoriasis,2
+dataset/images/3209927844777750788.png,Psoriasis,2
+dataset/images/-2395948960111111081.png,Psoriasis,2
+dataset/images/-4903355290805756587.png,Psoriasis,2
+dataset/images/8274826488534529432.png,Psoriasis,2
+dataset/images/-4545384043516507025.png,Psoriasis,2
+dataset/images/7871700326319775130.png,Psoriasis,2
+dataset/images/-4571724128049536546.png,Psoriasis,2
+dataset/images/-1954514810889331120.png,Psoriasis,2
+dataset/images/-8733099384376486023.png,Psoriasis,2
+dataset/images/1101199909654399154.png,Psoriasis,3
+dataset/images/-2538731880524128360.png,Psoriasis,3
+dataset/images/-3715706815257709557.png,Psoriasis,3
+dataset/images/3496791689370712664.png,Psoriasis,3
+dataset/images/-4234337738912067915.png,Psoriasis,3
+dataset/images/-587499434771640236.png,Psoriasis,3
+dataset/images/-9209496230726637783.png,Psoriasis,3
+dataset/images/-6323838407357716508.png,Psoriasis,3
+dataset/images/-5607893322162480323.png,Psoriasis,3
+dataset/images/5340978936646445096.png,Psoriasis,3
+dataset/images/-4626079373925179355.png,Psoriasis,3
+dataset/images/-1264230661338860030.png,Psoriasis,3
+dataset/images/-869349880437476994.png,Psoriasis,3
+dataset/images/-3044579148804975072.png,Psoriasis,3
+dataset/images/-3779146726816489091.png,Psoriasis,3
+dataset/images/-558419946250026054.png,Psoriasis,4
+dataset/images/-2127765395475907847.png,Psoriasis,4
+dataset/images/-5326168138094732222.png,Psoriasis,4
+dataset/images/3541058243163230586.png,Psoriasis,4
+dataset/images/6383663973655019890.png,Psoriasis,4
+dataset/images/6865216719730930043.png,Psoriasis,4
+dataset/images/4943852490550449048.png,Psoriasis,4
+dataset/images/-4387878168031721243.png,Psoriasis,4
+dataset/images/-6952203225851872037.png,Psoriasis,4
+dataset/images/-1771453055734416513.png,Psoriasis,4
+dataset/images/-2373885229844763392.png,Psoriasis,4
+dataset/images/-7490056910663333938.png,Psoriasis,4
+dataset/images/-7055418128950003452.png,Psoriasis,4
+dataset/images/-6820036121465366872.png,Psoriasis,4
+dataset/images/-2330209020650037870.png,Psoriasis,4
+dataset/images/-3493309736947822924.png,Psoriasis,5
+dataset/images/-7558789574725246528.png,Psoriasis,5
+dataset/images/-4303642624887385011.png,Psoriasis,5
+dataset/images/-4061252588174437383.png,Psoriasis,5
+dataset/images/-8842292788471353312.png,Psoriasis,5
+dataset/images/-1306941150253534667.png,Psoriasis,5
+dataset/images/-5128272363659154502.png,Psoriasis,5
+dataset/images/-1741298902959469723.png,Psoriasis,5
+dataset/images/-7268807677336387720.png,Psoriasis,5
+dataset/images/-6491463453260148008.png,Psoriasis,5
+dataset/images/-5674359905815162158.png,Psoriasis,5
+dataset/images/-2470963294952716246.png,Psoriasis,5
+dataset/images/-1194210041349957392.png,Psoriasis,5
+dataset/images/8895232189294550574.png,Psoriasis,6
+dataset/images/-4861580984570611969.png,Tinea,1
+dataset/images/-3184757916515913391.png,Tinea,1
+dataset/images/-8225853453283466659.png,Tinea,1
+dataset/images/-2236217581770445072.png,Tinea,1
+dataset/images/-5923881436433625108.png,Tinea,1
+dataset/images/7246737896596274694.png,Tinea,1
+dataset/images/-5117119409749183026.png,Tinea,1
+dataset/images/6500252340623712757.png,Tinea,1
+dataset/images/-5189709378949177879.png,Tinea,1
+dataset/images/-6896162265958450430.png,Tinea,1
+dataset/images/-8687142521108777184.png,Tinea,1
+dataset/images/-59907778138826579.png,Tinea,1
+dataset/images/-4687895683354412584.png,Tinea,2
+dataset/images/8466237617553717623.png,Tinea,2
+dataset/images/-5576757445780331892.png,Tinea,2
+dataset/images/-5081790413284637815.png,Tinea,2
+dataset/images/-6290735296157762317.png,Tinea,2
+dataset/images/6864890391460990037.png,Tinea,2
+dataset/images/-1691861878080963349.png,Tinea,2
+dataset/images/-1858839116206378488.png,Tinea,2
+dataset/images/-1590080144874886066.png,Tinea,2
+dataset/images/-6837240536182868524.png,Tinea,2
+dataset/images/-208880250508994115.png,Tinea,2
+dataset/images/-6273982034263898447.png,Tinea,2
+dataset/images/-3006354197533358732.png,Tinea,2
+dataset/images/-4532887949010625524.png,Tinea,2
+dataset/images/8165366699488790952.png,Tinea,2
+dataset/images/-512380082663590190.png,Tinea,3
+dataset/images/-2181174508957489529.png,Tinea,3
+dataset/images/-6958898424924160515.png,Tinea,3
+dataset/images/1844783267320439523.png,Tinea,3
+dataset/images/-3833291611865949894.png,Tinea,3
+dataset/images/-37551011684363999.png,Tinea,3
+dataset/images/-7964391497410090998.png,Tinea,3
+dataset/images/-304171554496873031.png,Tinea,3
+dataset/images/1550865439574282805.png,Tinea,3
+dataset/images/-8505515853248686218.png,Tinea,3
+dataset/images/-6506736911034186778.png,Tinea,3
+dataset/images/-1077486440588421153.png,Tinea,3
+dataset/images/-7394449639939909454.png,Tinea,3
+dataset/images/-5644018879148244648.png,Tinea,3
+dataset/images/-2255939393020051195.png,Tinea,3
+dataset/images/-2497522733940899759.png,Tinea,4
+dataset/images/-4937708744703119052.png,Tinea,4
+dataset/images/-3091379126913451193.png,Tinea,4
+dataset/images/-8845105500170627037.png,Tinea,4
+dataset/images/-7034422526003126246.png,Tinea,4
+dataset/images/4978639705347916523.png,Tinea,4
+dataset/images/-622403945352043847.png,Tinea,4
+dataset/images/-4748757658895953163.png,Tinea,4
+dataset/images/-1904324689162437250.png,Tinea,4
+dataset/images/4139477718088297802.png,Tinea,4
+dataset/images/-6897298279489871391.png,Tinea,4
+dataset/images/3824786615165070490.png,Tinea,4
+dataset/images/-6956330915182663951.png,Tinea,4
+dataset/images/-2921913052861030168.png,Tinea,4
+dataset/images/9017422570993946007.png,Tinea,4
+dataset/images/777284266327823069.png,Tinea,5
+dataset/images/-7380450881401563228.png,Tinea,5
+dataset/images/-1533962360867773175.png,Tinea,5
+dataset/images/-5761650559352394553.png,Tinea,5
+dataset/images/474363407822192070.png,Tinea,5
+dataset/images/-5796593810251526598.png,Tinea,5
+dataset/images/-879282527712154445.png,Tinea,5
+dataset/images/-2919812088362781457.png,Tinea,5
+dataset/images/5905250719612832796.png,Tinea,5
+dataset/images/-4500877551601869191.png,Allergic Contact Dermatitis,1
+dataset/images/4339257360461160063.png,Allergic Contact Dermatitis,1
+dataset/images/8234767697439940158.png,Allergic Contact Dermatitis,1
+dataset/images/-1970883191328192750.png,Allergic Contact Dermatitis,1
+dataset/images/1668265678293886192.png,Allergic Contact Dermatitis,1
+dataset/images/-5217820739808378329.png,Allergic Contact Dermatitis,1
+dataset/images/-5741173287805365711.png,Allergic Contact Dermatitis,1
+dataset/images/-8778743506036272090.png,Allergic Contact Dermatitis,1
+dataset/images/5358401025661447825.png,Allergic Contact Dermatitis,1
+dataset/images/-5560217361581663318.png,Allergic Contact Dermatitis,1
+dataset/images/-1009810686742517529.png,Allergic Contact Dermatitis,1
+dataset/images/-6996952891724745204.png,Allergic Contact Dermatitis,1
+dataset/images/-2646140046117594823.png,Allergic Contact Dermatitis,1
+dataset/images/-2377960990942383256.png,Allergic Contact Dermatitis,1
+dataset/images/-3771483638817117961.png,Allergic Contact Dermatitis,1
+dataset/images/5754740149288536586.png,Allergic Contact Dermatitis,2
+dataset/images/-5211285236974073155.png,Allergic Contact Dermatitis,2
+dataset/images/-2205108468515981837.png,Allergic Contact Dermatitis,2
+dataset/images/7309424676490886027.png,Allergic Contact Dermatitis,2
+dataset/images/-96706846239146494.png,Allergic Contact Dermatitis,2
+dataset/images/4378833881654100143.png,Allergic Contact Dermatitis,2
+dataset/images/-6167347811458674963.png,Allergic Contact Dermatitis,2
+dataset/images/-2307387288352361738.png,Allergic Contact Dermatitis,2
+dataset/images/-1379677912378977305.png,Allergic Contact Dermatitis,2
+dataset/images/-3908715743589033453.png,Allergic Contact Dermatitis,2
+dataset/images/-1090241306152564747.png,Allergic Contact Dermatitis,2
+dataset/images/2596318900858824252.png,Allergic Contact Dermatitis,2
+dataset/images/-169783764847555703.png,Allergic Contact Dermatitis,2
+dataset/images/-1858346379059996690.png,Allergic Contact Dermatitis,2
+dataset/images/5921677196871615893.png,Allergic Contact Dermatitis,2
+dataset/images/4017974078527806014.png,Allergic Contact Dermatitis,3
+dataset/images/-7769959016434774390.png,Allergic Contact Dermatitis,3
+dataset/images/4616539214475309081.png,Allergic Contact Dermatitis,3
+dataset/images/-4132805793768407064.png,Allergic Contact Dermatitis,3
+dataset/images/-2097217587159752484.png,Allergic Contact Dermatitis,3
+dataset/images/-1199523414188166187.png,Allergic Contact Dermatitis,3
+dataset/images/-3398015871098565688.png,Allergic Contact Dermatitis,3
+dataset/images/-1117304357073393845.png,Allergic Contact Dermatitis,3
+dataset/images/223899975649303626.png,Allergic Contact Dermatitis,3
+dataset/images/-7130155659453498808.png,Allergic Contact Dermatitis,3
+dataset/images/-133977812156141369.png,Allergic Contact Dermatitis,3
+dataset/images/-2259742880110408719.png,Allergic Contact Dermatitis,3
+dataset/images/-6497142125683105669.png,Allergic Contact Dermatitis,3
+dataset/images/-1940746305684488736.png,Allergic Contact Dermatitis,3
+dataset/images/-2936233789105696776.png,Allergic Contact Dermatitis,3
+dataset/images/-4594637300045488838.png,Allergic Contact Dermatitis,4
+dataset/images/-5340042590609363828.png,Allergic Contact Dermatitis,4
+dataset/images/1583230730423672688.png,Allergic Contact Dermatitis,4
+dataset/images/-3709268883592723272.png,Allergic Contact Dermatitis,4
+dataset/images/-1157642454110438613.png,Allergic Contact Dermatitis,4
+dataset/images/-3613430269420913410.png,Allergic Contact Dermatitis,4
+dataset/images/-8492996097534058599.png,Allergic Contact Dermatitis,4
+dataset/images/4094797845341872966.png,Allergic Contact Dermatitis,4
+dataset/images/-4371602780499502428.png,Allergic Contact Dermatitis,4
+dataset/images/-8125667483744734603.png,Allergic Contact Dermatitis,4
+dataset/images/-2881646745335484613.png,Allergic Contact Dermatitis,4
+dataset/images/-6760849338709173764.png,Allergic Contact Dermatitis,4
+dataset/images/-983744323771148963.png,Allergic Contact Dermatitis,4
+dataset/images/-1715196123326180680.png,Allergic Contact Dermatitis,4
+dataset/images/-3221416279462754613.png,Allergic Contact Dermatitis,4
+dataset/images/-1332224669957938192.png,Allergic Contact Dermatitis,5
+dataset/images/-3348418859469465839.png,Allergic Contact Dermatitis,5
+dataset/images/-2943675040447373613.png,Allergic Contact Dermatitis,5
+dataset/images/-1288516358527303986.png,Allergic Contact Dermatitis,5
+dataset/images/-7715694037173668876.png,Allergic Contact Dermatitis,6
+dataset/images/-8831825728244064065.png,Allergic Contact Dermatitis,5
+dataset/images/-1153384974921559234.png,Allergic Contact Dermatitis,5
+dataset/images/-8052395955611445748.png,Allergic Contact Dermatitis,5
+dataset/images/-4390799833296058858.png,Allergic Contact Dermatitis,5
+dataset/images/-2560035461690419800.png,Allergic Contact Dermatitis,5
+dataset/images/-3991414355049708436.png,Allergic Contact Dermatitis,5
