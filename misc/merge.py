@@ -1,6 +1,6 @@
 import pandas as pd
 
-derek = pd.read_csv("data/15-sample.csv")
+derek = pd.read_csv("data/10-sample.csv")
 
 raw = pd.read_csv("data/dataset_scin_cases.csv")
 
@@ -13,4 +13,4 @@ columns_to_keep = [
 ]
 filtered_df = merged_df[columns_to_keep]
 
-filtered_df.to_csv("data/output.csv", index=False)
+filtered_df.to_csv("data/output-10-sample.csv", index=False)
