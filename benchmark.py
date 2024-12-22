@@ -217,7 +217,7 @@ def process_images(
                     -1
                 ]  # This extracts just the file name from the path
                 image_path = os.path.join(
-                    "scin_images", image_filename
+                    "images", image_filename
                 )  # Build the path to the file in the 'scin_images' folder
 
                 if os.path.exists(image_path):
@@ -368,7 +368,7 @@ def main():
         logger.info("Chat initialization finished")
 
         # Process images
-        csv_file = "sampled_image_ids.csv"
+        csv_file = "sampled_image.csv"
         output_csv = "output_results.csv"
         ground_truth_csv = "ground_truth.csv"
         output_folder = "output_images"
