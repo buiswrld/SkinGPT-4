@@ -49,8 +49,9 @@ def add_caption_to_image(image_path, caption, output_folder):
         # Use PIL default font
         font = ImageFont.load_default()
 
-        # Calculate text size
-        text_width, text_height = draw.textsize(caption, font=font)
+        # Calculate text size using textbbox (Bounding Box)
+        bbox = draw.textbbox((0, 0), caption, font=font)
+        text_width, text_height = bbox[2] - bbox[0], bbox[3] - bbox[1]
 
         # Create a new image with extra space for the caption
         new_height = img.height + text_height + 20  # Adding padding
