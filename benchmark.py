@@ -368,8 +368,8 @@ def main():
         logger.info("Chat initialization finished")
 
         # Process images
-        csv_file = "sampled_image.csv"
-        output_csv = "output_results.csv"
+        csv_file = "data/15-sample.csv"
+        output_csv = "15-results.csv"
         ground_truth_csv = "ground_truth.csv"
         output_folder = "output_images"
 
