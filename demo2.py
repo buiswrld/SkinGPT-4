@@ -11,7 +11,7 @@ from skingpt4.common.dist_utils import get_rank
 from skingpt4.common.registry import registry
 from skingpt4.conversation.conversation import Chat, CONV_VISION
 
-# imports modules for registration
+# Imports modules for registration
 from skingpt4.datasets.builders import *
 from skingpt4.models import *
 from skingpt4.processors import *
@@ -20,16 +20,12 @@ from skingpt4.tasks import *
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Demo")
-    parser.add_argument("--cfg-path", required=True,
-                        help="path to configuration file.")
-    parser.add_argument("--gpu-id", type=int, default=0,
-                        help="specify the gpu to load the model.")
+    parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
+    parser.add_argument("--gpu-id", type=int, default=0, help="specify the GPU to load the model.")
     parser.add_argument(
         "--options",
         nargs="+",
-        help="override some settings in the used config, the key-value pair "
-             "in xxx=yyy format will be merged into config file (deprecate), "
-             "change to --cfg-options instead.",
+        help="override some settings in the used config, the key-value pair in xxx=yyy format will be merged into config file (deprecate), change to --cfg-options instead.",
     )
     args = parser.parse_args()
     return args
@@ -44,15 +40,16 @@ def setup_seeds(config):
     cudnn.benchmark = False
     cudnn.deterministic = True
 
-# Add captions to images
 def add_caption_to_image(image_path, caption, output_folder):
     """Add a caption to the bottom of an image and save the modified image."""
     try:
         img = Image.open(image_path).convert("RGB")
         draw = ImageDraw.Draw(img)
-        
-        # Set font and calculate text size
-        font = ImageFont.truetype("arial.ttf", 20)  # Adjust font size as needed
+
+        # Use PIL default font
+        font = ImageFont.load_default()
+
+        # Calculate text size
         text_width, text_height = draw.textsize(caption, font=font)
 
         # Create a new image with extra space for the caption
@@ -74,12 +71,10 @@ def add_caption_to_image(image_path, caption, output_folder):
     except Exception as e:
         print(f"Error adding caption to {image_path}: {e}")
 
-# Process images and save results
 def process_images(image_folder, chat, output_csv, output_folder):
     """Process all images in a folder and save results to a CSV and images with captions."""
-    # Prepare the conversation template
     conv = CONV_VISION.copy()
-    print("conversation is ")
+    print("Conversation is")
 
     results = []
 
@@ -95,8 +90,7 @@ def process_images(image_folder, chat, output_csv, output_folder):
             chat.ask("Could you describe the skin disease in this image for me?", conv)
 
             # Get the model's answer
-            response, _ = chat.answer(
-                conv=conv, img_list=img_list, max_new_tokens=300)
+            response, _ = chat.answer(conv=conv, img_list=img_list, max_new_tokens=300)
 
             # Store the result
             results.append({"Image": image_file, "Description": response})
@@ -113,9 +107,6 @@ def process_images(image_folder, chat, output_csv, output_folder):
 
     print(f"Results saved to {output_csv}")
 
-# ========================================
-#             Model Initialization
-# ========================================
 print('Initializing Chat')
 args = parse_args()
 cfg = Config(args)
@@ -126,8 +117,7 @@ model_cls = registry.get_model_class(model_config.arch)
 model = model_cls.from_config(model_config).to('cuda:{}'.format(args.gpu_id))
 
 vis_processor_cfg = cfg.datasets_cfg.cc_sbu_align.vis_processor.train
-vis_processor = registry.get_processor_class(
-    vis_processor_cfg.name).from_config(vis_processor_cfg)
+vis_processor = registry.get_processor_class(vis_processor_cfg.name).from_config(vis_processor_cfg)
 chat = Chat(model, vis_processor, device='cuda:{}'.format(args.gpu_id))
 print('Initialization Finished')
 print('Processing Images')
