@@ -1,0 +1,11 @@
+[MASTER]
+py-version = 3.8
+
+[MESSAGES CONTROL]
+# Disable specific warnings
+disable=
+    W0703,  # broad-except - Catching too general exception
+    C0301   # line-too-long - Line too long
+
+[REPORTS]
+output-format=colorized

@@ -18,10 +18,13 @@ from skingpt4.processors import *
 from skingpt4.runners import *
 from skingpt4.tasks import *
 
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Demo")
     parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
-    parser.add_argument("--gpu-id", type=int, default=0, help="specify the GPU to load the model.")
+    parser.add_argument(
+        "--gpu-id", type=int, default=0, help="specify the GPU to load the model."
+    )
     parser.add_argument(
         "--options",
         nargs="+",
@@ -29,6 +32,7 @@ def parse_args():
     )
     args = parser.parse_args()
     return args
+
 
 def setup_seeds(config):
     seed = config.run_cfg.seed + get_rank()
@@ -39,6 +43,7 @@ def setup_seeds(config):
 
     cudnn.benchmark = False
     cudnn.deterministic = True
+
 
 def add_caption_to_image(image_path, caption, output_folder):
     """Add a caption to the bottom of an image and save the modified image with multi-line support."""
@@ -74,10 +79,18 @@ def add_caption_to_image(image_path, caption, output_folder):
             lines.append(current_line)
 
         # Calculate total text height
-        text_height = sum([draw.textbbox((0, 0), line, font=font)[3] - draw.textbbox((0, 0), line, font=font)[1] for line in lines])
+        text_height = sum(
+            [
+                draw.textbbox((0, 0), line, font=font)[3]
+                - draw.textbbox((0, 0), line, font=font)[1]
+                for line in lines
+            ]
+        )
 
         # Create a new image with extra space for the caption
-        new_height = img.height + text_height + len(lines) * 10 + 20  # Add padding between lines
+        new_height = (
+            img.height + text_height + len(lines) * 10 + 20
+        )  # Add padding between lines
         new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
         new_img.paste(img, (0, 0))
         draw = ImageDraw.Draw(new_img)
@@ -99,10 +112,10 @@ def add_caption_to_image(image_path, caption, output_folder):
     except Exception as e:
         print(f"Error adding caption to {image_path}: {e}")
 
+
 def process_images_from_csv(csv_file, chat, output_csv, output_folder):
     """Process all images in a CSV file and save results to a CSV and images with captions."""
     conv = CONV_VISION.copy()
-    print("Conversation is")
 
     results = []
 
@@ -118,10 +131,14 @@ def process_images_from_csv(csv_file, chat, output_csv, output_folder):
                 # Upload the image and ask the question
                 img_list = []
                 chat.upload_img(image=image_path, conv=conv, img_list=img_list)
-                chat.ask("Could you describe the skin disease in this image for me?", conv)
+                chat.ask(
+                    "Could you describe the skin disease in this image for me?", conv
+                )
 
                 # Get the model's answer
-                response, _ = chat.answer(conv=conv, img_list=img_list, max_new_tokens=300)
+                response, _ = chat.answer(
+                    conv=conv, img_list=img_list, max_new_tokens=300
+                )
 
                 # Store the result
                 results.append({"Image": image_path, "Description": response})
@@ -138,20 +155,23 @@ def process_images_from_csv(csv_file, chat, output_csv, output_folder):
 
     print(f"Results saved to {output_csv}")
 
-print('Initializing Chat')
+
+print("Initializing Chat")
 args = parse_args()
 cfg = Config(args)
 
 model_config = cfg.model_cfg
 model_config.device_8bit = args.gpu_id
 model_cls = registry.get_model_class(model_config.arch)
-model = model_cls.from_config(model_config).to('cuda:{}'.format(args.gpu_id))
+model = model_cls.from_config(model_config).to("cuda:{}".format(args.gpu_id))
 
 vis_processor_cfg = cfg.datasets_cfg.cc_sbu_align.vis_processor.train
-vis_processor = registry.get_processor_class(vis_processor_cfg.name).from_config(vis_processor_cfg)
-chat = Chat(model, vis_processor, device='cuda:{}'.format(args.gpu_id))
-print('Initialization Finished')
-print('Processing Images')
+vis_processor = registry.get_processor_class(vis_processor_cfg.name).from_config(
+    vis_processor_cfg
+)
+chat = Chat(model, vis_processor, device="cuda:{}".format(args.gpu_id))
+print("Initialization Finished")
+print("Processing Images")
 
 # Input and output paths
 CSV_FILE = "sampled_image_ids.csv"  # Path to your CSV file
@@ -160,4 +180,4 @@ OUTPUT_FOLDER = "output_images"  # Folder for images with captions
 
 # Process images from CSV
 process_images_from_csv(CSV_FILE, chat, OUTPUT_CSV, OUTPUT_FOLDER)
-print('Processed Images')
+print("Processed Images")
