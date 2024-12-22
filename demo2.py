@@ -41,7 +41,7 @@ def setup_seeds(config):
     cudnn.deterministic = True
 
 def add_caption_to_image(image_path, caption, output_folder):
-    """Add a caption to the bottom of an image and save the modified image."""
+    """Add a caption to the bottom of an image and save the modified image with multi-line support."""
     try:
         img = Image.open(image_path).convert("RGB")
         draw = ImageDraw.Draw(img)
@@ -49,26 +49,47 @@ def add_caption_to_image(image_path, caption, output_folder):
         # Use PIL default font
         font = ImageFont.load_default()
 
-        # Calculate text size using textbbox (Bounding Box)
-        bbox = draw.textbbox((0, 0), caption, font=font)
-        text_width, text_height = bbox[2] - bbox[0], bbox[3] - bbox[1]
+        # Calculate text size and wrap the caption into multiple lines if needed
+        max_width = img.width - 20  # Margin for padding
+        lines = []
+        current_line = ""
+
+        for word in caption.split():
+            # Add word to current line
+            test_line = f"{current_line} {word}".strip()
+            # Check if the line is too wide
+            bbox = draw.textbbox((0, 0), test_line, font=font)
+            text_width = bbox[2] - bbox[0]
+
+            if text_width <= max_width:
+                current_line = test_line  # Continue adding to the current line
+            else:
+                # If the line is too wide, start a new line
+                if current_line:
+                    lines.append(current_line)
+                current_line = word
+
+        # Add the last line
+        if current_line:
+            lines.append(current_line)
+
+        # Calculate total text height
+        text_height = sum([draw.textbbox((0, 0), line, font=font)[3] - draw.textbbox((0, 0), line, font=font)[1] for line in lines])
 
         # Create a new image with extra space for the caption
-        new_height = img.height + text_height + 20  # Adding padding
+        new_height = img.height + text_height + len(lines) * 10 + 20  # Add padding between lines
         new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
         new_img.paste(img, (0, 0))
 
-        # Ensure the caption is centered horizontally
-        text_x = (img.width - text_width) // 2
-        text_y = img.height + 10  # Adding padding to the bottom
-
-        # Draw the caption at the bottom center
-        draw = ImageDraw.Draw(new_img)
-        draw.text((text_x, text_y), caption, font=font, fill="black")
-
-        # Ensure that the caption is not cut off on the right by adjusting the image width if needed
-        if text_x + text_width > img.width:
-            new_img = new_img.resize((text_x + text_width, new_height), Image.ANTIALIAS)
+        # Draw the multi-line caption at the bottom center
+        text_y = img.height + 10  # Padding to the bottom
+        for line in lines:
+            # Calculate the position for each line (centered)
+            bbox = draw.textbbox((0, 0), line, font=font)
+            text_width = bbox[2] - bbox[0]
+            text_x = (img.width - text_width) // 2  # Center the text horizontally
+            draw.text((text_x, text_y), line, font=font, fill="black")
+            text_y += bbox[3] - bbox[1] + 10  # Move down for the next line
 
         # Save the new image
         os.makedirs(output_folder, exist_ok=True)
