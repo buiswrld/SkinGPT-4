@@ -3,7 +3,6 @@ import torch
 from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 
-from models import get_model
 from .loss import get_loss_fn
 from data.dataset import GeneralizedClassificationDataset
 from .logger import TFLogger
