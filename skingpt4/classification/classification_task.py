@@ -44,7 +44,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         # TODO ~ Replace batch with our data (GeneralizedClassificationDataset)
         x, y = batch['image'], batch['label']
         logits = self.forward(x)
-        loss = self.loss(logits.view(-1), y)
+        loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
         self.evaluator.update((torch.sigmoid(logits), y))
         return loss
