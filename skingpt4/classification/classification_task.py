@@ -49,7 +49,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.evaluator.update((torch.sigmoid(logits), y))
         return loss
 
-    def validation_epoch_end(self, outputs):
+    def on_validation_epoch_end(self, outputs):
         """
         Aggregate and return the validation metrics
 
