@@ -34,6 +34,7 @@ model = ClassificationTask(params)
 
 trainer = Trainer(
     #gpus=1
+    max_epochs = 10,
 )
 
 print("trainer fitting")
