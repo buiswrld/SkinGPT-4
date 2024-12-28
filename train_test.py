@@ -1,3 +1,5 @@
+# FILE: class_test.py
+
 import torch
 from torchvision import transforms
 from PIL import Image
@@ -31,9 +33,10 @@ params = {
 model = ClassificationTask(params)
 
 trainer = Trainer(
-    gpus=1 if torch.cuda.is_available() else 0,
-    max_epochs=10,
-    progress_bar_refresh_rate=20,
+    gpus=1
 )
 
+print("trainer fitting")
 trainer.fit(model)
+print("trainer testing")
+trainer.test(model)
