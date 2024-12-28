@@ -4,9 +4,11 @@ from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 
 from models import get_model
-from eval import get_loss_fn, BinaryClassificationEvaluator
-from data import GeneralizedClassificationDataset
+from .loss import get_loss_fn
+from data.dataset import GeneralizedClassificationDataset
 from .logger import TFLogger
+from .evaluator import GeneralClassificationEvaluator
+from skingpt4.models.skin_gpt4 import skingpt4
 
 #TODO ~ view Blip2Base (blip2.py) & BaseModel (base_model.py)
 class ClassificationTask(pl.LightningModule, TFLogger):
@@ -15,9 +17,9 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def __init__(self, params):
         super().__init__()
         self.save_hyperparameters(params)
-        self.model = get_model(params)
+        self.model = skingpt4.from_config(params)
         self.loss = get_loss_fn(params)
-        self.evaluator = BinaryClassificationEvaluator(threshold=0.5)
+        self.evaluator = GeneralClassificationEvaluator()
 
     def forward(self, x):
         return self.model(x)
@@ -38,6 +40,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return loss
 
     def validation_step(self, batch, batch_nb):
+        # TODO ~ Replace batch with our data (GeneralizedClassificationDataset)
         x, y = batch["Google_image"], batch["label_classification"]
         logits = self.forward(x)
         loss = self.loss(logits.view(-1), y)
@@ -73,7 +76,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def configure_optimizers(self):
         return [torch.optim.Adam(self.parameters(), lr=0.02)]
-
+    
+    #TODO ~ Address GeneralizedClassificationDataset 
     def train_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.ToTensor(), #(C, H, W) from (H, W, C) 
