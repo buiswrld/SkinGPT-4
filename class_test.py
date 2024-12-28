@@ -28,6 +28,9 @@ params = {
 model = ClassificationTask(params)
 model.eval()
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+
 test_images = [
     "dataset/images/test_image.png",
     "dataset/images/test_image2.png",
