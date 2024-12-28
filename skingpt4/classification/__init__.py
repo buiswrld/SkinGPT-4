@@ -41,7 +41,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return loss
 
     def validation_step(self, batch, batch_nb):
-        # TODO ~ Replace batch with our data
+        # TODO ~ Replace batch with our data (GeneralizedClassificationDataset)
         x, y = batch["Google_image"], batch["label_classification"]
         logits = self.forward(x)
         loss = self.loss(logits.view(-1), y)
@@ -77,7 +77,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def configure_optimizers(self):
         return [torch.optim.Adam(self.parameters(), lr=0.02)]
-
+    
+    #TODO ~ Address GeneralizedClassificationDataset 
     def train_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.ToTensor(), #(C, H, W) from (H, W, C) 
