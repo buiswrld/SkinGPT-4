@@ -23,7 +23,7 @@ params = {
     "low_resource": False,
     "device_8bit": 0,
     "loss_fn": "CE",
-    "dataset_path": "data/test_csv.csv",
+    "dataset_path": "dataset/csv/test_csv.csv",
 }
 model = ClassificationTask(params)
 model.eval()
