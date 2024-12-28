@@ -36,7 +36,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
-        print('loss'):
+        print('loss')
         print(loss)
         return loss
 
