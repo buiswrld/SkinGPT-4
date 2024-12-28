@@ -32,16 +32,15 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                 progress_bar: metrics to be logged to the progress bar
                               and metrics.csv
         """
-        #TODO ~ examine bugfix effects
-        x, y = batch, batch["label"] 
+        x, y = batch["image"], batch["label"] 
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
         return loss
 
     def validation_step(self, batch, batch_nb):
-        #TODO ~ examine bugfix effects
-        x, y = batch, batch['label']
+        # TODO ~ Replace batch with our data (GeneralizedClassificationDataset)
+        x, y = batch['image'], batch['label']
         logits = self.forward(x)
         loss = self.loss(logits.view(-1), y)
         y_hat = (logits > 0).float()

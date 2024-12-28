@@ -37,6 +37,6 @@ for image_path in test_images:
     image = Image.open(image_path).convert('RGB')
     image = transform(image).unsqueeze(0) 
     with torch.no_grad():
-        logits = model(image)
+        logits = model({"image": image})
         predicted_class = torch.argmax(logits, dim=1).item()
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
