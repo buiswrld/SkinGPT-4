@@ -49,7 +49,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.evaluator.update((torch.sigmoid(logits), y))
         return loss
 
-    def on_validation_epoch_end(self, outputs):
+    #def on_validation_epoch_end(self, outputs):
+    def on_validation_epoch_end(self):
         """
         Aggregate and return the validation metrics
 
@@ -63,8 +64,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                 progress_bar: metrics to be logged to the progress bar
                               and metrics.csv
         """
-        avg_loss = torch.stack(outputs).mean()
-        self.log("val_loss", avg_loss)
+        #avg_loss = torch.stack(outputs).mean()
+        #self.log("val_loss", avg_loss)
         metrics = self.evaluator.evaluate()
         self.evaluator.reset()
         self.log_dict(metrics)
