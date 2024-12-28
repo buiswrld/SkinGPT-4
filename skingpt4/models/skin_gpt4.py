@@ -113,9 +113,9 @@ class skingpt4(Blip2Base):
                 return_dict=True,
             )
 
-            inputs_llama = self.llama_proj(query_output.last_hidden_state)
-            atts_llama = torch.ones(inputs_llama.size()[:-1], dtype=torch.long).to(image.device)
-        return inputs_llama, atts_llama
+            #inputs_llama = self.llama_proj(query_output.last_hidden_state)
+            #atts_llama = torch.ones(inputs_llama.size()[:-1], dtype=torch.long).to(image.device)
+        return query_output.last_hidden_state, image_atts
 
 
     def forward(self, samples):
