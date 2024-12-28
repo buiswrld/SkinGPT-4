@@ -33,7 +33,7 @@ params = {
 model = ClassificationTask(params)
 
 trainer = Trainer(
-    gpus=1
+    #gpus=1
 )
 
 print("trainer fitting")
