@@ -73,7 +73,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def test_step(self, batch, batch_nb):
         return self.validation_step(batch, batch_nb)
 
-    def test_epoch_end(self, outputs):
+    def on_test_epoch_end(self, outputs):
         return self.validation_epoch_end(outputs)
 
     def configure_optimizers(self):
