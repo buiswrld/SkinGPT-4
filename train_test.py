@@ -30,7 +30,7 @@ params = {
     "dataset_path": "dataset/csv/test_csv.csv",
 }
 
-## base model
+## base model, no training
 print("base model:")
 model = ClassificationTask(params)
 model.eval()
@@ -54,7 +54,7 @@ for image_path in test_images:
         predicted_class = torch.argmax(logits, dim=1)
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
 
-
+### display values after training to observe difference
 print("after training")
 model_2 = ClassificationTask(params)
 
