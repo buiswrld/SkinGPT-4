@@ -51,6 +51,7 @@ for image_path in test_images:
         logits = model({"image": image})
         print(f"Logits for {image_path}: {logits}") 
         print(f"Logits shape for {image_path}: {logits.shape}") 
+        probs = probs.cpu().numpy()
         probs = torch.softmax(torch.tensor(probs), dim=1).numpy()
         predicted_class = torch.argmax(probs, dim=1)
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
@@ -75,7 +76,7 @@ test_images = [
     "dataset/images/test_image.png",
     "dataset/images/test_image2.png",
 ]
-
+    
 for image_path in test_images:
     image = Image.open(image_path).convert('RGB')
     image = transform(image).unsqueeze(0) 
@@ -84,6 +85,7 @@ for image_path in test_images:
         logits = model_2({"image": image})
         print(f"Logits for {image_path}: {logits}") 
         print(f"Logits shape for {image_path}: {logits.shape}") 
+        probs = probs.cpu().numpy()
         probs = torch.softmax(torch.tensor(probs), dim=1).numpy()
         predicted_class = torch.argmax(probs, dim=1)
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
