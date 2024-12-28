@@ -3,7 +3,7 @@ from torchvision import transforms
 from PIL import Image
 import pandas as pd
 from skingpt4.models.skin_gpt4 import skingpt4
-from classification_task import ClassificationTask
+from skingpt4.classification.classification_task import ClassificationTask
 
 transform = transforms.Compose([
     transforms.ToTensor(),
