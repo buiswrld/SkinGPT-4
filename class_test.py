@@ -47,6 +47,5 @@ for image_path in test_images:
 
 
         probs = torch.softmax(torch.tensor(probs), dim=1).numpy()
-        preds = np.argmax(probs, axis=1)
-        predicted_class = torch.argmax(logits, dim=1)
+        predicted_class = torch.argmax(probs, dim=1)
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
