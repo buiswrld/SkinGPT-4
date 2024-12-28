@@ -124,6 +124,7 @@ class skingpt4(Blip2Base):
             samples, size=(224, 224), mode="bilinear", align_corners=True
         )
         img_embeds, atts_img = self.encode_img(samples)
+        img_embeds = img_embeds.mean(dim=1)
         logits = self.classification_head(img_embeds)
         return logits
 
