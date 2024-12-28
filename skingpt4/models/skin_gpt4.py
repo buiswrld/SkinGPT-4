@@ -152,4 +152,5 @@ class skingpt4(Blip2Base):
             low_resource=low_resource,
             device_8bit=device_8bit,
         )
+        return model
 
