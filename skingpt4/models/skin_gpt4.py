@@ -37,7 +37,7 @@ class skingpt4(Blip2Base):
         prompt_path="",
         prompt_template="",
         max_txt_len=32,
-        end_sym='\n',
+        end_sym="\n",
         low_resource=False,  # use 8 bit and put vit in cpu
         device_8bit=0,  # the device of 8bit model should be set when loading and cannot be changed anymore.
     ):
@@ -46,7 +46,7 @@ class skingpt4(Blip2Base):
         self.tokenizer = self.init_tokenizer()
         self.low_resource = low_resource
 
-        print('Loading VIT')
+        print("Loading VIT")
         self.visual_encoder, self.ln_vision = self.init_vision_encoder(
             vit_model, img_size, drop_path_rate, use_grad_checkpoint, vit_precision
         )
@@ -60,9 +60,9 @@ class skingpt4(Blip2Base):
             self.ln_vision = self.ln_vision.eval()
             self.ln_vision.train = disabled_train
             logging.info("freeze vision encoder")
-        print('Loading VIT Done')
+        print("Loading VIT Done")
 
-        print('Loading Q-Former')
+        print("Loading Q-Former")
         self.Qformer, self.query_tokens = self.init_Qformer(
             num_query_token, self.visual_encoder.num_features
         )
@@ -81,11 +81,9 @@ class skingpt4(Blip2Base):
             self.Qformer.train = disabled_train
             self.query_tokens.requires_grad = False
             logging.info("freeze Qformer")
-        print('Loading Q-Former Done')
+        print("Loading Q-Former Done")
 
-        self.classification_head = nn.Linear(
-            self.Qformer.config.hidden_size, 6
-        )
+        self.classification_head = nn.Linear(self.Qformer.config.hidden_size, 6)
         self.max_txt_len = max_txt_len
         self.end_sym = end_sym
 
@@ -103,7 +101,9 @@ class skingpt4(Blip2Base):
 
         with self.maybe_autocast():
             image_embeds = self.ln_vision(self.visual_encoder(image)).to(device)
-            image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(device)
+            image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(
+                device
+            )
 
             query_tokens = self.query_tokens.expand(image_embeds.shape[0], -1, -1)
             query_output = self.Qformer.bert(
@@ -113,23 +113,26 @@ class skingpt4(Blip2Base):
                 return_dict=True,
             )
 
-            #inputs_llama = self.llama_proj(query_output.last_hidden_state)
-            #atts_llama = torch.ones(inputs_llama.size()[:-1], dtype=torch.long).to(image.device)
+            # inputs_llama = self.llama_proj(query_output.last_hidden_state)
+            # atts_llama = torch.ones(inputs_llama.size()[:-1], dtype=torch.long).to(image.device)
         return query_output.last_hidden_state, image_atts
 
-
     def forward(self, samples):
-        if isinstance(samples, torch.Tensor):
-            samples = {"image": samples}
-        image = samples["image"]
-        img_embeds, atts_img = self.encode_img(image)
+        # Resize the image to be 224 by 224
+        samples = F.interpolate(
+            samples, size=(224, 224), mode="bilinear", align_corners=True
+        )
+        img_embeds, atts_img = self.encode_img(samples)
         logits = self.classification_head(img_embeds)
         return logits
 
     @classmethod
     def from_config(cls, cfg):
         vit_model = cfg.get("vit_model", "eva_clip_g")
-        q_former_model = cfg.get("q_former_model", "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_flant5xxl.pth")
+        q_former_model = cfg.get(
+            "q_former_model",
+            "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_flant5xxl.pth",
+        )
         img_size = cfg.get("img_size")
         num_query_token = cfg.get("num_query_token")
 
@@ -155,4 +158,3 @@ class skingpt4(Blip2Base):
             device_8bit=device_8bit,
         )
         return model
-
