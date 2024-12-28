@@ -44,5 +44,5 @@ for image_path in test_images:
         logits = model({"image": image})  # Wrap the image tensor in a dictionary
         print(f"Logits for {image_path}: {logits}")  # Print the logits tensor
         print(f"Logits shape for {image_path}: {logits.shape}")  # Print the shape of the logits tensor
-        predicted_class = torch.argmax(logits, dim=-1).item()  # Extract the predicted class index
+        predicted_class = torch.argmax(logits, dim=1)  # Extract the predicted class index
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
