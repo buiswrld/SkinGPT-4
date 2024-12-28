@@ -3,6 +3,7 @@ import random
 
 import torch
 from torch.cuda.amp import autocast as autocast
+import torch.nn.functional as F
 import torch.nn as nn
 
 from skingpt4.common.registry import registry
