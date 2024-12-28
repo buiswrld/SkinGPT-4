@@ -128,7 +128,7 @@ class skingpt4(Blip2Base):
     def from_config(cls, cfg):
         vit_model = cfg.get("vit_model", "eva_clip_g")
         q_former_model = cfg.get("q_former_model", "https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_flant5xxl.pth")
-        img_size = cfg.get("image_size")
+        img_size = cfg.get("img_size")
         num_query_token = cfg.get("num_query_token")
 
         drop_path_rate = cfg.get("drop_path_rate", 0)
