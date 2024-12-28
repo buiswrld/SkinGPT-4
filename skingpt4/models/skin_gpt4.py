@@ -119,6 +119,7 @@ class skingpt4(Blip2Base):
 
 
     def forward(self, samples):
+        print(samples)
         image = samples["image"]
         img_embeds, atts_img = self.encode_img(image)
         logits = self.classification_head(img_embeds)
