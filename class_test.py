@@ -45,7 +45,6 @@ for image_path in test_images:
         print(f"Logits for {image_path}: {logits}") 
         print(f"Logits shape for {image_path}: {logits.shape}") 
 
-        probs = probs.cpu().numpy()
-        probs = torch.softmax(torch.tensor(probs), dim=1).numpy()
+        probs = torch.softmax(logits, dim=1).numpy()
         predicted_class = torch.argmax(probs, dim=1)
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
