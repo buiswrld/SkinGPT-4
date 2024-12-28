@@ -30,14 +30,58 @@ params = {
     "dataset_path": "dataset/csv/test_csv.csv",
 }
 
+## base model
+print("base model:")
 model = ClassificationTask(params)
+model.eval()
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+
+test_images = [
+    "dataset/images/test_image.png",
+    "dataset/images/test_image2.png",
+]
+
+for image_path in test_images:
+    image = Image.open(image_path).convert('RGB')
+    image = transform(image).unsqueeze(0) 
+    image = image.to(device).half()
+    with torch.no_grad():
+        logits = model({"image": image})
+        print(f"Logits for {image_path}: {logits}") 
+        print(f"Logits shape for {image_path}: {logits.shape}") 
+        predicted_class = torch.argmax(logits, dim=1)
+        print(f"Image: {image_path}, Predicted Class: {predicted_class}")
+
+
+print("after training")
+model_2 = ClassificationTask(params)
 
 trainer = Trainer(
-    #gpus=1
     max_epochs = 5,
 )
 
 print("trainer fitting")
-trainer.fit(model)
-print("trainer testing")
-trainer.test(model)
+trainer.fit(model_2)
+
+model_2.eval()
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model_2 = model_2.to(device)
+
+test_images = [
+    "dataset/images/test_image.png",
+    "dataset/images/test_image2.png",
+]
+
+for image_path in test_images:
+    image = Image.open(image_path).convert('RGB')
+    image = transform(image).unsqueeze(0) 
+    image = image.to(device).half()
+    with torch.no_grad():
+        logits = model_2({"image": image})
+        print(f"Logits for {image_path}: {logits}") 
+        print(f"Logits shape for {image_path}: {logits.shape}") 
+        predicted_class = torch.argmax(logits, dim=1)
+        print(f"Image: {image_path}, Predicted Class: {predicted_class}")
