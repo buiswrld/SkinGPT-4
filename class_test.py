@@ -41,8 +41,11 @@ for image_path in test_images:
     image = transform(image).unsqueeze(0) 
     image = image.to(device).half()
     with torch.no_grad():
-        logits = model({"image": image})  # Wrap the image tensor in a dictionary
-        print(f"Logits for {image_path}: {logits}")  # Print the logits tensor
-        print(f"Logits shape for {image_path}: {logits.shape}")  # Print the shape of the logits tensor
-        predicted_class = torch.argmax(logits, dim=1)  # Extract the predicted class index
+        logits = model({"image": image}) 
+        print(f"Logits for {image_path}: {logits}") 
+        print(f"Logits shape for {image_path}: {logits.shape}")  
+        probabilities = torch.softmax(logits, dim=-1) 
+        predicted_class = torch.argmax(probabilities, dim=-1) 
         print(f"Image: {image_path}, Predicted Class: {predicted_class}")
+        print(f"Probabilities for {image_path}: {probabilities}")  
+        print(f"Probabilities shape for {image_path}: {probabilities.shape}")  
