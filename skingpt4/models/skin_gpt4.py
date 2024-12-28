@@ -120,6 +120,9 @@ class skingpt4(Blip2Base):
 
     def forward(self, samples):
         # Resize the image to be 224 by 224
+
+        if isinstance(samples, dict):
+            samples = samples["image"]
         samples = F.interpolate(
             samples, size=(224, 224), mode="bilinear", align_corners=True
         )
