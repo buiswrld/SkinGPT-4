@@ -37,8 +37,6 @@ class skingpt4(Blip2Base):
         llm_model="",
         prompt_path="",
         prompt_template="",
-        max_txt_len=32,
-        end_sym="\n",
         low_resource=False,  # use 8 bit and put vit in cpu
         device_8bit=0,  # the device of 8bit model should be set when loading and cannot be changed anymore.
     ):
@@ -85,8 +83,6 @@ class skingpt4(Blip2Base):
         print("Loading Q-Former Done")
 
         self.classification_head = nn.Linear(self.Qformer.config.hidden_size, 6)
-        self.max_txt_len = max_txt_len
-        self.end_sym = end_sym
 
     def vit_to_cpu(self):
         self.ln_vision.to("cpu")
