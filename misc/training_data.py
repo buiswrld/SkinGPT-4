@@ -33,7 +33,7 @@ for index, row in df.iterrows():
         output_rows.append(
             {
                 "case_id": row["case_id"],
-                "label": f"Class{conditions[max_condition]}",
+                "label": f"{max_condition}",
                 "split": "Valid",
             }
         )
