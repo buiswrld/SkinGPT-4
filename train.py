@@ -7,7 +7,11 @@ from skingpt4.models.skin_gpt4 import skingpt4
 from skingpt4.classification.classification_task import ClassificationTask
 import wandb  # Import the W&B library
 
-wandb.init(project="skingpt4", entity="prodbui") 
+wandb.init(
+    project="skingpt4",    
+    config={
+    "epochs": 10,
+    }) 
 
 # Define the transformation
 transform = transforms.Compose([
