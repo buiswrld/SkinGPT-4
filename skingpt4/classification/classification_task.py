@@ -18,6 +18,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.model = get_model(params)
         self.loss = get_loss_fn(params)
         self.evaluator = GeneralClassificationEvaluator()
+        self.validation_outputs=[]
 
     def forward(self, x):
         return self.model(x)
@@ -62,7 +63,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                               and metrics.csv
         """
         #avg_loss = torch.stack(outputs).mean()
-        avg_loss = torch.stack(self.outputs).mean()
+        avg_loss = torch.stack(self.validation_outputs).mean()
         self.log("val_loss", avg_loss)
         metrics = self.evaluator.evaluate()
         self.evaluator.reset()
