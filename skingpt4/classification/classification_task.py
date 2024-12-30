@@ -7,7 +7,7 @@ from .loss import get_loss_fn
 from data.dataset import GeneralizedClassificationDataset
 from .logger import TFLogger
 from .evaluator import GeneralClassificationEvaluator
-from models.detection import get_model
+from skingpt4.models.detection import get_model
 
 class ClassificationTask(pl.LightningModule, TFLogger):
     """Standard interface for the trainer to interact with the model."""
