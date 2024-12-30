@@ -89,6 +89,8 @@ class skingpt4(Blip2Base):
                 nn.ReLU(),
                 nn.Linear(512, 256),
                 nn.ReLU(),
+                nn.Linear(256, 128),
+                nn.ReLU(),
             )
             self.classification_head = nn.Linear(256, 6)
         else:
