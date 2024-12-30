@@ -24,7 +24,7 @@ def train(
         gradient_clip_val=0.5,
         limit_train_batches=16.0, #TODO ~ Customize
         weights_summary=None,
-        max_epochs=1,
+        max_epochs=200,
 
         #util params
         task='classification',#TODO ~ Customize
