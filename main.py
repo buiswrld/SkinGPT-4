@@ -20,7 +20,7 @@ def train(
         save_dir="../archive/results",
         exp_name="demo", #TODO ~ Customize
         proj_name="skingpt", #TODO ~ Customize
-        patience=10,
+        patience=20,
         gradient_clip_val=0.5,
         limit_train_batches=16.0, #TODO ~ Customize
         weights_summary=None,
@@ -29,6 +29,7 @@ def train(
         #util params
         task='classification',#TODO ~ Customize
         loss_fn="CE",
+        use_mlp_head = False,
 
         ## model params
         

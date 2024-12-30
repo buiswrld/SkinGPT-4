@@ -39,6 +39,7 @@ class skingpt4(Blip2Base):
         prompt_template="",
         low_resource=False,  # use 8 bit and put vit in cpu
         device_8bit=0,  # the device of 8bit model should be set when loading and cannot be changed anymore.
+        use_mlp_head=False,
     ):
         super().__init__()
 
@@ -82,7 +83,17 @@ class skingpt4(Blip2Base):
             logging.info("freeze Qformer")
         print("Loading Q-Former Done")
 
-        self.classification_head = nn.Linear(self.Qformer.config.hidden_size, 6)
+        if use_mlp_head:
+            self.mlp_head = nn.Sequential(
+                nn.Linear(self.Qformer.config.hidden_size, 512),
+                nn.ReLU(),
+                nn.Linear(512, 256),
+                nn.ReLU(),
+            )
+            self.classification_head = nn.Linear(256, 6)
+        else:
+            self.mlp_head = nn.Identity()
+            self.classification_head = nn.Linear(self.Qformer.config.hidden_size, 6)
 
     def vit_to_cpu(self):
         self.ln_vision.to("cpu")
@@ -110,8 +121,6 @@ class skingpt4(Blip2Base):
                 return_dict=True,
             )
 
-            # inputs_llama = self.llama_proj(query_output.last_hidden_state)
-            # atts_llama = torch.ones(inputs_llama.size()[:-1], dtype=torch.long).to(image.device)
         return query_output.last_hidden_state, image_atts
 
     def forward(self, samples):
@@ -124,7 +133,8 @@ class skingpt4(Blip2Base):
         )
         img_embeds, atts_img = self.encode_img(samples)
         img_embeds = img_embeds.mean(dim=1)
-        logits = self.classification_head(img_embeds)
+        mlp_out = self.mlp_head(img_embeds)
+        logits = self.classification_head(mlp_out)
         return logits
 
     @classmethod
@@ -144,6 +154,7 @@ class skingpt4(Blip2Base):
         freeze_qformer = cfg.get("freeze_qformer", True)
         low_resource = cfg.get("low_resource", False)
         device_8bit = cfg.get("device_8bit", 0)
+        use_mlp_head = cfg.get("use_mlp_head", False)
 
         model = cls(
             vit_model=vit_model,
@@ -157,5 +168,6 @@ class skingpt4(Blip2Base):
             num_query_token=num_query_token,
             low_resource=low_resource,
             device_8bit=device_8bit,
+            use_mlp_head=use_mlp_head,
         )
         return model
