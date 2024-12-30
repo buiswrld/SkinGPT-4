@@ -51,5 +51,6 @@ val_df["split"] = "val"
 test_df["split"] = "test"
 
 final_df = pd.concat([train_df, val_df, test_df])
+final_df["image_path"] = final_df["image_path"].str.replace("dataset/images/", "images/")
 
 final_df.to_csv("../data/data.csv", index=False)
