@@ -9,7 +9,6 @@ from .logger import TFLogger
 from .evaluator import GeneralClassificationEvaluator
 from models.detection import get_model
 
-#TODO ~ view Blip2Base (blip2.py) & BaseModel (base_model.py)
 class ClassificationTask(pl.LightningModule, TFLogger):
     """Standard interface for the trainer to interact with the model."""
 
