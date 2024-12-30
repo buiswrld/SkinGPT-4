@@ -92,7 +92,7 @@ class skingpt4(Blip2Base):
                 nn.Linear(256, 128),
                 nn.ReLU(),
             )
-            self.classification_head = nn.Linear(256, 6)
+            self.classification_head = nn.Linear(128, 6)
         else:
             self.mlp_head = nn.Identity()
             self.classification_head = nn.Linear(self.Qformer.config.hidden_size, 6)
