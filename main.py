@@ -104,7 +104,7 @@ def train(
                       logger=get_logger(logger_type, save_dir, exp_name, proj_name),
                       callbacks=[get_early_stop_callback(patience),
                                  get_ckpt_callback(save_dir, exp_name)],
-                      weights_save_path=os.path.join(save_dir, exp_name),
+                      default_root_dir=os.path.join(save_dir, exp_name),
                       gradient_clip_val=gradient_clip_val,
                       limit_train_batches=limit_train_batches,
                       weights_summary=weights_summary,
