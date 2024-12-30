@@ -7,7 +7,6 @@ from .loss import get_loss_fn
 from data.dataset import GeneralizedClassificationDataset
 from .logger import TFLogger
 from .evaluator import GeneralClassificationEvaluator
-from skingpt4.models.skin_gpt4 import skingpt4
 from models.detection import get_model
 
 #TODO ~ view Blip2Base (blip2.py) & BaseModel (base_model.py)
@@ -37,21 +36,17 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
-        print('loss')
-        print(loss)
-        return loss
+        return {'loss': loss}
 
     def validation_step(self, batch, batch_nb):
-        # TODO ~ Replace batch with our data (GeneralizedClassificationDataset)
         x, y = batch['image'], batch['label']
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
         self.evaluator.update((torch.sigmoid(logits), y))
-        return loss
+        return {'loss': loss}
 
-    #def on_validation_epoch_end(self, outputs):
-    def on_validation_epoch_end(self):
+    def validation_epoch_end(self, outputs):
         """
         Aggregate and return the validation metrics
 
@@ -65,8 +60,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                 progress_bar: metrics to be logged to the progress bar
                               and metrics.csv
         """
-        #avg_loss = torch.stack(outputs).mean()
-        #self.log("val_loss", avg_loss)
+        avg_loss = torch.stack(outputs).mean()
+        self.log("val_loss", avg_loss)
         metrics = self.evaluator.evaluate()
         self.evaluator.reset()
         self.log_dict(metrics)
@@ -75,8 +70,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def test_step(self, batch, batch_nb):
         return self.validation_step(batch, batch_nb)
 
-    #def on_test_epoch_end(self, outputs):
-    def on_test_epoch_end(self):
+    def test_epoch_end(self, outputs):
         return self.validation_epoch_end(outputs)
 
     def configure_optimizers(self):
