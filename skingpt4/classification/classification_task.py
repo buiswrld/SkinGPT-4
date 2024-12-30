@@ -83,6 +83,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                             transforms.RandomAffine(90),
                           ]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list))
+        print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
 
@@ -90,6 +91,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.ToTensor()]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="valid", transforms=transforms.Compose(transforms_list))
+        print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
 
@@ -97,5 +99,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.ToTensor()]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms.Compose(transforms_list))
+        print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
