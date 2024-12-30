@@ -127,7 +127,7 @@ def test(ckpt_path,
 
     """
     task = load_task(ckpt_path, **kwargs)
-    trainer = Trainer(gpus=gpus)
+    trainer = Trainer(devices=gpus)
     trainer.test(task)
 
 
