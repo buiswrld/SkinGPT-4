@@ -15,7 +15,7 @@ def train(
         
         # lightning params
         gpus=1,
-        accelerator=None,
+        accelerator='cuda',
         logger_type='wandb', 
         save_dir="../archive/results",
         exp_name="demo", #TODO ~ Customize
