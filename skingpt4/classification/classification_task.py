@@ -8,6 +8,7 @@ from data.dataset import GeneralizedClassificationDataset
 from .logger import TFLogger
 from .evaluator import GeneralClassificationEvaluator
 from skingpt4.models.skin_gpt4 import skingpt4
+from models.detection import get_model
 
 #TODO ~ view Blip2Base (blip2.py) & BaseModel (base_model.py)
 class ClassificationTask(pl.LightningModule, TFLogger):
@@ -16,7 +17,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def __init__(self, params):
         super().__init__()
         self.save_hyperparameters(params)
-        self.model = skingpt4.from_config(params)
+        self.model = get_model(params)
         self.loss = get_loss_fn(params)
         self.evaluator = GeneralClassificationEvaluator()
 

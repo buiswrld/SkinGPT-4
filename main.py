@@ -5,32 +5,67 @@ from pytorch_lightning import Trainer
 from skingpt4.models.skin_gpt4 import skingpt4
 
 from util import init_exp_folder, Args
-from lightning import (get_task,
+from skingpt4.classification import (get_task,
                        load_task,
                        get_ckpt_callback, 
                        get_early_stop_callback,
                        get_logger)
 
-def train(save_dir="../archive/results",
-          exp_name="demo", #TODO ~ Customize
-          model="skingpt4", #TODO ~ Customize
-          task='classification',#TODO ~ Customize
-          gpus=1,
-          pretrained=True,
-          num_classes=6, #TODO ~ Customize
-          accelerator=None,
-          logger_type='wandb', 
-          gradient_clip_val=0.5,
-          max_epochs=1,
-          patience=10,
-          stochastic_weight_avg=True,
-          limit_train_batches=16.0, #TODO ~ Customize
-          tb_path="./tb",
-          loss_fn="CE",
-          weights_summary=None,
-          proj_name="skingpt", #TODO ~ Customize
-          dataset_path="data/data.csv" #TODO ~ customize 
-          ):
+def train(
+        
+        # lightning params
+        gpus=1,
+        accelerator=None,
+        logger_type='wandb', 
+        save_dir="../archive/results",
+        exp_name="demo", #TODO ~ Customize
+        proj_name="skingpt", #TODO ~ Customize
+        patience=10,
+        gradient_clip_val=0.5,
+        limit_train_batches=16.0, #TODO ~ Customize
+        weights_summary=None,
+        max_epochs=1,
+
+        #util params
+        task='classification',#TODO ~ Customize
+        loss_fn="CE",
+
+        ## model params
+        
+        vit_model="eva_clip_g",
+        q_former_model="https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_flant5xxl.pth",
+        img_size=224,
+        drop_path_rate=0,
+        use_grad_checkpoint=False,
+        vit_precision="fp16",
+        freeze_vit=True,
+        freeze_qformer=True,
+        num_query_token=32,
+        low_resource=False,
+        device_8bit=0,
+
+        #misc
+        pretrained=True,
+        num_classes=6, #TODO ~ Customize
+        stochastic_weight_avg=True,
+        tb_path="./tb",
+
+        dataset_path="data/data.csv" #TODO ~ customize 
+        ):
+    
+    """
+    gpus=gpus,
+                        accelerator=accelerator,
+                        logger=get_logger(logger_type, save_dir, exp_name, proj_name),
+                        callbacks=[get_early_stop_callback(patience),
+                                    get_ckpt_callback(save_dir, exp_name)],
+                        weights_save_path=os.path.join(save_dir, exp_name),
+                        gradient_clip_val=gradient_clip_val,
+                        limit_train_batches=limit_train_batches,
+                        weights_summary=weights_summary,
+                        max_epochs=max_epochs
+    """
+
     """
     Run the training experiment.
 
@@ -59,23 +94,9 @@ def train(save_dir="../archive/results",
 
     """
     args = Args(locals())
-    args['model_']
     init_exp_folder(args)
 
-    model_instance = skingpt4(
-        vit_model="eva_clip_g",
-        q_former_model="https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/BLIP2/blip2_pretrained_flant5xxl.pth",
-        img_size=224,
-        drop_path_rate=0,
-        use_grad_checkpoint=False,
-        vit_precision="fp16",
-        freeze_vit=True,
-        freeze_qformer=True,
-        num_query_token=32,
-        low_resource=False,
-        device_8bit=0,
-    )
-
+    #model instance
     task = get_task(args)
 
     trainer = Trainer(gpus=gpus,
