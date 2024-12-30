@@ -3,7 +3,7 @@ import json
 import os
 from os.path import join
 from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.loggers.test_tube import TestTubeLogger
+#from pytorch_lightning.loggers.test_tube import TestTubeLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 
 
@@ -35,8 +35,7 @@ def get_logger(logger_type, save_path, exp_name, project_name=None):
                            project=project_name)
     elif logger_type == 'test_tube': 
         exp_dir = os.path.join(save_path, exp_name)
-        return TestTubeLogger(save_dir=exp_dir,
-                              name='lightning_logs',
-                              version="0")
+        #return TestTubeLogger(save_dir=exp_dir,name='lightning_logs',version="0")
+        pass
     else:
         raise ValueError(f'{logger_type} is not a supported logger.')
