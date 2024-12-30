@@ -99,7 +99,7 @@ def train(
     #model instance
     task = get_task(args)
 
-    trainer = Trainer(gpus=gpus,
+    trainer = Trainer(devices=gpus,
                       accelerator=accelerator,
                       logger=get_logger(logger_type, save_dir, exp_name, proj_name),
                       callbacks=[get_early_stop_callback(patience),
