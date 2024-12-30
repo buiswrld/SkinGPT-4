@@ -40,6 +40,7 @@ class skingpt4(Blip2Base):
         low_resource=False,  # use 8 bit and put vit in cpu
         device_8bit=0,  # the device of 8bit model should be set when loading and cannot be changed anymore.
         use_mlp_head=False,
+        num_classes=6,
     ):
         super().__init__()
 
@@ -92,10 +93,10 @@ class skingpt4(Blip2Base):
                 nn.Linear(256, 128),
                 nn.ReLU(),
             )
-            self.classification_head = nn.Linear(128, 6)
+            self.classification_head = nn.Linear(128, num_classes)
         else:
             self.mlp_head = nn.Identity()
-            self.classification_head = nn.Linear(self.Qformer.config.hidden_size, 6)
+            self.classification_head = nn.Linear(self.Qformer.config.hidden_size, num_classes)
 
     def vit_to_cpu(self):
         self.ln_vision.to("cpu")
@@ -157,6 +158,7 @@ class skingpt4(Blip2Base):
         low_resource = cfg.get("low_resource", False)
         device_8bit = cfg.get("device_8bit", 0)
         use_mlp_head = cfg.get("use_mlp_head", False)
+        num_classes = cfg.get("num_classes", 6)
 
         model = cls(
             vit_model=vit_model,
@@ -171,5 +173,6 @@ class skingpt4(Blip2Base):
             low_resource=low_resource,
             device_8bit=device_8bit,
             use_mlp_head=use_mlp_head,
+            num_classes = num_classes,
         )
         return model

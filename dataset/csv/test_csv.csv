@@ -1,3 +1,0 @@
-image_path,label,split
-dataset/images/test_image.png,Class1,valid
-dataset/images/test_image2.png,Class2,valid
