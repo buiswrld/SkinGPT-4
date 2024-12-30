@@ -107,7 +107,7 @@ def train(
                       default_root_dir=os.path.join(save_dir, exp_name),
                       gradient_clip_val=gradient_clip_val,
                       limit_train_batches=limit_train_batches,
-                      weights_summary=weights_summary,
+                      enable_model_summary=weights_summary,
                       max_epochs=max_epochs)
     trainer.fit(task)
 
