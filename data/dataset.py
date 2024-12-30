@@ -10,14 +10,12 @@ class GeneralizedClassificationDataset(torch.utils.data.Dataset):
         df = pd.read_csv(dataset_path)
         self.dataset = df.loc[df['split'] == split].reset_index(drop=True) 
         self.transforms = transforms 
-        #TODO ~ Replace temp class names with actual disease outputs
-        self.class_names = ["Class1", "Class2", "Class3", "Class4", "Class5", "Class6"]
+        self.class_names = ["Eczema", "Urticaria", "Psoriasis", "Allergic Contact Dermatitis", "Tinea", "Impetigo"] 
         self.class_to_idx = {class_name: idx for idx, class_name in enumerate(self.class_names)}
 
     def __len__(self):
         return len(self.dataset) 
     
-    #TODO ~ Ensure the input CSV is formatted with image_path, label, and split
     def __getitem__(self, index):
         sample = self.dataset.loc[index]
         image = Image.open(sample["image_path"]).convert('RGB')
