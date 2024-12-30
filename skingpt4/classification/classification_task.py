@@ -76,7 +76,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def configure_optimizers(self):
         return [torch.optim.Adam(self.parameters(), lr=0.02)]
     
-    #TODO ~ Address GeneralizedClassificationDataset 
     def train_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.ToTensor(), #(C, H, W) from (H, W, C) 
