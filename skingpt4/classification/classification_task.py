@@ -88,7 +88,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
                             transforms.RandomHorizontalFlip(0.5),
                             transforms.RandomVerticalFlip(0.5),
-                            transforms.RandomAffine(90),
                           ]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), num_classes=self.hparams.get('num_classes', 6))
         print(f"Training set number of samples: {len(dataset)}")
