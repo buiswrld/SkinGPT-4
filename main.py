@@ -19,7 +19,7 @@ def train(
         logger_type='wandb', 
         save_dir="../archive/results",
         exp_name="demo", #TODO ~ Customize
-        proj_name="skingpt", #TODO ~ Customize
+        proj_name="skingpt",
         patience=20,
         gradient_clip_val=0.5,
         limit_train_batches=16.0, #TODO ~ Customize
@@ -27,9 +27,10 @@ def train(
         max_epochs=200,
 
         #util params
-        task='classification',#TODO ~ Customize
+        task='classification',
         loss_fn="CE",
         use_mlp_head = False,
+        learning_rate = 0.02,
 
         ## model params
         
