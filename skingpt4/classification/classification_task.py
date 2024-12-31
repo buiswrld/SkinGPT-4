@@ -33,14 +33,18 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                               and metrics.csv
         """
         x, y = batch["image"], batch["label"] 
+        print(f"x shape: {x.shape}, y shape: {y.shape}")
         logits = self.forward(x)
+        print(f"logits shape: {logits.shape}")
         loss = self.loss(logits, y)
         self.log("loss", loss)
         return {'loss': loss}
 
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
+        print(f"x shape: {x.shape}, y shape: {y.shape}")
         logits = self.forward(x)
+        print(f"logits shape: {logits.shape}")
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
         self.evaluator.update((torch.sigmoid(logits), y))
@@ -68,7 +72,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         metrics = self.evaluator.evaluate()
         self.evaluator.reset()
         self.log_dict(metrics)
-        print(metrics)
+        self.validation_outputs.clear()
 
     def test_step(self, batch, batch_nb):
         return self.validation_step(batch, batch_nb)
