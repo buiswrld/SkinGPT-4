@@ -33,18 +33,14 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                               and metrics.csv
         """
         x, y = batch["image"], batch["label"] 
-        print(f"x shape: {x.shape}, y shape: {y.shape}")
         logits = self.forward(x)
-        print(f"logits shape: {logits.shape}")
         loss = self.loss(logits, y)
         self.log("loss", loss)
         return {'loss': loss}
 
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
-        print(f"x shape: {x.shape}, y shape: {y.shape}")
         logits = self.forward(x)
-        print(f"logits shape: {logits.shape}")
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
         self.evaluator.update((torch.sigmoid(logits), y))
@@ -93,7 +89,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                             transforms.RandomVerticalFlip(0.5),
                             transforms.RandomAffine(90),
                           ]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list))
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), num_classes=self.hparams.get('num_classes', 6))
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
@@ -101,7 +97,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def val_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((224, 224)),transforms.ToTensor()]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list))
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), num_classes=self.hparams.get('num_classes', 6))
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
@@ -109,7 +105,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def test_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((224, 224)),transforms.ToTensor()]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms.Compose(transforms_list))
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms.Compose(transforms_list), num_classes=self.hparams.get('num_classes', 6))
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
