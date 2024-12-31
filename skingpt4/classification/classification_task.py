@@ -79,8 +79,16 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return self.on_validation_epoch_end()
 
     def configure_optimizers(self):
-        lr = self.hparams.get('learning_rate', 0.02)
-        return [torch.optim.Adam(self.parameters(), lr=lr)]
+        initial_lr = self.hparams.get('learning_rate', 0.02)
+        optimizer = torch.optim.Adam(self.parameters(), lr=initial_lr)
+        scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=5, verbose=True, min_lr=5e-4)
+        return {
+            'optimizer': optimizer,
+            'lr_scheduler': {
+                'scheduler': scheduler,
+                'monitor': 'val_loss',
+            }
+        }
     
     def train_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
