@@ -6,16 +6,18 @@ import gspread
 from google.auth import default
 from fairlearn.metrics import MetricFrame, equalized_odds_difference, demographic_parity_difference
 
-creds, _ = default()
-gc = gspread.authorize(creds)
 
-sheet_url = "https://docs.google.com/spreadsheets/d/1O1jKNm-_KRsafYoSxS_sd-8rTaYlIce1FyYpcae_15g/edit?gid=1714650698#gid=1714650698"
-sheet = gc.open_by_url(sheet_url)
-worksheet = sheet.get_worksheet(0)
-diagnosis_correct = worksheet.col_values(4)[1:]  #skip header row
-diagnosis_informative = worksheet.col_values(5)[1:]
-diagnosis_helpful = worksheet.col_values(6)[1:]
-diagnosis_understand = worksheet.col_values(4)[1:]
+clinical_evals = "clinical/clinical_evals.csv"
+
+with open(clinical_evals, mode='r', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    header = next(reader)  # Skip the header row
+    data = list(reader)
+
+diagnosis_correct = [row[3] for row in data]
+diagnosis_informative = [row[4] for row in data]
+diagnosis_helpful = [row[5] for row in data]
+diagnosis_understand = [row[6] for row in data]
 
 # Dataset ranges for each condition
 ranges = {
@@ -89,29 +91,25 @@ for i, value in enumerate(diagnosis_understand):
 
 #creating skin_tone numbers
 # Get values from the 9th column of the Google Sheet
-ninth_column_values = worksheet.col_values(9)[1:]
+ninth_column_values = [row[8] for row in data]
 
 skin_tone = np.zeros(100) ###CHANGE TO 298 FOR FULL DATASET
 
 #creating skin_tone numbers
-csv_url = "https://raw.githubusercontent.com/buiswrld/SkinGPT-4/refs/heads/main/data/10-sample.csv"
-response = requests.get(csv_url)
-response.raise_for_status()  # Raise an exception for bad responses
-csv_data = response.content.decode('utf-8')
-reader = csv.reader(io.StringIO(csv_data))
-next(reader)  # Skip the header row of the CSV
+eval_set = "data/10-sample.csv"
+with open(eval_set, mode='r', encoding='utf-8') as file:
+    reader = csv.reader(file)
+    next(reader)
+    sample_data = list(reader)
+
 count = 0
-bruh = 0
 for index, google_sheet_value in enumerate(ninth_column_values):
-    bruh = bruh + 1
-    for line in csv_data.splitlines():  # Iterate over lines in the CSV data
-        row = line.split(',')  # Split the line by commas
+    for row in sample_data: 
         if google_sheet_value in row[0]:  # Check the first element (image path)
             try:
                 skin_tone[index] = int(row[2])  # Get value from the third element
                 break  # Break inner loop once found
-            except (IndexError, ValueError): #means it tried accessing smth that wasnt in github, not needed when using full dataset
-                #print(f"Warning: Issue with CSV row for {google_sheet_value}: {line}")
+            except (IndexError, ValueError):  # Means it tried accessing something that wasn't in GitHub, not needed when using full dataset
                 count = count + 1
                 break
 print(count)
