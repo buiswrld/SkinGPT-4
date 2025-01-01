@@ -54,7 +54,7 @@ y_pred_understand = np.zeros(total_images)
 
 skin_tone = np.zeros(total_images)
 
-###adding all values to the four categories
+###adding all values to the four question categories: correct, inform, helpful, and understand
 #correct
 for i, value in enumerate(diagnosis_correct):
   if i < len(y_pred_correct): #check if i is in the valid index range before proceeding
