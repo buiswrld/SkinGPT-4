@@ -1,20 +1,11 @@
-import gspread
 import requests
 import csv
 import io
-from google.auth import default
-!pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
-from google.colab import auth
-auth.authenticate_user()
-creds, _ = default()
-gc = gspread.authorize(creds)
 import numpy as np
-!pip install fairlearn
-
-import numpy as np
-from fairlearn.metrics import MetricFrame, equalized_odds_difference, demographic_parity_difference# Step 1: Define the conditions and dataset ranges
 import gspread
 from google.auth import default
+from fairlearn.metrics import MetricFrame, equalized_odds_difference, demographic_parity_difference
+
 creds, _ = default()
 gc = gspread.authorize(creds)
 
@@ -26,7 +17,7 @@ diagnosis_informative = worksheet.col_values(5)[1:]
 diagnosis_helpful = worksheet.col_values(6)[1:]
 diagnosis_understand = worksheet.col_values(4)[1:]
 
-]# Dataset ranges for each condition
+# Dataset ranges for each condition
 ranges = {
     "Allergic Contact Dermatitis": (0, 50),
     "Eczema": (50, 100),
