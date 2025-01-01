@@ -218,3 +218,17 @@ print(f"equalized odds for eczema (understand): {equalized_odds_eczema_understan
 print(
     f"demographic parity for eczema (understand): {demographic_parity_eczema_understand}"
 )
+
+sheet_url = "https://docs.google.com/spreadsheets/d/1O1jKNm-_KRsafYoSxS_sd-8rTaYlIce1FyYpcae_15g/edit?gid=1714650698#gid=1714650698"
+sheet = gc.open_by_url(sheet_url)
+worksheet = sheet.get_worksheet(0)
+hallucinations = worksheet.col_values(8)[1:]
+counter = 0
+for i, value in enumerate(hallucinations):
+    if value.lower() == "yes":
+        counter = counter + 1
+    else:
+        counter = counter + 0
+number = counter / 298
+
+print(f"hallucations rate: {number}")
