@@ -110,9 +110,7 @@ csv_data = response.content.decode('utf-8')
 reader = csv.reader(io.StringIO(csv_data))
 next(reader)  # Skip the header row of the CSV
 count = 0
-bruh = 0
 for index, google_sheet_value in enumerate(ninth_column_values):
-    bruh = bruh + 1
     for line in csv_data.splitlines():  # Iterate over lines in the CSV data
         row = line.split(',')  # Split the line by commas
         if google_sheet_value in row[0]:  # Check the first element (image path)
