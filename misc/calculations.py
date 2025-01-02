@@ -7,7 +7,12 @@ import pickle
 import numpy as np
 from google.auth import default
 from google.colab import auth
-from fairlearn.metrics import equalized_odds_difference, demographic_parity_difference
+from fairlearn.metrics import (
+    MetricFrame,
+    false_negative_rate,
+)
+from sklearn.metrics import accuracy_score
+from functools import partial
 
 
 def authenticate_google():
@@ -131,7 +136,7 @@ def map_skin_tone(ninth_column_values, csv_data, skin_tone_array, total_images):
 
 def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
     """
-    Calculates and returns fairness metrics.
+    Calculates and returns fairness metrics (between_groups, to_overall).
 
     Args:
         y_true (np.ndarray): True labels.
@@ -140,21 +145,35 @@ def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
         description (str): Description for logging.
 
     Returns:
-        dict: Fairness metrics.
+        dict: between_groups
+        dict: to_overall
     """
     try:
-        eod = equalized_odds_difference(
-            y_true, y_pred, sensitive_features=sensitive_features
+        metrics = {
+            "false negative rate": false_negative_rate,
+            "accuracy": accuracy_score,
+        }
+
+        mf = MetricFrame(
+            metrics=metrics,
+            y_true=y_true,
+            y_pred=y_pred,
+            sensitive_features=sensitive_features,
         )
-        dpd = demographic_parity_difference(
-            y_true, y_pred, sensitive_features=sensitive_features, method="to_overall"
+
+        print(f"metrics frame for {description}: {mf.overall}")
+
+        between_groups = mf.difference(method="between_groups")
+        to_overall = mf.difference(method="to_overall")
+
+        print(
+            f"{description} -> between_groups: {between_groups}, to_overall: {to_overall}"
         )
-        print(f"Equalized Odds ({description}): {eod:.3f}")
-        print(f"Demographic Parity ({description}): {dpd:.3f}")
-        return {"Equalized Odds": eod, "Demographic Parity": dpd}
+
+        return between_groups, to_overall
     except Exception as e:
         print(f"Failed to calculate fairness metrics for {description}: {e}")
-        return {"Equalized Odds": None, "Demographic Parity": None}
+        return None, None
 
 
 def calculate_hallucination_rate(sheet, total_entries):
@@ -175,6 +194,7 @@ def calculate_hallucination_rate(sheet, total_entries):
             + hallucinations.count("Yes")
             + hallucinations.count("YES")
         )
+        print(f"{counter} / {total_entries}")
         rate = counter / total_entries
         return rate
     except Exception as e:
@@ -184,7 +204,7 @@ def calculate_hallucination_rate(sheet, total_entries):
 
 def main():
     # Configuration
-    sheet_url = "https://docs.google.com/spreadsheets/d/16uBL9zzLeM-jvESowqEoRKxSkrUMVVNuP8ATXyIJBw0/edit#gid=1714650698"
+    sheet_url = "https://docs.google.com/spreadsheets/d/16uBL9zzLeM-jvESowqEoRKxSkrUMVVNuP8ATXyIJBw0/edit?gid=1714650698#gid=1714650698"
     csv_url = (
         "https://raw.githubusercontent.com/buiswrld/SkinGPT-4/main/data/10-sample.csv"
     )
@@ -208,82 +228,124 @@ def main():
     update_predictions(diagnosis_helpful, arrays["y_pred_helpful"], total_images)
     update_predictions(diagnosis_understand, arrays["y_pred_understand"], total_images)
 
-    # Fetch and map skin tone data
     csv_data = fetch_csv_data(csv_url)
     ninth_column_values = worksheet.col_values(8)[1:]
     map_skin_tone(ninth_column_values, csv_data, arrays["skin_tone"], total_images)
 
-    # Calculate fairness metrics for different conditions
     metrics = {}
 
-    metrics["Contact Dermatitis (Correct)"] = calculate_fairness_metrics(
+    # Contact Dermatitis (Correct)
+    (
+        metrics["Contact Dermatitis (Correct) (Between Groups)"],
+        metrics["Contact Dermatitis (Correct) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_correct"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Correct)",
     )
 
-    metrics["Eczema (Correct)"] = calculate_fairness_metrics(
+    # Eczema (Correct)
+    (
+        metrics["Eczema (Correct) (Between Groups)"],
+        metrics["Eczema (Correct) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_correct"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Correct)",
     )
 
-    metrics["Contact Dermatitis (Informative)"] = calculate_fairness_metrics(
+    # Contact Dermatitis (Informative)
+    (
+        metrics["Contact Dermatitis (Informative) (Between Groups)"],
+        metrics["Contact Dermatitis (Informative) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_informative"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Informative)",
     )
 
-    metrics["Eczema (Informative)"] = calculate_fairness_metrics(
+    # Eczema (Informative)
+    (
+        metrics["Eczema (Informative) (Between Groups)"],
+        metrics["Eczema (Informative) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_informative"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Informative)",
     )
 
-    metrics["Contact Dermatitis (Helpful)"] = calculate_fairness_metrics(
+    # Contact Dermatitis (Helpful)
+    (
+        metrics["Contact Dermatitis (Helpful) (Between Groups)"],
+        metrics["Contact Dermatitis (Helpful) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_helpful"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Helpful)",
     )
 
-    metrics["Eczema (Helpful)"] = calculate_fairness_metrics(
+    # Eczema (Helpful)
+    (
+        metrics["Eczema (Helpful) (Between Groups)"],
+        metrics["Eczema (Helpful) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_helpful"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Helpful)",
     )
 
-    metrics["Contact Dermatitis (Understand)"] = calculate_fairness_metrics(
+    # Contact Dermatitis (Understand)
+    (
+        metrics["Contact Dermatitis (Understand) (Between Groups)"],
+        metrics["Contact Dermatitis (Understand) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_understand"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Understand)",
     )
 
-    metrics["Eczema (Understand)"] = calculate_fairness_metrics(
+    # Eczema (Understand)
+    (
+        metrics["Eczema (Understand) (Between Groups)"],
+        metrics["Eczema (Understand) (To Overall)"],
+    ) = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_understand"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Understand)",
     )
 
-    hallucination_rate = calculate_hallucination_rate(worksheet, total_entries=298)
+    hallucination_sheet = "https://docs.google.com/spreadsheets/d/1O1jKNm-_KRsafYoSxS_sd-8rTaYlIce1FyYpcae_15g/edit?gid=1714650698#gid=1714650698"
+    gc = authenticate_google()
+    hallucination_worksheet = fetch_google_sheet(gc, hallucination_sheet)
+
+    hallucination_rate = calculate_hallucination_rate(
+        hallucination_worksheet, total_entries=298
+    )
     metrics["Hallucination Rate"] = hallucination_rate
     print(f"Final Hallucinations Rate: {hallucination_rate:.3f}")
 
-    output_data = {
-        "arrays": arrays,
-        "metrics": metrics,
-    }
+    print("Final metrics dictionary:\n", metrics)
 
-    with open("output_data.pkl", "wb") as f:
-        pickle.dump(output_data, f)
-    print("Data has been saved to output_data.pkl")
+    output_csv = "metrics_output.csv"
+    try:
+        with open(output_csv, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["Metric", "Value"])
+            for key, value in metrics.items():
+                # Convert dictionaries (for fairness metrics) to string
+                # so they can be placed in a single CSV cell
+                writer.writerow([key, str(value)])
+        print(f"Metrics have been written to {output_csv}")
+    except Exception as e:
+        print(f"Failed to write metrics to CSV: {e}")
 
 
 if __name__ == "__main__":

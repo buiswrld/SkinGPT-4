@@ -1,0 +1,50 @@
+Metric,Value
+Contact Dermatitis (Correct) (Between Groups),"false negative rate    0.5
+accuracy               0.5
+dtype: float64"
+Contact Dermatitis (Correct) (To Overall),"false negative rate    0.26
+accuracy               0.26
+dtype: float64"
+Eczema (Correct) (Between Groups),"false negative rate    0.357143
+accuracy               0.357143
+dtype: float64"
+Eczema (Correct) (To Overall),"false negative rate    0.22
+accuracy               0.22
+dtype: float64"
+Contact Dermatitis (Informative) (Between Groups),"false negative rate    0.6
+accuracy               0.6
+dtype: float64"
+Contact Dermatitis (Informative) (To Overall),"false negative rate    0.34
+accuracy               0.34
+dtype: float64"
+Eczema (Informative) (Between Groups),"false negative rate    1.0
+accuracy               1.0
+dtype: float64"
+Eczema (Informative) (To Overall),"false negative rate    0.7
+accuracy               0.7
+dtype: float64"
+Contact Dermatitis (Helpful) (Between Groups),"false negative rate    0.5
+accuracy               0.5
+dtype: float64"
+Contact Dermatitis (Helpful) (To Overall),"false negative rate    0.28
+accuracy               0.28
+dtype: float64"
+Eczema (Helpful) (Between Groups),"false negative rate    0.357143
+accuracy               0.357143
+dtype: float64"
+Eczema (Helpful) (To Overall),"false negative rate    0.22
+accuracy               0.22
+dtype: float64"
+Contact Dermatitis (Understand) (Between Groups),"false negative rate    0.4
+accuracy               0.4
+dtype: float64"
+Contact Dermatitis (Understand) (To Overall),"false negative rate    0.22
+accuracy               0.22
+dtype: float64"
+Eczema (Understand) (Between Groups),"false negative rate    0.357143
+accuracy               0.357143
+dtype: float64"
+Eczema (Understand) (To Overall),"false negative rate    0.18
+accuracy               0.18
+dtype: float64"
+Hallucination Rate,0.17785234899328858
