@@ -202,15 +202,10 @@ def main():
     update_predictions(diagnosis_helpful, arrays["y_pred_helpful"], total_images)
     update_predictions(diagnosis_understand, arrays["y_pred_understand"], total_images)
 
-    print(f"arrays: {arrays}")
-
     # Fetch and map skin tone data
     csv_data = fetch_csv_data(csv_url)
-    print(f"csv_data: {csv_data}")
     ninth_column_values = worksheet.col_values(8)[1:]
     map_skin_tone(ninth_column_values, csv_data, arrays["skin_tone"], total_images)
-
-    print(arrays["skin_tone"])
 
     # Calculate fairness metrics for different conditions
     calculate_fairness_metrics(
