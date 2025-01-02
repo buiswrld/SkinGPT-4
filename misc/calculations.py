@@ -3,6 +3,7 @@ import requests
 import csv
 import io
 import sys
+import pickle
 import numpy as np
 from google.auth import default
 from google.colab import auth
@@ -97,7 +98,7 @@ def fetch_csv_data(csv_url):
         response.raise_for_status()
         csv_data = response.content.decode("utf-8")
         reader = csv.reader(io.StringIO(csv_data))
-        header = next(reader)  # Skip header
+        next(reader)  # Skip header
         data = list(reader)
         print(f"Fetched and parsed CSV data from {csv_url}")
         return data
@@ -130,13 +131,16 @@ def map_skin_tone(ninth_column_values, csv_data, skin_tone_array, total_images):
 
 def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
     """
-    Calculates and prints fairness metrics.
+    Calculates and returns fairness metrics.
 
     Args:
         y_true (np.ndarray): True labels.
         y_pred (np.ndarray): Predicted labels.
         sensitive_features (np.ndarray): Sensitive features array.
         description (str): Description for logging.
+
+    Returns:
+        dict: Fairness metrics.
     """
     try:
         eod = equalized_odds_difference(
@@ -147,8 +151,10 @@ def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
         )
         print(f"Equalized Odds ({description}): {eod:.3f}")
         print(f"Demographic Parity ({description}): {dpd:.3f}")
+        return {"Equalized Odds": eod, "Demographic Parity": dpd}
     except Exception as e:
         print(f"Failed to calculate fairness metrics for {description}: {e}")
+        return {"Equalized Odds": None, "Demographic Parity": None}
 
 
 def calculate_hallucination_rate(sheet, total_entries):
@@ -208,68 +214,76 @@ def main():
     map_skin_tone(ninth_column_values, csv_data, arrays["skin_tone"], total_images)
 
     # Calculate fairness metrics for different conditions
-    calculate_fairness_metrics(
+    metrics = {}
+
+    metrics["Contact Dermatitis (Correct)"] = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_correct"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Correct)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Eczema (Correct)"] = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_correct"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Correct)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Contact Dermatitis (Informative)"] = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_informative"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Informative)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Eczema (Informative)"] = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_informative"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Informative)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Contact Dermatitis (Helpful)"] = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_helpful"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Helpful)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Eczema (Helpful)"] = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_helpful"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Helpful)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Contact Dermatitis (Understand)"] = calculate_fairness_metrics(
         arrays["y_true"][:split_index],
         arrays["y_pred_understand"][:split_index],
         arrays["skin_tone"][:split_index],
         "Contact Dermatitis (Understand)",
     )
 
-    calculate_fairness_metrics(
+    metrics["Eczema (Understand)"] = calculate_fairness_metrics(
         arrays["y_true"][split_index:total_images],
         arrays["y_pred_understand"][split_index:total_images],
         arrays["skin_tone"][split_index:total_images],
         "Eczema (Understand)",
     )
 
-    # Calculate hallucination rate
-    sheet_url = "https://docs.google.com/spreadsheets/d/1O1jKNm-_KRsafYoSxS_sd-8rTaYlIce1FyYpcae_15g/edit?gid=1714650698#gid=1714650698"
-    sheet = gc.open_by_url(sheet_url)
-    worksheet = sheet.get_worksheet(0)
     hallucination_rate = calculate_hallucination_rate(worksheet, total_entries=298)
+    metrics["Hallucination Rate"] = hallucination_rate
     print(f"Final Hallucinations Rate: {hallucination_rate:.3f}")
+
+    output_data = {
+        "arrays": arrays,
+        "metrics": metrics,
+    }
+
+    with open("output_data.pkl", "wb") as f:
+        pickle.dump(output_data, f)
+    print("Data has been saved to output_data.pkl")
 
 
 if __name__ == "__main__":
