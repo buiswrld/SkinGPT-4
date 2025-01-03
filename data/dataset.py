@@ -6,11 +6,11 @@ import pandas as pd
 
 
 class GeneralizedClassificationDataset(torch.utils.data.Dataset):
-    def __init__(self, dataset_path, split, transforms=None, num_classes=6):
+    def __init__(self, dataset_path, split, transforms=None, classes=['Eczema', 'Allergic Contact Dermatitis', 'Urticaria', 'Psoriasis', 'Impetigo', 'Tinea']):
         df = pd.read_csv(dataset_path)
         self.dataset = df.loc[df['split'] == split].reset_index(drop=True) 
         self.transforms = transforms 
-        self.class_names = ['Eczema', 'Allergic Contact Dermatitis', 'Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'][:num_classes]
+        self.class_names = classes
         self.class_to_idx = {class_name: idx for idx, class_name in enumerate(self.class_names)}
 
     def __len__(self):
