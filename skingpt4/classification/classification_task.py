@@ -40,7 +40,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
-        print(y.tolist())
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
