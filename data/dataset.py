@@ -7,6 +7,7 @@ import pandas as pd
 
 class GeneralizedClassificationDataset(torch.utils.data.Dataset):
     def __init__(self, dataset_path, split, transforms=None, classes=('Eczema', 'Allergic Contact Dermatitis','Urticaria', 'Psoriasis', 'Impetigo', 'Tinea')):
+        print(classes)
         df = pd.read_csv(dataset_path)
         self.dataset = df.loc[df['split'] == split].reset_index(drop=True) 
         self.transforms = transforms 
