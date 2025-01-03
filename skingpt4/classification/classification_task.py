@@ -34,6 +34,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         """
         x, y = batch["image"], batch["label"] 
         print(f"Training y shape: {y.shape}, y: {y.tolist()}")  # Debug print
+        y= torch.argmax(y, dim=1)
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
@@ -42,6 +43,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
         print(f"Validation y shape before update: {y.shape}, y: {y.tolist()}")  # Debug print
+        y= torch.argmax(y, dim=1)
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
