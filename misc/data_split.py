@@ -11,7 +11,7 @@ conditions = {
     "Allergic Contact Dermatitis": 6,
 }
 
-MIN_CONFIDENCE_THRESHOLD = 0.50
+MIN_CONFIDENCE_THRESHOLD = 0.40
 
 df = pd.read_csv("../data/raw/dataset_scin_labels.csv")
 output_rows = []

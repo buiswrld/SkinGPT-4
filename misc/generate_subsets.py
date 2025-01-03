@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import itertools
 
-CONFIDENCE = 0.50
+CONFIDENCE = 0.40
 
 conf_int = int(CONFIDENCE * 100)
 
