@@ -80,7 +80,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     
     def train_dataloader(self):
         oversample = self.hparams.get('oversample', False)
-        shuffle=True
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
@@ -89,7 +88,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                           ]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         if oversample:
-            labels = [label for _, label in dataset]
+            labels = dataset.dataset['label'].tolist()
             num_pos = sum(1 for label in labels if label == 1.0)
             num_neg = sum(1 for label in labels if label == 0.0)
             weights = [1 / num_pos if label == 1.0 else 1 / num_neg for label in labels]
@@ -97,8 +96,9 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             shuffle=False
         else:
             sampler = None
+            shuffle = True
         print(f"Training set number of samples: {len(dataset)}")
-        return DataLoader(dataset, shuffle, sampler=sampler,
+        return DataLoader(dataset, shuffle=shuffle, sampler=sampler,
                           batch_size=2, num_workers=8)
  
     def val_dataloader(self):
