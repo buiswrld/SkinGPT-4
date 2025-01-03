@@ -10,6 +10,7 @@ class GeneralizedClassificationDataset(torch.utils.data.Dataset):
         df = pd.read_csv(dataset_path)
         self.dataset = df.loc[df['split'] == split].reset_index(drop=True) 
         self.transforms = transforms 
+        print(classes)
         self.class_names = classes.split(',')
         self.class_to_idx = {class_name: idx for idx, class_name in enumerate(self.class_names)}
 
