@@ -30,7 +30,7 @@ def train(
         task='classification',
         loss_fn="CE",
         use_mlp_head = False,
-        learning_rate = 0.02,
+        learning_rate = 5e-4,
 
         ## model params
         
