@@ -33,10 +33,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                               and metrics.csv
         """
         x, y = batch["image"], batch["label"] 
-        print(f"Training y shape before conversion: {y.shape}, y: {y.tolist()}")  # Debug print
-        if y.ndimension() > 1:
-            y = torch.argmax(y, dim=1)
-        print(f"Training y shape after conversion: {y.shape}, y: {y.tolist()}")  # Debug print
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
@@ -44,18 +40,13 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
-        print(f"Validation y shape before conversion: {y.shape}, y: {y.tolist()}")  # Debug print
-        if y.ndimension() > 1:
-            y = torch.argmax(y, dim=1)
-        print(f"Validation y shape after conversion: {y.shape}, y: {y.tolist()}")  # Debug print
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
         self.evaluator.update((logits, y))
-        self.validation_outputs.append(loss) #############################
+        self.validation_outputs.append(loss)
         return {'loss': loss}
 
-    #def validation_epoch_end(self, outputs):
     def on_validation_epoch_end(self):
         """
         Aggregate and return the validation metrics
@@ -70,7 +61,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                 progress_bar: metrics to be logged to the progress bar
                               and metrics.csv
         """
-        #avg_loss = torch.stack(outputs).mean()
         avg_loss = torch.stack(self.validation_outputs).mean()
         self.log("val_loss", avg_loss)
         metrics = self.evaluator.evaluate()
@@ -81,9 +71,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def test_step(self, batch, batch_nb):
         return self.validation_step(batch, batch_nb)
 
-    #def test_epoch_end(self, outputs):
     def on_test_epoch_end(self):
-        #return self.validation_epoch_end(outputs)
         return self.on_validation_epoch_end()
 
     def configure_optimizers(self):
@@ -91,7 +79,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return torch.optim.Adam(self.parameters(), lr=lr)
     
     def train_dataloader(self):
-        '''
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
@@ -102,22 +89,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
-        '''
-        dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = [
-            transforms.Resize((810, 1080)),
-            transforms.ToTensor(),
-            transforms.RandomHorizontalFlip(0.5),
-            transforms.RandomVerticalFlip(0.5),
-        ]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
-        print(f"Training set number of samples: {len(dataset)}")
-        dataloader = DataLoader(dataset, shuffle=True, batch_size=2, num_workers=8)
-        for batch in dataloader:
-            images, labels = batch["image"], batch["label"]
-            print(f"Train DataLoader - images shape: {images.shape}, labels shape: {labels.shape}, labels: {labels.tolist()}")
-            break
-        return dataloader
  
     def val_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")

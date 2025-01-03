@@ -11,8 +11,8 @@ class GeneralClassificationEvaluator(
         super().__init__(self.compute_fn)
 
     def compute_fn(self, logits, y):
-        prob = F.softmax(logits, dim=1)
-        return get_multiclass_metrics(prob, y)
+        #prob = F.softmax(logits, dim=1)
+        return get_multiclass_metrics(logits, y)
 
     def evaluate(self):
         return self.compute()
