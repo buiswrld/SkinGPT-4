@@ -33,6 +33,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                               and metrics.csv
         """
         x, y = batch["image"], batch["label"] 
+        print(f"Training y shape: {y.shape}, y: {y}") 
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
@@ -40,6 +41,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
+        print(f"Validation y shape: {y.shape}, y: {y}")
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
@@ -93,7 +95,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
-
+ 
     def val_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
