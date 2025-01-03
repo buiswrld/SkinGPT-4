@@ -83,7 +83,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return torch.optim.Adam(self.parameters(), lr=lr)
     
     def train_dataloader(self):
-        '''
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
@@ -94,7 +93,17 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
+ 
+    def val_dataloader(self):
         '''
+        dataset_path = self.hparams.get('dataset_path', "")
+        transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        print(f"Validation set number of samples: {len(dataset)}")
+        return DataLoader(dataset, shuffle=False,
+                          batch_size=1, num_workers=8)
+        '''
+
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
@@ -105,14 +114,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             images, labels = batch["image"], batch["label"]
             print(f"Val DataLoader - images shape: {images.shape}, labels shape: {labels.shape}, labels: {labels.tolist()}")
             break
- 
-    def val_dataloader(self):
-        dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
-        print(f"Validation set number of samples: {len(dataset)}")
-        return DataLoader(dataset, shuffle=False,
-                          batch_size=1, num_workers=8)
 
     def test_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
