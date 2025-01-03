@@ -89,10 +89,10 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         if oversample:
             labels = dataset.dataset['label'].tolist()
-            num_pos = sum(1 for label in labels if label == 1.0)
-            num_neg = sum(1 for label in labels if label == 0.0)
-            weights = [1 / num_pos if label == 1.0 else 1 / num_neg for label in labels]
-            sampler = WeightedRandomSampler(weights, len(weights))
+            class_counts = {cls: labels.count(cls) for cls in set(labels)}
+            class_weights = {cls: 1.0 / count for cls, count in class_counts.items()}
+            sample_weights = [class_weights[label] for label in labels]
+            sampler = WeightedRandomSampler(sample_weights, len(sample_weights))
             shuffle=False
         else:
             sampler = None
