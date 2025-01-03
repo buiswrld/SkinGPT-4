@@ -46,9 +46,7 @@ def get_multiclass_metrics(probs, labels):
     prec = precision_score(labels, preds, average='weighted')
     rec = recall_score(labels, preds, average='weighted')
     f1 = f1_score(labels, preds, average='weighted')
-    print(f'Labels shape: {labels.shape}, Labels contents: {labels.tolist()}')
-    print(f'Probs shape: {probs.shape}, Probs contents: {probs.tolist()}')
-    auprc = average_precision_score(labels, probs, average='weighted')
+    #auprc = average_precision_score(labels, probs, average='weighted')
     auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
     
     return {
@@ -56,6 +54,6 @@ def get_multiclass_metrics(probs, labels):
         'precision': prec,
         'recall': rec,
         'f1': f1,
-        'auprc': auprc,
+        #'auprc': auprc,
         'auroc': auroc,
     }
