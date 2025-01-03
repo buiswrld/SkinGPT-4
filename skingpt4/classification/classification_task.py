@@ -1,6 +1,6 @@
 import pytorch_lightning as pl
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, WeightedRandomSampler
 import torchvision.transforms as transforms
 
 from .loss import get_loss_fn
@@ -79,6 +79,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return torch.optim.Adam(self.parameters(), lr=lr)
     
     def train_dataloader(self):
+        oversample = self.hparams.get('oversample', False)
+        shuffle=True
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
@@ -86,8 +88,17 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                             transforms.RandomVerticalFlip(0.5),
                           ]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        if oversample:
+            labels = [label for _, label in dataset]
+            num_pos = sum(1 for label in labels if label == 1.0)
+            num_neg = sum(1 for label in labels if label == 0.0)
+            weights = [1 / num_pos if label == 1.0 else 1 / num_neg for label in labels]
+            sampler = WeightedRandomSampler(weights, len(weights))
+            shuffle=False
+        else:
+            sampler = None
         print(f"Training set number of samples: {len(dataset)}")
-        return DataLoader(dataset, shuffle=True,
+        return DataLoader(dataset, shuffle, sampler=sampler,
                           batch_size=2, num_workers=8)
  
     def val_dataloader(self):
