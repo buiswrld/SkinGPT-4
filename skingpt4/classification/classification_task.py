@@ -33,7 +33,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                               and metrics.csv
         """
         x, y = batch["image"], batch["label"] 
-        print(f"Training y shape: {y.shape}, y: {y.tolist()}") 
         logits = self.forward(x)
         loss = self.loss(logits, y)
         self.log("loss", loss)
@@ -41,7 +40,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def validation_step(self, batch, batch_nb):
         x, y = batch['image'], batch['label']
-        print(f"Validation y shape: {y.shape}, y: {y.tolist()}")
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
@@ -85,6 +83,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return torch.optim.Adam(self.parameters(), lr=lr)
     
     def train_dataloader(self):
+        '''
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
@@ -95,6 +94,17 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
+        '''
+        dataset_path = self.hparams.get('dataset_path', "")
+        transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        print(f"Validation set number of samples: {len(dataset)}")
+        
+        dataloader = DataLoader(dataset, shuffle=False, batch_size=1, num_workers=8)
+        for batch in dataloader:
+            images, labels = batch["image"], batch["label"]
+            print(f"Val DataLoader - images shape: {images.shape}, labels shape: {labels.shape}, labels: {labels.tolist()}")
+            break
  
     def val_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
