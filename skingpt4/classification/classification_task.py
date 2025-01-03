@@ -43,7 +43,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         logits = self.forward(x)
         loss = self.loss(logits, y)
         y_hat = (logits > 0).float()
-        self.evaluator.update((torch.sigmoid(logits), y))
+        self.evaluator.update((logits, y))
         self.validation_outputs.append(loss) #############################
         return {'loss': loss}
 

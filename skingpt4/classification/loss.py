@@ -1,8 +1,6 @@
 import torch
 import argparse
 
-#TODO ~ Add in segmentation loss fn 
-#TODO ~ Replace with general cross entropy
 def get_loss_fn(loss_args):
     loss_args_ = loss_args
     if isinstance(loss_args, argparse.Namespace):
