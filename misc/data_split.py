@@ -11,25 +11,30 @@ conditions = {
     "Allergic Contact Dermatitis": 6,
 }
 
-df = pd.read_csv("../data/dataset_scin_labels.csv")
+MIN_CONFIDENCE_THRESHOLD = 0.50
+
+df = pd.read_csv("../data/raw/dataset_scin_labels.csv")
 output_rows = []
 
 for index, row in df.iterrows():
-    max_weight = 0
-    max_condition = ""
-
     try:
         dictionary = ast.literal_eval(row["weighted_skin_condition_label"])
     except (ValueError, SyntaxError):
         print(f"Error parsing row {index}: {row['weighted_skin_condition_label']}")
         continue
 
-    for condition, class_num in conditions.items():
-        if condition in dictionary and dictionary[condition] > max_weight:
-            max_weight = dictionary[condition]
+    max_weight = 0
+    max_condition = ""
+    total_weight = sum(dictionary.values())
+
+    for condition, weight in dictionary.items():
+        if weight > max_weight:
+            max_weight = weight
             max_condition = condition
 
-    if max_condition:
+    confidence = max_weight / total_weight if total_weight > 0 else 0
+
+    if confidence >= MIN_CONFIDENCE_THRESHOLD and max_condition in conditions:
         output_rows.append(
             {
                 "case_id": row["case_id"],
@@ -38,7 +43,7 @@ for index, row in df.iterrows():
         )
 
 output_df = pd.DataFrame(output_rows)
-path_df = pd.read_csv("../data/dataset_scin_cases.csv")
+path_df = pd.read_csv("../data/raw/dataset_scin_cases.csv")
 merged_df = pd.merge(output_df, path_df, on="case_id", how="left")
 selected_columns = merged_df[["image_id", "label"]]
 selected_columns = selected_columns.rename(columns={"image_id": "image_path"})
@@ -53,4 +58,4 @@ test_df["split"] = "test"
 final_df = pd.concat([train_df, val_df, test_df])
 final_df["image_path"] = final_df["image_path"].str.replace("dataset/images/", "images/")
 
-final_df.to_csv("../data/data.csv", index=False)
+final_df.to_csv(f"../data/training/data_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)

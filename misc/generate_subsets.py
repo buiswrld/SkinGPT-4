@@ -2,7 +2,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import itertools
 
-df = pd.read_csv("../data/training/data.csv")
+CONFIDENCE = 0.50
+
+conf_int = int(CONFIDENCE * 100)
+
+df = pd.read_csv(f"../data/training/data_{conf_int}c.csv")
 unique_labels = df['label'].unique()
 label_pairs = list(itertools.combinations(unique_labels, 2))
 
@@ -20,5 +24,5 @@ def create_split(df, labels, filename):
     final_df.to_csv(filename, index=False)
 
 for idx, pair in enumerate(label_pairs, start=1):
-    filename = f"../data/training/subsets/{idx}_data_subset_{pair[0]}_{pair[1]}.csv"
+    filename = f"../data/training/{conf_int}c_subsets/{idx}_data_{conf_int}c_subset_{pair[0]}_{pair[1]}.csv"
     create_split(df, pair, filename)
