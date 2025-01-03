@@ -83,6 +83,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return torch.optim.Adam(self.parameters(), lr=lr)
     
     def train_dataloader(self):
+        '''
         dataset_path = self.hparams.get('dataset_path', "")
         transforms_list = [ transforms.Resize((810, 1080)),
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
@@ -93,6 +94,22 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=True,
                           batch_size=2, num_workers=8)
+        '''
+        dataset_path = self.hparams.get('dataset_path', "")
+        transforms_list = [
+            transforms.Resize((810, 1080)),
+            transforms.ToTensor(),
+            transforms.RandomHorizontalFlip(0.5),
+            transforms.RandomVerticalFlip(0.5),
+        ]
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        print(f"Training set number of samples: {len(dataset)}")
+        dataloader = DataLoader(dataset, shuffle=True, batch_size=2, num_workers=8)
+        for batch in dataloader:
+            images, labels = batch["image"], batch["label"]
+            print(f"Train DataLoader - images shape: {images.shape}, labels shape: {labels.shape}, labels: {labels.tolist()}")
+            break
+        return dataloader
  
     def val_dataloader(self):
         '''
