@@ -1,0 +1,1941 @@
+image_path,label,split,fitz
+-4168383140159495795.png,Eczema,train,4.0
+-1425041139336616640.png,Eczema,train,4.0
+-7346676041068902309.png,Eczema,train,2.0
+-3602360130637023545.png,Allergic Contact Dermatitis,train,4.0
+-6265087312709015032.png,Eczema,train,
+-4320222215780420300.png,Eczema,train,5.0
+-7227002666040701015.png,Eczema,train,2.0
+-7064908780069413910.png,Urticaria,train,3.0
+-7790807674558752475.png,Allergic Contact Dermatitis,train,3.0
+-1113855611148107453.png,Eczema,train,
+-2109666569281810210.png,Allergic Contact Dermatitis,train,2.0
+-8040872744934016312.png,Allergic Contact Dermatitis,train,3.0
+-7047983991181484254.png,Eczema,train,2.3333333333333335
+-1876818415297158696.png,Eczema,train,3.0
+5616835953748252162.png,Allergic Contact Dermatitis,train,
+-3168016907937844997.png,Impetigo,train,4.0
+2149413884633077115.png,Psoriasis,train,2.0
+-1619731343376036179.png,Eczema,train,1.0
+3974778638588654378.png,Eczema,train,2.0
+-8486226995246068836.png,Urticaria,train,2.0
+-2030903409484078916.png,Eczema,train,3.0
+-6050720015754485300.png,Eczema,train,2.0
+-2499017255346018309.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-4449187867148856065.png,Allergic Contact Dermatitis,train,2.0
+-1622773719949394822.png,Urticaria,train,5.0
+2234171277420256107.png,Eczema,train,1.6666666666666667
+2869044007360673347.png,Impetigo,train,3.0
+-1954361760034815414.png,Psoriasis,train,5.0
+-2362492614813765866.png,Allergic Contact Dermatitis,train,3.0
+-241390359074546594.png,Eczema,train,2.6666666666666665
+-2294176306472254841.png,Impetigo,train,2.5
+-2490625174049341192.png,Urticaria,train,2.5
+-613865508334046751.png,Eczema,train,3.0
+-1878418514995558365.png,Urticaria,train,2.0
+4545693242363393805.png,Allergic Contact Dermatitis,train,5.0
+4369305934387006344.png,Eczema,train,2.0
+-4649063046758807338.png,Eczema,train,3.0
+1557051307003498718.png,Urticaria,train,3.0
+-9048437982488676821.png,Eczema,train,3.0
+-1677898261371801194.png,Urticaria,train,3.0
+4609663550609523913.png,Impetigo,train,4.0
+2270646269580686219.png,Eczema,train,2.0
+-3194161131457384721.png,Eczema,train,2.0
+-6025249461597019802.png,Allergic Contact Dermatitis,train,4.0
+-2441124233481219090.png,Eczema,train,5.0
+-2288434622033194477.png,Impetigo,train,5.0
+-1678791492949621880.png,Allergic Contact Dermatitis,train,2.0
+-1810094547200763483.png,Impetigo,train,2.0
+-8903287502098089551.png,Allergic Contact Dermatitis,train,4.5
+-1779891678767638024.png,Eczema,train,2.6666666666666665
+-2557297330022991624.png,Eczema,train,4.0
+-8916304853328310376.png,Allergic Contact Dermatitis,train,2.0
+-2156690415130358399.png,Eczema,train,1.6666666666666667
+-3463926055561590672.png,Urticaria,train,2.0
+-174517438571435365.png,Eczema,train,2.3333333333333335
+6945136525095590960.png,Urticaria,train,1.0
+-2316476135441781567.png,Allergic Contact Dermatitis,train,4.0
+4415498759330524593.png,Eczema,train,2.6666666666666665
+2866454509532808925.png,Eczema,train,
+-4633922104605272438.png,Urticaria,train,2.0
+3488658631985385263.png,Allergic Contact Dermatitis,train,2.0
+-3271964507838082776.png,Allergic Contact Dermatitis,train,
+4588532001580550620.png,Psoriasis,train,3.0
+-4063691165508769170.png,Eczema,train,5.0
+2476834931738782392.png,Allergic Contact Dermatitis,train,3.0
+-6707200243712330995.png,Impetigo,train,4.0
+-2762419190156797697.png,Eczema,train,3.0
+3096229718305165698.png,Urticaria,train,3.0
+-8351813133673411713.png,Urticaria,train,
+5271080822455139107.png,Allergic Contact Dermatitis,train,1.0
+-2626461613356440527.png,Urticaria,train,3.0
+-2326695612127368092.png,Allergic Contact Dermatitis,train,3.0
+-332225858878365934.png,Eczema,train,4.333333333333333
+1851736223985307611.png,Urticaria,train,2.0
+-4208108528220391491.png,Allergic Contact Dermatitis,train,
+-1685622615674447350.png,Eczema,train,5.0
+-1763889179252826896.png,Eczema,train,2.0
+-626125853021405088.png,Urticaria,train,2.0
+-259093163939540818.png,Eczema,train,3.0
+-4011625905807263411.png,Eczema,train,1.0
+-8475988209194953949.png,Psoriasis,train,5.0
+2404368198727963614.png,Eczema,train,1.6666666666666667
+5085717221952529022.png,Urticaria,train,2.0
+1738676755083043450.png,Eczema,train,2.3333333333333335
+-8845312257791618282.png,Eczema,train,3.0
+-7136007275263566295.png,Eczema,train,3.0
+-3933475004882152757.png,Eczema,train,3.0
+5138748526306331045.png,Eczema,train,3.0
+-2887375084857456168.png,Urticaria,train,3.0
+-1491021171398563448.png,Allergic Contact Dermatitis,train,3.0
+-1864078631398282000.png,Eczema,train,2.0
+-4271531030985247738.png,Allergic Contact Dermatitis,train,3.0
+32575980331712012.png,Allergic Contact Dermatitis,train,2.3333333333333335
+8748144847630043442.png,Eczema,train,3.0
+-4893312442758095455.png,Allergic Contact Dermatitis,train,3.0
+-1112878697045853123.png,Allergic Contact Dermatitis,train,2.0
+-5689522526264773563.png,Eczema,train,3.0
+-5874747075838176517.png,Eczema,train,1.6666666666666667
+-3963951711688626588.png,Eczema,train,2.3333333333333335
+8806943413983631549.png,Eczema,train,2.0
+2542489771916091315.png,Allergic Contact Dermatitis,train,1.0
+-3252318765709126452.png,Impetigo,train,3.3333333333333335
+-7727984772540059761.png,Eczema,train,4.0
+-3674117018980271308.png,Allergic Contact Dermatitis,train,2.0
+-1239944862860760460.png,Eczema,train,1.0
+3991523546538917234.png,Urticaria,train,2.0
+-3264873478760270499.png,Eczema,train,3.5
+-7732544950367368860.png,Eczema,train,3.0
+8102887568325883936.png,Allergic Contact Dermatitis,train,3.0
+-8772961446987205402.png,Psoriasis,train,1.0
+-160818552433749260.png,Psoriasis,train,3.0
+-3826231296982744580.png,Impetigo,train,2.0
+3486270610847283622.png,Eczema,train,3.0
+-1820250928982581107.png,Tinea,train,
+-3991414355049708436.png,Allergic Contact Dermatitis,train,5.0
+5905250719612832796.png,Tinea,train,5.0
+-773894958411105641.png,Urticaria,train,
+-108381662796731901.png,Allergic Contact Dermatitis,train,2.0
+6602102552712266694.png,Allergic Contact Dermatitis,train,3.0
+5354200227056134553.png,Eczema,train,1.3333333333333333
+-1063142506931972331.png,Impetigo,train,2.0
+-2745158287266547055.png,Urticaria,train,2.0
+-1122694172813987159.png,Urticaria,train,2.5
+-2103228611346932007.png,Eczema,train,2.0
+-6928977126361530540.png,Eczema,train,1.0
+-3716145844538958501.png,Impetigo,train,2.0
+-6765079339319416166.png,Allergic Contact Dermatitis,train,
+-4830806586256203416.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-2943675040447373613.png,Allergic Contact Dermatitis,train,4.0
+4936796489196179145.png,Eczema,train,1.3333333333333333
+-7239383274298680355.png,Eczema,train,2.0
+-761233598161154780.png,Eczema,train,2.0
+-862558295135857219.png,Eczema,train,4.0
+-4058321361264159587.png,Allergic Contact Dermatitis,train,3.0
+-2482162412579344778.png,Allergic Contact Dermatitis,train,2.0
+-7379123563084274195.png,Eczema,train,3.0
+-1143992721896820659.png,Allergic Contact Dermatitis,train,2.0
+5131985435524652892.png,Eczema,train,2.0
+3209927844777750788.png,Psoriasis,train,2.0
+-6872266676581885327.png,Impetigo,train,3.3333333333333335
+-1340597856042135006.png,Urticaria,train,3.0
+-7659016285565634945.png,Allergic Contact Dermatitis,train,2.0
+-8667435326829032189.png,Eczema,train,2.0
+421543047489392322.png,Urticaria,train,2.0
+-4068237074696938730.png,Impetigo,train,2.3333333333333335
+-5695938389232193781.png,Urticaria,train,4.0
+-1070529500008144097.png,Urticaria,train,4.0
+-8061072037605473759.png,Urticaria,train,4.0
+-2689246837299511408.png,Eczema,train,2.0
+-1069928544911808619.png,Eczema,train,3.0
+-1519713654362297847.png,Eczema,train,3.0
+-8420165072372688955.png,Allergic Contact Dermatitis,train,2.0
+-6250330920756758827.png,Eczema,train,2.0
+2967422214128041718.png,Eczema,train,3.0
+-1858346379059996690.png,Allergic Contact Dermatitis,train,2.0
+762331247954431074.png,Allergic Contact Dermatitis,train,2.0
+-1472634170162667338.png,Urticaria,train,2.3333333333333335
+-7458975393237501654.png,Allergic Contact Dermatitis,train,3.0
+2783625837167947971.png,Eczema,train,3.0
+-609315900083458950.png,Tinea,train,3.0
+-3223582796914814140.png,Eczema,train,4.333333333333333
+-1005922060850163675.png,Allergic Contact Dermatitis,train,3.5
+-2205108468515981837.png,Allergic Contact Dermatitis,train,2.0
+-4529156030330974773.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-5231198932010631807.png,Allergic Contact Dermatitis,train,2.5
+3010222248073712808.png,Impetigo,train,1.0
+-2229874505067100772.png,Eczema,train,
+7991201394179632138.png,Eczema,train,1.0
+-3725963912000172161.png,Allergic Contact Dermatitis,train,3.0
+-6820036121465366872.png,Psoriasis,train,4.0
+-8506705780207408689.png,Allergic Contact Dermatitis,train,2.0
+-3226347482816131449.png,Urticaria,train,2.0
+-91842043999645174.png,Eczema,train,5.0
+6452571516539655170.png,Eczema,train,2.0
+7871700326319775130.png,Psoriasis,train,2.0
+-5163511963044239396.png,Eczema,train,1.0
+-4878805747443599987.png,Allergic Contact Dermatitis,train,3.3333333333333335
+-6279339223577410459.png,Eczema,train,2.0
+-2446371075135592847.png,Eczema,train,3.0
+-2586599992896657873.png,Eczema,train,2.0
+-9063174814681924620.png,Eczema,train,2.0
+-1201194537194231116.png,Allergic Contact Dermatitis,train,2.5
+-4879437868246413973.png,Eczema,train,3.0
+-3893521207072786063.png,Allergic Contact Dermatitis,train,3.0
+-1224594803062807638.png,Eczema,train,1.6666666666666667
+8444165190181229002.png,Urticaria,train,2.0
+-2160777742822056561.png,Eczema,train,
+-7488721783507435350.png,Allergic Contact Dermatitis,train,2.0
+-2129089488965660902.png,Urticaria,train,3.0
+-8931680673452117731.png,Impetigo,train,2.0
+-4966578317836911061.png,Allergic Contact Dermatitis,train,2.0
+-1943598390620715649.png,Eczema,train,4.0
+-604283315242765598.png,Eczema,train,3.3333333333333335
+-8828598390077094829.png,Urticaria,train,
+-3454742488172101921.png,Urticaria,train,2.0
+1706742238338905499.png,Eczema,train,5.0
+4956623856333109311.png,Allergic Contact Dermatitis,train,3.0
+-361700149928091895.png,Psoriasis,train,4.0
+-480222851753917557.png,Eczema,train,2.6666666666666665
+3174860297229272299.png,Eczema,train,3.0
+6755815927772018364.png,Allergic Contact Dermatitis,train,3.0
+-4792467579669366471.png,Allergic Contact Dermatitis,train,3.0
+2076976273865173197.png,Psoriasis,train,2.0
+-2103098616083507998.png,Urticaria,train,1.0
+-4517637959608198403.png,Allergic Contact Dermatitis,train,3.6666666666666665
+-211110393346383991.png,Eczema,train,3.0
+7625195045042189957.png,Urticaria,train,2.0
+-1702551365447870275.png,Allergic Contact Dermatitis,train,3.6666666666666665
+-5674359905815162158.png,Psoriasis,train,5.333333333333333
+-3734925325452792716.png,Eczema,train,2.0
+-1679273758717230626.png,Eczema,train,1.0
+-3011588375576861929.png,Eczema,train,1.0
+-5330038346840974533.png,Psoriasis,train,2.5
+-2127765395475907847.png,Eczema,train,4.0
+-6031747766482800142.png,Eczema,train,5.0
+-5696085278156883023.png,Allergic Contact Dermatitis,train,2.5
+-263081762870451098.png,Urticaria,train,1.0
+-375885702644514520.png,Urticaria,train,
+267232830417622013.png,Eczema,train,1.0
+-276562011015744271.png,Impetigo,train,3.0
+-1487279598764450262.png,Eczema,train,4.0
+-8866086338587448508.png,Eczema,train,3.0
+-1495562302038261127.png,Eczema,train,
+-8681693003307270555.png,Allergic Contact Dermatitis,train,4.0
+2258579413847176406.png,Eczema,train,2.0
+3609102888029629783.png,Tinea,train,2.0
+-5295071969794829461.png,Eczema,train,2.6666666666666665
+-7264099518279915271.png,Tinea,train,4.0
+-4714341773131742889.png,Eczema,train,4.0
+-3221416279462754613.png,Allergic Contact Dermatitis,train,4.0
+4198891472880409399.png,Urticaria,train,4.0
+-1812943663060736552.png,Eczema,train,3.0
+7151497065594356180.png,Allergic Contact Dermatitis,train,2.0
+-4373106389490445020.png,Allergic Contact Dermatitis,train,3.0
+-8503022643743511724.png,Eczema,train,2.0
+-5745242661905185049.png,Urticaria,train,1.0
+4473421574472991833.png,Eczema,train,2.0
+-2869951807103783157.png,Impetigo,train,1.0
+-2844794297409147916.png,Allergic Contact Dermatitis,train,2.0
+-99767787887675157.png,Eczema,train,2.0
+-37551011684363999.png,Eczema,train,2.5
+8895232189294550574.png,Psoriasis,train,6.0
+-1904965821422434127.png,Eczema,train,2.0
+-4867306313506229011.png,Allergic Contact Dermatitis,train,3.0
+6069491081672095270.png,Eczema,train,2.0
+-5877528973360474863.png,Impetigo,train,2.0
+-2240571180590354799.png,Urticaria,train,3.0
+-6814334483965659064.png,Allergic Contact Dermatitis,train,1.0
+-1748896230395277993.png,Urticaria,train,3.0
+-2438397920230006140.png,Psoriasis,train,2.0
+-1380203193145709903.png,Eczema,train,2.0
+-3585674280765800149.png,Eczema,train,
+-567538328757763516.png,Eczema,train,5.0
+-144864341463911154.png,Eczema,train,2.3333333333333335
+-3862187448691649095.png,Eczema,train,
+7309424676490886027.png,Allergic Contact Dermatitis,train,2.0
+-1593304767852217140.png,Urticaria,train,4.0
+1323541714731364649.png,Urticaria,train,5.0
+-6224550216172220333.png,Eczema,train,2.0
+-3699857332816114313.png,Allergic Contact Dermatitis,train,3.3333333333333335
+-9176173211465562684.png,Eczema,train,3.3333333333333335
+-8505515853248686218.png,Tinea,train,3.0
+-6272108417182441416.png,Allergic Contact Dermatitis,train,1.0
+-1241231354355375740.png,Psoriasis,train,2.0
+-2032799196852997136.png,Eczema,train,2.6666666666666665
+2442787247623782649.png,Allergic Contact Dermatitis,train,3.0
+-2813826022792799007.png,Eczema,train,2.0
+-7265111381795777722.png,Eczema,train,3.0
+7100908023370188661.png,Eczema,train,2.0
+-7068465223533283777.png,Allergic Contact Dermatitis,train,3.0
+-5042389906153516361.png,Eczema,train,2.0
+-16753410666317731.png,Urticaria,train,3.0
+-2262809891586051574.png,Eczema,train,3.0
+2511159005449343926.png,Allergic Contact Dermatitis,train,2.0
+1228823773202587697.png,Eczema,train,1.0
+-605477224501942238.png,Eczema,train,2.3333333333333335
+1933863187913316999.png,Psoriasis,train,3.0
+-4832293375057396679.png,Eczema,train,2.0
+-8215450172239109573.png,Eczema,train,1.0
+-5060817066283027421.png,Allergic Contact Dermatitis,train,
+2461542560021346864.png,Impetigo,train,3.0
+-8558714499692748030.png,Eczema,train,2.0
+-2250475097452583156.png,Allergic Contact Dermatitis,train,2.0
+2060471798669455173.png,Eczema,train,5.0
+-2949233165118597916.png,Eczema,train,2.0
+-9073330460194075182.png,Allergic Contact Dermatitis,train,2.0
+-2101790873047080311.png,Eczema,train,1.0
+-82155186323694378.png,Eczema,train,2.3333333333333335
+-4465867358413006305.png,Impetigo,train,2.0
+-4784154530386898261.png,Eczema,train,4.0
+-311918315070393568.png,Urticaria,train,2.3333333333333335
+-2832637199117292466.png,Eczema,train,4.666666666666667
+-8801660785503745956.png,Eczema,train,3.6666666666666665
+4408120570111819908.png,Allergic Contact Dermatitis,train,3.0
+-2484734279790601728.png,Eczema,train,3.0
+2218786370631568755.png,Allergic Contact Dermatitis,train,5.0
+6798451319984685204.png,Impetigo,train,1.0
+-726968358527670035.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-2094568440095961401.png,Eczema,train,2.0
+-5896619613088824953.png,Psoriasis,train,
+-4668887694202414367.png,Urticaria,train,3.0
+-5741173287805365711.png,Allergic Contact Dermatitis,train,1.0
+-5004739422042601121.png,Allergic Contact Dermatitis,train,4.0
+-4133795263010352091.png,Allergic Contact Dermatitis,train,3.0
+-1542787778564695920.png,Urticaria,train,
+4515409468338255582.png,Eczema,train,3.0
+-4729375199079023004.png,Impetigo,train,3.0
+-4572694283367066772.png,Impetigo,train,4.0
+-143664014880822194.png,Eczema,train,3.0
+-4412549015496284701.png,Eczema,train,3.0
+-2470509348276894217.png,Eczema,train,2.0
+-1390843047538845179.png,Urticaria,train,1.0
+3024771165646921813.png,Allergic Contact Dermatitis,train,2.0
+-3657414579240204642.png,Eczema,train,2.0
+-8831825728244064065.png,Allergic Contact Dermatitis,train,5.0
+-8778743506036272090.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-5211285236974073155.png,Allergic Contact Dermatitis,train,1.6666666666666667
+-3881518848080738850.png,Eczema,train,2.0
+-120415897614843897.png,Allergic Contact Dermatitis,train,3.0
+1330127670452249089.png,Urticaria,train,2.0
+-1067701776636141108.png,Eczema,train,3.0
+-364154373276501459.png,Tinea,train,2.0
+1151092367918820143.png,Eczema,train,4.0
+-587499434771640236.png,Psoriasis,train,3.0
+-4951636702149215518.png,Allergic Contact Dermatitis,train,2.0
+-2441041752152893572.png,Urticaria,train,1.0
+-5026570001652617553.png,Psoriasis,train,3.0
+-8739886638448089494.png,Eczema,train,4.0
+-8249078686592787085.png,Allergic Contact Dermatitis,train,4.0
+3451187859529680478.png,Eczema,train,3.0
+-8905764654141104092.png,Eczema,train,3.0
+-4413029522705591384.png,Eczema,train,2.0
+3649560684285356145.png,Urticaria,train,4.0
+-6419297879712059575.png,Eczema,train,4.0
+-1722506777168667416.png,Allergic Contact Dermatitis,train,3.0
+-4055387610466540879.png,Urticaria,train,3.0
+-6264859610176037628.png,Urticaria,train,3.0
+5599579595537505183.png,Allergic Contact Dermatitis,train,3.0
+-3829216436875682288.png,Eczema,train,3.0
+-5950389991958974652.png,Allergic Contact Dermatitis,train,4.0
+4603995287751216313.png,Tinea,train,4.0
+1866757592791595550.png,Allergic Contact Dermatitis,train,2.0
+-6176512643852086349.png,Eczema,train,3.0
+156375193518512336.png,Eczema,train,3.0
+-2881646745335484613.png,Allergic Contact Dermatitis,train,4.0
+-4483995789678112824.png,Eczema,train,3.0
+6837085681312215412.png,Eczema,train,4.0
+-2104207421034301034.png,Eczema,train,4.0
+-9162107121526515080.png,Allergic Contact Dermatitis,train,5.0
+1953854949943086357.png,Allergic Contact Dermatitis,train,3.0
+7313776736900724644.png,Allergic Contact Dermatitis,train,1.0
+-6942912841265248602.png,Urticaria,train,3.6666666666666665
+-3978555269976453746.png,Eczema,train,3.0
+-3044579148804975072.png,Psoriasis,train,3.0
+-4534168565376765828.png,Eczema,train,2.6666666666666665
+-8614320058673555741.png,Urticaria,train,4.0
+-3712452163219577722.png,Eczema,train,2.0
+-8776630396421311601.png,Eczema,train,4.0
+-7213117744324884514.png,Eczema,train,3.0
+-1466847537458498864.png,Eczema,train,3.0
+-38607030571269426.png,Urticaria,train,2.0
+-7677399289265020821.png,Eczema,train,2.0
+-8077199062814861533.png,Urticaria,train,4.0
+7317992359993295762.png,Allergic Contact Dermatitis,train,3.0
+-4522827291736783511.png,Eczema,train,1.0
+5956785610333626040.png,Allergic Contact Dermatitis,train,4.0
+-8001825271725063018.png,Eczema,train,5.0
+4604660789067252396.png,Eczema,train,2.0
+-2197355568033743807.png,Allergic Contact Dermatitis,train,2.0
+-7301069257724433847.png,Allergic Contact Dermatitis,train,4.0
+-9100032692393067549.png,Urticaria,train,3.0
+-5818348558016562566.png,Eczema,train,2.0
+-6081685479450016322.png,Eczema,train,3.0
+-4200770385496525589.png,Allergic Contact Dermatitis,train,2.0
+-8707418133635013822.png,Allergic Contact Dermatitis,train,3.0
+-8707418133635013822.png,Allergic Contact Dermatitis,train,3.0
+249823248533131936.png,Allergic Contact Dermatitis,train,1.0
+-6588528119341465165.png,Allergic Contact Dermatitis,train,3.0
+-6958898424924160515.png,Eczema,train,3.0
+-8252330186908367439.png,Eczema,train,5.0
+-5309282727047869216.png,Eczema,train,2.3333333333333335
+367210754098426814.png,Eczema,train,2.0
+-7611889478784556944.png,Eczema,train,2.0
+-4594146922478905679.png,Eczema,train,2.3333333333333335
+8642361726154039736.png,Urticaria,train,2.0
+-4173743998915319637.png,Urticaria,train,2.0
+-4203353335597902363.png,Eczema,train,4.0
+-5750619068341432048.png,Eczema,train,2.0
+-8579367048811032343.png,Eczema,train,4.0
+-4586747727078457620.png,Allergic Contact Dermatitis,train,2.0
+-7379989713508976017.png,Eczema,train,3.0
+5997919566451416654.png,Eczema,train,2.0
+-753338146597788079.png,Eczema,train,3.6666666666666665
+1667670265093717504.png,Eczema,train,3.0
+4818643588083348632.png,Allergic Contact Dermatitis,train,3.0
+-7719473356677102536.png,Urticaria,train,2.0
+5802968618509859274.png,Allergic Contact Dermatitis,train,3.0
+-1183254232000145383.png,Allergic Contact Dermatitis,train,4.0
+-1167977922987061432.png,Eczema,train,2.0
+-5359806764878336020.png,Allergic Contact Dermatitis,train,3.0
+6864890391460990037.png,Tinea,train,2.0
+-2108552698904941061.png,Impetigo,train,3.0
+-2099414475733487459.png,Eczema,train,2.6666666666666665
+-5432546180216775741.png,Eczema,train,3.0
+-2115166713006403483.png,Eczema,train,1.0
+-7197702636067718462.png,Eczema,train,4.0
+-1651927693770727765.png,Eczema,train,4.0
+6553935661267505665.png,Eczema,train,5.0
+-512380082663590190.png,Tinea,train,3.0
+-1077486440588421153.png,Tinea,train,3.0
+8772337546813602412.png,Allergic Contact Dermatitis,train,4.0
+-4982141201108309967.png,Urticaria,train,2.0
+-2180690318143429315.png,Eczema,train,2.0
+-3982407291216078553.png,Urticaria,train,4.0
+-3578063028710248597.png,Eczema,train,2.5
+-4955284280836873869.png,Eczema,train,4.0
+-8406319565890157390.png,Impetigo,train,1.0
+1729541313098155924.png,Eczema,train,2.0
+-1830251872118341571.png,Eczema,train,3.0
+-8118517888872600310.png,Allergic Contact Dermatitis,train,3.0
+-6367603705448675214.png,Allergic Contact Dermatitis,train,2.0
+9003339554742903243.png,Psoriasis,train,4.0
+-6277539418539057231.png,Eczema,train,2.0
+-2878474127311295238.png,Eczema,train,3.5
+-3302904664879734565.png,Eczema,train,2.6666666666666665
+-3599077752870060235.png,Allergic Contact Dermatitis,train,3.0
+4519084321617677472.png,Allergic Contact Dermatitis,train,2.0
+-3831315975713380754.png,Eczema,train,4.0
+-3785790046103474945.png,Eczema,train,2.3333333333333335
+-1954514810889331120.png,Psoriasis,train,2.0
+-5923881436433625108.png,Tinea,train,1.0
+-7782995076528179992.png,Urticaria,train,3.0
+34131928669282508.png,Eczema,train,2.0
+-3846342853110898780.png,Eczema,train,2.3333333333333335
+-4716936240491422448.png,Eczema,train,3.0
+-4064740233229781309.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-1967789226418264672.png,Eczema,train,2.0
+-7715694037173668876.png,Allergic Contact Dermatitis,train,6.0
+-2732064214388729281.png,Allergic Contact Dermatitis,train,2.0
+-979167465711270621.png,Allergic Contact Dermatitis,train,4.0
+-1240854801759783891.png,Urticaria,train,2.0
+862461662848239408.png,Allergic Contact Dermatitis,train,2.0
+-4326892319323394160.png,Urticaria,train,2.0
+1881484952385338081.png,Eczema,train,6.0
+8516416641470676717.png,Eczema,train,3.0
+-8207690772752083405.png,Psoriasis,train,2.0
+-6202938230994731909.png,Eczema,train,1.0
+-2252061377678191443.png,Eczema,train,4.0
+-1490073135603203268.png,Eczema,train,2.3333333333333335
+-5607893322162480323.png,Psoriasis,train,3.0
+-6695638195167105814.png,Eczema,train,3.0
+-1083016034520223277.png,Allergic Contact Dermatitis,train,3.0
+4893926487069595319.png,Tinea,train,
+-2190745019792313053.png,Eczema,train,
+-6690033616856405703.png,Eczema,train,2.0
+-1214887362025110286.png,Allergic Contact Dermatitis,train,3.0
+-8478124959807240877.png,Allergic Contact Dermatitis,train,1.0
+-6866549817026329556.png,Urticaria,train,3.0
+-4024400584421966811.png,Impetigo,train,2.3333333333333335
+-2097217587159752484.png,Allergic Contact Dermatitis,train,3.0
+-235854603152207056.png,Urticaria,train,3.0
+-619209901050286350.png,Psoriasis,train,3.0
+-3308141390035798043.png,Eczema,train,1.0
+-7513089492834821079.png,Eczema,train,3.0
+-3482201713629668213.png,Urticaria,train,3.0
+-7927772349097624874.png,Allergic Contact Dermatitis,train,3.0
+-5292342724870624600.png,Eczema,train,4.666666666666667
+-5492672367759671247.png,Psoriasis,train,5.0
+-4491987278543705187.png,Eczema,train,2.0
+-6928038343805197989.png,Allergic Contact Dermatitis,train,2.0
+-7155273641699523450.png,Allergic Contact Dermatitis,train,2.0
+-154827356472198509.png,Eczema,train,1.0
+-5269458538164604429.png,Impetigo,train,1.6666666666666667
+-5242998658722576117.png,Eczema,train,3.0
+-3447371787593587076.png,Psoriasis,train,2.0
+-8983451384190487339.png,Eczema,train,2.0
+-800204098242735475.png,Allergic Contact Dermatitis,train,3.0
+-8814112908977261859.png,Allergic Contact Dermatitis,train,3.0
+-3244000726437215340.png,Allergic Contact Dermatitis,train,3.0
+-2602057177666272344.png,Eczema,train,3.0
+8258473201694136107.png,Impetigo,train,2.0
+4094797845341872966.png,Allergic Contact Dermatitis,train,4.0
+-3699971539292661651.png,Eczema,train,3.0
+-3912040042324761913.png,Tinea,train,3.0
+-6167347811458674963.png,Allergic Contact Dermatitis,train,1.6666666666666667
+-4313679202199817035.png,Eczema,train,2.6666666666666665
+6124353214431816875.png,Eczema,train,2.0
+-5521011744040552037.png,Allergic Contact Dermatitis,train,2.0
+2717443941596411793.png,Allergic Contact Dermatitis,train,3.0
+-3293119307995381863.png,Psoriasis,train,3.0
+-4844217374961134554.png,Urticaria,train,1.0
+-1523770437907026046.png,Allergic Contact Dermatitis,train,1.0
+-7394449639939909454.png,Tinea,train,3.0
+-1409517870797566873.png,Allergic Contact Dermatitis,train,3.0
+8165366699488790952.png,Tinea,train,2.0
+6476595171486166899.png,Urticaria,train,2.0
+-6339622761930083276.png,Impetigo,train,2.0
+-5285766305362811013.png,Tinea,train,
+-5144121844127369932.png,Eczema,train,5.0
+-968369084228324903.png,Eczema,train,2.0
+2816794106198106076.png,Eczema,train,2.0
+6487493346334451513.png,Eczema,train,3.0
+-5990098082947665723.png,Eczema,train,2.3333333333333335
+-3888875973527478965.png,Allergic Contact Dermatitis,train,3.0
+-8508470762082617026.png,Eczema,train,2.0
+-1831810820756751591.png,Allergic Contact Dermatitis,train,1.0
+-8400585781561254792.png,Psoriasis,train,2.0
+-3780061433874158910.png,Psoriasis,train,2.0
+4753575132119484366.png,Eczema,train,2.0
+-8167588187142547572.png,Allergic Contact Dermatitis,train,2.0
+-2370427552192888875.png,Eczema,train,2.0
+-3036204193678608868.png,Eczema,train,3.3333333333333335
+-5644018879148244648.png,Eczema,train,3.0
+-8225853453283466659.png,Eczema,train,1.0
+-6466232164596706273.png,Allergic Contact Dermatitis,train,3.6666666666666665
+-8841534478189887460.png,Eczema,train,3.0
+-2034280007176922924.png,Eczema,train,3.0
+-974618061209306157.png,Eczema,train,5.0
+-6583827357689255330.png,Psoriasis,train,1.6666666666666667
+-1578285749986829241.png,Psoriasis,train,3.0
+-6098892591148922500.png,Eczema,train,4.0
+-6052397548805537740.png,Urticaria,train,
+-7342232757940311338.png,Urticaria,train,2.0
+-3995278267170337656.png,Allergic Contact Dermatitis,train,3.0
+-6079337699558496613.png,Allergic Contact Dermatitis,train,3.0
+474363407822192070.png,Tinea,train,5.0
+-6390996263842066546.png,Eczema,train,3.0
+-3613755685489918074.png,Urticaria,train,4.0
+-3051939329272638280.png,Eczema,train,1.0
+-2373885229844763392.png,Psoriasis,train,3.3333333333333335
+-6448432614772151892.png,Eczema,train,2.0
+1680863652357240074.png,Allergic Contact Dermatitis,train,2.0
+-729778047815019786.png,Eczema,train,2.3333333333333335
+-6934871971348294503.png,Eczema,train,2.0
+7253853475589663178.png,Eczema,train,2.0
+-4063942529777927310.png,Eczema,train,4.0
+-3788838385720706381.png,Urticaria,train,2.0
+-2217561387814573226.png,Impetigo,train,3.0
+-3495979407017051117.png,Eczema,train,1.0
+2968517857107679367.png,Allergic Contact Dermatitis,train,5.0
+-2034979617794657349.png,Psoriasis,train,2.0
+-6870721753640147697.png,Allergic Contact Dermatitis,train,2.0
+-3915138662929947905.png,Allergic Contact Dermatitis,train,3.6666666666666665
+427021348528245688.png,Allergic Contact Dermatitis,train,4.0
+-3780703286966538961.png,Eczema,train,4.5
+-7271756906300044924.png,Eczema,train,5.0
+-6385477427467728982.png,Psoriasis,train,3.0
+-5719099390090863829.png,Psoriasis,train,3.0
+-683645753310790631.png,Allergic Contact Dermatitis,train,2.0
+-375687413257472299.png,Allergic Contact Dermatitis,train,2.0
+-6974606759109816662.png,Urticaria,train,
+-8098360249242875371.png,Urticaria,train,2.0
+-2387709625450358964.png,Allergic Contact Dermatitis,train,3.0
+-8331236734361407077.png,Eczema,train,2.6666666666666665
+-2407143439291948794.png,Eczema,train,1.0
+-1532677556392562109.png,Eczema,train,2.0
+-5486819123551817803.png,Eczema,train,1.0
+-3205742176803893704.png,Eczema,train,2.0
+-5392509949054928551.png,Eczema,train,3.0
+-1212009769672305665.png,Eczema,train,3.0
+8953556150731462434.png,Allergic Contact Dermatitis,train,3.0
+2277093526010949775.png,Allergic Contact Dermatitis,train,2.0
+-4350785058303591747.png,Psoriasis,train,2.0
+-3274462896745109482.png,Eczema,train,3.0
+1174067969932849040.png,Eczema,train,2.0
+-3685615169782413866.png,Impetigo,train,3.0
+3782678873393165200.png,Eczema,train,4.0
+-5655969196519703975.png,Urticaria,train,3.0
+-890889796319653758.png,Eczema,train,6.0
+-2795054550037433637.png,Eczema,train,3.0
+2405240516238144095.png,Eczema,train,3.0
+7578060038381081226.png,Allergic Contact Dermatitis,train,2.0
+-5276695531059008727.png,Urticaria,train,2.3333333333333335
+-2857034813079621056.png,Eczema,train,1.0
+-2214538966673627919.png,Allergic Contact Dermatitis,train,3.0
+1295850104787573131.png,Eczema,train,2.6666666666666665
+-1640856241369219598.png,Allergic Contact Dermatitis,train,2.0
+3597635801230202250.png,Allergic Contact Dermatitis,train,2.0
+-8286901878034429831.png,Impetigo,train,
+-67368657028697900.png,Allergic Contact Dermatitis,train,2.0
+-4600681536298356993.png,Psoriasis,train,2.0
+9017422570993946007.png,Tinea,train,4.0
+3063788955691719168.png,Allergic Contact Dermatitis,train,2.0
+-7854725817199771859.png,Urticaria,train,
+-7169028275718043618.png,Eczema,train,1.6666666666666667
+-4900531927108385279.png,Eczema,train,1.0
+-5957816033565973486.png,Eczema,train,1.0
+-2663645243653633022.png,Urticaria,train,6.0
+-1543533370859526122.png,Eczema,train,2.3333333333333335
+-8171485642889957456.png,Allergic Contact Dermatitis,train,1.6666666666666667
+-8034585694919545631.png,Eczema,train,2.0
+-9071217807268156605.png,Eczema,train,3.0
+-341324569907477536.png,Psoriasis,train,2.3333333333333335
+-7814544384287827491.png,Allergic Contact Dermatitis,train,3.0
+-3449290884377188767.png,Eczema,train,5.0
+5249732949290570026.png,Eczema,train,3.0
+-6639011118561758907.png,Eczema,train,4.0
+7090753179594042307.png,Psoriasis,train,3.0
+-8687142521108777184.png,Tinea,train,1.0
+7487795595643457618.png,Allergic Contact Dermatitis,train,5.0
+-4132805793768407064.png,Allergic Contact Dermatitis,train,3.0
+-5796593810251526598.png,Tinea,train,5.0
+1930168875725807976.png,Eczema,train,2.0
+-714863101218107095.png,Allergic Contact Dermatitis,train,3.0
+5321569644934876335.png,Eczema,train,4.0
+347108597815692432.png,Urticaria,train,3.0
+5962982904524629830.png,Eczema,train,4.0
+4623919538029402273.png,Eczema,train,4.0
+-8221026948988800707.png,Eczema,train,2.0
+-6506736911034186778.png,Tinea,train,3.0
+5266033767095764235.png,Eczema,train,4.0
+-5943967782420648429.png,Allergic Contact Dermatitis,train,3.0
+-2611898318932465514.png,Eczema,train,3.0
+-237525715880906966.png,Allergic Contact Dermatitis,train,2.0
+332030937009445926.png,Allergic Contact Dermatitis,train,5.0
+-119269382740005870.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-8555840247489065545.png,Eczema,train,2.3333333333333335
+-4269285436456284452.png,Allergic Contact Dermatitis,train,2.0
+491926654303224169.png,Urticaria,train,3.0
+8427651112818416576.png,Psoriasis,train,2.0
+-6273982034263898447.png,Eczema,train,2.0
+3696774118263691836.png,Eczema,train,4.0
+-4395003336872160138.png,Eczema,train,1.6666666666666667
+2236558726869900330.png,Eczema,train,1.0
+1271447956225696568.png,Allergic Contact Dermatitis,train,1.0
+-8622301865890936410.png,Urticaria,train,3.0
+-2030090339984105607.png,Eczema,train,2.0
+-4693616251061198273.png,Eczema,train,3.0
+-6242158112232873458.png,Allergic Contact Dermatitis,train,1.0
+4378833881654100143.png,Allergic Contact Dermatitis,train,2.0
+-2443949714670739112.png,Urticaria,train,2.3333333333333335
+-8707418133635013822.png,Allergic Contact Dermatitis,train,3.0
+-8707418133635013822.png,Allergic Contact Dermatitis,train,3.0
+-8345901974298329035.png,Eczema,train,2.0
+-3892343950611245620.png,Psoriasis,train,3.0
+-4153911047992204094.png,Urticaria,train,3.0
+-2472762249615280367.png,Allergic Contact Dermatitis,train,3.0
+-7709598504760961091.png,Allergic Contact Dermatitis,train,2.0
+-6264468090527993860.png,Allergic Contact Dermatitis,train,3.0
+5981588154275979091.png,Urticaria,train,
+325464533153467313.png,Eczema,train,2.0
+-665717550024818901.png,Tinea,train,2.0
+5221022206957404585.png,Psoriasis,train,
+-7846607585699204316.png,Eczema,train,2.3333333333333335
+-1694289917312294997.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-130285819684122836.png,Eczema,train,
+-2238709944412086899.png,Impetigo,train,2.0
+-6372493871368086348.png,Allergic Contact Dermatitis,train,2.3333333333333335
+4637981093780563997.png,Eczema,train,5.0
+-3936109037533585071.png,Eczema,train,3.0
+-668639828868127092.png,Psoriasis,train,5.0
+-3674158308118136671.png,Eczema,train,1.6666666666666667
+-8448044375649730227.png,Urticaria,train,4.0
+-4073226241877822619.png,Eczema,train,2.0
+-3920906552180865650.png,Eczema,train,1.0
+-5560217361581663318.png,Allergic Contact Dermatitis,train,1.0
+-6220145266048034162.png,Allergic Contact Dermatitis,train,2.0
+1757309953129434820.png,Psoriasis,train,
+-3039724992392871653.png,Eczema,train,3.0
+-3075979742684785566.png,Eczema,train,2.0
+2530103353858194192.png,Allergic Contact Dermatitis,train,2.0
+-3911131908890343991.png,Eczema,train,2.3333333333333335
+-2813780788174205081.png,Allergic Contact Dermatitis,train,2.0
+-3554665440338680007.png,Eczema,train,2.6666666666666665
+9086417902587133443.png,Eczema,train,3.0
+-6368978835421081952.png,Tinea,train,2.0
+1202119896696685333.png,Urticaria,train,4.0
+-5173343860642718752.png,Allergic Contact Dermatitis,train,3.0
+-8127450853323603559.png,Allergic Contact Dermatitis,train,3.0
+-692354311834216036.png,Urticaria,train,5.0
+-3756788647026795674.png,Eczema,train,1.0
+7613680617433635091.png,Allergic Contact Dermatitis,train,2.0
+4793777024686540807.png,Urticaria,train,3.0
+754932103317031965.png,Eczema,train,2.0
+-8923487293444025838.png,Eczema,train,5.0
+-3583990329304518263.png,Eczema,train,1.0
+-4823549522439308132.png,Eczema,train,2.0
+-1887752443592481816.png,Impetigo,train,2.0
+-635008992783931051.png,Allergic Contact Dermatitis,train,3.0
+-1844957728417343950.png,Eczema,train,2.0
+-1824718034048585128.png,Eczema,train,2.0
+-1835922609877708855.png,Eczema,train,5.0
+152035477957158422.png,Urticaria,train,5.0
+-7456805916262825945.png,Allergic Contact Dermatitis,train,3.0
+-7034422526003126246.png,Tinea,train,4.0
+403592425120985132.png,Urticaria,train,1.0
+-5631783721569270716.png,Allergic Contact Dermatitis,train,2.3333333333333335
+130530346867575707.png,Psoriasis,train,3.6666666666666665
+-6337656710037676304.png,Eczema,train,2.0
+-4990454451647320012.png,Urticaria,train,3.0
+-3559887002495639296.png,Eczema,train,5.0
+-8297361329479198136.png,Eczema,train,2.0
+-1067261441195453132.png,Allergic Contact Dermatitis,train,3.0
+-8249769341615401775.png,Urticaria,train,2.3333333333333335
+-345409750455140506.png,Allergic Contact Dermatitis,train,2.0
+-3993352712745808965.png,Allergic Contact Dermatitis,train,4.0
+-4066123629157567317.png,Eczema,train,4.0
+-6561457627112466394.png,Urticaria,train,4.0
+-8479314881274447757.png,Allergic Contact Dermatitis,train,1.0
+-4138807821440436111.png,Eczema,train,2.6666666666666665
+5664267373726907594.png,Urticaria,train,2.0
+5358401025661447825.png,Allergic Contact Dermatitis,train,1.0
+-4393279814465205593.png,Eczema,train,1.0
+-223472876305241678.png,Urticaria,train,3.0
+-710101171461854037.png,Eczema,train,3.0
+-4447495762201283458.png,Allergic Contact Dermatitis,train,1.3333333333333333
+96983641017525055.png,Allergic Contact Dermatitis,train,2.0
+-1675320305762436963.png,Urticaria,train,2.0
+-7177611285739869732.png,Eczema,train,2.6666666666666665
+777284266327823069.png,Tinea,train,5.0
+-2772294595607608592.png,Tinea,train,3.0
+-6892698445976994636.png,Impetigo,train,1.0
+-5319341014918187835.png,Allergic Contact Dermatitis,train,2.0
+-983744323771148963.png,Allergic Contact Dermatitis,train,4.0
+-5228362336502809630.png,Eczema,train,2.0
+1037297535960591406.png,Urticaria,train,1.0
+-3535563123986224188.png,Impetigo,train,2.3333333333333335
+5453977556464879778.png,Eczema,train,2.0
+-208880250508994115.png,Tinea,train,2.0
+7145588946865531253.png,Psoriasis,train,2.0
+-4259316532864426030.png,Impetigo,train,3.0
+-7632127675025789395.png,Eczema,train,3.0
+-3018629149017877305.png,Eczema,train,
+-1611841910156196691.png,Urticaria,train,3.0
+-3663646926790398919.png,Tinea,train,3.0
+-5125507063415298841.png,Tinea,train,2.0
+-5076990756171032358.png,Allergic Contact Dermatitis,train,2.0
+-284320352049367340.png,Eczema,train,3.0
+-2918595174966989977.png,Allergic Contact Dermatitis,train,2.0
+-2919962940384238401.png,Eczema,train,6.0
+-2646140046117594823.png,Allergic Contact Dermatitis,train,1.0
+-8472237834175694042.png,Impetigo,train,4.0
+-4335509512864210611.png,Allergic Contact Dermatitis,train,3.0
+2773237399413524337.png,Urticaria,train,2.0
+-1639533999116789945.png,Urticaria,train,4.0
+-1776672099385555595.png,Psoriasis,train,3.0
+5571850547787043400.png,Allergic Contact Dermatitis,train,2.0
+-5949315841433628424.png,Allergic Contact Dermatitis,train,3.0
+-6896162265958450430.png,Eczema,train,1.0
+2440353624639310907.png,Allergic Contact Dermatitis,train,
+-2574036968326358971.png,Allergic Contact Dermatitis,train,2.0
+-1205727439193920342.png,Psoriasis,train,3.0
+-1003800477193786941.png,Eczema,train,2.0
+5958062192006016839.png,Allergic Contact Dermatitis,train,3.0
+2359770488566813202.png,Impetigo,train,4.0
+-2241923458085229297.png,Allergic Contact Dermatitis,train,
+-1332224669957938192.png,Allergic Contact Dermatitis,train,4.666666666666667
+8233674798713772012.png,Allergic Contact Dermatitis,train,4.0
+-4303642624887385011.png,Eczema,train,5.0
+-5303561896917410185.png,Eczema,train,4.0
+-4203166728954341030.png,Urticaria,train,4.0
+-5326168138094732222.png,Psoriasis,train,4.0
+-5739874987360699327.png,Eczema,train,3.6666666666666665
+-2587300624299644055.png,Eczema,train,3.0
+2823528035542719804.png,Eczema,train,2.0
+-7415062704597349569.png,Eczema,train,2.0
+-2818633235976112099.png,Eczema,train,2.0
+8014384649486440940.png,Allergic Contact Dermatitis,train,2.0
+-2582576640094223313.png,Tinea,train,5.0
+2266984041726889936.png,Eczema,train,4.0
+-2330209020650037870.png,Psoriasis,train,3.6666666666666665
+-1768658990948132250.png,Eczema,train,3.0
+-8499520546324140238.png,Impetigo,train,4.0
+-3960777895415462837.png,Eczema,train,3.0
+-1398390937890146526.png,Eczema,train,3.0
+512906269511680512.png,Allergic Contact Dermatitis,train,1.0
+2386971064686249517.png,Eczema,train,2.0
+-2551832748275660261.png,Eczema,train,1.0
+-5385363078483571059.png,Eczema,train,4.0
+8663459152968105626.png,Eczema,train,2.0
+-131584953352202368.png,Eczema,train,2.6666666666666665
+6865216719730930043.png,Eczema,train,4.0
+7624703560142571231.png,Urticaria,train,2.0
+-823663569011810741.png,Eczema,train,2.0
+-7085119796392335486.png,Urticaria,train,2.0
+-4131764627078782571.png,Eczema,train,1.0
+-6839319830915874080.png,Allergic Contact Dermatitis,train,2.0
+2596318900858824252.png,Allergic Contact Dermatitis,train,2.0
+-5027449927739449608.png,Psoriasis,train,2.0
+-555548212421717526.png,Eczema,train,4.0
+-4571724128049536546.png,Psoriasis,train,2.6666666666666665
+-558419946250026054.png,Eczema,train,4.0
+5206975118959031057.png,Eczema,train,3.0
+4783565817155533660.png,Allergic Contact Dermatitis,train,4.0
+-2917349207573648398.png,Impetigo,train,3.5
+-1350076885661654362.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-6290735296157762317.png,Tinea,train,2.0
+-885408862062413113.png,Allergic Contact Dermatitis,train,4.0
+9000251155382685383.png,Eczema,train,2.0
+-5435340621659471534.png,Tinea,train,
+-7782720653309265267.png,Allergic Contact Dermatitis,train,
+-6292477758132177891.png,Urticaria,train,3.0
+-155429778501343406.png,Allergic Contact Dermatitis,train,2.0
+-2511190403996726038.png,Eczema,train,4.0
+-6956330915182663951.png,Tinea,train,4.0
+-2470963294952716246.png,Eczema,train,5.0
+-7982025482577313030.png,Tinea,train,2.6666666666666665
+5764210117325712991.png,Eczema,train,4.0
+391916421814043011.png,Eczema,train,2.0
+-3238683302029267521.png,Eczema,train,2.0
+3681524388877971654.png,Eczema,train,3.0
+-3194582777873313186.png,Impetigo,train,1.0
+-4838949718224148622.png,Impetigo,train,2.0
+2599587953610134632.png,Eczema,train,3.0
+-3269269173786491451.png,Eczema,train,3.3333333333333335
+3555413581650656128.png,Eczema,train,2.3333333333333335
+-2883972481327235052.png,Eczema,train,4.0
+-2505436522815593428.png,Eczema,train,3.0
+4616539214475309081.png,Allergic Contact Dermatitis,train,3.0
+-4390482382607634718.png,Allergic Contact Dermatitis,train,3.0
+-8305984087914650939.png,Eczema,train,2.0
+-1506180418927038277.png,Eczema,train,2.0
+-1085817410470619203.png,Eczema,train,1.0
+-7108487947733237222.png,Eczema,train,2.0
+-3574053173899714038.png,Eczema,train,2.0
+-4973481208020125368.png,Eczema,train,1.0
+-126472922177297480.png,Impetigo,train,3.0
+5921677196871615893.png,Allergic Contact Dermatitis,train,2.0
+-8676992280138825968.png,Psoriasis,train,1.0
+5397770885408751384.png,Allergic Contact Dermatitis,train,3.0
+-2997460016579568441.png,Urticaria,train,2.0
+-7101626970097027638.png,Allergic Contact Dermatitis,train,2.0
+-7130155659453498808.png,Allergic Contact Dermatitis,train,3.0
+1844783267320439523.png,Tinea,train,3.0
+-5189709378949177879.png,Tinea,train,1.0
+-6268140329429011572.png,Urticaria,train,2.0
+-2507019021571652077.png,Eczema,train,3.0
+-1642667040160094612.png,Urticaria,train,2.0
+-1389929707845299281.png,Urticaria,train,3.0
+-1013329915718011639.png,Eczema,train,4.0
+-5117119409749183026.png,Tinea,train,1.0
+-5014049558206819915.png,Allergic Contact Dermatitis,train,3.0
+-6437005788368753170.png,Eczema,train,2.0
+-7827471639303718306.png,Eczema,train,3.0
+4812160518335801420.png,Eczema,train,2.0
+-2678282706126601436.png,Eczema,train,1.0
+-7991394527259205470.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-5415173044390000664.png,Urticaria,train,2.0
+-866990533769420724.png,Allergic Contact Dermatitis,train,2.0
+-4461478376975366600.png,Allergic Contact Dermatitis,train,1.0
+-3131182156160569830.png,Eczema,train,5.0
+-3724299618054220288.png,Urticaria,train,3.0
+-8901270085979773641.png,Allergic Contact Dermatitis,train,2.0
+-3593116470323469675.png,Eczema,train,3.0
+2321842199772092520.png,Allergic Contact Dermatitis,train,3.0
+-7722971252294313239.png,Eczema,train,2.5
+-6571843460422881664.png,Allergic Contact Dermatitis,train,2.0
+-5087291629585618402.png,Allergic Contact Dermatitis,train,2.0
+-2315153994676436271.png,Urticaria,train,2.0
+1810370700821678969.png,Psoriasis,train,2.0
+-1544988337076850901.png,Allergic Contact Dermatitis,train,3.0
+1160416786582160491.png,Allergic Contact Dermatitis,train,2.0
+-7940779313453002295.png,Urticaria,train,2.0
+5532681236173164107.png,Eczema,train,2.0
+-3039865975776090369.png,Urticaria,train,1.0
+-1199523414188166187.png,Allergic Contact Dermatitis,train,3.0
+-2921913052861030168.png,Tinea,train,4.0
+2932220252440884552.png,Allergic Contact Dermatitis,train,2.0
+8274826488534529432.png,Psoriasis,train,2.0
+-1853513887415712427.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-4307953012069447594.png,Allergic Contact Dermatitis,train,3.0
+-3184906123039930836.png,Eczema,train,2.0
+-8303565957689749944.png,Allergic Contact Dermatitis,train,2.0
+-622403945352043847.png,Eczema,train,4.0
+-8806857030239302418.png,Allergic Contact Dermatitis,train,3.0
+-4521925482868333629.png,Psoriasis,train,1.6666666666666667
+-8832139751213033811.png,Allergic Contact Dermatitis,train,2.0
+-2282445446815047427.png,Eczema,train,4.0
+2508530986946553819.png,Eczema,train,3.0
+-4723634841049886674.png,Impetigo,train,5.0
+-217828380359571871.png,Eczema,train,3.6666666666666665
+-3355326200471441329.png,Eczema,train,4.0
+-1688383691497820923.png,Eczema,train,3.0
+-236781517620281149.png,Eczema,train,2.0
+-7169804902942311189.png,Eczema,train,1.5
+2852593862813573778.png,Eczema,train,2.0
+-4033831762524212089.png,Urticaria,train,3.0
+-2377453049126228534.png,Eczema,train,2.0
+50133455887092108.png,Eczema,train,2.0
+-8876350314932967279.png,Eczema,train,2.0
+-4076759991509022075.png,Eczema,train,1.0
+-1476574626453309028.png,Urticaria,train,2.0
+187727587523873295.png,Eczema,train,1.5
+-3316097198735060969.png,Psoriasis,train,2.0
+-5907408477050604604.png,Eczema,train,4.0
+-1993099401488464055.png,Eczema,train,5.0
+3391002849567818495.png,Psoriasis,train,3.0
+-8743640083543794574.png,Eczema,train,5.0
+2100977657284494000.png,Eczema,train,4.0
+-2367385470888041402.png,Eczema,train,4.0
+-1009810686742517529.png,Allergic Contact Dermatitis,train,1.0
+-7195700219000080752.png,Psoriasis,train,1.5
+-8163528232615421659.png,Eczema,train,2.0
+7937588583341556864.png,Eczema,train,1.0
+-3645082414747891862.png,Eczema,train,2.3333333333333335
+-8361305378617415088.png,Allergic Contact Dermatitis,train,2.0
+1583230730423672688.png,Allergic Contact Dermatitis,train,4.0
+2227094607223164151.png,Eczema,train,3.0
+-6952203225851872037.png,Psoriasis,train,4.0
+3056937058072567919.png,Eczema,train,2.0
+-3428237757976001831.png,Eczema,train,5.333333333333333
+8124593379991567932.png,Urticaria,train,1.0
+-1979417173631887595.png,Urticaria,train,2.0
+-5943406943503412804.png,Urticaria,train,3.0
+-7302111413801214907.png,Tinea,train,2.0
+-2894628235051714183.png,Urticaria,train,2.0
+-5538347294791417528.png,Allergic Contact Dermatitis,train,1.6666666666666667
+-7322637117143244853.png,Eczema,train,3.0
+-6051243062560795476.png,Eczema,train,5.0
+-8926425952664189068.png,Urticaria,train,5.0
+-7425317952031638649.png,Psoriasis,train,
+-6897298279489871391.png,Tinea,train,2.6666666666666665
+-5612383330650239036.png,Allergic Contact Dermatitis,train,2.0
+-1248547167575108548.png,Eczema,train,2.0
+-1532307918011967845.png,Urticaria,train,2.0
+-3717681648257080297.png,Urticaria,train,1.5
+-1583330889050179755.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-3718213050853937818.png,Eczema,train,5.0
+-6272728721081099136.png,Urticaria,train,2.0
+7230978989440280137.png,Allergic Contact Dermatitis,train,4.0
+5495915177571105531.png,Impetigo,train,2.0
+-1915333973804553575.png,Eczema,train,1.6666666666666667
+-4783650687622901919.png,Eczema,train,1.3333333333333333
+-2586434783203273300.png,Eczema,train,1.0
+6349031740731909414.png,Allergic Contact Dermatitis,train,2.0
+-2213007721490983611.png,Impetigo,train,2.0
+-1010754336982699838.png,Eczema,train,4.0
+-6650288113043492752.png,Psoriasis,train,3.0
+-689924364772205404.png,Eczema,train,1.6666666666666667
+-304171554496873031.png,Tinea,train,3.3333333333333335
+-7380450881401563228.png,Eczema,train,4.0
+-3208394649318665547.png,Eczema,train,5.0
+-9209496230726637783.png,Psoriasis,train,3.0
+-295948824090518865.png,Allergic Contact Dermatitis,train,3.0
+-4561420992326988947.png,Eczema,train,
+3337523698284318457.png,Allergic Contact Dermatitis,train,2.0
+-6996952891724745204.png,Allergic Contact Dermatitis,train,1.0
+-374763867685176927.png,Allergic Contact Dermatitis,train,2.0
+-1288516358527303986.png,Allergic Contact Dermatitis,train,5.0
+187783128814154274.png,Impetigo,train,2.0
+-6304881517389329479.png,Impetigo,train,2.0
+-4411279915061191754.png,Urticaria,train,2.6666666666666665
+1955245080262024269.png,Eczema,train,2.3333333333333335
+-112918541630908439.png,Eczema,train,2.0
+-4496469068484871833.png,Eczema,train,4.0
+-9201922687967136549.png,Eczema,train,2.0
+-3435580209784550568.png,Allergic Contact Dermatitis,train,2.0
+-3074087608497358223.png,Eczema,train,3.0
+-6874377976833605221.png,Allergic Contact Dermatitis,train,2.0
+-3288896740583601521.png,Allergic Contact Dermatitis,train,3.0
+-4279274202478057784.png,Eczema,train,2.6666666666666665
+-6693687142432525522.png,Allergic Contact Dermatitis,train,
+-7179944250348052903.png,Eczema,train,3.0
+-6869963886668373235.png,Eczema,train,5.0
+-59907778138826579.png,Tinea,train,1.0
+-3599312611917901231.png,Eczema,train,2.0
+7810546855565179160.png,Eczema,train,3.0
+-8195825849611846307.png,Psoriasis,train,1.0
+2979908324310233539.png,Psoriasis,train,4.0
+-2826177521891050091.png,Psoriasis,train,1.6666666666666667
+-2010073807235552734.png,Eczema,train,2.0
+-8791861907421161039.png,Allergic Contact Dermatitis,train,
+-6140702918600187341.png,Allergic Contact Dermatitis,train,3.0
+-2611863072887966068.png,Eczema,train,3.0
+762690062038124775.png,Allergic Contact Dermatitis,train,3.0
+5726348495884475068.png,Eczema,train,1.3333333333333333
+-6292941954255148760.png,Eczema,train,2.0
+-8240797750699318459.png,Allergic Contact Dermatitis,train,2.0
+1432969204287528453.png,Psoriasis,train,3.0
+-1359378876383608525.png,Allergic Contact Dermatitis,train,3.0
+5426332300489597840.png,Eczema,train,3.0
+-295260050531917160.png,Eczema,train,1.0
+6270162947228325664.png,Impetigo,train,3.0
+-2245835127682249332.png,Impetigo,train,3.0
+-3136247653193336048.png,Tinea,train,3.0
+-2901032383351590778.png,Allergic Contact Dermatitis,train,1.0
+7396867247220783226.png,Allergic Contact Dermatitis,train,2.0
+4139477718088297802.png,Tinea,train,4.0
+-7327283166906573507.png,Eczema,train,2.0
+-2346903094222635826.png,Allergic Contact Dermatitis,train,1.0
+-8733099384376486023.png,Eczema,train,2.0
+-9127364579337454244.png,Tinea,train,3.0
+-4937708744703119052.png,Tinea,train,4.0
+-8490706590974569952.png,Eczema,train,1.6666666666666667
+-3833291611865949894.png,Tinea,train,3.0
+-3224527372356332830.png,Eczema,train,2.0
+-5761650559352394553.png,Eczema,train,5.0
+-6662505251950850558.png,Eczema,train,1.0
+-1971854595130405162.png,Eczema,train,2.0
+4357089761940467438.png,Allergic Contact Dermatitis,train,1.0
+-310565031500497221.png,Allergic Contact Dermatitis,train,2.0
+-3300838075406312078.png,Eczema,train,4.0
+3655934744719916115.png,Allergic Contact Dermatitis,train,
+-4052105444595907267.png,Tinea,train,2.3333333333333335
+-3483024805543442518.png,Urticaria,train,
+-1970883191328192750.png,Allergic Contact Dermatitis,train,1.0
+4567625753150358419.png,Allergic Contact Dermatitis,train,4.0
+-494008788293981349.png,Eczema,train,5.0
+-724880412393084270.png,Urticaria,train,3.0
+1481800342397481307.png,Urticaria,train,2.0
+-3162371366187734223.png,Eczema,train,1.0
+6592347411194143558.png,Allergic Contact Dermatitis,train,2.0
+-1021403805451681822.png,Eczema,train,4.5
+-96706846239146494.png,Allergic Contact Dermatitis,train,2.0
+-4903355290805756587.png,Psoriasis,train,2.0
+-6492319812438437820.png,Allergic Contact Dermatitis,train,1.0
+-4035777372031815630.png,Eczema,train,2.0
+-8052395955611445748.png,Allergic Contact Dermatitis,train,5.0
+-5587762910680104171.png,Allergic Contact Dermatitis,train,2.0
+-1533962360867773175.png,Eczema,train,5.0
+-1671801186817111191.png,Allergic Contact Dermatitis,train,1.6666666666666667
+8491433229363098403.png,Urticaria,train,1.0
+6869198090785206318.png,Allergic Contact Dermatitis,train,2.0
+-3483609679293205420.png,Allergic Contact Dermatitis,train,1.6666666666666667
+-7411720837192491249.png,Urticaria,train,4.0
+-3909577422247309653.png,Allergic Contact Dermatitis,train,3.0
+-6418714442683824910.png,Eczema,train,4.0
+1623516877780078826.png,Eczema,train,2.0
+-1069484016159142426.png,Eczema,train,4.0
+-5463082777905620639.png,Allergic Contact Dermatitis,train,2.0
+4166674568332648445.png,Allergic Contact Dermatitis,train,2.0
+4166674568332648445.png,Allergic Contact Dermatitis,train,1.0
+-956556282979897534.png,Eczema,train,3.0
+1184173105743096364.png,Psoriasis,train,2.0
+-8510531530332479524.png,Eczema,train,2.0
+-860650590307361479.png,Urticaria,train,2.6666666666666665
+-2587501478019122942.png,Allergic Contact Dermatitis,train,1.3333333333333333
+-5384878958015525204.png,Eczema,train,2.0
+-2343989119243327962.png,Eczema,train,2.0
+-9097674784194188092.png,Allergic Contact Dermatitis,train,2.3333333333333335
+2661853004663829775.png,Eczema,train,2.0
+-2864613777793771222.png,Eczema,train,3.0
+-1423317161050712636.png,Eczema,train,2.0
+-5627415538111651837.png,Tinea,train,2.0
+7936931623873788776.png,Eczema,train,2.0
+-3168226346887030998.png,Eczema,train,2.0
+2178398307847074216.png,Allergic Contact Dermatitis,train,3.0
+-2501276899066320508.png,Allergic Contact Dermatitis,train,2.0
+-3214885068431580766.png,Eczema,train,5.0
+-7924894911403946589.png,Eczema,train,3.0
+-5618424440001842615.png,Psoriasis,train,5.0
+-737002406762138892.png,Allergic Contact Dermatitis,train,4.0
+-737002406762138892.png,Allergic Contact Dermatitis,train,4.0
+-1987788942025444794.png,Tinea,train,3.0
+1354009390217104598.png,Allergic Contact Dermatitis,train,4.0
+-3084064354272784520.png,Allergic Contact Dermatitis,train,4.0
+-4596787619832414799.png,Eczema,train,
+-4449828668133998854.png,Eczema,train,1.6666666666666667
+4025099453268867179.png,Urticaria,train,2.0
+-2307387288352361738.png,Allergic Contact Dermatitis,train,2.0
+-1129152496811079069.png,Eczema,train,
+-6682919596260570481.png,Allergic Contact Dermatitis,train,2.0
+-4843426365092047899.png,Eczema,train,2.0
+-1437883637795414364.png,Eczema,train,5.0
+-4461507388670625195.png,Allergic Contact Dermatitis,train,3.0
+-391640499672655770.png,Eczema,train,2.0
+4012065403674643012.png,Tinea,train,
+1071282187346618464.png,Eczema,train,1.0
+-169783764847555703.png,Allergic Contact Dermatitis,train,2.0
+-5054292477137429973.png,Urticaria,train,2.0
+-3781183398515014808.png,Urticaria,train,2.6666666666666665
+-8500170905733656840.png,Eczema,train,4.0
+-4115706206477467822.png,Eczema,train,1.6666666666666667
+-1548418855788744112.png,Allergic Contact Dermatitis,train,
+-5902521648651774394.png,Allergic Contact Dermatitis,train,2.0
+5729517509700695055.png,Eczema,train,5.0
+-3220187335048171835.png,Impetigo,train,1.0
+-3019194824877098187.png,Eczema,train,3.0
+-2928063235843741646.png,Eczema,train,3.0
+-5356762524065147845.png,Eczema,train,2.0
+3521631577073828129.png,Allergic Contact Dermatitis,train,3.0
+-7055418128950003452.png,Psoriasis,train,4.0
+-3594395432923376135.png,Impetigo,train,3.0
+3129243513709030690.png,Psoriasis,train,
+-8954855288459508791.png,Urticaria,train,2.0
+-1829981078727893975.png,Eczema,train,3.0
+-2593983323398825549.png,Eczema,train,2.0
+-3555487255426017347.png,Urticaria,train,1.6666666666666667
+-7947234630210958752.png,Eczema,train,3.0
+5259153532910006101.png,Psoriasis,train,3.0
+-1084871799635208946.png,Eczema,train,3.0
+-7143061118005313416.png,Eczema,train,2.0
+-7286384800338207015.png,Eczema,train,3.0
+-8489071995033586737.png,Allergic Contact Dermatitis,train,3.0
+-4320229049572975490.png,Allergic Contact Dermatitis,train,1.0
+7042029517528491248.png,Eczema,train,2.0
+-5028776530917568859.png,Allergic Contact Dermatitis,train,3.0
+1550865439574282805.png,Tinea,train,3.0
+-3821908661269191208.png,Eczema,train,1.0
+5377631068374459197.png,Eczema,train,5.0
+-4062980895108912619.png,Urticaria,train,4.333333333333333
+-53819341886614140.png,Impetigo,train,3.0
+-3006354197533358732.png,Tinea,train,2.0
+-2928857103244658743.png,Eczema,train,2.0
+-8532169583360415872.png,Urticaria,train,1.0
+-3210481923987744829.png,Eczema,train,1.6666666666666667
+4539450615054414408.png,Allergic Contact Dermatitis,train,3.0
+5896184176649937032.png,Psoriasis,train,2.0
+2172969972171453857.png,Allergic Contact Dermatitis,train,2.0
+1164646982557605400.png,Allergic Contact Dermatitis,train,2.0
+-4027806997035329030.png,Impetigo,train,4.0
+-3303515851089611527.png,Urticaria,train,5.0
+2856173988568189587.png,Allergic Contact Dermatitis,train,3.0
+-5276374493350388214.png,Eczema,train,2.0
+5340978936646445096.png,Eczema,train,3.0
+-368511249512124554.png,Eczema,train,3.0
+-1150577368597256207.png,Allergic Contact Dermatitis,train,5.0
+-5476440465689070298.png,Allergic Contact Dermatitis,train,3.0
+4274197151964109412.png,Eczema,train,5.0
+1614744465976140756.png,Eczema,train,4.0
+-5665949552425967322.png,Eczema,train,3.0
+3614097266056290592.png,Urticaria,train,3.0
+6702895546573069399.png,Allergic Contact Dermatitis,train,3.0
+-5883611042179958210.png,Eczema,train,3.0
+5203719973920132329.png,Allergic Contact Dermatitis,train,2.0
+8582218280859891764.png,Psoriasis,train,3.0
+-7512733256965191315.png,Eczema,train,2.0
+-7657716575029931378.png,Tinea,train,2.0
+-4364923944338290483.png,Allergic Contact Dermatitis,train,3.0
+-506159417569762918.png,Eczema,train,2.0
+-9205655818768804525.png,Urticaria,train,2.6666666666666665
+7571664730621104797.png,Allergic Contact Dermatitis,train,1.0
+-8399241957146252689.png,Allergic Contact Dermatitis,train,3.0
+3228834542325463645.png,Eczema,train,4.0
+-6147839378922500645.png,Impetigo,train,3.0
+2366691154046778346.png,Allergic Contact Dermatitis,train,3.0
+-1923721324804991114.png,Eczema,train,3.0
+4594036980419376140.png,Allergic Contact Dermatitis,train,3.6666666666666665
+6990071977297552397.png,Psoriasis,train,1.0
+-7011357152878990232.png,Eczema,train,3.0
+6588895198940370553.png,Psoriasis,train,2.0
+-6956409262063576195.png,Allergic Contact Dermatitis,train,2.0
+3863877723322772755.png,Eczema,train,1.0
+7935817531966240725.png,Allergic Contact Dermatitis,train,4.0
+-2204802203666459284.png,Tinea,train,4.666666666666667
+-1427528944127205768.png,Eczema,train,2.0
+-1194451675892190559.png,Eczema,train,5.0
+7846235618886945562.png,Urticaria,train,3.0
+-671812747914036997.png,Impetigo,train,2.0
+1083628762339451238.png,Psoriasis,train,1.0
+1281951106283171619.png,Urticaria,train,2.0
+-2036739924048402981.png,Eczema,train,6.0
+-9002584586913443899.png,Psoriasis,train,1.0
+-3908715743589033453.png,Allergic Contact Dermatitis,train,2.0
+-4424350057616392817.png,Eczema,train,3.0
+-1058935244298290672.png,Eczema,train,3.3333333333333335
+-8125667483744734603.png,Allergic Contact Dermatitis,train,4.0
+-8921394409798068754.png,Allergic Contact Dermatitis,train,4.0
+-7964391497410090998.png,Tinea,train,2.3333333333333335
+-6241322428464148939.png,Eczema,train,2.0
+-5361566185499497261.png,Eczema,train,2.6666666666666665
+-7073378222213813678.png,Allergic Contact Dermatitis,train,2.0
+-7268807677336387720.png,Psoriasis,train,5.0
+-5577968546899812757.png,Allergic Contact Dermatitis,train,2.0
+183925710312569203.png,Allergic Contact Dermatitis,train,2.0
+3344247158207911686.png,Eczema,train,3.0
+8994326462655890990.png,Urticaria,train,4.0
+-4863374222129923637.png,Eczema,train,4.666666666666667
+8120769919711144253.png,Allergic Contact Dermatitis,train,1.0
+2627734411216844069.png,Eczema,train,3.6666666666666665
+-6199778995948821319.png,Urticaria,train,3.0
+-8638543764343491788.png,Eczema,train,2.0
+4090386411824239067.png,Eczema,train,2.0
+-4143152815506638812.png,Urticaria,train,3.0
+-2492813239341820608.png,Eczema,train,4.0
+-3579050088184146996.png,Allergic Contact Dermatitis,train,3.0
+-423341253694353708.png,Urticaria,train,3.0
+-5225399467864058371.png,Allergic Contact Dermatitis,train,1.0
+-2691599696732836749.png,Eczema,train,3.0
+-4461423382208893454.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-4986256408299251030.png,Urticaria,train,4.0
+-176291023421890680.png,Allergic Contact Dermatitis,train,4.333333333333333
+-5621272172269787270.png,Eczema,train,3.0
+-4926134546599682921.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-4856150066452561717.png,Tinea,train,3.0
+3495686488871907134.png,Eczema,train,2.0
+-2207449719805591208.png,Allergic Contact Dermatitis,train,4.0
+-3683355746799434861.png,Eczema,train,1.0
+-630095546379044949.png,Eczema,train,
+-3493309736947822924.png,Eczema,train,5.0
+5001728379819617442.png,Allergic Contact Dermatitis,train,2.0
+8195632356731883873.png,Eczema,train,4.0
+3193376092446046294.png,Eczema,train,2.0
+-7929111754093486633.png,Urticaria,train,1.0
+-6326008063809357153.png,Allergic Contact Dermatitis,train,3.0
+-1602196343924992996.png,Psoriasis,train,4.0
+-287506149522211671.png,Eczema,train,2.0
+4167512713743208617.png,Eczema,train,2.0
+-2417015142409471819.png,Psoriasis,train,2.3333333333333335
+-7145522751271663250.png,Eczema,train,2.0
+-2623984413375728508.png,Psoriasis,train,3.0
+-5081790413284637815.png,Tinea,train,2.0
+-1691861878080963349.png,Tinea,train,2.0
+-4124297927025288918.png,Impetigo,train,2.6666666666666665
+1878175006260394935.png,Eczema,train,4.0
+-1001492676369731180.png,Eczema,train,1.6666666666666667
+-3313191890529932206.png,Psoriasis,train,2.0
+-222293861528511743.png,Allergic Contact Dermatitis,train,3.3333333333333335
+-7897770316150176474.png,Urticaria,train,2.0
+-2919812088362781457.png,Tinea,train,5.0
+-3538969032008688711.png,Allergic Contact Dermatitis,train,4.666666666666667
+6115596246061688713.png,Eczema,train,1.0
+-1460543866509589751.png,Urticaria,train,3.6666666666666665
+-1264230661338860030.png,Psoriasis,train,3.0
+-3091379126913451193.png,Tinea,train,4.0
+223899975649303626.png,Allergic Contact Dermatitis,train,3.0
+-1766001610638052673.png,Urticaria,train,4.0
+-316598377851749651.png,Impetigo,train,4.0
+-9214404105685555535.png,Psoriasis,train,3.0
+5891698126195273673.png,Eczema,train,5.0
+-1851330752014269540.png,Eczema,train,1.0
+1912338877788743690.png,Psoriasis,train,2.0
+-3715706815257709557.png,Psoriasis,train,3.0
+-8383531997336683331.png,Eczema,train,4.0
+-3779146726816489091.png,Eczema,train,3.0
+3128231472463456057.png,Urticaria,train,6.0
+-562221495953267393.png,Urticaria,train,3.0
+-879282527712154445.png,Tinea,train,5.0
+-7720726670080070834.png,Eczema,train,2.0
+-4439225407841990911.png,Allergic Contact Dermatitis,train,1.6666666666666667
+139073546012313918.png,Urticaria,train,3.0
+-3491088644702965665.png,Allergic Contact Dermatitis,train,2.0
+-4594637300045488838.png,Allergic Contact Dermatitis,train,4.0
+3394250592616475386.png,Tinea,train,1.6666666666666667
+-1134336587866434682.png,Allergic Contact Dermatitis,train,2.0
+4075973460856988048.png,Eczema,train,2.0
+-2538731880524128360.png,Psoriasis,train,3.0
+-1378251964471911514.png,Allergic Contact Dermatitis,train,2.0
+3684301007380750477.png,Eczema,train,2.0
+6293868820747285169.png,Allergic Contact Dermatitis,train,4.0
+717658965117278868.png,Impetigo,train,1.0
+-2579508083772881391.png,Allergic Contact Dermatitis,train,2.0
+-1306941150253534667.png,Psoriasis,train,5.0
+-3278401981209346612.png,Psoriasis,train,3.0
+-4451978821374422197.png,Eczema,train,5.0
+-3477811240837758675.png,Urticaria,train,3.0
+-5553194372546963684.png,Eczema,train,
+-4932632843646967454.png,Eczema,train,3.0
+-4510042175587375634.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-1908919976412842853.png,Allergic Contact Dermatitis,train,2.0
+-4178417368623761390.png,Eczema,train,2.0
+-7480975812488266764.png,Allergic Contact Dermatitis,train,1.3333333333333333
+-6952672220960358572.png,Eczema,train,4.0
+4634021661120670899.png,Allergic Contact Dermatitis,train,3.0
+-6009971089093999930.png,Eczema,train,3.0
+7174346215026338343.png,Urticaria,train,3.0
+-8749027469505338475.png,Eczema,train,1.6666666666666667
+-1283963341331471600.png,Eczema,train,1.0
+6894519290421718738.png,Eczema,train,2.0
+-2274431536078528436.png,Eczema,train,3.0
+-1547079813939330339.png,Eczema,train,3.0
+-6858636482587366586.png,Allergic Contact Dermatitis,train,3.0
+-8066161771656788258.png,Allergic Contact Dermatitis,train,1.0
+-5235101161732341625.png,Eczema,train,3.6666666666666665
+-4308398826912860778.png,Eczema,train,2.0
+8984813648006798735.png,Impetigo,train,2.0
+7049703890719675614.png,Eczema,train,1.0
+7589343050526404120.png,Urticaria,train,1.0
+-3690356583581647766.png,Tinea,train,5.0
+-7946311827723984912.png,Allergic Contact Dermatitis,train,2.0
+5244444480130909722.png,Urticaria,train,2.0
+4084618230552934300.png,Allergic Contact Dermatitis,train,3.0
+-2114444395953325364.png,Eczema,train,3.0
+-8995352601569043036.png,Allergic Contact Dermatitis,train,2.3333333333333335
+-1313927078711715573.png,Allergic Contact Dermatitis,train,2.0
+-1832182805314420259.png,Eczema,train,2.0
+-2368196693663754182.png,Allergic Contact Dermatitis,train,2.0
+-8668488196925068035.png,Urticaria,train,3.0
+-565342249139264896.png,Allergic Contact Dermatitis,train,1.6666666666666667
+-8057719347560254084.png,Eczema,train,5.0
+-2474317789578982316.png,Impetigo,train,2.0
+-2326303719742825919.png,Eczema,train,2.6666666666666665
+-734803940501398306.png,Eczema,train,1.0
+-6210468418251952437.png,Impetigo,train,2.0
+-2278994225932175236.png,Allergic Contact Dermatitis,train,3.0
+-7558789574725246528.png,Psoriasis,train,5.0
+-5436801439030306050.png,Eczema,train,3.0
+-3027327548738103934.png,Eczema,train,5.0
+-6976978274685417597.png,Eczema,train,4.666666666666667
+-1590287030145246856.png,Allergic Contact Dermatitis,train,
+-2950041018807333229.png,Eczema,train,1.0
+3496791689370712664.png,Eczema,train,3.0
+-561455762939806319.png,Urticaria,train,3.3333333333333335
+-3055245592189156423.png,Urticaria,train,2.0
+-1749113319070373766.png,Allergic Contact Dermatitis,train,5.0
+4383464586419591817.png,Eczema,train,2.0
+-3768305470783165562.png,Eczema,train,1.3333333333333333
+-9147510077381041538.png,Allergic Contact Dermatitis,train,3.0
+3833384659436759727.png,Eczema,train,2.0
+-3060870142909393201.png,Eczema,train,3.0
+-6871553402512605628.png,Eczema,train,1.0
+-318146569808758513.png,Eczema,train,2.0
+-7513547210278062408.png,Impetigo,train,3.0
+-1246305393567420617.png,Allergic Contact Dermatitis,train,2.6666666666666665
+-7769959016434774390.png,Allergic Contact Dermatitis,train,3.0
+-1938747215033642703.png,Eczema,train,3.0
+4174575629707577584.png,Eczema,train,1.0
+-5841587333583319507.png,Eczema,train,2.6666666666666665
+4231269860838724618.png,Eczema,train,3.0
+-2377960990942383256.png,Allergic Contact Dermatitis,train,1.0
+-3462740509400916083.png,Psoriasis,train,4.0
+-4630971481135273365.png,Eczema,train,2.0
+8234767697439940158.png,Allergic Contact Dermatitis,train,1.0
+-1811474488977610207.png,Psoriasis,train,2.5
+7201824139187911035.png,Urticaria,train,3.0
+1101199909654399154.png,Eczema,train,3.0
+-4362444204696526029.png,Eczema,train,5.0
+1552466107574831667.png,Eczema,train,4.0
+3422278879386892670.png,Eczema,train,1.0
+-2805714129362314533.png,Urticaria,train,1.6666666666666667
+-3443499009691532250.png,Tinea,train,3.0
+-1511436084334455735.png,Eczema,train,2.0
+1093967452051255826.png,Eczema,train,2.0
+-8351498747234518768.png,Eczema,train,5.0
+-8351498747234518768.png,Eczema,train,5.0
+-8351498747234518768.png,Eczema,train,5.0
+-6740364972869274743.png,Eczema,train,2.0
+-5509163907473104731.png,Eczema,train,2.0
+-236243587506471173.png,Eczema,train,2.3333333333333335
+4943852490550449048.png,Eczema,train,4.0
+-6885248899916011518.png,Eczema,train,2.5
+8723654748532370572.png,Eczema,train,3.0
+1351635435439282516.png,Eczema,train,4.0
+-8982281454719723766.png,Eczema,train,1.0
+-420948865655293968.png,Urticaria,train,3.0
+-7173587239839420659.png,Allergic Contact Dermatitis,train,2.0
+-3846279000500284888.png,Eczema,train,2.0
+-8845105500170627037.png,Tinea,train,4.0
+4990802128833526700.png,Urticaria,train,3.0
+-1590080144874886066.png,Eczema,train,2.0
+-1389285495169670132.png,Eczema,train,2.0
+-4007069428364460807.png,Eczema,train,2.0
+7246737896596274694.png,Psoriasis,train,1.0
+3541058243163230586.png,Psoriasis,train,4.0
+-4311219496679279746.png,Eczema,train,2.0
+-4178576103488697378.png,Eczema,train,3.0
+-1765572912415510613.png,Impetigo,train,3.0
+-8791195073313426119.png,Allergic Contact Dermatitis,train,3.0
+2865507379279782179.png,Psoriasis,train,2.0
+-2366475788862523655.png,Impetigo,train,5.0
+5857954410381562265.png,Allergic Contact Dermatitis,train,2.0
+-6944350062396805990.png,Eczema,train,3.0
+3839875451887240313.png,Allergic Contact Dermatitis,train,2.0
+-3960609428407610178.png,Urticaria,train,1.0
+-7531926710861158269.png,Eczema,train,3.0
+-172643478809679819.png,Eczema,train,5.0
+-5945708861617601248.png,Eczema,train,2.0
+-4949999685137541063.png,Eczema,train,3.0
+-3366093100366003273.png,Allergic Contact Dermatitis,train,3.0
+-8255566258051032881.png,Allergic Contact Dermatitis,train,2.0
+-5199233948115542640.png,Eczema,train,2.0
+-4387878168031721243.png,Psoriasis,train,4.0
+-6762126540918162309.png,Eczema,train,1.0
+-4842424052008794199.png,Eczema,train,3.0
+7120254563388995219.png,Allergic Contact Dermatitis,train,4.0
+-4457305195243861591.png,Eczema,train,2.3333333333333335
+8977765022181205065.png,Urticaria,train,3.0
+6945764380486174282.png,Eczema,train,3.0
+-1365244834890795953.png,Eczema,train,2.0
+5261728848051169375.png,Psoriasis,val,2.3333333333333335
+-261465826988278567.png,Allergic Contact Dermatitis,val,3.0
+1668265678293886192.png,Allergic Contact Dermatitis,val,1.3333333333333333
+1349275642037132410.png,Allergic Contact Dermatitis,val,4.0
+-1117304357073393845.png,Allergic Contact Dermatitis,val,3.0
+-6164738387761325907.png,Eczema,val,4.666666666666667
+-3274490469223825387.png,Eczema,val,2.0
+-4204591472098714424.png,Allergic Contact Dermatitis,val,4.0
+-4772826539396708402.png,Eczema,val,5.0
+-3780759050734278605.png,Eczema,val,3.0
+5240221775139974085.png,Eczema,val,3.0
+-2056512528210583223.png,Eczema,val,2.0
+-6760849338709173764.png,Allergic Contact Dermatitis,val,4.0
+-6436369839513530626.png,Urticaria,val,3.0
+-5873290655395701975.png,Urticaria,val,2.3333333333333335
+4091225911888174490.png,Eczema,val,2.0
+6661851900372444004.png,Psoriasis,val,2.0
+-8117238217049020260.png,Eczema,val,
+2657297101803501152.png,Tinea,val,2.0
+-6940524178054665725.png,Psoriasis,val,2.3333333333333335
+-2495405375565733468.png,Eczema,val,2.0
+-7560962848270668900.png,Urticaria,val,2.0
+-4467578038162525293.png,Allergic Contact Dermatitis,val,2.6666666666666665
+-1379677912378977305.png,Allergic Contact Dermatitis,val,2.6666666666666665
+7230056517824690039.png,Psoriasis,val,2.3333333333333335
+-762601077880990335.png,Eczema,val,2.0
+-4444671819244130593.png,Eczema,val,1.0
+4917406368489395452.png,Tinea,val,2.0
+-844617859903194673.png,Eczema,val,3.0
+-5244651828557464120.png,Eczema,val,2.0
+-6016382419044757412.png,Allergic Contact Dermatitis,val,1.0
+-1355216779969134338.png,Allergic Contact Dermatitis,val,1.0
+-32780330778240158.png,Allergic Contact Dermatitis,val,3.0
+-7116812789303448562.png,Eczema,val,3.0
+-2850393001491389427.png,Urticaria,val,1.6666666666666667
+-1407390912570679008.png,Eczema,val,4.666666666666667
+-4612250445427350281.png,Impetigo,val,1.0
+-7147666990248749019.png,Urticaria,val,3.0
+-1123234494069848785.png,Urticaria,val,2.0
+5591099812603848600.png,Urticaria,val,1.0
+-3468227127797978058.png,Eczema,val,2.0
+-3803389091475005034.png,Eczema,val,2.3333333333333335
+-205369795937763847.png,Eczema,val,2.5
+2065343154650666651.png,Eczema,val,4.0
+-3945856862178278962.png,Allergic Contact Dermatitis,val,
+-7487855382416785603.png,Allergic Contact Dermatitis,val,2.0
+3590899735996502744.png,Eczema,val,1.0
+-8779903138873713227.png,Psoriasis,val,3.0
+3087583442204718089.png,Eczema,val,3.0
+-2321451229075656181.png,Allergic Contact Dermatitis,val,2.0
+-4741432398021210735.png,Eczema,val,2.5
+2720084955089501532.png,Eczema,val,1.0
+102143902120424355.png,Eczema,val,2.3333333333333335
+-624650480319720761.png,Eczema,val,3.0
+4708050091267005435.png,Eczema,val,3.0
+5917703655334574521.png,Eczema,val,2.0
+-4813138192071438695.png,Urticaria,val,2.0
+-5950817590018927084.png,Eczema,val,3.0
+-2655426331282625713.png,Allergic Contact Dermatitis,val,2.0
+-4016417847531780967.png,Psoriasis,val,2.0
+-7331921108756463208.png,Eczema,val,2.0
+-7490056910663333938.png,Psoriasis,val,4.333333333333333
+-2545885751906492535.png,Eczema,val,2.0
+-708130357070178397.png,Allergic Contact Dermatitis,val,2.0
+1657919391725224335.png,Eczema,val,
+-8687572105244774168.png,Eczema,val,2.0
+1233042796667061784.png,Eczema,val,1.0
+-7046016048692897595.png,Impetigo,val,1.0
+-687709163764861757.png,Eczema,val,3.0
+-3575683440831198879.png,Eczema,val,3.0
+-3796420587199097151.png,Eczema,val,4.0
+-2380872394464769334.png,Eczema,val,1.0
+-1153384974921559234.png,Allergic Contact Dermatitis,val,5.0
+-1772263789018350372.png,Eczema,val,2.6666666666666665
+-2849916399005907973.png,Impetigo,val,2.0
+6852359404630667928.png,Eczema,val,5.0
+-1714274861495761199.png,Urticaria,val,4.0
+-4545384043516507025.png,Psoriasis,val,2.0
+3390191852224494870.png,Eczema,val,3.0
+-1741298902959469723.png,Eczema,val,5.0
+-2509342194783820690.png,Allergic Contact Dermatitis,val,3.0
+-4626079373925179355.png,Psoriasis,val,3.0
+6276334615397287053.png,Urticaria,val,4.0
+-3601983352928347463.png,Urticaria,val,2.0
+-1017539609637625871.png,Eczema,val,3.0
+-2468553347890594399.png,Eczema,val,3.0
+-2459085105696017592.png,Eczema,val,1.0
+-1033830156667719653.png,Eczema,val,4.333333333333333
+-5340042590609363828.png,Allergic Contact Dermatitis,val,4.0
+-7481315553313434683.png,Allergic Contact Dermatitis,val,2.6666666666666665
+8100994483792481876.png,Impetigo,val,2.0
+-6241573689775323734.png,Eczema,val,2.0
+3669930617846525403.png,Allergic Contact Dermatitis,val,1.0
+-3857242111700669083.png,Urticaria,val,6.0
+-4694454126883541433.png,Urticaria,val,3.0
+-2363989834606810475.png,Allergic Contact Dermatitis,val,3.0
+-2737740771473967321.png,Eczema,val,1.0
+-6982210144088943828.png,Allergic Contact Dermatitis,val,3.0
+-3636743197559997251.png,Allergic Contact Dermatitis,val,1.0
+-4887126079381584338.png,Urticaria,val,2.0
+4618618408056657100.png,Urticaria,val,5.0
+193087138141817006.png,Allergic Contact Dermatitis,val,2.0
+-2312269268642848632.png,Eczema,val,3.0
+-1216401576778757957.png,Urticaria,val,1.0
+4728209014698917154.png,Eczema,val,2.0
+-445431345310956881.png,Eczema,val,3.0
+-4143900571282915588.png,Eczema,val,2.0
+5771782686133063431.png,Allergic Contact Dermatitis,val,3.0
+-6837240536182868524.png,Tinea,val,2.0
+-2339569838872037676.png,Allergic Contact Dermatitis,val,2.0
+123261771205042552.png,Eczema,val,2.5
+2608619041636383300.png,Psoriasis,val,3.0
+-6844673583459020552.png,Allergic Contact Dermatitis,val,
+-6692268598666415099.png,Eczema,val,1.0
+-5671090707772817688.png,Eczema,val,1.0
+4665901273249641911.png,Allergic Contact Dermatitis,val,2.0
+-4109316757849975397.png,Allergic Contact Dermatitis,val,3.0
+-220596390347988661.png,Urticaria,val,4.333333333333333
+-3842577939721527136.png,Psoriasis,val,2.6666666666666665
+-3193028068058629771.png,Eczema,val,3.0
+-8297415963972830482.png,Urticaria,val,5.0
+-838052539198937142.png,Urticaria,val,4.0
+-3611816500586876705.png,Allergic Contact Dermatitis,val,1.0
+-545123013371053147.png,Allergic Contact Dermatitis,val,2.6666666666666665
+-1382893933474824228.png,Eczema,val,3.0
+5595150567654673913.png,Impetigo,val,6.0
+6072704539752639079.png,Eczema,val,4.0
+960187272475981264.png,Psoriasis,val,4.0
+3104801012387799539.png,Allergic Contact Dermatitis,val,2.0
+-7461895286563712603.png,Eczema,val,5.0
+-1045727952327734119.png,Impetigo,val,3.0
+-928887517207109294.png,Eczema,val,3.0
+-505444216786952001.png,Eczema,val,4.0
+-7681270451262299489.png,Urticaria,val,3.0
+-4198059543114772260.png,Eczema,val,2.6666666666666665
+-4748757658895953163.png,Eczema,val,3.5
+3036449672348158586.png,Eczema,val,5.0
+-1301375754028915456.png,Eczema,val,4.333333333333333
+-718018799230490795.png,Urticaria,val,2.3333333333333335
+-5434904950024507430.png,Psoriasis,val,
+-1173107958367057762.png,Allergic Contact Dermatitis,val,3.0
+-992744659270663024.png,Allergic Contact Dermatitis,val,3.0
+-7800416238246494419.png,Eczema,val,4.0
+-7762191053050394126.png,Eczema,val,3.0
+-164146060936976148.png,Allergic Contact Dermatitis,val,3.0
+-4061252588174437383.png,Eczema,val,5.0
+4192242689805525002.png,Impetigo,val,1.0
+-4651329396355727712.png,Psoriasis,val,4.0
+-446114786730635224.png,Eczema,val,2.0
+-6526384655012698912.png,Impetigo,val,4.0
+-4937564090570913312.png,Eczema,val,2.3333333333333335
+-3328006691341022679.png,Eczema,val,2.6666666666666665
+-8794719700664225806.png,Psoriasis,val,2.0
+-3238011234084255593.png,Eczema,val,2.0
+-9087326729811666680.png,Urticaria,val,3.0
+-6742264805929091146.png,Eczema,val,5.0
+-7637867445705022563.png,Eczema,val,2.0
+-2570809058775178619.png,Allergic Contact Dermatitis,val,3.0
+-220394741921239186.png,Allergic Contact Dermatitis,val,3.0
+-1697920789999182044.png,Eczema,val,2.0
+-2116123434758212346.png,Allergic Contact Dermatitis,val,5.0
+-4482375829013628655.png,Eczema,val,2.5
+-8945431998172389707.png,Eczema,val,3.0
+-2248707777276806284.png,Urticaria,val,3.0
+-301920814302227416.png,Allergic Contact Dermatitis,val,2.0
+-7047397863342623228.png,Allergic Contact Dermatitis,val,3.5
+5308217235395595242.png,Impetigo,val,5.0
+-6278770007527874596.png,Psoriasis,val,3.0
+-5374486630107526497.png,Eczema,val,2.6666666666666665
+382205097892683569.png,Allergic Contact Dermatitis,val,3.0
+5760149544012561210.png,Urticaria,val,2.0
+-1487817511616489140.png,Allergic Contact Dermatitis,val,2.0
+-3990642793987097323.png,Eczema,val,1.0
+-2144552166709118763.png,Eczema,val,2.0
+5860795501191694206.png,Allergic Contact Dermatitis,val,2.0
+-8289424844938182188.png,Eczema,val,2.0
+-2126108056965792224.png,Eczema,val,1.0
+-88987941380934773.png,Urticaria,val,3.0
+-923054950838727613.png,Eczema,val,3.0
+-8461497024469607452.png,Urticaria,val,2.3333333333333335
+-4742989259054484128.png,Eczema,val,3.0
+-253308770254110639.png,Eczema,val,2.0
+-5217820739808378329.png,Allergic Contact Dermatitis,val,1.0
+-7266782478114190334.png,Eczema,val,2.0
+-9174558387716579919.png,Eczema,val,3.0
+-4922007870089187294.png,Eczema,val,2.0
+-7980161309699711722.png,Allergic Contact Dermatitis,val,2.0
+-3153575578487118908.png,Eczema,val,3.0
+-6178106240869215631.png,Allergic Contact Dermatitis,val,3.0
+-3811634225980315712.png,Allergic Contact Dermatitis,val,2.0
+-6438545414301250763.png,Eczema,val,2.0
+-7816266780279138240.png,Impetigo,val,4.0
+2523956074973693887.png,Allergic Contact Dermatitis,val,4.0
+-1194210041349957392.png,Eczema,val,5.0
+-3205207127691059616.png,Psoriasis,val,2.0
+-8890074638422906720.png,Allergic Contact Dermatitis,val,2.0
+807217658582074180.png,Eczema,val,3.0
+-1237134703513364366.png,Psoriasis,val,3.0
+-2680899742842390785.png,Eczema,val,3.0
+228863182565540896.png,Allergic Contact Dermatitis,val,3.0
+-5674841144941000124.png,Eczema,val,2.0
+3824786615165070490.png,Eczema,val,4.0
+5834547384137295983.png,Urticaria,val,1.0
+6500252340623712757.png,Eczema,val,1.0
+5422669063480263015.png,Eczema,val,2.0
+-8709904129999602678.png,Tinea,val,2.0
+308809278742658581.png,Eczema,val,3.0
+-4059514673301037066.png,Eczema,val,2.0
+-3397846615281440172.png,Psoriasis,val,3.0
+-6701195192556380.png,Eczema,val,2.0
+-1754707658302916156.png,Eczema,val,2.0
+-1019470696082480487.png,Eczema,val,
+-5005489811021009225.png,Allergic Contact Dermatitis,val,2.0
+-3905750117220905372.png,Eczema,val,2.0
+2694616396924670397.png,Eczema,val,2.0
+-6831188936842345579.png,Urticaria,val,4.0
+-6323838407357716508.png,Psoriasis,val,3.0
+-752252200675327597.png,Eczema,val,2.0
+-1552485516831343050.png,Eczema,val,2.0
+-5259131230821052524.png,Allergic Contact Dermatitis,val,2.5
+-4371602780499502428.png,Allergic Contact Dermatitis,val,4.0
+-2479226509266633891.png,Allergic Contact Dermatitis,val,2.0
+-1367082708485351334.png,Tinea,val,3.0
+-5346562843843425069.png,Eczema,val,1.0
+6426235072748873062.png,Tinea,val,3.0
+-735206336959143544.png,Eczema,val,3.0
+-2812305517344850019.png,Allergic Contact Dermatitis,val,
+3567155994436780163.png,Urticaria,val,3.0
+-4747365827434888456.png,Eczema,val,1.0
+-4603636063760370118.png,Eczema,val,1.6666666666666667
+1441065153734559518.png,Urticaria,val,4.0
+-4285748589579461808.png,Eczema,val,3.6666666666666665
+-8842292788471353312.png,Psoriasis,val,5.0
+-5870402586587027496.png,Urticaria,val,3.3333333333333335
+-1171014939149184381.png,Urticaria,val,4.0
+-5749457680022993625.png,Allergic Contact Dermatitis,val,3.0
+553040411290546084.png,Allergic Contact Dermatitis,val,2.0
+-230777178099675336.png,Eczema,val,2.0
+-3745166521151490419.png,Impetigo,val,3.0
+2983323875335943836.png,Urticaria,val,3.0
+4339257360461160063.png,Allergic Contact Dermatitis,val,1.0
+-1306970786638528151.png,Eczema,val,3.0
+-759162848082135038.png,Allergic Contact Dermatitis,val,4.0
+-4500877551601869191.png,Allergic Contact Dermatitis,val,1.6666666666666667
+-1148956641487063012.png,Allergic Contact Dermatitis,val,
+2386484569950620215.png,Eczema,val,2.0
+-6974580150707059323.png,Allergic Contact Dermatitis,val,2.0
+2342111360511870936.png,Allergic Contact Dermatitis,val,2.0
+-5620151857030818891.png,Eczema,val,3.0
+-1090241306152564747.png,Allergic Contact Dermatitis,val,2.0
+-3172669138523311117.png,Allergic Contact Dermatitis,val,2.6666666666666665
+-3245445355390336573.png,Urticaria,val,3.0
+-1978805647559485287.png,Eczema,val,2.5
+2484245091908956763.png,Urticaria,val,5.0
+-285705312472539855.png,Eczema,val,4.333333333333333
+-2702361237535417918.png,Allergic Contact Dermatitis,val,2.0
+-2255939393020051195.png,Tinea,val,3.3333333333333335
+-6815104299099118193.png,Urticaria,val,2.0
+-3613430269420913410.png,Allergic Contact Dermatitis,val,4.0
+-2658201342977471177.png,Allergic Contact Dermatitis,val,5.0
+-1940746305684488736.png,Allergic Contact Dermatitis,val,3.0
+6409254117435284099.png,Psoriasis,val,1.6666666666666667
+-7586269019527459825.png,Eczema,val,2.0
+3041814759944506684.png,Eczema,val,5.0
+-8662876472889244238.png,Allergic Contact Dermatitis,val,1.6666666666666667
+-2023528583731486939.png,Psoriasis,val,1.0
+-5089005137375914548.png,Allergic Contact Dermatitis,val,4.0
+-1009086705875443190.png,Eczema,val,3.0
+4892534653959587847.png,Allergic Contact Dermatitis,val,2.0
+-2464616732809803717.png,Allergic Contact Dermatitis,val,2.0
+-4445614099443308910.png,Impetigo,val,3.6666666666666665
+-51868359540025327.png,Allergic Contact Dermatitis,val,6.0
+4178776714672732978.png,Tinea,val,3.0
+-403908759849177028.png,Allergic Contact Dermatitis,val,4.0
+-704429352905040386.png,Allergic Contact Dermatitis,val,2.0
+5056356469147972522.png,Eczema,val,3.0
+-7729431579580044113.png,Urticaria,val,3.0
+-5538879149574463479.png,Eczema,val,3.0
+-3103391316965628529.png,Eczema,val,2.5
+-375014270358174208.png,Allergic Contact Dermatitis,val,2.0
+-67479908152680543.png,Eczema,val,2.0
+-2431769699504014881.png,Impetigo,val,4.666666666666667
+5003737565980256750.png,Allergic Contact Dermatitis,val,5.0
+-6497142125683105669.png,Allergic Contact Dermatitis,val,3.0
+2726749897069886336.png,Urticaria,val,3.0
+2110931859396807510.png,Urticaria,val,4.0
+9111397928834127422.png,Urticaria,val,2.0
+-5403143056710665697.png,Allergic Contact Dermatitis,val,2.3333333333333335
+-2395948960111111081.png,Psoriasis,val,2.0
+-1843405873883770233.png,Allergic Contact Dermatitis,val,3.0
+-143772779682620913.png,Allergic Contact Dermatitis,test,3.0
+-8257930614850140820.png,Allergic Contact Dermatitis,test,4.0
+-1064371581402118828.png,Eczema,test,1.0
+-2735122665212613224.png,Urticaria,test,2.0
+-5345148590873645014.png,Urticaria,test,2.0
+-5742651126314831459.png,Eczema,test,2.0
+-8492996097534058599.png,Allergic Contact Dermatitis,test,4.0
+6266104663802047097.png,Eczema,test,3.0
+-1013653802423257870.png,Eczema,test,4.0
+-1322345273347810072.png,Psoriasis,test,2.0
+-9164137494504142017.png,Psoriasis,test,
+-3381428686887743472.png,Allergic Contact Dermatitis,test,2.0
+-4175622485500683389.png,Eczema,test,3.0
+-112993692936245319.png,Eczema,test,3.5
+6189131988820023238.png,Eczema,test,5.0
+-1961922220709917174.png,Impetigo,test,4.0
+7609986478008314923.png,Urticaria,test,3.0
+-1495727048511165464.png,Eczema,test,1.3333333333333333
+-4640880077120320715.png,Urticaria,test,3.0
+1444507081046940940.png,Eczema,test,2.6666666666666665
+-4436757518067471556.png,Allergic Contact Dermatitis,test,3.0
+-1771453055734416513.png,Psoriasis,test,3.6666666666666665
+-8093801741687275823.png,Eczema,test,1.0
+-6217581331556066531.png,Impetigo,test,5.0
+-5576757445780331892.png,Eczema,test,2.0
+-6182253468156599196.png,Eczema,test,3.0
+-4241535286820130818.png,Urticaria,test,2.0
+-7898601135031950692.png,Eczema,test,3.0
+-1388580356188667857.png,Allergic Contact Dermatitis,test,3.0
+232427445692240264.png,Tinea,test,4.0
+-2259742880110408719.png,Allergic Contact Dermatitis,test,3.0
+-795882876757873339.png,Urticaria,test,2.0
+9160515254792469987.png,Eczema,test,4.0
+-2629468652453847563.png,Eczema,test,2.0
+-829535113004099648.png,Allergic Contact Dermatitis,test,2.0
+-4170000842289708546.png,Eczema,test,
+-5794696489439406979.png,Eczema,test,3.0
+-1567930271968899578.png,Allergic Contact Dermatitis,test,4.0
+3239051084073530803.png,Eczema,test,1.0
+-6979261091584192334.png,Eczema,test,2.0
+-3376925888490618855.png,Eczema,test,3.0
+-8280524009538201250.png,Urticaria,test,5.0
+-6752427542329011768.png,Urticaria,test,5.0
+-6125741516004773114.png,Eczema,test,
+-5474876144009648222.png,Impetigo,test,2.0
+-8311841729993892354.png,Allergic Contact Dermatitis,test,5.0
+5601317951892375531.png,Eczema,test,5.0
+-2011884605870799636.png,Urticaria,test,2.0
+4568353774841932619.png,Eczema,test,2.0
+8858413300549090425.png,Urticaria,test,4.0
+-4532887949010625524.png,Tinea,test,2.0
+-2999631288726252575.png,Eczema,test,2.5
+-3750185795244107359.png,Eczema,test,2.0
+-4898707077089802411.png,Eczema,test,3.0
+3120309630356813157.png,Impetigo,test,3.0
+8432675952781020680.png,Eczema,test,2.0
+4017974078527806014.png,Allergic Contact Dermatitis,test,3.0
+-1858839116206378488.png,Tinea,test,2.0
+7518962439947022924.png,Eczema,test,1.0
+-3709268883592723272.png,Allergic Contact Dermatitis,test,4.0
+-6491463453260148008.png,Eczema,test,4.0
+6190824739745586273.png,Urticaria,test,1.0
+-3771483638817117961.png,Allergic Contact Dermatitis,test,1.0
+780555288058696762.png,Eczema,test,1.0
+-4747429059061691962.png,Tinea,test,2.0
+-869349880437476994.png,Psoriasis,test,3.0
+-2614426609843829553.png,Eczema,test,4.0
+1610053035993761930.png,Eczema,test,3.0
+-2874221601641289316.png,Urticaria,test,4.0
+-5495825213831951225.png,Eczema,test,1.6666666666666667
+-2900080958387643243.png,Allergic Contact Dermatitis,test,3.0
+-4464072633492818446.png,Eczema,test,1.0
+-4431153224548894255.png,Urticaria,test,2.0
+7190421899691362883.png,Allergic Contact Dermatitis,test,3.0
+2301491935372174625.png,Eczema,test,2.0
+-3207138794093378370.png,Allergic Contact Dermatitis,test,2.0
+-6821875351174050947.png,Urticaria,test,3.0
+-3321106357232488039.png,Eczema,test,2.6666666666666665
+8992004962400932960.png,Psoriasis,test,4.0
+3808734830131524150.png,Urticaria,test,
+-4234337738912067915.png,Eczema,test,3.0
+-6049421475884358285.png,Tinea,test,2.0
+-2181174508957489529.png,Tinea,test,3.0
+1293771958382643774.png,Allergic Contact Dermatitis,test,2.0
+-7284532048087233785.png,Eczema,test,5.0
+-3385143333521726579.png,Allergic Contact Dermatitis,test,2.0
+3921497474486328983.png,Psoriasis,test,4.0
+-4188986110946440932.png,Urticaria,test,3.0
+4978639705347916523.png,Eczema,test,4.0
+-5706522924086051674.png,Allergic Contact Dermatitis,test,3.0
+-4687895683354412584.png,Tinea,test,2.0
+-4643875250255864135.png,Eczema,test,3.0
+-2236217581770445072.png,Tinea,test,1.0
+-1240937099069351395.png,Allergic Contact Dermatitis,test,2.0
+-4689957996159381961.png,Allergic Contact Dermatitis,test,2.0
+-3445243839298566802.png,Eczema,test,1.0
+-4916269943418679358.png,Eczema,test,2.6666666666666665
+-6072775268057522072.png,Urticaria,test,2.0
+-756893997757737190.png,Eczema,test,1.0
+-4390799833296058858.png,Allergic Contact Dermatitis,test,5.0
+8466237617553717623.png,Psoriasis,test,2.0
+-1973566697609953379.png,Psoriasis,test,3.5
+73135932957400253.png,Impetigo,test,3.0
+-1147438805108165437.png,Urticaria,test,
+-6547459727768908706.png,Eczema,test,3.0
+-2682996779844646329.png,Eczema,test,2.0
+-1468052965323478288.png,Eczema,test,2.6666666666666665
+-2844774690650130144.png,Eczema,test,2.3333333333333335
+-8811226591719932612.png,Eczema,test,2.0
+-548313613752522064.png,Eczema,test,3.0
+-3964687375901073311.png,Allergic Contact Dermatitis,test,4.0
+-298848235389824552.png,Urticaria,test,3.0
+4943233056358001391.png,Eczema,test,4.0
+-456562405232763880.png,Allergic Contact Dermatitis,test,
+8582391068867846874.png,Urticaria,test,
+-5014875360395902914.png,Urticaria,test,2.0
+-283922613575096663.png,Allergic Contact Dermatitis,test,3.0
+-8967862407560603358.png,Allergic Contact Dermatitis,test,3.6666666666666665
+4979304386326901614.png,Psoriasis,test,5.0
+-6675067109594393324.png,Eczema,test,3.0
+-1552496272893927742.png,Eczema,test,2.0
+-1587579803946468698.png,Allergic Contact Dermatitis,test,
+-497183478857185909.png,Eczema,test,
+-8376741697534316636.png,Allergic Contact Dermatitis,test,2.6666666666666665
+-2039834805618946129.png,Eczema,test,1.0
+5754740149288536586.png,Allergic Contact Dermatitis,test,2.0
+-7608169256927295784.png,Allergic Contact Dermatitis,test,3.0
+-5899215175530827021.png,Urticaria,test,
+-4510716316709881959.png,Urticaria,test,4.0
+1846991956022110089.png,Allergic Contact Dermatitis,test,3.0
+7525075577501273064.png,Eczema,test,2.0
+-4468055572473138686.png,Eczema,test,3.0
+-1175551177819230857.png,Eczema,test,2.0
+1578168487991885692.png,Eczema,test,2.0
+-5602132154858494455.png,Psoriasis,test,2.0
+9118575272142681189.png,Eczema,test,2.0
+-723695575081863565.png,Impetigo,test,1.0
+-7219597010345065107.png,Eczema,test,3.0
+-2187738459131395361.png,Psoriasis,test,1.6666666666666667
+-4866206385258043774.png,Eczema,test,2.0
+-9133559035439842699.png,Urticaria,test,3.0
+-133977812156141369.png,Allergic Contact Dermatitis,test,3.0
+-4192045009712257379.png,Urticaria,test,2.0
+331220510768732900.png,Eczema,test,4.0
+-1401905848534862361.png,Allergic Contact Dermatitis,test,3.0
+-1298173766490079242.png,Allergic Contact Dermatitis,test,1.6666666666666667
+-3946258253983818636.png,Eczema,test,1.5
+-1298393908236668185.png,Eczema,test,3.0
+-5128272363659154502.png,Psoriasis,test,5.0
+-7935673113506692508.png,Allergic Contact Dermatitis,test,
+-2107114713547310506.png,Eczema,test,2.6666666666666665
+-3340318189330970780.png,Psoriasis,test,2.0
+4488336665965591796.png,Urticaria,test,3.3333333333333335
+-2690790221695821258.png,Psoriasis,test,
+-38602240568937495.png,Allergic Contact Dermatitis,test,3.0
+-4652818442712729811.png,Urticaria,test,2.0
+-8521391586757621504.png,Eczema,test,3.0
+-5948592183169529123.png,Eczema,test,3.0
+-3936103083949335804.png,Eczema,test,1.0
+6604483381677595041.png,Urticaria,test,1.3333333333333333
+1157991376452896298.png,Eczema,test,3.0
+-7688327732584723798.png,Eczema,test,5.0
+-8351498747234518768.png,Eczema,test,5.0
+-8351498747234518768.png,Eczema,test,5.0
+-8351498747234518768.png,Eczema,test,5.0
+2312932902832481310.png,Eczema,test,2.3333333333333335
+-3861029296832761841.png,Eczema,test,2.0
+-1592222786083529679.png,Eczema,test,2.0
+5904657460937594916.png,Impetigo,test,1.0
+-3237362112532506216.png,Urticaria,test,3.0
+6383663973655019890.png,Psoriasis,test,4.0
+627075237771645023.png,Eczema,test,1.0
+-7135055716999173117.png,Urticaria,test,4.0
+-6229655993797699310.png,Eczema,test,5.0
+-3093381369321113036.png,Eczema,test,1.6666666666666667
+-8963936502003531116.png,Impetigo,test,2.0
+7312383956220790032.png,Eczema,test,2.0
+-6016219905606214838.png,Eczema,test,3.0
+5727127474578129172.png,Eczema,test,2.0
+-8339892159826401126.png,Allergic Contact Dermatitis,test,3.0
+-2801070157050591832.png,Eczema,test,3.3333333333333335
+-2448406916288867910.png,Allergic Contact Dermatitis,test,
+5588527439347610243.png,Eczema,test,
+-2990355743749808497.png,Urticaria,test,1.0
+-1904324689162437250.png,Tinea,test,4.0
+-4401416371357873576.png,Eczema,test,2.0
+-1715196123326180680.png,Allergic Contact Dermatitis,test,4.0
+-4241920756193111728.png,Psoriasis,test,2.5
+4098957965873348291.png,Urticaria,test,3.0
+-5535148894307844780.png,Eczema,test,3.0
+-809387930221707574.png,Allergic Contact Dermatitis,test,4.0
+5247638019728047423.png,Eczema,test,6.0
+-2936233789105696776.png,Allergic Contact Dermatitis,test,3.0
+-532249905180848227.png,Allergic Contact Dermatitis,test,1.0
+-6754223996189969134.png,Impetigo,test,5.0
+-9107413470822203358.png,Eczema,test,2.0
+-6499702718737490073.png,Urticaria,test,2.5
+-4140396915074871142.png,Eczema,test,2.0
+-7596189015309860038.png,Eczema,test,3.0
+-1289056757877756953.png,Psoriasis,test,3.0
+-4077137085344675538.png,Allergic Contact Dermatitis,test,2.6666666666666665
+-72454742289752.png,Eczema,test,2.0
+-1164666177366943386.png,Tinea,test,
+-6637063938529970478.png,Urticaria,test,2.0
+719132406509792359.png,Allergic Contact Dermatitis,test,2.0
+-7228030522436577946.png,Urticaria,test,3.0
+5717632452093413738.png,Eczema,test,2.0
+-4861580984570611969.png,Tinea,test,1.0
+-7567232127773948614.png,Eczema,test,2.0
+-8169262464002501475.png,Eczema,test,3.0
+-2909501836418885572.png,Eczema,test,2.6666666666666665
+-3184757916515913391.png,Tinea,test,2.0
+5146281372835868912.png,Eczema,test,2.0
+-4652669248078342739.png,Eczema,test,2.3333333333333335
+-5513259000492963734.png,Urticaria,test,3.0
+-1233886198250242183.png,Eczema,test,2.0
+-6961658949000181601.png,Allergic Contact Dermatitis,test,3.0
+-2765541308616454018.png,Eczema,test,1.6666666666666667
+-7544843219826236333.png,Allergic Contact Dermatitis,test,3.0
+-1819541404430956755.png,Eczema,test,3.0
+8611376072815141375.png,Eczema,test,2.0
+-4883252151958637737.png,Eczema,test,3.0
+-1290947029292536646.png,Eczema,test,2.0
+-310562815438168749.png,Eczema,test,3.0
+-7772969854782631285.png,Urticaria,test,2.0
+-6666934346468191078.png,Allergic Contact Dermatitis,test,2.0
+-362715643741333868.png,Urticaria,test,3.0
+-2782096469822625940.png,Eczema,test,2.0
+-8459145659515458181.png,Urticaria,test,3.0
+-1526432073452360092.png,Eczema,test,4.0
+-8576729496298404917.png,Allergic Contact Dermatitis,test,3.0
+-2288756320947393803.png,Allergic Contact Dermatitis,test,2.6666666666666665
+-739761245427487184.png,Eczema,test,1.0
+-864739056815118576.png,Eczema,test,3.0
+9030372736485025618.png,Urticaria,test,2.0
+2307880310506511222.png,Allergic Contact Dermatitis,test,3.0
+-454976303503844455.png,Tinea,test,3.0
+-2560035461690419800.png,Allergic Contact Dermatitis,test,5.0
+-8042733959962527155.png,Allergic Contact Dermatitis,test,1.0
+7085520385428098812.png,Urticaria,test,3.0
+667083089069106550.png,Impetigo,test,1.0
+-5709327839940889607.png,Allergic Contact Dermatitis,test,4.0
+-5945889357765410205.png,Eczema,test,2.0
+-8752408013757949735.png,Urticaria,test,1.0
+-5232620834055369816.png,Eczema,test,1.3333333333333333
+-1157642454110438613.png,Allergic Contact Dermatitis,test,4.0
+-4299506275272899164.png,Allergic Contact Dermatitis,test,3.0
+2555764332215557264.png,Impetigo,test,4.0
+-4110428725792751409.png,Allergic Contact Dermatitis,test,1.0
+8040196583187577068.png,Allergic Contact Dermatitis,test,3.0
+-257969170183342980.png,Allergic Contact Dermatitis,test,2.0
+-8396382105959256971.png,Eczema,test,2.0
+5259456514382429640.png,Urticaria,test,4.0
+-3398015871098565688.png,Allergic Contact Dermatitis,test,3.0
+-8514985552097683346.png,Allergic Contact Dermatitis,test,3.0
+-2576341143348180864.png,Allergic Contact Dermatitis,test,2.0
+-2929526823412497933.png,Eczema,test,3.6666666666666665
+258065799182461862.png,Allergic Contact Dermatitis,test,2.0
+-2161698169553821425.png,Urticaria,test,2.0
+2298102274545177880.png,Allergic Contact Dermatitis,test,2.0
+-4708708668469568522.png,Eczema,test,1.6666666666666667
+-2497522733940899759.png,Tinea,test,4.0
+-43391879386510500.png,Impetigo,test,1.0
+6224301155650498099.png,Eczema,test,3.6666666666666665
+-4063869466374569609.png,Impetigo,test,2.0
+-5630704089937919902.png,Eczema,test,5.0
+-2486970802542213454.png,Psoriasis,test,2.6666666666666665
+-3779989361448224309.png,Eczema,test,3.0
+-5825923352662531273.png,Allergic Contact Dermatitis,test,3.0
+-1079215084021398308.png,Allergic Contact Dermatitis,test,2.0
+-1057089514884490887.png,Urticaria,test,3.0
+-1235556326589712433.png,Urticaria,test,5.0
+-2681567092049907766.png,Eczema,test,
+-3348418859469465839.png,Allergic Contact Dermatitis,test,5.0
+7475075260748855881.png,Allergic Contact Dermatitis,test,3.0
+-7915778157188371964.png,Eczema,test,3.6666666666666665
+-724292300951106502.png,Eczema,test,3.0
+-8657936158769470647.png,Psoriasis,test,2.0
+-3306760937601031954.png,Eczema,test,4.666666666666667
+-1358308862158586368.png,Eczema,test,2.3333333333333335
+-3690564646031479374.png,Urticaria,test,2.0
+-6436194245454878565.png,Eczema,test,3.0
+5998784821175168017.png,Eczema,test,2.0
+7244168942197394406.png,Allergic Contact Dermatitis,test,2.0
+-3749637390051796787.png,Urticaria,test,1.0
+-5679697758589047845.png,Eczema,test,5.0
+-1581537315113127005.png,Eczema,test,3.0
+-2148742373929221903.png,Eczema,test,3.0
+-4188490081234160303.png,Allergic Contact Dermatitis,test,1.0
+-2886112087398057650.png,Urticaria,test,3.0
+-5628845147796714125.png,Eczema,test,2.0
