@@ -26,15 +26,17 @@ for index, row in df.iterrows():
     max_weight = 0
     max_condition = ""
     total_weight = sum(dictionary.values())
+    weight_counts = {}
 
     for condition, weight in dictionary.items():
         if weight > max_weight:
             max_weight = weight
             max_condition = condition
+        weight_counts[weight] = weight_counts.get(weight, 0) + 1
 
     confidence = max_weight / total_weight if total_weight > 0 else 0
 
-    if confidence >= MIN_CONFIDENCE_THRESHOLD and max_condition in conditions:
+    if confidence >= MIN_CONFIDENCE_THRESHOLD and max_condition in conditions and weight_counts[max_weight] == 1:
         output_rows.append(
             {
                 "case_id": row["case_id"],
