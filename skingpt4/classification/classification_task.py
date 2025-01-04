@@ -88,7 +88,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                           ]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         if oversample:
-            labels = dataset.dataset['label'].tolist()
+            oversample_col = self.hparams.get('oversample_col', 'label')
+            labels = dataset.dataset[oversample_col].tolist()
             class_counts = {cls: labels.count(cls) for cls in set(labels)}
             class_weights = {cls: 1.0 / count for cls, count in class_counts.items()}
             sample_weights = [class_weights[label] for label in labels]

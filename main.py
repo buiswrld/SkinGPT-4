@@ -34,6 +34,7 @@ def train(
         classes=('Eczema', 'Allergic Contact Dermatitis', 'Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'),#TODO ~ Customize
         num_classes=6, #TODO ~ Customize
         oversample=False,
+        oversample_col = 'label',#TODO ~ Customize (eligible: 'label', 'fitz')
 
         ## model params
         
