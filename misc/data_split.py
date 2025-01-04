@@ -1,6 +1,7 @@
 import pandas as pd
 import ast
 from sklearn.model_selection import train_test_split
+from add_fitz import add_fitzpatrick_ratings
 
 conditions = {
     "Eczema": 1,
@@ -49,6 +50,8 @@ path_df = pd.read_csv("../data/raw/dataset_scin_cases.csv")
 merged_df = pd.merge(output_df, path_df, on="case_id", how="left")
 selected_columns = merged_df[["image_id", "label"]]
 selected_columns = selected_columns.rename(columns={"image_id": "image_path"})
+
+final_df = add_fitzpatrick_ratings(selected_columns, "../data/raw/dataset_scin_labels.csv", "../data/raw/dataset_scin_cases.csv")
 
 train_df, temp_df = train_test_split(selected_columns, test_size=0.3, random_state=42)
 val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42)
