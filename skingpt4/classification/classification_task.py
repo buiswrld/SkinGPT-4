@@ -85,6 +85,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                             transforms.ToTensor(), #(C, H, W) from (H, W, C) 
                             transforms.RandomHorizontalFlip(0.5),
                             transforms.RandomVerticalFlip(0.5),
+                            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05)
                           ]
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         if oversample:
