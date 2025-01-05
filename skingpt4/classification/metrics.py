@@ -40,21 +40,21 @@ def get_multiclass_metrics(probs, labels):
         labels = labels.cpu().numpy()
     if isinstance(probs, torch.Tensor):
         probs = probs.cpu().numpy()
-    
-    
     preds = np.argmax(probs, axis=1)
     acc = accuracy_score(labels, preds)
     prec = precision_score(labels, preds, average='weighted')
     rec = recall_score(labels, preds, average='weighted')
     f1 = f1_score(labels, preds, average='weighted')
-    #auprc = average_precision_score(labels, probs, average='weighted')
-    #auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
+    if probs.shape[1] == 2:
+        probs = probs[:, 1]
+    auprc = average_precision_score(labels, probs, average='weighted')
+    auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
     
     return {
         'accuracy': acc,
         'precision': prec,
         'recall': rec,
         'f1': f1,
-        #'auprc': auprc,
-        #'auroc': auroc,
+        'auprc': auprc,
+        'auroc': auroc,
     }
