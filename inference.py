@@ -56,6 +56,10 @@ def parse_args():
     parser.add_argument(
         "--in-path", type=str, default="", help="Path to the input file"
     )
+
+    parser.add_argument(
+        "--classes", type=str, default="Eczema,Allergic Contact Dermatitis,Urticaria,Psoriasis,Impetigo,Tinea", help="Comma-separated list of class names"
+    )
     args = parser.parse_args()
     logger.info("Parsed arguments: %s", args)
     return args
@@ -171,7 +175,7 @@ def process_single_image(
 
 
 def process_images(
-    csv_file: str, model: any, output_csv: str, output_folder: str, device: str
+    csv_file: str, model: any, output_csv: str, output_folder: str, device: str, classes: list
 ) -> None:
     """
     Process all images in a folder and save results to a CSV.
@@ -210,7 +214,6 @@ def process_images(
                         _, image_tensor = preprocess_image(image_path)
 
                         predicted_class, _ = predict(model, image_tensor, device)
-                        classes = ["Eczema", "Allergic Contact Dermatitis", "Urticaria", "Psoriasis", "Impetigo", "Tinea"]
 
                         results.append({"image_path": image_path, "label": classes[predicted_class]})
 
@@ -265,6 +268,13 @@ def main():
 
         logger.info("Initializing Chat on device: %s", device)
 
+        if isinstance(args.classes, str):
+            classes = args.classes.split(',')
+        if isinstance(args.classes, tuple):
+            classes = list(args.classes)
+        else:
+            raise ValueError("classes input is neither a comma-separated string nor tuple")
+
         # Initialize model
         model = load_model(args.ckpt_path, device)
         logger.info("Loaded model")
@@ -274,7 +284,7 @@ def main():
         output_csv = args.out_path
         output_folder = "output_images"
 
-        process_images(csv_file, model, output_csv, output_folder, device)
+        process_images(csv_file, model, output_csv, output_folder, device, classes)
 
     except Exception as e:
         logger.error("Fatal error: %s", str(e), exc_info=True)
