@@ -22,6 +22,7 @@ from skingpt4.runners import *
 from skingpt4.processors import *
 from skingpt4.models import *
 from skingpt4.datasets.builders import *
+from skingpt4.classification.classification_task import *
 
 # Configure logging
 logging.basicConfig(
@@ -43,34 +44,9 @@ def parse_args():
     parser.add_argument(
         "--gpu-id", type=int, default=0, help="specify the gpu to load the model."
     )
-    parser.add_argument(
-        "--options",
-        nargs="+",
-        help="override some settings in the used config, the key-value pair "
-        "in xxx=yyy format will be merged into config file (deprecate), "
-        "change to --cfg-options instead.",
-    )
     args = parser.parse_args()
     logger.info("Parsed arguments: %s", args)
     return args
-
-
-def setup_seeds(config):
-    """
-    Setup random seeds for reproducibility.
-
-    Args:
-        config: Configuration object containing seed settings
-    """
-    seed = config.run_cfg.seed + get_rank()
-    logger.info("Setting random seed to: %d", seed)
-
-    random.seed(seed)
-    np.random.seed(seed)
-    torch.manual_seed(seed)
-
-    cudnn.benchmark = False
-    cudnn.deterministic = True
 
 def load_model(checkpoint_path, device):
     model = ClassificationTask.load_from_checkpoint(checkpoint_path, map_location=device)
@@ -233,7 +209,7 @@ def main():
         # if not os.path.exists(args.cfg_path):
         #     raise FileNotFoundError(f"Config file not found: {args.cfg_path}")
 
-        cfg = Config(args)
+        # cfg = Config(args)
         # setup_seeds(cfg)
 
         # Setup device
@@ -245,18 +221,6 @@ def main():
             logger.warning("CUDA not available, using CPU")
 
         logger.info("Initializing Chat on device: %s", device)
-
-        # Initialize model
-        model_config = cfg.model_cfg
-        model_config.device_8bit = args.gpu_id
-        model_cls = registry.get_model_class(model_config.arch)
-        model = model_cls.from_config(model_config).to(device)
-
-        # Initialize processor
-        vis_processor_cfg = cfg.datasets_cfg.cc_sbu_align.vis_processor.train
-        vis_processor = registry.get_processor_class(
-            vis_processor_cfg.name
-        ).from_config(vis_processor_cfg)
 
         # Initialize model
         model = load_model("/workspace/archive/results/pair_5_clinicals/ckpts/epoch=15-step=256.ckpt", device)
