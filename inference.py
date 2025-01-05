@@ -4,6 +4,7 @@ import random
 import csv
 import numpy as np
 import torch
+import torchvision.transforms as transforms
 from pathlib import Path
 from typing import Union, Tuple, Optional
 from tqdm import tqdm
@@ -72,73 +73,30 @@ def setup_seeds(config):
     cudnn.benchmark = False
     cudnn.deterministic = True
 
+def load_model(checkpoint_path, device):
+    model = ClassificationTask.load_from_checkpoint(checkpoint_path, map_location=device)
+    model.to(device)
+    model.eval()
+    return model
 
-def add_caption_to_image(image_path, caption, output_folder):
-    """Add a caption to the bottom of an image and save the modified image with multi-line support."""
-    try:
-        img = Image.open(image_path).convert("RGB")
-        draw = ImageDraw.Draw(img)
+def preprocess_image(image_path, target_size=(810, 1080)):
+    transform = transforms.Compose([
+        transforms.Resize(target_size),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
+    image = Image.open(image_path).convert('RGB')
+    image_tensor = transform(image).unsqueeze(0)  # Add batch dimension
+    return image, image_tensor
 
-        # Use PIL default font
-        font = ImageFont.load_default()
-
-        # Calculate text size and wrap the caption into multiple lines if needed
-        max_width = img.width - 20  # Margin for padding
-        lines = []
-        current_line = ""
-
-        for word in caption.split():
-            # Add word to current line
-            test_line = f"{current_line} {word}".strip()
-            # Check if the line is too wide
-            bbox = draw.textbbox((0, 0), test_line, font=font)
-            text_width = bbox[2] - bbox[0]
-
-            if text_width <= max_width:
-                current_line = test_line  # Continue adding to the current line
-            else:
-                # If the line is too wide, start a new line
-                if current_line:
-                    lines.append(current_line)
-                current_line = word
-
-        # Add the last line
-        if current_line:
-            lines.append(current_line)
-
-        # Calculate total text height
-        text_height = sum(
-            [
-                draw.textbbox((0, 0), line, font=font)[3]
-                - draw.textbbox((0, 0), line, font=font)[1]
-                for line in lines
-            ]
-        )
-
-        # Create a new image with extra space for the caption
-        new_height = (
-            img.height + text_height + len(lines) * 10 + 20
-        )  # Add padding between lines
-        new_img = Image.new("RGB", (img.width, new_height), (255, 255, 255))
-        new_img.paste(img, (0, 0))
-        draw = ImageDraw.Draw(new_img)
-        # Draw the multi-line caption at the bottom center
-        text_y = img.height + 10  # Padding to the bottom
-        for line in lines:
-            # Calculate the position for each line (centered)
-            bbox = draw.textbbox((0, 0), line, font=font)
-            text_width = bbox[2] - bbox[0]
-            text_x = (img.width - text_width) // 2  # Center the text horizontally
-            draw.text((text_x, text_y), line, font=font, fill="black")
-            text_y += bbox[3] - bbox[1] + 10  # Move down for the next line
-
-        # Save the new image
-        os.makedirs(output_folder, exist_ok=True)
-        output_path = os.path.join(output_folder, os.path.basename(image_path))
-        new_img.save(output_path)
-        print(f"Caption added and saved to {output_path}")
-    except Exception as e:
-        print(f"Error adding caption to {image_path}: {e}")
+def predict(model, image_tensor, device):
+    image_tensor = image_tensor.to(device)
+    with torch.no_grad():
+        output = model(image_tensor)
+        probabilities = torch.softmax(output, dim=1).cpu().numpy()[0]
+        _, predicted_class = torch.max(output, 1)
+        predicted_class = predicted_class.item()
+    return predicted_class, probabilities
 
 
 def process_single_image(
@@ -155,10 +113,6 @@ def process_single_image(
     Returns:
         PIL.Image or None if processing fails
     """
-    if not isinstance(image_path, (str, Path)):
-        logger.error("Invalid image_path type: %s", type(image_path))
-        return None
-
     try:
         image_path = Path(image_path)
         if not image_path.exists():
@@ -195,7 +149,7 @@ def process_single_image(
 
 
 def process_images(
-    csv_file: str, chat: Chat, output_csv: str, output_folder: str
+    csv_file: str, model: any, output_csv: str, output_folder: str, device: str
 ) -> None:
     """
     Process all images in a folder and save results to a CSV.
@@ -231,18 +185,12 @@ def process_images(
 
                         img_list = []
 
-                        chat.upload_img(processed_image, conv, img_list)
-                        chat.ask(
-                            "Could you describe the skin disease in this image for me?",
-                            conv,
-                        )
+                        _, image_tensor = preprocess_image(image_path)
 
-                        response, _ = chat.answer(
-                            conv, img_list=img_list, max_new_tokens=300
-                        )
-                        results.append({"Image": image_path, "Description": response})
+                        predicted_class, probabilities = predict(model, image_tensor, device)
+                        class_names = ["Eczema", "Allergic Contact Dermatitis"]
 
-                        add_caption_to_image(image_path, response, output_folder)
+                        results.append({"Image": image_path, "Class": predicted_class+1})
 
                         logger.debug("Successfully processed %s", image_path)
 
@@ -270,58 +218,6 @@ def process_images(
     except Exception as e:
         logger.error("Fatal error in process_images: %s", str(e))
         raise
-
-
-def check_accuracy(predictions_csv: str, ground_truth_csv: str) -> float:
-    """
-    Compare LLM predictions against ground truth labels.
-
-    Args:
-        predictions_csv: Path to CSV file containing LLM predictions
-        ground_truth_csv: Path to CSV file containing correct labels
-
-    Returns:
-        float: Accuracy score between 0 and 1
-    """
-    try:
-        if not os.path.exists(predictions_csv):
-            logger.error("Predictions file not found: %s", predictions_csv)
-            return 0.0
-
-        if not os.path.exists(ground_truth_csv):
-            logger.error("Ground truth file not found: %s", ground_truth_csv)
-            return 0.0
-
-        predictions = {}
-        ground_truth = {}
-
-        with open(predictions_csv, mode="r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            predictions = {row["Image"]: row["Description"] for row in reader}
-
-        with open(ground_truth_csv, mode="r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            ground_truth = {row["Image"]: row["Description"] for row in reader}
-
-        if not predictions or not ground_truth:
-            logger.warning("Empty predictions or ground truth data")
-            return 0.0
-
-        correct = sum(
-            1
-            for k in ground_truth
-            if k in predictions and predictions[k] == ground_truth[k]
-        )
-        total = len(ground_truth)
-
-        accuracy = correct / total if total > 0 else 0
-        logger.info("Accuracy: %d/%d (%0.2f%%)", correct, total, accuracy * 100)
-
-        return accuracy
-
-    except Exception as e:
-        logger.error("Error checking accuracy: %s", str(e))
-        return 0.0
 
 
 def main():
@@ -363,9 +259,9 @@ def main():
             vis_processor_cfg.name
         ).from_config(vis_processor_cfg)
 
-        # Initialize chat
-        chat = Chat(model, vis_processor, device=device)
-        logger.info("Chat initialization finished")
+        # Initialize model
+        model = load_model("./checkpoint.ckpt", device)
+        logger.info("Loaded model")
 
         # Process images
         csv_file = "sampled_image.csv"
@@ -373,13 +269,7 @@ def main():
         ground_truth_csv = "ground_truth.csv"
         output_folder = "output_images"
 
-        process_images(csv_file, chat, output_csv, output_folder)
-
-        if os.path.exists(ground_truth_csv):
-            accuracy = check_accuracy(output_csv, ground_truth_csv)
-            logger.info("Final accuracy: %0.2f%%", accuracy * 100)
-        else:
-            logger.warning("Ground truth file not found, skipping accuracy check")
+        process_images(csv_file, model, output_csv, output_folder, args.device)
 
     except Exception as e:
         logger.error("Fatal error: %s", str(e), exc_info=True)
