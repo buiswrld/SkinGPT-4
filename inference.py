@@ -181,7 +181,7 @@ def process_images(
                     -1
                 ]  # This extracts just the file name from the path
                 image_path = os.path.join(
-                    "images", "test", image_filename
+                    "images", image_filename
                 )  # Build the path to the file in the 'scin_images' folder
 
                 if os.path.exists(image_path):
@@ -256,7 +256,7 @@ def main():
         logger.info("Loaded model")
 
         # Process images
-        csv_file = "sampled_image.csv"
+        csv_file = "data/clinical_inference/10-sample.csv"
         output_csv = "output_results.csv"
         output_folder = "output_images"
 
