@@ -142,7 +142,7 @@ def main():
             sensitive_features,
             f"combined_{subdir}"
         )
-        with open(os.path.join(subdir_path, "final_results.txt"), "a") as f:
+        with open(os.path.join(subdir_path, "final_results.txt"), "w") as f:
             f.write(f"\nMetrics for {subdir}:\n")
             f.write(f"Metrics frame overall:\n{mf.overall}\n")
             f.write(f"Metrics frame by group:\n{mf.by_group}\n")
