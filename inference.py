@@ -230,8 +230,8 @@ def main():
     try:
         args = parse_args()
 
-        if not os.path.exists(args.cfg_path):
-            raise FileNotFoundError(f"Config file not found: {args.cfg_path}")
+        # if not os.path.exists(args.cfg_path):
+        #     raise FileNotFoundError(f"Config file not found: {args.cfg_path}")
 
         cfg = Config(args)
         # setup_seeds(cfg)
