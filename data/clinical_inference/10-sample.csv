@@ -1,4 +1,4 @@
-image_id,condition,fitz_scale
+image_path,label,fitz
 dataset/images/-3821908661269191208.png,Eczema,1
 dataset/images/-1495727048511165464.png,Eczema,1
 dataset/images/-3051939329272638280.png,Eczema,1
