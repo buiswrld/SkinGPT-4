@@ -268,12 +268,7 @@ def main():
 
         logger.info("Initializing Chat on device: %s", device)
 
-        if isinstance(args.classes, str):
-            classes = args.classes.split(',')
-        if isinstance(args.classes, tuple):
-            classes = list(args.classes)
-        else:
-            raise ValueError("classes input is neither a comma-separated string nor tuple")
+        classes=args.classes.split(",")
 
         # Initialize model
         model = load_model(args.ckpt_path, device)
