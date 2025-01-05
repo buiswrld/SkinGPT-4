@@ -262,7 +262,7 @@ def main():
         logger.info("Initializing Chat on device: %s", device)
 
         # Initialize model
-        model = load_model("/workspace/archive/results/pair_5_clinicals/ckpts/epoch=15-step=256.ckpt", device)
+        model = load_model("/workspace/archive/results/pair_1/ckpts/epoch=47-step=768.ckpt", device)
         logger.info("Loaded model")
 
         # Process images
