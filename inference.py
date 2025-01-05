@@ -205,6 +205,7 @@ def main():
 
     try:
         args = parse_args()
+        device = f"cuda:{args.gpu_id}" if args.gpu_id >= 0 and torch.cuda.is_available() else "cpu"
 
         # if not os.path.exists(args.cfg_path):
         #     raise FileNotFoundError(f"Config file not found: {args.cfg_path}")
@@ -231,7 +232,7 @@ def main():
         output_csv = "output_results.csv"
         output_folder = "output_images"
 
-        process_images(csv_file, model, output_csv, output_folder, args.device)
+        process_images(csv_file, model, output_csv, output_folder, device)
 
     except Exception as e:
         logger.error("Fatal error: %s", str(e), exc_info=True)
