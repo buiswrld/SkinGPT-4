@@ -2,6 +2,7 @@
 
 import torch
 import numpy as np
+import matplotlib as plt
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -36,6 +37,7 @@ def get_max_precision_above_recall(groundtruth, probabilities, value, return_thr
         return max_prec_above_rec
 
 def get_multiclass_metrics(probs, labels):
+    OUTPUT_CURVE = True
     if isinstance(labels, torch.Tensor):
         labels = labels.cpu().numpy()
     if isinstance(probs, torch.Tensor):
@@ -49,6 +51,17 @@ def get_multiclass_metrics(probs, labels):
         probs = probs[:, 1]
     auprc = average_precision_score(labels, probs, average='weighted')
     auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
+
+    if OUTPUT_CURVE:
+        precision, recall, _ = precision_recall_curve(labels.ravel(), probs.ravel())
+        plt.figure()
+        plt.plot(recall, precision, marker='.')
+        plt.xlabel('Recall')    
+        plt.ylabel('Precision')
+        plt.title('Precision-Recall Curve')
+        plt.savefig('precision_recall_curve.png')
+        plt.close()
+
     
     return {
         'accuracy': acc,
