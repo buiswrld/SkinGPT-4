@@ -111,7 +111,7 @@ def predict(model, image_tensor, device):
 
 def process_single_image(
     image_path: Union[str, Path],
-    target_size: Tuple[int, int] = (512, 512),
+    target_size: Tuple[int, int] = (810, 1080),
 ) -> Optional[Image.Image]:
     """
     Process a single image for LLM input.
