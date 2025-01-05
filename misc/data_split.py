@@ -12,8 +12,8 @@ conditions = {
     "Allergic Contact Dermatitis": 6,
 }
 
-MIN_CONFIDENCE_THRESHOLD = 0.0
-OMIT_EDGE_CASES = True
+MIN_CONFIDENCE_THRESHOLD = 0.6
+OMIT_EDGE_CASES = False
 
 df = pd.read_csv("../data/raw/dataset_scin_labels.csv")
 output_rows = []
@@ -39,7 +39,7 @@ for index, row in df.iterrows():
 
     confidence = max_weight / total_weight if total_weight > 0 else 0
     no_edge = True
-    if confidence >= MIN_CONFIDENCE_THRESHOLD and max_condition in conditions and weight_counts[max_weight] == 1:
+    if confidence >= MIN_CONFIDENCE_THRESHOLD and max_condition in conditions:
         if OMIT_EDGE_CASES and weight_counts[max_weight] != 1:
             no_edge = False
         if no_edge:
@@ -59,8 +59,7 @@ selected_columns = selected_columns.rename(columns={"image_id": "image_path"})
 
 final_df = add_fitzpatrick_ratings(selected_columns, "../data/raw/dataset_scin_labels.csv", "../data/raw/dataset_scin_cases.csv")
 
-print("Final DataFrame after adding Fitzpatrick ratings:")
-print(final_df.head())
+final_df.drop_duplicates(inplace=True)
 
 train_df, temp_df = train_test_split(final_df, test_size=0.3, random_state=42)
 val_df, test_df = train_test_split(temp_df, test_size=0.5, random_state=42)
@@ -72,8 +71,4 @@ test_df["split"] = "test"
 final_df = pd.concat([train_df, val_df, test_df])
 final_df["image_path"] = final_df["image_path"].str.replace("dataset/images/", "images/")
 
-print("Final Dataframe to csv after splitting & concatenating & replacing image_path:")
-print(final_df.head())
-
-#final_df.to_csv(f"../data/training/data_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)
-final_df.to_csv(f"../data/training/fitz_data.csv", index=False)
+final_df.to_csv(f"../data/training/fitz_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)
