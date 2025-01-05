@@ -173,6 +173,8 @@ def process_images(
 
     results = []
 
+    num_correct = 0
+
     try:
         with open(csv_file, newline="", encoding="utf-8") as f:
             reader = csv.reader(f)
@@ -193,8 +195,6 @@ def process_images(
                         if processed_image is None:
                             continue
 
-                        img_list = []
-
                         _, image_tensor = preprocess_image(image_path)
 
                         predicted_class, probabilities = predict(model, image_tensor, device)
@@ -205,6 +205,9 @@ def process_images(
                         elif row[1] == "Allergic Contact Dermatitis":
                             correct = 2
                         
+                        if predicted_class+1 == correct:
+                            num_correct += 1
+
                         results.append({"Image": image_path, "Class": predicted_class+1, "ExpectedClass": correct})
 
                         logger.debug("Successfully processed %s", image_path)
@@ -213,6 +216,7 @@ def process_images(
                         logger.error("Error processing %s: %s", image_path, str(e))
                         continue
 
+        logger.info("Number of correct predictions: %d", num_correct)
         # Save results
         if results:
             try:
