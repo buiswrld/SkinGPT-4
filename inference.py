@@ -212,7 +212,7 @@ def process_images(
                         predicted_class, _ = predict(model, image_tensor, device)
                         classes = ["Eczema", "Allergic Contact Dermatitis", "Urticaria", "Psoriasis", "Impetigo", "Tinea"]
 
-                        results.append({"Image": image_path, "Class": classes[predicted_class]})
+                        results.append({"image_path": image_path, "label": classes[predicted_class]})
 
                         logger.debug("Successfully processed %s", image_path)
 
@@ -228,7 +228,7 @@ def process_images(
                     output_csv, mode="w", newline="", encoding="utf-8"
                 ) as csvfile:
                     writer = csv.DictWriter(
-                        csvfile, fieldnames=["Image", "Class", "ExpectedClass"]
+                        csvfile, fieldnames=["image_path", "label"]
                     )
                     writer.writeheader()
                     writer.writerows(results)
