@@ -104,7 +104,7 @@ def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
         between_groups = mf.difference(method='between_groups')
         to_overall = mf.difference(method='to_overall')
 
-        print(f'{description} -> between_groups: {between_groups:.2f}, to_overall: {to_overall:.2f}')
+        print(f'{description} -> between_groups: {between_groups}, to_overall: {to_overall}')
 
         return between_groups, to_overall
     except Exception as e:
