@@ -37,7 +37,7 @@ def get_max_precision_above_recall(groundtruth, probabilities, value, return_thr
         return max_prec_above_rec
 
 def get_multiclass_metrics(probs, labels):
-    OUTPUT_CURVE = True
+    OUTPUT_CURVE = False
     if isinstance(labels, torch.Tensor):
         labels = labels.cpu().numpy()
     if isinstance(probs, torch.Tensor):
