@@ -40,7 +40,7 @@ def create_split(df, labels, filename):
 
 def create_pairs(set_pairs):
     for idx, pair in enumerate(set_pairs, start=1):
-        filename = f"../data/training/{conf_int}c_fitz_all_pairs/{idx}_data_{conf_int}c_subset_{pair[0]}_{pair[1]}.csv"
+        filename = f"../data/training/{conf_int}c_fitz_pairs/{idx}_data_{conf_int}c_subset_{pair[0]}_{pair[1]}.csv"
         create_split(df, pair, filename)
 
 def create_trips(set_trips):
@@ -49,4 +49,4 @@ def create_trips(set_trips):
         create_split(df, triplet, filename)
 
 if __name__ == "__main__":
-    create_trips(trips)
+    create_pairs(pairs)
