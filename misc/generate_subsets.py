@@ -13,10 +13,7 @@ all_pairs = list(itertools.combinations(unique_labels, 2))
 all_triplets = list(itertools.combinations(unique_labels, 3))
 
 pairs = (
-    ("Eczema", "Psoriasis"),
-    ("Urticaria", "Allergic Contact Dermatitis"),
-    ("Impetigo", "Tinea"),
-    ("Psoriasis", "Tinea")
+    ("Eczema", "Allergic Contact Dermatitis")
 )
 
 trips = (
@@ -41,11 +38,11 @@ def create_split(df, labels, filename):
 def create_pairs(set_pairs):
     for idx, pair in enumerate(set_pairs, start=1):
         filename = f"../data/training/{conf_int}c_fitz_pairs/{idx}_data_{conf_int}c_subset_{pair[0]}_{pair[1]}.csv"
-        create_split(df, pair, filename)
+        create_split(df, set_pairs, filename)
 
 def create_trips(set_trips):
     for idx, triplet in enumerate(set_trips, start=1):
-        filename = f"../data/training/{conf_int}c_fitz_trips/{idx}_data_{conf_int}c_subset_{triplet[0]}_{triplet[1]}_{triplet[2]}.csv"
+        filename = f"../data/training/{conf_int}c_fitz_trips/5_data_{conf_int}c_subset_{triplet[0]}_{triplet[1]}_{triplet[2]}.csv"
         create_split(df, triplet, filename)
 
 if __name__ == "__main__":
