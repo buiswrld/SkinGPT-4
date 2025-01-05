@@ -52,6 +52,10 @@ def parse_args():
     parser.add_argument(
         "--out-path", type=str, default="", help="Path to the output file"
     )
+
+    parser.add_argument(
+        "--in-path", type=str, default="", help="Path to the input file"
+    )
     args = parser.parse_args()
     logger.info("Parsed arguments: %s", args)
     return args
@@ -266,7 +270,7 @@ def main():
         logger.info("Loaded model")
 
         # Process images
-        csv_file = "data/clinical_inference/10-sample.csv"
+        csv_file = args.in_path
         output_csv = args.out_path
         output_folder = "output_images"
 
