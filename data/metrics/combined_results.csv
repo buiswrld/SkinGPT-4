@@ -1,0 +1,264 @@
+image_path,label,truth,fitz,split
+images/-2101790873047080311.png,Eczema,Eczema,1.0,train
+images/-1967789226418264672.png,Eczema,Eczema,2.0,train
+images/-2030903409484078916.png,Eczema,Eczema,3.0,train
+images/-3060870142909393201.png,Eczema,Eczema,3.0,train
+images/-2909501836418885572.png,Eczema,Eczema,2.6666666666666665,train
+images/-4308398826912860778.png,Eczema,Eczema,2.0,train
+images/-4596787619832414799.png,Eczema,Eczema,,train
+images/5601317951892375531.png,Eczema,Eczema,5.0,train
+images/-2312269268642848632.png,Eczema,Eczema,3.0,train
+images/-1923721324804991114.png,Eczema,Eczema,3.0,train
+images/-3131182156160569830.png,Eczema,Eczema,5.0,train
+images/2100977657284494000.png,Eczema,Eczema,4.0,train
+images/-7513089492834821079.png,Allergic Contact Dermatitis,Eczema,3.0,train
+images/-1425041139336616640.png,Eczema,Eczema,4.0,train
+images/-1423317161050712636.png,Eczema,Eczema,2.0,train
+images/6894519290421718738.png,Eczema,Eczema,2.0,train
+images/-1407390912570679008.png,Eczema,Eczema,4.666666666666667,train
+images/-8297361329479198136.png,Eczema,Eczema,2.0,train
+images/-7898601135031950692.png,Eczema,Eczema,3.0,train
+images/9160515254792469987.png,Eczema,Eczema,4.0,train
+images/-7637867445705022563.png,Eczema,Eczema,2.0,train
+images/6945764380486174282.png,Allergic Contact Dermatitis,Eczema,3.0,train
+images/4369305934387006344.png,Allergic Contact Dermatitis,Eczema,2.0,train
+images/-295260050531917160.png,Allergic Contact Dermatitis,Eczema,1.0,train
+images/-5689522526264773563.png,Eczema,Eczema,3.0,train
+images/-6869963886668373235.png,Allergic Contact Dermatitis,Eczema,5.0,train
+images/-5896619613088824953.png,Eczema,Psoriasis,,train
+images/-4387878168031721243.png,Allergic Contact Dermatitis,Psoriasis,4.0,train
+images/-6662505251950850558.png,Eczema,Eczema,1.0,train
+images/-217828380359571871.png,Eczema,Eczema,3.6666666666666665,train
+images/-2614426609843829553.png,Eczema,Eczema,4.0,train
+images/-3210481923987744829.png,Eczema,Eczema,1.6666666666666667,train
+images/8611376072815141375.png,Eczema,Eczema,2.0,train
+images/1667670265093717504.png,Eczema,Eczema,3.0,train
+images/-3780061433874158910.png,Allergic Contact Dermatitis,Psoriasis,2.0,train
+images/-1495562302038261127.png,Allergic Contact Dermatitis,Eczema,,train
+images/-4883252151958637737.png,Eczema,Eczema,3.0,train
+images/3087583442204718089.png,Eczema,Eczema,3.0,train
+images/-2370427552192888875.png,Eczema,Eczema,2.0,train
+images/-6279339223577410459.png,Eczema,Eczema,2.0,train
+images/-2919962940384238401.png,Eczema,Eczema,6.0,train
+images/-4949999685137541063.png,Eczema,Eczema,3.0,train
+images/-5026570001652617553.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-8779903138873713227.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-2545885751906492535.png,Eczema,Eczema,2.0,train
+images/-4714341773131742889.png,Eczema,Eczema,4.0,train
+images/8432675952781020680.png,Eczema,Eczema,2.0,train
+images/-5509163907473104731.png,Eczema,Eczema,2.0,train
+images/-4313679202199817035.png,Eczema,Eczema,2.6666666666666665,train
+images/-2949233165118597916.png,Eczema,Eczema,2.0,train
+images/-3829216436875682288.png,Eczema,Eczema,3.0,train
+images/-555548212421717526.png,Eczema,Eczema,4.0,train
+images/-446114786730635224.png,Allergic Contact Dermatitis,Eczema,2.0,train
+images/-2511190403996726038.png,Eczema,Eczema,4.0,train
+images/-1578285749986829241.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-7213117744324884514.png,Eczema,Eczema,3.0,train
+images/-4922007870089187294.png,Eczema,Eczema,2.0,train
+images/-9071217807268156605.png,Eczema,Eczema,3.0,train
+images/-1233886198250242183.png,Allergic Contact Dermatitis,Eczema,2.0,train
+images/-4279274202478057784.png,Eczema,Eczema,2.6666666666666665,train
+images/-2115166713006403483.png,Eczema,Eczema,1.0,train
+images/-2611898318932465514.png,Allergic Contact Dermatitis,Eczema,3.0,train
+images/-5620151857030818891.png,Eczema,Eczema,3.0,train
+images/-2010073807235552734.png,Eczema,Eczema,2.0,train
+images/-8503022643743511724.png,Allergic Contact Dermatitis,Eczema,2.0,train
+images/-724292300951106502.png,Eczema,Eczema,3.0,train
+images/7518962439947022924.png,Eczema,Eczema,1.0,train
+images/6069491081672095270.png,Eczema,Eczema,2.0,train
+images/-1013653802423257870.png,Eczema,Eczema,4.0,train
+images/-6182253468156599196.png,Eczema,Eczema,3.0,train
+images/-8351498747234518768.png,Eczema,Eczema,5.0,train
+images/3041814759944506684.png,Eczema,Eczema,5.0,train
+images/-6337656710037676304.png,Eczema,Eczema,2.0,train
+images/-2883972481327235052.png,Eczema,Eczema,4.0,train
+images/-7490056910663333938.png,Allergic Contact Dermatitis,Psoriasis,4.333333333333333,train
+images/-2274431536078528436.png,Eczema,Eczema,3.0,train
+images/-1167977922987061432.png,Eczema,Eczema,2.0,train
+images/-6051243062560795476.png,Eczema,Eczema,5.0,train
+images/-3075979742684785566.png,Eczema,Eczema,2.0,train
+images/5891698126195273673.png,Eczema,Eczema,5.0,train
+images/-2813826022792799007.png,Eczema,Eczema,2.0,train
+images/-112918541630908439.png,Eczema,Eczema,2.0,train
+images/8427651112818416576.png,Allergic Contact Dermatitis,Psoriasis,2.0,train
+images/-4784154530386898261.png,Eczema,Eczema,4.0,train
+images/-3019194824877098187.png,Eczema,Eczema,3.0,train
+images/-1175551177819230857.png,Eczema,Eczema,2.0,train
+images/156375193518512336.png,Eczema,Eczema,3.0,train
+images/-9174558387716579919.png,Eczema,Eczema,3.0,train
+images/-968369084228324903.png,Eczema,Eczema,2.0,train
+images/-368511249512124554.png,Eczema,Eczema,3.0,train
+images/-890889796319653758.png,Eczema,Eczema,6.0,train
+images/-6278770007527874596.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-1532677556392562109.png,Eczema,Eczema,2.0,train
+images/-619209901050286350.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-4649063046758807338.png,Eczema,Eczema,3.0,train
+images/8806943413983631549.png,Eczema,Eczema,2.0,train
+images/-4451978821374422197.png,Eczema,Eczema,5.0,train
+images/-734803940501398306.png,Eczema,Eczema,1.0,train
+images/-3194161131457384721.png,Eczema,Eczema,2.0,train
+images/-3785790046103474945.png,Eczema,Eczema,2.3333333333333335,train
+images/-5948592183169529123.png,Eczema,Eczema,3.0,train
+images/-2681567092049907766.png,Eczema,Eczema,,train
+images/-2878474127311295238.png,Eczema,Eczema,3.5,train
+images/-2282445446815047427.png,Eczema,Eczema,4.0,train
+images/-8743640083543794574.png,Eczema,Eczema,5.0,train
+images/-1001492676369731180.png,Eczema,Eczema,1.6666666666666667,train
+images/-5945889357765410205.png,Eczema,Eczema,2.0,train
+images/-1069928544911808619.png,Eczema,Eczema,3.0,train
+images/-1651927693770727765.png,Eczema,Eczema,4.0,train
+images/-8383531997336683331.png,Eczema,Eczema,4.0,train
+images/4274197151964109412.png,Eczema,Eczema,5.0,train
+images/-6323838407357716508.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-3933475004882152757.png,Eczema,Eczema,3.0,train
+images/4812160518335801420.png,Eczema,Eczema,2.0,train
+images/-1013329915718011639.png,Eczema,Eczema,4.0,train
+images/2065343154650666651.png,Eczema,Eczema,4.0,train
+images/-6583827357689255330.png,Eczema,Psoriasis,1.6666666666666667,train
+images/-1851330752014269540.png,Eczema,Eczema,1.0,train
+images/8516416641470676717.png,Eczema,Eczema,3.0,train
+images/-445431345310956881.png,Eczema,Eczema,3.0,train
+images/-5602132154858494455.png,Allergic Contact Dermatitis,Psoriasis,2.0,train
+images/-1487279598764450262.png,Eczema,Eczema,4.0,train
+images/1610053035993761930.png,Eczema,Eczema,3.0,train
+images/-5432546180216775741.png,Eczema,Eczema,3.0,train
+images/-4742989259054484128.png,Eczema,Eczema,3.0,train
+images/102143902120424355.png,Eczema,Eczema,2.3333333333333335,train
+images/-1212009769672305665.png,Eczema,Eczema,3.0,train
+images/-4866206385258043774.png,Eczema,Eczema,2.0,train
+images/-3559887002495639296.png,Eczema,Eczema,5.0,train
+images/-2023528583731486939.png,Allergic Contact Dermatitis,Psoriasis,1.0,train
+images/7525075577501273064.png,Eczema,Eczema,2.0,train
+images/5131985435524652892.png,Eczema,Eczema,2.0,train
+images/-230777178099675336.png,Eczema,Eczema,2.0,train
+images/-8057719347560254084.png,Eczema,Eczema,5.0,train
+images/5206975118959031057.png,Allergic Contact Dermatitis,Eczema,3.0,train
+images/-130285819684122836.png,Eczema,Eczema,,train
+images/-923054950838727613.png,Allergic Contact Dermatitis,Eczema,3.0,train
+images/-2104207421034301034.png,Eczema,Eczema,4.0,train
+images/-2036739924048402981.png,Eczema,Eczema,6.0,train
+images/-3238683302029267521.png,Eczema,Eczema,2.0,train
+images/-8289424844938182188.png,Eczema,Eczema,2.0,train
+images/-6979261091584192334.png,Eczema,Eczema,2.0,train
+images/-7346676041068902309.png,Eczema,Eczema,2.0,train
+images/6266104663802047097.png,Eczema,Eczema,3.0,train
+images/3486270610847283622.png,Eczema,Eczema,3.0,train
+images/325464533153467313.png,Eczema,Eczema,2.0,train
+images/-5199233948115542640.png,Eczema,Eczema,2.0,train
+images/-5538879149574463479.png,Eczema,Eczema,3.0,train
+images/-2586434783203273300.png,Eczema,Eczema,1.0,train
+images/1657919391725224335.png,Eczema,Eczema,,train
+images/-1241231354355375740.png,Allergic Contact Dermatitis,Psoriasis,2.0,train
+images/3129243513709030690.png,Allergic Contact Dermatitis,Psoriasis,,train
+images/-5128272363659154502.png,Allergic Contact Dermatitis,Psoriasis,5.0,train
+images/-4035777372031815630.png,Eczema,Eczema,2.0,train
+images/-2678282706126601436.png,Eczema,Eczema,1.0,train
+images/-7179944250348052903.png,Eczema,Eczema,3.0,train
+images/3684301007380750477.png,Eczema,Eczema,2.0,train
+images/-3278401981209346612.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-7611889478784556944.png,Eczema,Eczema,2.0,train
+images/-6885248899916011518.png,Eczema,Eczema,2.5,train
+images/-4496469068484871833.png,Eczema,Eczema,4.0,train
+images/-1058935244298290672.png,Eczema,Eczema,3.3333333333333335,train
+images/-6176512643852086349.png,Eczema,Eczema,3.0,train
+images/-8001825271725063018.png,Eczema,Eczema,5.0,train
+images/-2538731880524128360.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-8739886638448089494.png,Eczema,Eczema,4.0,train
+images/-2629468652453847563.png,Eczema,Eczema,2.0,train
+images/6452571516539655170.png,Eczema,Eczema,2.0,train
+images/-869349880437476994.png,Allergic Contact Dermatitis,Psoriasis,3.0,train
+images/-5027449927739449608.png,Allergic Contact Dermatitis,Psoriasis,2.0,train
+images/-1017539609637625871.png,Eczema,Eczema,3.0,train
+images/-5628845147796714125.png,Eczema,Eczema,2.0,train
+images/1881484952385338081.png,Eczema,Eczema,6.0,train
+images/8274826488534529432.png,Allergic Contact Dermatitis,Psoriasis,2.0,train
+images/2866454509532808925.png,Eczema,Eczema,,train
+images/-2367385470888041402.png,Eczema,Eczema,4.0,train
+images/267232830417622013.png,Eczema,Eczema,1.0,train
+images/34131928669282508.png,Eczema,Eczema,2.0,train
+images/-7379123563084274195.png,Eczema,Eczema,3.0,train
+images/-4716936240491422448.png,Eczema,Eczema,3.0,train
+images/-1763889179252826896.png,Eczema,Eczema,2.0,train
+images/-5630704089937919902.png,Eczema,Eczema,5.0,train
+images/-4198059543114772260.png,Eczema,Eczema,2.6666666666666665,train
+images/7810546855565179160.png,Eczema,Eczema,3.0,train
+images/-6241322428464148939.png,Eczema,Eczema,2.0,val
+images/2608619041636383300.png,Allergic Contact Dermatitis,Psoriasis,3.0,val
+images/-7596189015309860038.png,Eczema,Eczema,3.0,val
+images/-1306970786638528151.png,Eczema,Eczema,3.0,val
+images/-3599312611917901231.png,Eczema,Eczema,2.0,val
+images/-3274490469223825387.png,Allergic Contact Dermatitis,Eczema,2.0,val
+images/-7108487947733237222.png,Eczema,Eczema,2.0,val
+images/-5607893322162480323.png,Allergic Contact Dermatitis,Psoriasis,3.0,val
+images/-4395003336872160138.png,Eczema,Eczema,1.6666666666666667,val
+images/-8841534478189887460.png,Eczema,Eczema,3.0,val
+images/-6690033616856405703.png,Eczema,Eczema,2.0,val
+images/-8579367048811032343.png,Eczema,Eczema,4.0,val
+images/1552466107574831667.png,Eczema,Eczema,4.0,val
+images/-1581537315113127005.png,Eczema,Eczema,3.0,val
+images/-1067701776636141108.png,Eczema,Eczema,3.0,val
+images/-5385363078483571059.png,Eczema,Eczema,4.0,val
+images/-1552485516831343050.png,Eczema,Eczema,2.0,val
+images/-506159417569762918.png,Eczema,Eczema,2.0,val
+images/8992004962400932960.png,Eczema,Psoriasis,4.0,val
+images/-7145522751271663250.png,Eczema,Eczema,2.0,val
+images/-5228362336502809630.png,Eczema,Eczema,2.0,val
+images/4568353774841932619.png,Eczema,Eczema,2.0,val
+images/-1466847537458498864.png,Eczema,Eczema,3.0,val
+images/-1943598390620715649.png,Eczema,Eczema,4.0,val
+images/807217658582074180.png,Eczema,Eczema,3.0,val
+images/-6009971089093999930.png,Eczema,Eczema,3.0,val
+images/2661853004663829775.png,Eczema,Eczema,2.0,val
+images/-4783650687622901919.png,Eczema,Eczema,1.3333333333333333,val
+images/-8331236734361407077.png,Eczema,Eczema,2.6666666666666665,val
+images/-6385477427467728982.png,Allergic Contact Dermatitis,Psoriasis,3.0,val
+images/1228823773202587697.png,Eczema,Eczema,1.0,val
+images/-1069484016159142426.png,Eczema,Eczema,4.0,val
+images/-587499434771640236.png,Eczema,Psoriasis,3.0,val
+images/2508530986946553819.png,Eczema,Eczema,3.0,val
+images/-1019470696082480487.png,Eczema,Eczema,,val
+images/-8982281454719723766.png,Eczema,Eczema,1.0,val
+images/-6241573689775323734.png,Eczema,Eczema,2.0,val
+images/-3308141390035798043.png,Eczema,Eczema,1.0,val
+images/-172643478809679819.png,Eczema,Eczema,5.0,val
+images/2312932902832481310.png,Eczema,Eczema,2.3333333333333335,test
+images/8663459152968105626.png,Eczema,Eczema,2.0,test
+images/-3449290884377188767.png,Eczema,Eczema,5.0,test
+images/-1248547167575108548.png,Eczema,Eczema,2.0,test
+images/-6125741516004773114.png,Eczema,Eczema,,test
+images/-9063174814681924620.png,Eczema,Eczema,2.0,test
+images/-8093801741687275823.png,Eczema,Eczema,1.0,test
+images/-5665949552425967322.png,Eczema,Eczema,3.0,test
+images/-3074087608497358223.png,Eczema,Eczema,3.0,test
+images/-8794719700664225806.png,Allergic Contact Dermatitis,Psoriasis,2.0,test
+images/4943233056358001391.png,Eczema,Eczema,4.0,test
+images/-82155186323694378.png,Eczema,Eczema,2.3333333333333335,test
+images/-7727984772540059761.png,Eczema,Eczema,4.0,test
+images/2599587953610134632.png,Eczema,Eczema,3.0,test
+images/4708050091267005435.png,Eczema,Eczema,3.0,test
+images/-5436801439030306050.png,Eczema,Eczema,3.0,test
+images/5727127474578129172.png,Eczema,Eczema,2.0,test
+images/754932103317031965.png,Allergic Contact Dermatitis,Eczema,2.0,test
+images/-4561420992326988947.png,Eczema,Eczema,,test
+images/7100908023370188661.png,Eczema,Eczema,2.0,test
+images/-862558295135857219.png,Eczema,Eczema,4.0,test
+images/-4464072633492818446.png,Eczema,Eczema,1.0,test
+images/-7197702636067718462.png,Eczema,Eczema,4.0,test
+images/-3300838075406312078.png,Eczema,Eczema,4.0,test
+images/-2492813239341820608.png,Eczema,Eczema,4.0,test
+images/-3846279000500284888.png,Eczema,Eczema,2.0,test
+images/-4652669248078342739.png,Eczema,Eczema,2.3333333333333335,test
+images/-9107413470822203358.png,Allergic Contact Dermatitis,Eczema,2.0,test
+images/-8905764654141104092.png,Eczema,Eczema,3.0,test
+images/-1264230661338860030.png,Allergic Contact Dermatitis,Psoriasis,3.0,test
+images/-284320352049367340.png,Eczema,Eczema,3.0,test
+images/2967422214128041718.png,Eczema,Eczema,3.0,test
+images/-687709163764861757.png,Allergic Contact Dermatitis,Eczema,3.0,test
+images/-1776672099385555595.png,Allergic Contact Dermatitis,Psoriasis,3.0,test
+images/-6390996263842066546.png,Eczema,Eczema,3.0,test
+images/-6547459727768908706.png,Eczema,Eczema,3.0,test
+images/-8772961446987205402.png,Allergic Contact Dermatitis,Psoriasis,1.0,test
+images/-1771453055734416513.png,Allergic Contact Dermatitis,Psoriasis,3.6666666666666665,test
+images/-7461895286563712603.png,Eczema,Eczema,5.0,test
+images/-174517438571435365.png,Eczema,Eczema,2.3333333333333335,test
