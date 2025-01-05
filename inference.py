@@ -49,12 +49,34 @@ def parse_args():
     return args
 
 def load_model(checkpoint_path, device):
+    """
+    Load and initialize the classification model from a checkpoint.
+
+    Args:
+        checkpoint_path (str): Path to the model checkpoint file
+        device (str): Device to load the model on ('cuda:0', 'cpu', etc.)
+
+    Returns:
+        ClassificationTask: Loaded and initialized model in evaluation mode
+    """
     model = ClassificationTask.load_from_checkpoint(checkpoint_path, map_location=device)
     model.to(device)
     model.eval()
     return model
 
 def preprocess_image(image_path, target_size=(810, 1080)):
+    """
+    Preprocess an image for model inference.
+
+    Args:
+        image_path (str): Path to the input image file
+        target_size (tuple): Desired size for the image (width, height), default: (810, 1080)
+
+    Returns:
+        tuple: Contains:
+            - PIL.Image: Original image opened in RGB mode
+            - torch.Tensor: Preprocessed image tensor of shape (1, 3, height, width)
+    """
     transform = transforms.Compose([
         transforms.Resize(target_size),
         transforms.ToTensor(),
@@ -65,6 +87,19 @@ def preprocess_image(image_path, target_size=(810, 1080)):
     return image, image_tensor
 
 def predict(model, image_tensor, device):
+    """
+    Perform model inference on a preprocessed image tensor.
+
+    Args:
+        model (ClassificationTask): The loaded classification model
+        image_tensor (torch.Tensor): Preprocessed image tensor of shape (1, 3, height, width)
+        device (str): Device to perform inference on ('cuda:0', 'cpu', etc.)
+
+    Returns:
+        tuple: Contains:
+            - int: Predicted class index
+            - numpy.ndarray: Softmax probabilities for each class
+    """
     image_tensor = image_tensor.to(device)
     with torch.no_grad():
         output = model(image_tensor)
@@ -163,8 +198,8 @@ def process_images(
                         _, image_tensor = preprocess_image(image_path)
 
                         predicted_class, probabilities = predict(model, image_tensor, device)
-                        class_names = ["Eczema", "Allergic Contact Dermatitis"]
-
+                        print(predicted_class.type())
+                        
                         results.append({"Image": image_path, "Class": predicted_class+1})
 
                         logger.debug("Successfully processed %s", image_path)
@@ -180,7 +215,7 @@ def process_images(
                     output_csv, mode="w", newline="", encoding="utf-8"
                 ) as csvfile:
                     writer = csv.DictWriter(
-                        csvfile, fieldnames=["Image", "Description"]
+                        csvfile, fieldnames=["Image", "Class"]
                     )
                     writer.writeheader()
                     writer.writerows(results)
@@ -206,13 +241,7 @@ def main():
     try:
         args = parse_args()
         device = f"cuda:{args.gpu_id}" if args.gpu_id >= 0 and torch.cuda.is_available() else "cpu"
-
-        # if not os.path.exists(args.cfg_path):
-        #     raise FileNotFoundError(f"Config file not found: {args.cfg_path}")
-
-        # cfg = Config(args)
-        # setup_seeds(cfg)
-
+        
         # Setup device
         if torch.cuda.is_available():
             device = f"cuda:{args.gpu_id}"
