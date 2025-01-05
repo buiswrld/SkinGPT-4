@@ -198,7 +198,6 @@ def process_images(
                         _, image_tensor = preprocess_image(image_path)
 
                         predicted_class, probabilities = predict(model, image_tensor, device)
-                        print(predicted_class.type())
                         
                         results.append({"Image": image_path, "Class": predicted_class+1})
 
