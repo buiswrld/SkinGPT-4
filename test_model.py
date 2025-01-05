@@ -48,6 +48,8 @@ def main():
     classes = ["Eczema", "Allergic Contact Dermatitis", "Urticaria", "Psoriasis", "Impetigo", "Tinea"]
     print(f"Predicted class: {classes[predicted_class]}")
     print(f"Probabilities: {probabilities}")
+    for idx, prob in enumerate(probabilities):
+        print(f"Class index {idx} ({classes[idx]}): {prob}")
 
 if __name__ == "__main__":
     main()
