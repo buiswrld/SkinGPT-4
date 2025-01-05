@@ -4,6 +4,7 @@ from fairlearn.metrics import (
 )
 from sklearn.metrics import accuracy_score
 
+import os
 import pandas as pd
 import numpy as np
 from pandas import DataFrame
@@ -106,25 +107,50 @@ def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
 
         print(f'{description} -> between_groups: {between_groups}, to_overall: {to_overall}')
 
-        return between_groups, to_overall
+        return mf, between_groups, to_overall
     except Exception as e:
         print(f"Failed to calculate fairness metrics for {description}: {e}")
         return None, None
 
 def main():
-    print("Combining CSV files...")
-    prediction_csv = "./data/metrics/prediction.csv"
-    ground_truth_csv = "./data/metrics/truth.csv"
+    metrics_dir = "./data/metrics"
+    for subdir in os.listdir(metrics_dir):
+        subdir_path = os.path.join(metrics_dir, subdir)
+        
+        if not os.path.isdir(subdir_path):
+            continue
+            
+        print(f"processing directory: {subdir}")
+        
+        prediction_csv = os.path.join(subdir_path, "prediction.csv")
+        ground_truth_csv = os.path.join(subdir_path, "truth.csv")
+        
+        if not (os.path.exists(prediction_csv) and os.path.exists(ground_truth_csv)):
+            print(f"skipping {subdir} - missing required CSV files")
+            continue
+            
+        combined_df = combine_csv(prediction_csv, ground_truth_csv)
+        
+        arrays = initialize_arrays(len(combined_df))
+        arrays = fill_arrays(arrays, combined_df)
+        
+        sensitive_features = get_skintones(combined_df)
+        
+        mf, between_groups, to_overall = calculate_fairness_metrics(
+            arrays["y_true"], 
+            arrays["y_pred"],
+            sensitive_features,
+            f"combined_{subdir}"
+        )
+        with open(os.path.join(subdir_path, "final_results.txt"), "a") as f:
+            f.write(f"\nMetrics for {subdir}:\n")
+            f.write(f"Metrics frame overall:\n{mf.overall}\n")
+            f.write(f"Metrics frame by group:\n{mf.by_group}\n")
+            f.write(f"Between groups difference: {between_groups}\n")
+            f.write(f"To overall difference: {to_overall}\n")
+            f.write("-" * 80 + "\n")
 
-    combined_df = combine_csv(prediction_csv, ground_truth_csv)
-
-    arrays = initialize_arrays(len(combined_df))
-    arrays = fill_arrays(arrays, combined_df)
-
-    sensitive_features = get_skintones(combined_df)
-
-    between_groups, to_overall = calculate_fairness_metrics(arrays["y_true"], arrays["y_pred"], sensitive_features, "combined")
-    print("finished")
+        print("flushed metrics to csv")
 
 if __name__ == "__main__":
     main()
