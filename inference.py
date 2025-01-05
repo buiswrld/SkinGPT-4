@@ -44,6 +44,14 @@ def parse_args():
     parser.add_argument(
         "--gpu-id", type=int, default=0, help="specify the gpu to load the model."
     )
+
+    parser.add_argument(
+        "--ckpt-path", type=str, default="", help="Path to the model checkpoint file"
+    )
+
+    parser.add_argument(
+        "--out-path", type=str, default="", help="Path to the output file"
+    )
     args = parser.parse_args()
     logger.info("Parsed arguments: %s", args)
     return args
@@ -197,18 +205,10 @@ def process_images(
 
                         _, image_tensor = preprocess_image(image_path)
 
-                        predicted_class, probabilities = predict(model, image_tensor, device)
+                        predicted_class, _ = predict(model, image_tensor, device)
+                        classes = ["Eczema", "Allergic Contact Dermatitis", "Urticaria", "Psoriasis", "Impetigo", "Tinea"]
 
-                        correct = -1
-                        if row[1] == "Eczema":
-                            correct = 1
-                        elif row[1] == "Allergic Contact Dermatitis":
-                            correct = 2
-                        
-                        if predicted_class+1 == correct:
-                            num_correct += 1
-
-                        results.append({"Image": image_path, "Class": predicted_class+1, "ExpectedClass": correct})
+                        results.append({"Image": image_path, "Class": classes[predicted_class]})
 
                         logger.debug("Successfully processed %s", image_path)
 
@@ -262,12 +262,12 @@ def main():
         logger.info("Initializing Chat on device: %s", device)
 
         # Initialize model
-        model = load_model("/workspace/archive/results/pair_1/ckpts/epoch=47-step=768.ckpt", device)
+        model = load_model(args.ckpt_path, device)
         logger.info("Loaded model")
 
         # Process images
         csv_file = "data/clinical_inference/10-sample.csv"
-        output_csv = "output_results.csv"
+        output_csv = args.out_path
         output_folder = "output_images"
 
         process_images(csv_file, model, output_csv, output_folder, device)
