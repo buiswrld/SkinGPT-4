@@ -40,7 +40,6 @@ def parse_args():
         argparse.Namespace: Parsed command line arguments
     """
     parser = argparse.ArgumentParser(description="Demo")
-    parser.add_argument("--cfg-path", required=True, help="path to configuration file.")
     parser.add_argument(
         "--gpu-id", type=int, default=0, help="specify the gpu to load the model."
     )
@@ -260,7 +259,7 @@ def main():
         ).from_config(vis_processor_cfg)
 
         # Initialize model
-        model = load_model("./checkpoint.ckpt", device)
+        model = load_model("/workspace/archive/results/pair_5_clinicals/ckpts/epoch=15-step=256.ckpt", device)
         logger.info("Loaded model")
 
         # Process images
