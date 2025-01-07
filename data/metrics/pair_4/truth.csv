@@ -1,4 +1,4 @@
-image_path,label,fitz,split
+image_path,truth,fitz,split
 images/8274826488534529432.png,Psoriasis,2.0,train
 images/-3443499009691532250.png,Tinea,3.0,train
 images/-7034422526003126246.png,Tinea,4.0,train

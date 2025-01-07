@@ -1,4 +1,4 @@
-image_path,label,fitz,split
+image_path,truth,fitz,split
 images/1583230730423672688.png,Allergic Contact Dermatitis,4.0,train
 images/-6016382419044757412.png,Allergic Contact Dermatitis,1.0,train
 images/2866454509532808925.png,Eczema,,train
