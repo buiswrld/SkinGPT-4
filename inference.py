@@ -13,10 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 import logging
 
 # imports modules for registration
-from skingpt4.common.config import Config
-from skingpt4.common.dist_utils import get_rank
-from skingpt4.common.registry import registry
-from skingpt4.conversation.conversation import Chat, CONV_VISION
+from skingpt4.conversation.conversation import CONV_VISION
 from skingpt4.tasks import *
 from skingpt4.runners import *
 from skingpt4.processors import *
