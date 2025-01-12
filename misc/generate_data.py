@@ -12,7 +12,10 @@ conditions = {
     "Allergic Contact Dermatitis": 6,
 }
 
+### ADJUST THIS
 MIN_CONFIDENCE_THRESHOLD = 0.6
+###
+
 OMIT_EDGE_CASES = False
 
 df = pd.read_csv("../data/raw/dataset_scin_labels.csv")
@@ -71,4 +74,4 @@ test_df["split"] = "test"
 final_df = pd.concat([train_df, val_df, test_df])
 final_df["image_path"] = final_df["image_path"].str.replace("dataset/images/", "images/")
 
-final_df.to_csv(f"../data/training/fitz_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)
+final_df.to_csv(f"../data/training/fitz/fitz_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)
