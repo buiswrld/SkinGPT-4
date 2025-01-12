@@ -59,9 +59,6 @@ def create_trips(set_trips):
         create_split(df, triplet, filename)
 
 if __name__ == "__main__":
-<<<<<<< HEAD:misc/data_gen/generate_subsets.py
-
-=======
     ### ADJUST THIS
     CONFIDENCE = 0.70
     ###
@@ -86,7 +83,6 @@ if __name__ == "__main__":
     print("Available labels:", unique_labels)
 
     # Generate all pairs and triplets
->>>>>>> origin/main:misc/generate_subsets.py
     all_pairs = list(itertools.combinations(unique_labels, 2))
     all_triplets = list(itertools.combinations(unique_labels, 3))
 
