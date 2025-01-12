@@ -2,8 +2,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import itertools
 
-
-
 def create_split(df, labels, filename):
     subset_df = df[df['label'].isin(labels)]
     train_df, temp_df = train_test_split(subset_df, test_size=0.3, stratify=subset_df['label'], random_state=42)
@@ -34,7 +32,7 @@ if __name__ == "__main__":
     ###
 
     conf_int = int(CONFIDENCE * 100)
-    df = pd.read_csv(f"../data/training/fitz_60c.csv")
+    df = pd.read_csv(f"../data/training/fitz/fitz_{int(CONFIDENCE*100)}c.csv")
     unique_labels = df['label'].unique()
 
     all_pairs = list(itertools.combinations(unique_labels, 2))
