@@ -1,5 +1,4 @@
 import logging
-import random
 
 import torch
 from torch.cuda.amp import autocast as autocast
@@ -8,8 +7,6 @@ import torch.nn as nn
 
 from skingpt4.common.registry import registry
 from skingpt4.models.blip2 import Blip2Base, disabled_train
-from skingpt4.models.modeling_llama import LlamaForCausalLM
-from transformers import LlamaTokenizer
 
 
 @registry.register_model("skin_gpt4")
@@ -44,7 +41,6 @@ class skingpt4(Blip2Base):
     ):
         super().__init__()
 
-        self.tokenizer = self.init_tokenizer()
         self.low_resource = low_resource
 
         print("Loading VIT")
@@ -127,8 +123,6 @@ class skingpt4(Blip2Base):
         return query_output.last_hidden_state, image_atts
 
     def forward(self, samples):
-        # Resize the image to be 224 by 224
-
         if isinstance(samples, dict):
             samples = samples["image"]
         samples = F.interpolate(
