@@ -2,6 +2,15 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 import itertools
 
+
+### ADJUST THIS
+CONFIDENCE = 0.60
+###
+
+conf_int = int(CONFIDENCE * 100)
+df = pd.read_csv(f"../data/training/fitz/fitz_{int(CONFIDENCE*100)}c.csv")
+unique_labels = df['label'].unique()
+
 def create_split(df, labels, filename):
     subset_df = df[df['label'].isin(labels)]
     train_df, temp_df = train_test_split(subset_df, test_size=0.3, stratify=subset_df['label'], random_state=42)
@@ -26,14 +35,6 @@ def create_trips(set_trips):
         create_split(df, triplet, filename)
 
 if __name__ == "__main__":
-
-    ### ADJUST THIS
-    CONFIDENCE = 0.60
-    ###
-
-    conf_int = int(CONFIDENCE * 100)
-    df = pd.read_csv(f"../data/training/fitz/fitz_{int(CONFIDENCE*100)}c.csv")
-    unique_labels = df['label'].unique()
 
     all_pairs = list(itertools.combinations(unique_labels, 2))
     all_triplets = list(itertools.combinations(unique_labels, 3))
