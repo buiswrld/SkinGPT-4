@@ -1,5 +1,6 @@
 import cv2
 import os
+import argparse
 
 def downsample(image_path: str, output_path: str, degree: int):
     img = cv2.imread(image_path)
@@ -23,7 +24,10 @@ def process_images(input_dir: str, output_dir: str, degree: int):
             downsample(input_path, output_path, degree)
 
 if __name__ == "__main__":
-    degree = 3
+    parser = argparse.ArgumentParser(descrption='Downsample images to a specified degree')
+    parser.add_argument('--degree', type=int, default=3, help='Degree of downsampling (call pyrdown n degrees times)')
+    args = parser.parse_args()
+    degree = args.degree
     input_dir = "images"
     output_dir = f"images/downsampled_d{degree}"
     process_images(input_dir, output_dir, degree)
