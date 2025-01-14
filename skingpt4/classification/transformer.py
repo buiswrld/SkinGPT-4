@@ -22,3 +22,6 @@ class Transformer:
         ]
 
         self.transforms = self.transforms + random_transforms
+
+    def transforms(self):
+        return transforms.Compose(self.transforms)
