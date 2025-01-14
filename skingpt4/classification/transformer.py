@@ -21,4 +21,4 @@ class Transformer:
             transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05)
         ]
 
-        self.transforms = random_transforms + self.transforms
+        self.transforms = self.transforms + random_transforms
