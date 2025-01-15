@@ -81,13 +81,13 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def train_dataloader(self):
         oversample = self.hparams.get('oversample', False)
         dataset_path = self.hparams.get('dataset_path', "")
-        transformer = Transformer()
+        transformer = Transformer().downsample().to_tensor().transformers()
         # TODO ~ Dynamically retrieve img size for downsampling
         '''
         transformer.downsample(256, img_size)
         transformer.randomize_img(degree=1)
         '''
-        transforms_list = Transformer().transforms()
+        transforms_list = Transformer().to_tensor.transforms()
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         if oversample:
             oversample_col = self.hparams.get('oversample_col', 'label')
@@ -106,7 +106,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
  
     def val_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = Transformer.transforms()
+        transforms_list = Transformer().to_tensor().transforms()
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
@@ -114,7 +114,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
 
     def test_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = Transformer().transforms()
+        transforms_list = Transformer().to_tensor().transforms()
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,

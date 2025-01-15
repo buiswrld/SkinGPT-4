@@ -2,14 +2,14 @@ import torchvision.transforms as transforms
 
 class Transformer:
     def __init__(self):
-        self.transforms = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
+        self.transforms = [ transforms.Resize((810, 1080))]
 
-    def downsample(self, downsample_dim, starting_img_size):
+    # TODO ~ Support scaling by 810*1080, i.e. nonsquare downsample_dim
+    def downsample(self, downsample_dim):
         downsample_dim = downsample_dim
-        starting_img_size = starting_img_size
         downsample_transforms = [
             transforms.Resize((downsample_dim, downsample_dim)),
-            transforms.Resize((starting_img_size, starting_img_size))
+            transforms.Resize((810, 1080))
         ]
 
         self.transforms = downsample_transforms + self.transforms
@@ -22,6 +22,9 @@ class Transformer:
         ]
 
         self.transforms = self.transforms + random_transforms
+
+    def to_tensor(self):
+        self.transforms = self.transforms + [transforms.ToTensor()]
 
     def transforms(self):
         return transforms.Compose(self.transforms)
