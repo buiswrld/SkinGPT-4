@@ -36,7 +36,7 @@ def train(
         oversample=False,
         oversample_col = 'label',#TODO ~ Customize (eligible: 'label', 'fitz')
         downsample_factor=0.5, #TODO ~ Customize (determines the percentage of image quality)
-        oversample_factor=1.0 #TODO ~ Customize (determines the oversampling factor, magnitude 1 indicates a balanced set, >1 increases minority class sapmples)
+        oversample_factor=1.0, #TODO ~ Customize (determines the oversampling factor, magnitude 1 indicates a balanced set, >1 increases minority class sapmples)
         ## model params
         
         vit_model="eva_clip_g",
