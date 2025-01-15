@@ -12,8 +12,8 @@ class Transformer:
             downsample_factor (float): The factor by which to downsample the image
 
         """
-        h = downsample_factor * 1080
-        w = downsample_factor * 810
+        h = int(downsample_factor * 1080)
+        w = int(downsample_factor * 810)
         downsample_transforms = [
             transforms.Resize((h, w)),
             transforms.Resize((1080, 810))
