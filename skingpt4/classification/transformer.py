@@ -42,7 +42,7 @@ class Transformer:
         """
         self.transforms = self.transforms + [transforms.ToTensor()]
 
-    def transforms(self) -> transforms.Compose:
+    def get_transforms(self) -> transforms.Compose:
         """
         Return all transformations from this class instance
 
