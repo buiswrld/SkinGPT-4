@@ -2,14 +2,15 @@ import torchvision.transforms as transforms
 
 class Transformer:
     def __init__(self):
-        self.transforms = [ transforms.Resize((810, 1080))]
+        self.transforms = [ transforms.Resize((1080, 810))]
 
     # TODO ~ Support scaling by 810*1080, i.e. nonsquare downsample_dim
     def downsample(self, downsample_factor: float) -> None:
-        downsample_factor = downsample_factor
+        h = downsample_factor * 1080
+        w = downsample_factor * 810
         downsample_transforms = [
-            transforms.Resize((downsample_factor, downsample_factor)),
-            transforms.Resize((810, 1080))
+            transforms.Resize((h, w)),
+            transforms.Resize((1080, 810))
         ]
 
         self.transforms = downsample_transforms + self.transforms
