@@ -4,7 +4,6 @@ class Transformer:
     def __init__(self):
         self.transforms = [ transforms.Resize((1080, 810))]
 
-    # TODO ~ Support scaling by 810*1080, i.e. nonsquare downsample_dim
     def downsample(self, downsample_factor: float) -> None:
         h = downsample_factor * 1080
         w = downsample_factor * 810
