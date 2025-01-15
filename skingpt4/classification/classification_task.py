@@ -87,7 +87,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         transformer.downsample(downsample_factor)
         transformer.to_tensor()
         transformer.randomize_img(degree=1)
-        transforms = transformer.transforms()
+        transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms, classes=self.hparams.get('classes'))
         if oversample:
             oversample_col = self.hparams.get('oversample_col', 'label')
@@ -108,7 +108,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         dataset_path = self.hparams.get('dataset_path', "")
         transformer = Transformer()
         transformer.to_tensor()
-        transforms = transformer.transforms()
+        transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms, classes=self.hparams.get('classes'))
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
@@ -118,7 +118,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         dataset_path = self.hparams.get('dataset_path', "")
         transformer = Transformer()
         transformer.to_tensor()
-        transforms = transformer.transforms()
+        transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms, classes=self.hparams.get('classes'))
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
