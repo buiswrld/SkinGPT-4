@@ -5,7 +5,7 @@ class Transformer:
         self.transforms = [ transforms.Resize((810, 1080))]
 
     # TODO ~ Support scaling by 810*1080, i.e. nonsquare downsample_dim
-    def downsample(self, downsample_dim):
+    def downsample(self, downsample_dim: float) -> None:
         downsample_dim = downsample_dim
         downsample_transforms = [
             transforms.Resize((downsample_dim, downsample_dim)),
@@ -14,7 +14,7 @@ class Transformer:
 
         self.transforms = downsample_transforms + self.transforms
 
-    def randomize_img(self, degree = 1):
+    def randomize_img(self, degree = 1) -> None:
         random_transforms = [
             transforms.RandomHorizontalFlip(0.5),
             transforms.RandomVerticalFlip(0.5),
@@ -23,8 +23,8 @@ class Transformer:
 
         self.transforms = self.transforms + random_transforms
 
-    def to_tensor(self):
+    def to_tensor(self) -> None:
         self.transforms = self.transforms + [transforms.ToTensor()]
 
-    def transforms(self):
+    def transforms(self) -> transforms.Compose:
         return transforms.Compose(self.transforms)
