@@ -1,7 +1,7 @@
 import pandas as pd
 import ast
 from sklearn.model_selection import train_test_split
-from add_fitz import add_fitzpatrick_ratings
+from misc.data_gen.add_fitz import add_fitzpatrick_ratings
 
 conditions = {
     "Eczema": 1,
