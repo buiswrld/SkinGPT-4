@@ -81,6 +81,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def train_dataloader(self):
         oversample = self.hparams.get('oversample', False)
         dataset_path = self.hparams.get('dataset_path', "")
+        oversample_factor = self.hparams.get('oversample_factor', 1.0) 
         downsample_factor = self.hparams.get('downsample_factor', 0.5)
         transformer = Transformer()
         transformer.downsample(downsample_factor)
@@ -92,7 +93,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             oversample_col = self.hparams.get('oversample_col', 'label')
             labels = dataset.dataset[oversample_col].tolist()
             class_counts = {cls: labels.count(cls) for cls in set(labels)}
-            class_weights = {cls: 1.0 / count for cls, count in class_counts.items()}
+            class_weights = {cls: (1.0 / count)*oversample_factor for cls, count in class_counts.items()}
             sample_weights = [class_weights[label] for label in labels]
             sampler = WeightedRandomSampler(sample_weights, len(sample_weights))
             shuffle=False
