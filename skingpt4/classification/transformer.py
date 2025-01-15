@@ -5,10 +5,10 @@ class Transformer:
         self.transforms = [ transforms.Resize((810, 1080))]
 
     # TODO ~ Support scaling by 810*1080, i.e. nonsquare downsample_dim
-    def downsample(self, downsample_dim: float) -> None:
-        downsample_dim = downsample_dim
+    def downsample(self, downsample_factor: float) -> None:
+        downsample_factor = downsample_factor
         downsample_transforms = [
-            transforms.Resize((downsample_dim, downsample_dim)),
+            transforms.Resize((downsample_factor, downsample_factor)),
             transforms.Resize((810, 1080))
         ]
 

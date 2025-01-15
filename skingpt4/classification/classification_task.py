@@ -81,9 +81,9 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def train_dataloader(self):
         oversample = self.hparams.get('oversample', False)
         dataset_path = self.hparams.get('dataset_path', "")
-        downsample_dim = self.hparams.get('downsample_factor', 0.5)
+        downsample_factor = self.hparams.get('downsample_factor', 0.5)
         transformer = Transformer()
-        transformer.downsample(downsample_dim)
+        transformer.downsample(downsample_factor)
         transformer.to_tensor()
         transformer.randomize_img(degree=1)
         transforms = transformer.transforms()

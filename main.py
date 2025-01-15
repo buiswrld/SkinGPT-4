@@ -35,7 +35,7 @@ def train(
         num_classes=6, #TODO ~ Customize
         oversample=False,
         oversample_col = 'label',#TODO ~ Customize (eligible: 'label', 'fitz')
-        downsample_factor=0.5 #TODO ~ Customize (determines the percentage of image quality)
+        downsample_factor=0.5, #TODO ~ Customize (determines the percentage of image quality)
 
         ## model params
         
