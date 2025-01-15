@@ -87,7 +87,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         transformer.to_tensor()
         transformer.randomize_img(degree=1)
         transforms = transformer.transforms()
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms, classes=self.hparams.get('classes'))
         if oversample:
             oversample_col = self.hparams.get('oversample_col', 'label')
             labels = dataset.dataset[oversample_col].tolist()
