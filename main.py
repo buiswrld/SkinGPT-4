@@ -29,7 +29,7 @@ def train(
         #util params
         task='classification',
         loss_fn="CE",
-        use_mlp_head = False,
+        use_mlp_head = True,
         learning_rate = 5e-4,
         classes=('Eczema', 'Allergic Contact Dermatitis', 'Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'),#TODO ~ Customize
         num_classes=6, #TODO ~ Customize
