@@ -3,6 +3,15 @@ from sklearn.model_selection import train_test_split
 import itertools
 import os
 
+
+### ADJUST THIS
+CONFIDENCE = 0.60
+###
+
+conf_int = int(CONFIDENCE * 100)
+df = pd.read_csv(f"../data/training/fitz/fitz_{int(CONFIDENCE*100)}c.csv")
+unique_labels = df['label'].unique()
+
 def create_split(df, labels, filename):
     # Filter the DataFrame for the specific labels
     subset_df = df[df['label'].isin(labels)]

@@ -29,13 +29,14 @@ def train(
         #util params
         task='classification',
         loss_fn="CE",
-        use_mlp_head = False,
+        use_mlp_head = True,
         learning_rate = 5e-4,
         classes=('Eczema', 'Allergic Contact Dermatitis', 'Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'),#TODO ~ Customize
         num_classes=6, #TODO ~ Customize
         oversample=False,
         oversample_col = 'label',#TODO ~ Customize (eligible: 'label', 'fitz')
-
+        downsample_factor=1.0, #TODO ~ Customize (determines the percentage of image quality)
+        oversample_factor=1.0, #TODO ~ Customize (determines the oversampling factor, magnitude 1 indicates a balanced set, >1 increases minority class sapmples)
         ## model params
         
         vit_model="eva_clip_g",

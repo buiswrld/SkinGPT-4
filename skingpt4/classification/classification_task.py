@@ -1,13 +1,13 @@
 import pytorch_lightning as pl
 import torch
 from torch.utils.data import DataLoader, WeightedRandomSampler
-import torchvision.transforms as transforms
 
 from .loss import get_loss_fn
 from data.dataset import GeneralizedClassificationDataset
 from .logger import TFLogger
 from .evaluator import GeneralClassificationEvaluator
 from skingpt4.models.detection import get_model
+from .transformer import Transformer
 
 class ClassificationTask(pl.LightningModule, TFLogger):
     """Standard interface for the trainer to interact with the model."""
@@ -81,18 +81,19 @@ class ClassificationTask(pl.LightningModule, TFLogger):
     def train_dataloader(self):
         oversample = self.hparams.get('oversample', False)
         dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = [ transforms.Resize((810, 1080)),
-                            transforms.ToTensor(), #(C, H, W) from (H, W, C) 
-                            transforms.RandomHorizontalFlip(0.5),
-                            transforms.RandomVerticalFlip(0.5),
-                            transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05)
-                          ]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        oversample_factor = self.hparams.get('oversample_factor', 1.0) 
+        downsample_factor = self.hparams.get('downsample_factor', 0.5)
+        transformer = Transformer()
+        transformer.downsample(downsample_factor)
+        transformer.to_tensor()
+        transformer.randomize_img(degree=1)
+        transforms = transformer.get_transforms()
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms, classes=self.hparams.get('classes'))
         if oversample:
             oversample_col = self.hparams.get('oversample_col', 'label')
             labels = dataset.dataset[oversample_col].tolist()
             class_counts = {cls: labels.count(cls) for cls in set(labels)}
-            class_weights = {cls: 1.0 / count for cls, count in class_counts.items()}
+            class_weights = {cls: (1.0 / count)*oversample_factor for cls, count in class_counts.items()}
             sample_weights = [class_weights[label] for label in labels]
             sampler = WeightedRandomSampler(sample_weights, len(sample_weights))
             shuffle=False
@@ -105,16 +106,20 @@ class ClassificationTask(pl.LightningModule, TFLogger):
  
     def val_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        transformer = Transformer()
+        transformer.to_tensor()
+        transforms = transformer.get_transforms()
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms, classes=self.hparams.get('classes'))
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
 
     def test_dataloader(self):
         dataset_path = self.hparams.get('dataset_path', "")
-        transforms_list = [ transforms.Resize((810, 1080)),transforms.ToTensor()]
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms.Compose(transforms_list), classes=self.hparams.get('classes'))
+        transformer = Transformer()
+        transformer.to_tensor()
+        transforms = transformer.get_transforms()
+        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms, classes=self.hparams.get('classes'))
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
