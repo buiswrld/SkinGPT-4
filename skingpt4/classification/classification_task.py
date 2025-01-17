@@ -19,7 +19,15 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.loss = get_loss_fn(params)
         self.evaluator = GeneralClassificationEvaluator()
         self.validation_outputs=[]
-
+        self.lr = self.hparams.get('learning_rate', 5e-4)
+        self.oversample = self.hparams.get('oversample', False)
+        self.oversample_factor = self.hparams.get('oversample_factor', 1.0) 
+        self.oversample_col = self.hparams.get('oversample_col', 'label')
+        self.downsample_factor = self.hparams.get('downsample_factor', 0.5)
+        self.data_regime = self.hparams.get('data_regime', 1.0)
+        self.dataset_path = self.hparams.get('dataset_path', "")
+        self.classes = self.hparams.get('classes', ('Eczema', 'Allergic Contact Dermatitis','Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'))
+        
     def forward(self, x):
         return self.model(x)
 
@@ -75,25 +83,25 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         return self.on_validation_epoch_end()
 
     def configure_optimizers(self):
-        lr = self.hparams.get('learning_rate', 5e-4)
-        return torch.optim.Adam(self.parameters(), lr=lr)
+        return torch.optim.Adam(self.parameters(), lr=self.lr)
     
     def train_dataloader(self):
-        oversample = self.hparams.get('oversample', False)
-        dataset_path = self.hparams.get('dataset_path', "")
-        oversample_factor = self.hparams.get('oversample_factor', 1.0) 
-        downsample_factor = self.hparams.get('downsample_factor', 0.5)
+
         transformer = Transformer()
-        transformer.downsample(downsample_factor)
+        transformer.downsample(self.downsample_factor)
         transformer.to_tensor()
         transformer.randomize_img(degree=1)
         transforms = transformer.get_transforms()
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="train", transforms=transforms, classes=self.hparams.get('classes'))
-        if oversample:
-            oversample_col = self.hparams.get('oversample_col', 'label')
-            labels = dataset.dataset[oversample_col].tolist()
+        dataset = GeneralizedClassificationDataset(
+            dataset_path=self.dataset_path, split="train", 
+            transforms=transforms, 
+            classes=self.classes, 
+            data_regime=self.data_regime
+        )
+        if self.oversample:
+            labels = dataset.dataset[self.oversample_col].tolist()
             class_counts = {cls: labels.count(cls) for cls in set(labels)}
-            class_weights = {cls: (1.0 / count)*oversample_factor for cls, count in class_counts.items()}
+            class_weights = {cls: (1.0 / count)*self.oversample_factor for cls, count in class_counts.items()}
             sample_weights = [class_weights[label] for label in labels]
             sampler = WeightedRandomSampler(sample_weights, len(sample_weights))
             shuffle=False
@@ -105,21 +113,28 @@ class ClassificationTask(pl.LightningModule, TFLogger):
                           batch_size=2, num_workers=8)
  
     def val_dataloader(self):
-        dataset_path = self.hparams.get('dataset_path', "")
         transformer = Transformer()
         transformer.to_tensor()
         transforms = transformer.get_transforms()
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="val", transforms=transforms, classes=self.hparams.get('classes'))
+        dataset = GeneralizedClassificationDataset(
+            dataset_path=self.dataset_path, split="val", 
+            transforms=transforms, 
+            classes=self.classes,
+        )
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
 
     def test_dataloader(self):
-        dataset_path = self.hparams.get('dataset_path', "")
         transformer = Transformer()
         transformer.to_tensor()
         transforms = transformer.get_transforms()
-        dataset = GeneralizedClassificationDataset(dataset_path=dataset_path, split="test", transforms=transforms, classes=self.hparams.get('classes'))
+        dataset = GeneralizedClassificationDataset(
+            dataset_path=self.dataset_path, 
+            split="test", 
+            transforms=transforms, 
+            classes=self.classes,
+        )
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
