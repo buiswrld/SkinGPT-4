@@ -120,7 +120,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             dataset_path=self.dataset_path, split="val", 
             transforms=transforms, 
             classes=self.classes,
-            data_regime=self.data_regime
         )
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
@@ -135,7 +134,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             split="test", 
             transforms=transforms, 
             classes=self.classes,
-            data_regime = self.data_regime
         )
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
