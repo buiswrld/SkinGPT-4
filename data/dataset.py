@@ -19,8 +19,8 @@ class GeneralizedClassificationDataset(torch.utils.data.Dataset):
         else:
             raise ValueError("classes input is neither a comma-separated string nor a tuple")
         self.class_to_idx = {class_name: idx for idx, class_name in enumerate(self.class_names)}
-
-        if self.data_regime < 1.0:
+        
+        if not self.data_regime == 1.0:
             self._apply_data_regime()
 
     def __len__(self):
@@ -37,6 +37,8 @@ class GeneralizedClassificationDataset(torch.utils.data.Dataset):
         return {"image": image, "label": label}
 
     def _apply_data_regime(self):
+        if self.data_regime > 1.0 or self.data_regime <= 0.0:
+            raise ValueError("data_regime must be in range (0, 1]")
         num_samples = int(len(self.dataset) * self.data_regime)
         indices = np.random.choice(len(self.dataset), num_samples, replace=False)
         self.dataset = self.dataset.iloc[indices].reset_index(drop=True)
