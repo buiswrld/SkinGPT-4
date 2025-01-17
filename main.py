@@ -1,5 +1,6 @@
 import os
 import fire
+import glob
 from pytorch_lightning import Trainer
 
 from skingpt4.models.skin_gpt4 import skingpt4
@@ -118,7 +119,7 @@ def train(
     trainer.fit(task)
 
 
-def test(ckpt_path,
+def test(exp_name,
          gpus=4,
          **kwargs):
     """
@@ -132,6 +133,12 @@ def test(ckpt_path,
     Returns: None
 
     """
+    ckpt_dir = os.path.join("../archive/results/", exp_name)
+    ckpt_path = glob.glob(os.path.join(ckpt_dir, "ckpts/*.ckpt"))
+
+    if not ckpt_path:
+        raise ValueError(f"No checkpoint found in {ckpt_dir}")
+    ckpt_path = ckpt_path[0]
     task = load_task(ckpt_path, **kwargs)
     trainer = Trainer(devices=gpus)
     trainer.test(task)
