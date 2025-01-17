@@ -133,7 +133,7 @@ def test(exp_name,
     Returns: None
 
     """
-    ckpt_dir = os.path.join("../archive/results", exp_name)
+    ckpt_dir = os.path.join("../archive/results/ckpts", exp_name)
     ckpt_path = glob.glob(os.path.join(ckpt_dir, "*.ckpt"))
 
     if not ckpt_path:
