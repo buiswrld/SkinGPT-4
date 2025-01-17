@@ -133,8 +133,8 @@ def test(exp_name,
     Returns: None
 
     """
-    ckpt_dir = os.path.join("../archive/results/ckpts", exp_name)
-    ckpt_path = glob.glob(os.path.join(ckpt_dir, "*.ckpt"))
+    ckpt_dir = os.path.join("../archive/results/", exp_name)
+    ckpt_path = glob.glob(os.path.join(ckpt_dir, "ckpts/*.ckpt"))
 
     if not ckpt_path:
         raise ValueError(f"No checkpoint found in {ckpt_dir}")
