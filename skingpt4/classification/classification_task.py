@@ -23,7 +23,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.oversample = self.hparams.get('oversample', False)
         self.oversample_factor = self.hparams.get('oversample_factor', 1.0) 
         self.oversample_col = self.hparams.get('oversample_col', 'label')
-        self.downsample_factor = self.hparams.get('downsample_factor', 0.5)
+        self.downsample_factor = self.hparams.get('downsample_factor', 1.0)
         self.data_regime = self.hparams.get('data_regime', 1.0)
         self.dataset_path = self.hparams.get('dataset_path', "")
         self.classes = self.hparams.get('classes', ('Eczema', 'Allergic Contact Dermatitis','Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'))
@@ -53,6 +53,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         y_hat = (logits > 0).float()
         self.evaluator.update((logits, y))
         self.validation_outputs.append(loss)
+        print(f"Validation step batch: {batch}")
+        print(f"Val labels: {y}")
         return {'loss': loss}
 
     def on_validation_epoch_end(self):
