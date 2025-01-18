@@ -20,8 +20,8 @@ class GeneralizedClassificationDataset(torch.utils.data.Dataset):
             raise ValueError("classes input is neither a comma-separated string nor a tuple")
         self.class_to_idx = {class_name: idx for idx, class_name in enumerate(self.class_names)}
         
-        #if not self.data_regime == 1.0:
-            #self._apply_data_regime()
+        if not self.data_regime == 1.0:
+            self._apply_data_regime()
 
     def __len__(self):
         return len(self.dataset) 
