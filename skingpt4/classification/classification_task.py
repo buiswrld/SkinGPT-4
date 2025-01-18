@@ -53,8 +53,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         y_hat = (logits > 0).float()
         self.evaluator.update((logits, y))
         self.validation_outputs.append(loss)
-        print(f"Validation step batch: {batch}")
-        print(f"Val labels: {y}")
         return {'loss': loss}
 
     def on_validation_epoch_end(self):
@@ -113,7 +111,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             shuffle = True
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=shuffle, sampler=sampler,
-                          batch_size=2, num_workers=8)
+                          batch_size=32, num_workers=8)
  
     def val_dataloader(self):
         transformer = Transformer()
@@ -131,7 +129,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         class_counts = {cls: labels.count(cls) for cls in set(labels)}
         print(f"Validation set class distribution: {class_counts}")
         return DataLoader(dataset, shuffle=False,
-                          batch_size=1, num_workers=8)
+                          batch_size=32, num_workers=8)
 
     def test_dataloader(self):
         transformer = Transformer()
@@ -145,4 +143,4 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         )
         print(f"Testing set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
-                          batch_size=1, num_workers=8)
+                          batch_size=32, num_workers=8)
