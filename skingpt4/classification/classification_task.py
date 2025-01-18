@@ -20,10 +20,11 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.evaluator = GeneralClassificationEvaluator()
         self.validation_outputs=[]
         self.lr = self.hparams.get('learning_rate', 5e-4)
+        self.val_batches = self.hparams.get('val_batches', 1.0)
         self.oversample = self.hparams.get('oversample', False)
         self.oversample_factor = self.hparams.get('oversample_factor', 1.0) 
         self.oversample_col = self.hparams.get('oversample_col', 'label')
-        self.downsample_factor = self.hparams.get('downsample_factor', 0.5)
+        self.downsample_factor = self.hparams.get('downsample_factor', 1.0)
         self.data_regime = self.hparams.get('data_regime', 1.0)
         self.dataset_path = self.hparams.get('dataset_path', "")
         self.classes = self.hparams.get('classes', ('Eczema', 'Allergic Contact Dermatitis','Urticaria', 'Psoriasis', 'Impetigo', 'Tinea'))
@@ -93,7 +94,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         transformer.randomize_img(degree=1)
         transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(
-            dataset_path=self.dataset_path, split="train", 
+            dataset_path=self.dataset_path, 
+            split="train", 
             transforms=transforms, 
             classes=self.classes, 
             data_regime=self.data_regime
@@ -117,13 +119,14 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         transformer.to_tensor()
         transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(
-            dataset_path=self.dataset_path, split="val", 
+            dataset_path=self.dataset_path, 
+            split="val", 
             transforms=transforms, 
             classes=self.classes,
         )
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
-                          batch_size=1, num_workers=8)
+                          batch_size=self.val_batches, num_workers=8)
 
     def test_dataloader(self):
         transformer = Transformer()

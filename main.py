@@ -24,6 +24,7 @@ def train(
         patience=20,
         gradient_clip_val=0.5,
         limit_train_batches=16.0, #TODO ~ Customize
+        val_batches=8, #TODO ~ Customize
         weights_summary=None,
         max_epochs=200,
 
