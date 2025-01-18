@@ -111,7 +111,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             shuffle = True
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=shuffle, sampler=sampler,
-                          batch_size=32, num_workers=8)
+                          batch_size=2, num_workers=8)
  
     def val_dataloader(self):
         transformer = Transformer()
@@ -124,10 +124,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             classes=self.classes,
         )
         print(f"Validation set number of samples: {len(dataset)}")
-
-        labels = dataset.dataset['label'].tolist()
-        class_counts = {cls: labels.count(cls) for cls in set(labels)}
-        print(f"Validation set class distribution: {class_counts}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
 
