@@ -111,7 +111,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
             shuffle = True
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=shuffle, sampler=sampler,
-                          batch_size=16, num_workers=8)
+                          batch_size=32, num_workers=8)
  
     def val_dataloader(self):
         transformer = Transformer()
