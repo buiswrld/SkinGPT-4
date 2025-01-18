@@ -93,7 +93,8 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         transformer.randomize_img(degree=1)
         transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(
-            dataset_path=self.dataset_path, split="train", 
+            dataset_path=self.dataset_path, 
+            split="train", 
             transforms=transforms, 
             classes=self.classes, 
             data_regime=self.data_regime
