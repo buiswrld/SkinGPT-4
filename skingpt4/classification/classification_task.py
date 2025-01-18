@@ -20,6 +20,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         self.evaluator = GeneralClassificationEvaluator()
         self.validation_outputs=[]
         self.lr = self.hparams.get('learning_rate', 5e-4)
+        self.val_batches = self.hparams.get('val_batches', 1.0)
         self.oversample = self.hparams.get('oversample', False)
         self.oversample_factor = self.hparams.get('oversample_factor', 1.0) 
         self.oversample_col = self.hparams.get('oversample_col', 'label')
@@ -125,7 +126,7 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         )
         print(f"Validation set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=False,
-                          batch_size=8, num_workers=8)
+                          batch_size=self.val_batches, num_workers=8)
 
     def test_dataloader(self):
         transformer = Transformer()
