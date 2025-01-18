@@ -108,11 +108,6 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         else:
             sampler = None
             shuffle = True
-
-        class_counts_after_oversampling = {cls: 0 for cls in set(labels)}
-        for idx in sampler:
-            class_counts_after_oversampling[labels[idx]] += 1
-        print(f"Class distribution after oversampling: {class_counts_after_oversampling}")
         print(f"Training set number of samples: {len(dataset)}")
         return DataLoader(dataset, shuffle=shuffle, sampler=sampler,
                           batch_size=2, num_workers=8)
@@ -122,11 +117,16 @@ class ClassificationTask(pl.LightningModule, TFLogger):
         transformer.to_tensor()
         transforms = transformer.get_transforms()
         dataset = GeneralizedClassificationDataset(
-            dataset_path=self.dataset_path, split="val", 
+            dataset_path=self.dataset_path, 
+            split="val", 
             transforms=transforms, 
             classes=self.classes,
         )
         print(f"Validation set number of samples: {len(dataset)}")
+
+        labels = dataset.dataset['label'].tolist()
+        class_counts = {cls: labels.count(cls) for cls in set(labels)}
+        print(f"Validation set class distribution: {class_counts}")
         return DataLoader(dataset, shuffle=False,
                           batch_size=1, num_workers=8)
 
