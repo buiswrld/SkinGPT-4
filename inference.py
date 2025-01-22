@@ -47,11 +47,11 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--out-path", type=str, default="", help="Path to the output file"
+        "--out-path", type=str, default="", help="Path to the output csv file"
     )
 
     parser.add_argument(
-        "--in-path", type=str, default="", help="Path to the input file"
+        "--in-path", type=str, default="", help="Path to the input CSV for model to evaluate on"
     )
 
     parser.add_argument(
