@@ -18,7 +18,7 @@ MIN_CONFIDENCE_THRESHOLD = 0.6
 
 OMIT_EDGE_CASES = False
 
-df = pd.read_csv("../data/raw/dataset_scin_labels.csv")
+df = pd.read_csv("../../data/raw/dataset_scin_labels.csv")
 output_rows = []
 
 for index, row in df.iterrows():
@@ -55,12 +55,12 @@ for index, row in df.iterrows():
             no_edge = True
 
 output_df = pd.DataFrame(output_rows)
-path_df = pd.read_csv("../data/raw/dataset_scin_cases.csv")
+path_df = pd.read_csv("../../data/raw/dataset_scin_cases.csv")
 merged_df = pd.merge(output_df, path_df, on="case_id", how="left")
 selected_columns = merged_df[["image_id", "label"]]
 selected_columns = selected_columns.rename(columns={"image_id": "image_path"})
 
-final_df = add_fitzpatrick_ratings(selected_columns, "../data/raw/dataset_scin_labels.csv", "../data/raw/dataset_scin_cases.csv")
+final_df = add_fitzpatrick_ratings(selected_columns, "../../data/raw/dataset_scin_labels.csv", "../data/raw/dataset_scin_cases.csv")
 
 final_df.drop_duplicates(inplace=True)
 
@@ -74,4 +74,4 @@ test_df["split"] = "test"
 final_df = pd.concat([train_df, val_df, test_df])
 final_df["image_path"] = final_df["image_path"].str.replace("dataset/images/", "images/")
 
-final_df.to_csv(f"../data/training/fitz/fitz_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)
+final_df.to_csv(f"../../data/training/fitz/fitz_{int(MIN_CONFIDENCE_THRESHOLD*100)}c.csv", index=False)
