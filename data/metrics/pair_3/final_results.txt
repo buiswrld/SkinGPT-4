@@ -1,0 +1,21 @@
+
+Metrics for pair_3:
+Metrics frame overall:
+false negative rate    0.26
+accuracy               0.74
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.400000  0.600000
+2.0                             0.214286  0.785714
+3.0                             0.333333  0.666667
+4.0                             0.000000  1.000000
+5.0                             0.000000  1.000000
+Between groups difference: false negative rate    0.4
+accuracy               0.4
+dtype: float64
+To overall difference: false negative rate    0.26
+accuracy               0.26
+dtype: float64
+--------------------------------------------------------------------------------
