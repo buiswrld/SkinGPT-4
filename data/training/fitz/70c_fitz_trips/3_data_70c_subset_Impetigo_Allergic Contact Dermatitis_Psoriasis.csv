@@ -1,0 +1,70 @@
+image_path,label,fitz,split
+images/5358401025661447825.png,Allergic Contact Dermatitis,1.0,train
+images/-5607893322162480323.png,Psoriasis,3.0,train
+images/-4387878168031721243.png,Psoriasis,4.0,train
+images/-1288516358527303986.png,Allergic Contact Dermatitis,5.0,train
+images/8992004962400932960.png,Psoriasis,4.0,train
+images/-1587579803946468698.png,Allergic Contact Dermatitis,,train
+images/-6264468090527993860.png,Allergic Contact Dermatitis,3.0,train
+images/-3888875973527478965.png,Allergic Contact Dermatitis,3.0,train
+images/-809387930221707574.png,Allergic Contact Dermatitis,4.0,train
+images/-4269285436456284452.png,Allergic Contact Dermatitis,2.0,train
+images/-1771453055734416513.png,Psoriasis,3.6666666666666665,train
+images/-126472922177297480.png,Impetigo,3.0,train
+images/5495915177571105531.png,Impetigo,2.0,train
+images/-8794719700664225806.png,Psoriasis,2.0,train
+images/-4133795263010352091.png,Allergic Contact Dermatitis,3.0,train
+images/-164146060936976148.png,Allergic Contact Dermatitis,3.0,train
+images/-8489071995033586737.png,Allergic Contact Dermatitis,3.0,train
+images/-1578285749986829241.png,Psoriasis,3.0,train
+images/4616539214475309081.png,Allergic Contact Dermatitis,3.0,train
+images/-869349880437476994.png,Psoriasis,3.0,train
+images/-2288434622033194477.png,Impetigo,5.0,train
+images/-6928038343805197989.png,Allergic Contact Dermatitis,2.0,train
+images/-4188490081234160303.png,Allergic Contact Dermatitis,1.0,train
+images/-2812305517344850019.png,Allergic Contact Dermatitis,,train
+images/-2023528583731486939.png,Psoriasis,1.0,train
+images/-4893312442758095455.png,Allergic Contact Dermatitis,3.0,train
+images/5599579595537505183.png,Allergic Contact Dermatitis,3.0,train
+images/-4926134546599682921.png,Allergic Contact Dermatitis,2.3333333333333335,train
+images/382205097892683569.png,Allergic Contact Dermatitis,3.0,train
+images/-8240797750699318459.png,Allergic Contact Dermatitis,2.0,train
+images/2856173988568189587.png,Allergic Contact Dermatitis,3.0,train
+images/-5128272363659154502.png,Psoriasis,5.0,train
+images/6869198090785206318.png,Allergic Contact Dermatitis,2.0,train
+images/-8779903138873713227.png,Psoriasis,3.0,train
+images/-1117304357073393845.png,Allergic Contact Dermatitis,3.0,train
+images/-8707418133635013822.png,Allergic Contact Dermatitis,3.0,train
+images/-3599077752870060235.png,Allergic Contact Dermatitis,3.0,train
+images/8274826488534529432.png,Psoriasis,2.0,train
+images/-5902521648651774394.png,Allergic Contact Dermatitis,2.0,train
+images/6755815927772018364.png,Allergic Contact Dermatitis,3.0,train
+images/-2238709944412086899.png,Impetigo,2.0,train
+images/-5521011744040552037.png,Allergic Contact Dermatitis,2.0,train
+images/-5026570001652617553.png,Psoriasis,3.0,train
+images/3063788955691719168.png,Allergic Contact Dermatitis,2.0,train
+images/-6210468418251952437.png,Impetigo,2.0,train
+images/-3278401981209346612.png,Psoriasis,3.0,train
+images/-6760849338709173764.png,Allergic Contact Dermatitis,4.0,train
+images/-2368196693663754182.png,Allergic Contact Dermatitis,2.0,train
+images/-532249905180848227.png,Allergic Contact Dermatitis,1.0,val
+images/-3221416279462754613.png,Allergic Contact Dermatitis,4.0,val
+images/3129243513709030690.png,Psoriasis,,val
+images/5904657460937594916.png,Impetigo,1.0,val
+images/-6323838407357716508.png,Psoriasis,3.0,val
+images/-5027449927739449608.png,Psoriasis,2.0,val
+images/8040196583187577068.png,Allergic Contact Dermatitis,3.0,val
+images/7190421899691362883.png,Allergic Contact Dermatitis,3.0,val
+images/-2207449719805591208.png,Allergic Contact Dermatitis,4.0,val
+images/-4390482382607634718.png,Allergic Contact Dermatitis,3.0,val
+images/8102887568325883936.png,Allergic Contact Dermatitis,3.0,test
+images/-5825923352662531273.png,Allergic Contact Dermatitis,3.0,test
+images/3488658631985385263.png,Allergic Contact Dermatitis,2.0,test
+images/-1241231354355375740.png,Psoriasis,2.0,test
+images/-5560217361581663318.png,Allergic Contact Dermatitis,1.0,test
+images/-671812747914036997.png,Impetigo,2.0,test
+images/-2214538966673627919.png,Allergic Contact Dermatitis,3.0,test
+images/-8681693003307270555.png,Allergic Contact Dermatitis,4.0,test
+images/-3945856862178278962.png,Allergic Contact Dermatitis,,test
+images/-2538731880524128360.png,Psoriasis,3.0,test
+images/-5896619613088824953.png,Psoriasis,,test

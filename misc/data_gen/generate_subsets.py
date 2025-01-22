@@ -5,11 +5,11 @@ import os
 
 
 ### ADJUST THIS
-CONFIDENCE = 0.60
+CONFIDENCE = 0.70
 ###
 
 conf_int = int(CONFIDENCE * 100)
-df = pd.read_csv(f"../data/training/fitz/fitz_{int(CONFIDENCE*100)}c.csv")
+df = pd.read_csv(f"../../data/training/fitz/fitz_{int(CONFIDENCE*100)}c.csv")
 unique_labels = df['label'].unique()
 
 def create_split(df, labels, filename):
@@ -50,22 +50,19 @@ def create_split(df, labels, filename):
 
 def create_pairs(set_pairs):
     for idx, pair in enumerate(set_pairs, start=1):
-        filename = f"../data/training/fitz/{conf_int}c_fitz_pairs/{idx}_data_{conf_int}c_subset_{pair[0]}_{pair[1]}.csv"
+        filename = f"../../data/training/fitz/{conf_int}c_fitz_pairs/{idx}_data_{conf_int}c_subset_{pair[0]}_{pair[1]}.csv"
         create_split(df, pair, filename)
 
 def create_trips(set_trips):
     for idx, triplet in enumerate(set_trips, start=1):
-        filename = f"../data/training/fitz/{conf_int}c_fitz_trips/{idx}_data_{conf_int}c_subset_{triplet[0]}_{triplet[1]}_{triplet[2]}.csv"
+        filename = f"../../data/training/fitz/{conf_int}c_fitz_trips/{idx}_data_{conf_int}c_subset_{triplet[0]}_{triplet[1]}_{triplet[2]}.csv"
         create_split(df, triplet, filename)
 
 if __name__ == "__main__":
-    ### ADJUST THIS
-    CONFIDENCE = 0.70
-    ###
 
     # Calculate confidence interval and define file path
     conf_int = int(CONFIDENCE * 100)
-    file_path = f"../data/training/fitz/fitz_{conf_int}c.csv"
+    file_path = f"../../data/training/fitz/fitz_{conf_int}c.csv"
 
     # Check if the file exists
     if not os.path.exists(file_path):
@@ -96,14 +93,4 @@ if __name__ == "__main__":
         ("Impetigo", "Allergic Contact Dermatitis", "Psoriasis")
     ]
 
-    # Process all pairs
-    print("Processing all pairs...")
-    create_pairs(all_pairs)
-
-    # Process custom pairs (if needed)
-   # print("Processing custom pairs...")
-   # create_pairs(custom_pairs)
-
-    # Process custom trips (if needed)
-   # print("Processing custom trips...")
-   # create_trips(custom_trips)
+    create_trips(custom_trips)
