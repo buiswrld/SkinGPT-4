@@ -43,8 +43,6 @@ def get_multiclass_metrics(probs, labels):
     if isinstance(probs, torch.Tensor):
         probs = probs.cpu().numpy()
 
-    print(f"labels: {labels}")
-    print(f"probs: {probs}")
     preds = np.argmax(probs, axis=1)
     acc = accuracy_score(labels, preds)
     prec = precision_score(labels, preds, average='weighted')
