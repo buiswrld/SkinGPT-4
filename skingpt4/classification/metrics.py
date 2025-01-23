@@ -52,8 +52,20 @@ def get_multiclass_metrics(probs, labels):
     f1 = f1_score(labels, preds, average='weighted')
     if probs.shape[1] == 2:
         probs = probs[:, 1]
+
+    try:
+        auprc = average_precision_score(labels, probs, average='weighted')
+    except ValueError:
+        auprc = float('nan') 
+    
+    try:
+        auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
+    except ValueError:
+        auroc = float('nan') 
+    '''
     auprc = average_precision_score(labels, probs, average='weighted')
     auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
+    '''
 
     if OUTPUT_CURVE:
         precision, recall, _ = precision_recall_curve(labels.ravel(), probs.ravel())
