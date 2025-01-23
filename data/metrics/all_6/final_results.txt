@@ -1,0 +1,22 @@
+
+Metrics for all_6:
+Metrics frame overall:
+false negative rate    0.724359
+accuracy               0.275641
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.733333  0.266667
+2.0                             0.684783  0.315217
+3.0                             0.794643  0.205357
+4.0                             0.755102  0.244898
+5.0                             0.450000  0.550000
+6.0                             0.500000  0.500000
+Between groups difference: false negative rate    0.344643
+accuracy               0.344643
+dtype: float64
+To overall difference: false negative rate    0.274359
+accuracy               0.274359
+dtype: float64
+--------------------------------------------------------------------------------
