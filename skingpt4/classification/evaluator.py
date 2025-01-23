@@ -12,7 +12,7 @@ class GeneralClassificationEvaluator(
 
     def compute_fn(self, logits, y):
         prob = F.softmax(logits, dim=1)
-        return get_multiclass_metrics(prob, y)
+        return get_multiclass_metrics(prob, y, num_classes=logits.shape[1])
 
     def evaluate(self):
         return self.compute()

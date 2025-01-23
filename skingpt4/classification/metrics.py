@@ -36,12 +36,13 @@ def get_max_precision_above_recall(groundtruth, probabilities, value, return_thr
     else:
         return max_prec_above_rec
 
-def get_multiclass_metrics(probs, labels):
+def get_multiclass_metrics(probs, labels, num_classes):
     OUTPUT_CURVE = False
     if isinstance(labels, torch.Tensor):
         labels = labels.cpu().numpy()
     if isinstance(probs, torch.Tensor):
         probs = probs.cpu().numpy()
+
     preds = np.argmax(probs, axis=1)
     acc = accuracy_score(labels, preds)
     prec = precision_score(labels, preds, average='weighted')
@@ -49,8 +50,21 @@ def get_multiclass_metrics(probs, labels):
     f1 = f1_score(labels, preds, average='weighted')
     if probs.shape[1] == 2:
         probs = probs[:, 1]
-    auprc = average_precision_score(labels, probs, average='weighted')
-    auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
+
+    full_labels = np.concatenate([labels, np.arange(num_classes)])
+    full_probs = np.vstack([probs, np.eye(num_classes)])
+
+    try:
+        auprc = average_precision_score(full_labels, full_probs, average='weighted')
+    except ValueError:
+        print("Invalid AUPRC calculation: check shape of labels and probs")
+        auprc = float('nan') 
+    
+    try:
+        auroc = roc_auc_score(full_labels, full_probs, average='weighted', multi_class='ovr')
+    except ValueError:
+        print("Invalid AUPRC calculation: check shape of labels and probs")
+        auroc = float('nan') 
 
     if OUTPUT_CURVE:
         precision, recall, _ = precision_recall_curve(labels.ravel(), probs.ravel())

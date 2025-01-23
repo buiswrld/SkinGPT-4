@@ -1,4 +1,4 @@
-image_path,label,fitz,split
+image_path,truth,fitz,split
 images/-9087326729811666680.png,Urticaria,3.0,train
 images/-284320352049367340.png,Eczema,3.0,train
 images/-1611841910156196691.png,Urticaria,3.0,train
