@@ -11,12 +11,11 @@ sensitive_feature_0
 2.0                             0.147059  0.852941
 3.0                             0.230769  0.769231
 4.0                             0.086957  0.913043
-5.0                             0.000000  1.000000
-6.0                             1.000000  0.000000
-Between groups difference: false negative rate    1.0
-accuracy               1.0
+5.0                             0.142857  0.857143
+Between groups difference: false negative rate    0.413043
+accuracy               0.413043
 dtype: float64
-To overall difference: false negative rate    0.820896
-accuracy               0.820896
+To overall difference: false negative rate    0.320896
+accuracy               0.320896
 dtype: float64
 --------------------------------------------------------------------------------
