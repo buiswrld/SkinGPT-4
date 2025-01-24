@@ -50,14 +50,16 @@ def get_skintones(inference_df: DataFrame) -> list[int]:
     Returns:
         list[int]: List of Fitzpatrick skin tone values rounded to integers
     """
-    return inference_df["fitz"].tolist()
+    fitz_values = inference_df["fitz"].tolist()
+    fitz_values = [5 if value == 6 else value for value in fitz_values]
+    return fitz_values
+
 
 def combine_csv(inference_csv, ground_truth_csv: str) -> DataFrame:
     """
     Combines inference results with ground truth data by merging on image path.
 
-    Args:
-        inference_csv (str): Path to CSV file containing model inference results
+    Args:        inference_csv (str): Path to CSV file containing model inference results
         ground_truth_csv (str): Path to CSV file containing ground truth labels
 
     Returns:
