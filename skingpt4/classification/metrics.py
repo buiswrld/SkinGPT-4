@@ -51,8 +51,16 @@ def get_multiclass_metrics(probs, labels, num_classes):
     if probs.shape[1] == 2:
         probs = probs[:, 1]
 
+
+    print(f"labels shape: {labels.shape}")
+    print(f"np.arange(num_classes) shape: {np.arange(num_classes).shape}")
+
     full_labels = np.concatenate([labels, np.arange(num_classes)])
     full_probs = np.vstack([probs, np.eye(num_classes)])
+
+
+    print(f"full_labels shape: {full_labels.shape}")
+    print(f"full_probs shape: {full_probs.shape}")
 
     try:
         auprc = average_precision_score(full_labels, full_probs, average='weighted')
