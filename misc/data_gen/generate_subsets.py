@@ -5,7 +5,7 @@ import os
 
 
 ### ADJUST THIS
-CONFIDENCE = 0.70
+CONFIDENCE = 0.20
 ###
 
 conf_int = int(CONFIDENCE * 100)
