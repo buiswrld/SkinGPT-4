@@ -52,24 +52,20 @@ def get_multiclass_metrics(probs, labels, num_classes):
         probs = probs[:, 1]
 
 
-    print(f"labels shape: {labels.shape}")
-    print(f"np.arange(num_classes) shape: {np.arange(num_classes).shape}")
+    
+    if not num_classes == 2:
+        labels = np.concatenate([labels, np.arange(num_classes)])
+        probs = np.vstack([probs, np.eye(num_classes)])
 
-    full_labels = np.concatenate([labels, np.arange(num_classes)])
-    full_probs = np.vstack([probs, np.eye(num_classes)])
-
-
-    print(f"full_labels shape: {full_labels.shape}")
-    print(f"full_probs shape: {full_probs.shape}")
 
     try:
-        auprc = average_precision_score(full_labels, full_probs, average='weighted')
+        auprc = average_precision_score(labels, probs, average='weighted')
     except ValueError:
         print("Invalid AUPRC calculation: check shape of labels and probs")
         auprc = float('nan') 
     
     try:
-        auroc = roc_auc_score(full_labels, full_probs, average='weighted', multi_class='ovr')
+        auroc = roc_auc_score(labels, probs, average='weighted', multi_class='ovr')
     except ValueError:
         print("Invalid AUPRC calculation: check shape of labels and probs")
         auroc = float('nan') 
