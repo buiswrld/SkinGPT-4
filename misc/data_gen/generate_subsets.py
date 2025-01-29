@@ -5,7 +5,7 @@ import os
 
 
 ### ADJUST THIS
-CONFIDENCE = 0.20
+CONFIDENCE = 0.10
 ###
 
 conf_int = int(CONFIDENCE * 100)
@@ -93,4 +93,4 @@ if __name__ == "__main__":
         ("Impetigo", "Allergic Contact Dermatitis", "Psoriasis")
     ]
 
-    create_trips(custom_trips)
+    create_pairs(custom_pairs)
