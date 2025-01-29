@@ -1,0 +1,21 @@
+
+Metrics for ds_20:
+Metrics frame overall:
+false negative rate    0.246269
+accuracy               0.753731
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.500000  0.500000
+2.0                             0.205882  0.794118
+3.0                             0.288462  0.711538
+4.0                             0.173913  0.826087
+5.0                             0.142857  0.857143
+Between groups difference: false negative rate    0.357143
+accuracy               0.357143
+dtype: float64
+To overall difference: false negative rate    0.253731
+accuracy               0.253731
+dtype: float64
+--------------------------------------------------------------------------------
