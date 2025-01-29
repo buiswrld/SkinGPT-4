@@ -1,0 +1,21 @@
+
+Metrics for os_200:
+Metrics frame overall:
+false negative rate    0.164179
+accuracy               0.835821
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.500000  0.500000
+2.0                             0.147059  0.852941
+3.0                             0.173077  0.826923
+4.0                             0.043478  0.956522
+5.0                             0.285714  0.714286
+Between groups difference: false negative rate    0.456522
+accuracy               0.456522
+dtype: float64
+To overall difference: false negative rate    0.335821
+accuracy               0.335821
+dtype: float64
+--------------------------------------------------------------------------------

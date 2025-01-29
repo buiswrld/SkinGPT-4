@@ -1,0 +1,21 @@
+
+Metrics for rg_20:
+Metrics frame overall:
+false negative rate    0.261194
+accuracy               0.738806
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.500000  0.500000
+2.0                             0.205882  0.794118
+3.0                             0.269231  0.730769
+4.0                             0.217391  0.782609
+5.0                             0.428571  0.571429
+Between groups difference: false negative rate    0.294118
+accuracy               0.294118
+dtype: float64
+To overall difference: false negative rate    0.238806
+accuracy               0.238806
+dtype: float64
+--------------------------------------------------------------------------------
