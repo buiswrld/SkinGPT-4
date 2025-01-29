@@ -58,6 +58,10 @@ def parse_args():
     parser.add_argument(
         "--classes", type=str, default="Eczema,Allergic Contact Dermatitis,Urticaria,Psoriasis,Impetigo,Tinea", help="Comma-separated list of class names"
     )
+
+    parser.add_argument(
+        '--ablations', type=bool, default=False, help='Run through inference for all ablations and not best model on pairs/triplets'
+    )
     args = parser.parse_args()
     logger.info("Parsed arguments: %s", args)
     return args
@@ -295,4 +299,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    args = parse_args()
+    main(args.ablations)
