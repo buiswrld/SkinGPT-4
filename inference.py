@@ -74,7 +74,7 @@ def load_model(exp_name, device):
         ClassificationTask: Loaded and initialized model in evaluation mode
     """
     ckpt_path = f'../archive/results/{exp_name}/ckpts/*.ckpt'
-    checkpoint_path = glob.glob(ckpt_path)
+    checkpoint_path = glob.glob(ckpt_path)[0]
     model = ClassificationTask.load_from_checkpoint(checkpoint_path, map_location=device)
     model.to(device)
     model.eval()
