@@ -11,6 +11,7 @@ from tqdm import tqdm
 import torch.backends.cudnn as cudnn
 from PIL import Image, ImageDraw, ImageFont
 import logging
+import glob
 
 # imports modules for registration
 from skingpt4.conversation.conversation import CONV_VISION
@@ -39,19 +40,19 @@ def parse_args():
     """
     parser = argparse.ArgumentParser(description="Demo")
     parser.add_argument(
-        "--gpu-id", type=int, default=0, help="specify the gpu to load the model."
+        "--gpu_id", type=int, default=0, help="specify the gpu to load the model."
     )
 
     parser.add_argument(
-        "--ckpt-path", type=str, default="", help="Path to the model checkpoint file"
+        "--exp_name", type=str, default="", help="Path to the model checkpoint file"
     )
 
     parser.add_argument(
-        "--out-path", type=str, default="", help="Path to the output csv file"
+        "--out_path", type=str, default="", help="Path to the output csv file"
     )
 
     parser.add_argument(
-        "--in-path", type=str, default="", help="Path to the input CSV for model to evaluate on"
+        "--in_path", type=str, default="", help="Path to the input CSV for model to evaluate on"
     )
 
     parser.add_argument(
@@ -61,7 +62,7 @@ def parse_args():
     logger.info("Parsed arguments: %s", args)
     return args
 
-def load_model(checkpoint_path, device):
+def load_model(exp_name, device):
     """
     Load and initialize the classification model from a checkpoint.
 
@@ -72,6 +73,8 @@ def load_model(checkpoint_path, device):
     Returns:
         ClassificationTask: Loaded and initialized model in evaluation mode
     """
+    ckpt_path = f'../archive/results/{exp_name}/ckpts/*.ckpt'
+    checkpoint_path = glob.glob(ckpt_path)
     model = ClassificationTask.load_from_checkpoint(checkpoint_path, map_location=device)
     model.to(device)
     model.eval()
@@ -268,7 +271,7 @@ def main():
         classes=args.classes.split(",")
 
         # Initialize model
-        model = load_model(args.ckpt_path, device)
+        model = load_model(args.exp_name, device)
         logger.info("Loaded model")
 
         # Process images
