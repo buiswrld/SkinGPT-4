@@ -53,7 +53,7 @@ def get_multiclass_metrics(probs, labels, num_classes):
 
 
     
-    if not num_classes == 2:
+    if num_classes == 6:
         labels = np.concatenate([labels, np.arange(num_classes)])
         probs = np.vstack([probs, np.eye(num_classes)])
 
