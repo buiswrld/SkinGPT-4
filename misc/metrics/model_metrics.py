@@ -113,9 +113,45 @@ def calculate_fairness_metrics(y_true, y_pred, sensitive_features, description):
     except Exception as e:
         print(f"Failed to calculate fairness metrics for {description}: {e}")
         return None, None
+    
+def process_directory(directory_path):
+    prediction_csv = os.path.join(directory_path, "prediction.csv")
+    ground_truth_csv = os.path.join(directory_path, "truth.csv")
 
-def main():
-    metrics_dir = "./data/metrics"
+    if not (os.path.exists(prediction_csv) and os.path.exists(ground_truth_csv)):
+        print(f"skipping {directory_path} - missing required CSV files")
+        return
+
+    combined_df = combine_csv(prediction_csv, ground_truth_csv)
+
+    arrays = initialize_arrays(len(combined_df))
+    arrays = fill_arrays(arrays, combined_df)
+
+    sensitive_features = get_skintones(combined_df)
+
+    mf, between_groups, to_overall = calculate_fairness_metrics(
+        arrays["y_true"],
+        arrays["y_pred"],
+        sensitive_features,
+        f"combined_{os.path.basename(directory_path)}"
+    )
+
+    with open(os.path.join(directory_path, "final_results.txt"), "w") as f:
+        f.write(f"\nMetrics for {os.path.basename(directory_path)}:\n")
+        f.write(f"Metrics frame overall:\n{mf.overall}\n")
+        f.write(f"Metrics frame by group:\n{mf.by_group}\n")
+        f.write(f"Between groups difference: {between_groups}\n")
+        f.write(f"To overall difference: {to_overall}\n")
+        f.write("-" * 80 + "\n")
+
+    print("flushed metrics to csv")
+    
+
+def main(ablations = False):
+    if ablations:
+        metrics_dir = "./data/metrics/ablations"
+    else:
+        metrics_dir = "./data/metrics"
     for subdir in os.listdir(metrics_dir):
         subdir_path = os.path.join(metrics_dir, subdir)
         
@@ -123,36 +159,19 @@ def main():
             continue
             
         print(f"processing directory: {subdir}")
-        
-        prediction_csv = os.path.join(subdir_path, "prediction.csv")
-        ground_truth_csv = os.path.join(subdir_path, "truth.csv")
-        
-        if not (os.path.exists(prediction_csv) and os.path.exists(ground_truth_csv)):
-            print(f"skipping {subdir} - missing required CSV files")
-            continue
-            
-        combined_df = combine_csv(prediction_csv, ground_truth_csv)
-        
-        arrays = initialize_arrays(len(combined_df))
-        arrays = fill_arrays(arrays, combined_df)
-        
-        sensitive_features = get_skintones(combined_df)
-        
-        mf, between_groups, to_overall = calculate_fairness_metrics(
-            arrays["y_true"], 
-            arrays["y_pred"],
-            sensitive_features,
-            f"combined_{subdir}"
-        )
-        with open(os.path.join(subdir_path, "final_results.txt"), "w") as f:
-            f.write(f"\nMetrics for {subdir}:\n")
-            f.write(f"Metrics frame overall:\n{mf.overall}\n")
-            f.write(f"Metrics frame by group:\n{mf.by_group}\n")
-            f.write(f"Between groups difference: {between_groups}\n")
-            f.write(f"To overall difference: {to_overall}\n")
-            f.write("-" * 80 + "\n")
 
-        print("flushed metrics to csv")
+    if ablations:
+        for inner_subdir in os.listdir(subdir_path):
+            inner_subdir_path = os.path.join(subdir_path, inner_subdir)
+
+            if not os.path.isdir(inner_subdir_path):
+                continue
+
+            print(f"processing inner directory: {inner_subdir}")
+
+            process_directory(inner_subdir_path)
+    else:
+        process_directory(subdir_path)
 
 if __name__ == "__main__":
-    main()
+    main(ablations=True)
