@@ -160,18 +160,18 @@ def main(ablations = False):
             
         print(f"processing directory: {subdir}")
 
-    if ablations:
-        for inner_subdir in os.listdir(subdir_path):
-            inner_subdir_path = os.path.join(subdir_path, inner_subdir)
+        if ablations:
+            for inner_subdir in os.listdir(subdir_path):
+                inner_subdir_path = os.path.join(subdir_path, inner_subdir)
 
-            if not os.path.isdir(inner_subdir_path):
-                continue
+                if not os.path.isdir(inner_subdir_path):
+                    continue
 
-            print(f"processing inner directory: {inner_subdir}")
+                print(f"processing inner directory: {inner_subdir}")
 
-            process_directory(inner_subdir_path)
-    else:
-        process_directory(subdir_path)
+                process_directory(inner_subdir_path)
+        else:
+            process_directory(subdir_path)
 
 if __name__ == "__main__":
     main(ablations=True)
