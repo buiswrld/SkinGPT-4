@@ -189,7 +189,6 @@ def process_images(
 
     results = []
 
-    num_correct = 0
 
     try:
         with open(csv_file, newline="", encoding="utf-8") as f:
@@ -223,7 +222,6 @@ def process_images(
                         logger.error("Error processing %s: %s", image_path, str(e))
                         continue
 
-        logger.info("Number of correct predictions: %d", num_correct)
         # Save results
         if results:
             try:
