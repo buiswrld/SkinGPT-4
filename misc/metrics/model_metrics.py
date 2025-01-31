@@ -145,6 +145,20 @@ def process_directory(directory_path):
         f.write("-" * 80 + "\n")
 
     print("flushed metrics to csv")
+
+def update(directory_path):
+    """
+    Process a specific directory path.
+
+    Args:
+        directory_path (str): The path to the directory to process.
+    """
+    if not os.path.isdir(directory_path):
+        print(f"{directory_path} is not a valid directory")
+        return
+
+    print(f"processing directory: {directory_path}")
+    process_directory(directory_path)
     
 
 def main(ablations = False):
@@ -174,4 +188,4 @@ def main(ablations = False):
             process_directory(subdir_path)
 
 if __name__ == "__main__":
-    main(ablations=True)
+    update('./data/metrics/trip_4')
