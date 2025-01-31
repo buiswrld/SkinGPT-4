@@ -1,0 +1,21 @@
+
+Metrics for trip_4:
+Metrics frame overall:
+false negative rate    0.236486
+accuracy               0.763514
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.555556  0.444444
+2.0                             0.216216  0.783784
+3.0                             0.263158  0.736842
+4.0                             0.076923  0.923077
+5.0                             0.285714  0.714286
+Between groups difference: false negative rate    0.478632
+accuracy               0.478632
+dtype: float64
+To overall difference: false negative rate    0.319069
+accuracy               0.319069
+dtype: float64
+--------------------------------------------------------------------------------
