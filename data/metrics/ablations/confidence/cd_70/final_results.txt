@@ -1,0 +1,21 @@
+
+Metrics for cd_70:
+Metrics frame overall:
+false negative rate    0.261194
+accuracy               0.738806
+dtype: float64
+Metrics frame by group:
+                     false negative rate  accuracy
+sensitive_feature_0                               
+1.0                             0.250000  0.750000
+2.0                             0.235294  0.764706
+3.0                             0.250000  0.750000
+4.0                             0.347826  0.652174
+5.0                             0.285714  0.714286
+Between groups difference: false negative rate    0.112532
+accuracy               0.112532
+dtype: float64
+To overall difference: false negative rate    0.086632
+accuracy               0.086632
+dtype: float64
+--------------------------------------------------------------------------------
