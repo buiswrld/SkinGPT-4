@@ -188,4 +188,4 @@ def main(ablations = False):
             process_directory(subdir_path)
 
 if __name__ == "__main__":
-    update('./data/metrics/trip_4')
+    main(ablations=True)
