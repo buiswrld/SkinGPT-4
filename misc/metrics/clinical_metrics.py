@@ -197,7 +197,7 @@ def main():
     # Configuration
     sheet_url = "https://docs.google.com/spreadsheets/d/16uBL9zzLeM-jvESowqEoRKxSkrUMVVNuP8ATXyIJBw0/edit?gid=1714650698#gid=1714650698"
     csv_url = (
-        "https://raw.githubusercontent.com/buiswrld/SkinGPT-4/main/data/10-sample.csv"
+        "https://raw.githubusercontent.com/buiswrld/SkinGPT-4/main/data/clinical-inference/10-sample.csv"
     )
     total_images = 100
     split_index = 50
